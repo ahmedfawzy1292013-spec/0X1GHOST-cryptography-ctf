@@ -35,12 +35,20 @@
             gap: 20px;
         }
 
+        /* LOGO */
+
         .logo {
-            color: #00ff88;
-            font-size: 22px;
-            font-weight: bold;
-            letter-spacing: 3px;
+            display: flex;
+            align-items: center;
             text-decoration: none;
+        }
+
+        .logo img {
+            display: block;
+            width: 150px;
+            height: auto;
+            max-height: 55px;
+            object-fit: contain;
         }
 
         .nav-right {
@@ -259,6 +267,7 @@
         /* MOBILE */
 
         @media (max-width: 800px) {
+
             .navbar {
                 padding: 15px 18px;
                 flex-direction: column;
@@ -273,9 +282,14 @@
             .stats {
                 grid-template-columns: 1fr;
             }
+
+            .logo img {
+                width: 135px;
+            }
         }
 
         @media (max-width: 500px) {
+
             .container {
                 padding: 30px 18px;
             }
@@ -291,6 +305,10 @@
             .nav-right {
                 gap: 12px;
             }
+
+            .logo img {
+                width: 125px;
+            }
         }
 
     </style>
@@ -302,9 +320,12 @@
 
     <nav class="navbar">
 
+        <!-- WEBSITE LOGO -->
+
         <a href="dashboard.html" class="logo">
-            0X1GHOST
+            <img src="logo.png" alt="0X1GHOST Logo">
         </a>
+
 
         <div class="nav-right">
 
