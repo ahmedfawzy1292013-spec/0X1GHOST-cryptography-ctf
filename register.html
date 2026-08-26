@@ -106,11 +106,18 @@
             transform: translateY(-1px);
         }
 
+        .register-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
         #message {
             text-align: center;
             margin-top: 18px;
             font-size: 14px;
             min-height: 20px;
+            line-height: 1.5;
         }
 
         .login-link {
@@ -152,112 +159,208 @@
 
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <div class="card">
+    <div class="card">
 
-            <div class="logo">0X1GHOST</div>
+        <div class="logo">0X1GHOST</div>
 
-            <div class="subtitle">
-                CRYPTOGRAPHY CHALLENGE PLATFORM
+        <div class="subtitle">
+            CRYPTOGRAPHY CHALLENGE PLATFORM
+        </div>
+
+        <div class="title">
+            Create Account
+        </div>
+
+        <form id="registerForm">
+
+            <div class="input-group">
+                <label for="username">Username</label>
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Enter your username"
+                    required
+                    minlength="3"
+                    maxlength="20"
+                >
             </div>
 
-            <div class="title">
-                Create Account
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Enter your email"
+                    required
+                >
             </div>
 
-            <form onsubmit="register(event)">
-
-                <div class="input-group">
-                    <label for="username">Username</label>
-                    <input
-                        type="text"
-                        id="username"
-                        placeholder="Enter your username"
-                        required
-                    >
-                </div>
-
-                <div class="input-group">
-                    <label for="email">Email</label>
-                    <input
-                        type="email"
-                        id="email"
-                        placeholder="Enter your email"
-                        required
-                    >
-                </div>
-
-                <div class="input-group">
-                    <label for="password">Password</label>
-                    <input
-                        type="password"
-                        id="password"
-                        placeholder="Create a password"
-                        required
-                    >
-                </div>
-
-                <div class="input-group">
-                    <label for="confirmPassword">Confirm Password</label>
-                    <input
-                        type="password"
-                        id="confirmPassword"
-                        placeholder="Confirm your password"
-                        required
-                    >
-                </div>
-
-                <button type="submit" class="register-btn">
-                    REGISTER
-                </button>
-
-            </form>
-
-            <div id="message"></div>
-
-            <div class="login-link">
-                Already have an account?
-                <a href="index.html">Login</a>
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Create a password"
+                    required
+                    minlength="8"
+                >
             </div>
 
-            <div class="terms">
-                By creating an account, you agree to the platform rules.
+            <div class="input-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    placeholder="Confirm your password"
+                    required
+                >
             </div>
 
+            <button type="submit" class="register-btn" id="registerButton">
+                REGISTER
+            </button>
+
+        </form>
+
+        <div id="message"></div>
+
+        <div class="login-link">
+            Already have an account?
+            <a href="index.html">Login</a>
+        </div>
+
+        <div class="terms">
+            By creating an account, you agree to the platform rules.
         </div>
 
     </div>
 
-    <script>
-        function register(event) {
-            event.preventDefault();
+</div>
 
-            const username = document.getElementById("username").value.trim();
-            const email = document.getElementById("email").value.trim();
-            const password = document.getElementById("password").value;
-            const confirmPassword = document.getElementById("confirmPassword").value;
-            const message = document.getElementById("message");
+<script type="module">
 
-            if (password !== confirmPassword) {
-                message.style.color = "#ff6b6b";
-                message.textContent = "Passwords do not match.";
-                return;
-            }
+    import { createClient } from
+        "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
-            if (password.length < 6) {
-                message.style.color = "#ff6b6b";
-                message.textContent = "Password must be at least 6 characters.";
-                return;
+    const SUPABASE_URL =
+        "https://borturaxifoxufixewya.supabase.co";
+
+    const SUPABASE_KEY =
+        "sb_publishable__lZmTM96oe10-rurqgrujg__ta_C4wr";
+
+    const supabase = createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
+
+    const form = document.getElementById("registerForm");
+    const message = document.getElementById("message");
+    const button = document.getElementById("registerButton");
+
+    form.addEventListener("submit", async function(event) {
+
+        event.preventDefault();
+
+        const username =
+            document.getElementById("username").value.trim();
+
+        const email =
+            document.getElementById("email").value.trim();
+
+        const password =
+            document.getElementById("password").value;
+
+        const confirmPassword =
+            document.getElementById("confirmPassword").value;
+
+        message.textContent = "";
+        message.style.color = "#ff6b6b";
+
+        if (username.length < 3) {
+            message.textContent =
+                "Username must be at least 3 characters.";
+            return;
+        }
+
+        if (password !== confirmPassword) {
+            message.textContent =
+                "Passwords do not match.";
+            return;
+        }
+
+        if (password.length < 8) {
+            message.textContent =
+                "Password must be at least 8 characters.";
+            return;
+        }
+
+        button.disabled = true;
+        button.textContent = "CREATING ACCOUNT...";
+
+        try {
+
+            const { data, error } =
+                await supabase.auth.signUp({
+
+                    email: email,
+
+                    password: password,
+
+                    options: {
+                        data: {
+                            username: username
+                        }
+                    }
+
+                });
+
+            if (error) {
+                throw error;
             }
 
             message.style.color = "#00ff88";
-            message.textContent = "Registration successful!";
 
-            console.log("Username:", username);
-            console.log("Email:", email);
+            message.textContent =
+                "Account created successfully!";
+
+            form.reset();
+
+            button.textContent = "REGISTER";
+
+            setTimeout(() => {
+                window.location.href = "index.html";
+            }, 1500);
+
+        } catch (error) {
+
+            console.error(error);
+
+            message.style.color = "#ff6b6b";
+
+            if (
+                error.message &&
+                error.message.toLowerCase().includes("already registered")
+            ) {
+
+                message.textContent =
+                    "This email is already registered.";
+
+            } else {
+
+                message.textContent =
+                    error.message || "Registration failed.";
+
+            }
+
+            button.disabled = false;
+            button.textContent = "REGISTER";
         }
-    </script>
+
+    });
+
+</script>
 
 </body>
 </html>
