@@ -5,12 +5,20 @@
 <head>
 
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Challenge | 0X1GHOST</title>
 
     <!-- FAVICON -->
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link
+        rel="icon"
+        type="image/png"
+        href="favicon.png"
+    >
 
     <style>
 
@@ -27,6 +35,7 @@
             color: white;
         }
 
+
         /* NAVBAR */
 
         .navbar {
@@ -42,16 +51,19 @@
             gap: 20px;
         }
 
+
         .logo {
             display: flex;
             align-items: center;
         }
+
 
         .logo img {
             width: 150px;
             max-height: 55px;
             object-fit: contain;
         }
+
 
         .back {
             color: #aaa;
@@ -60,9 +72,11 @@
             font-size: 13px;
         }
 
+
         .back:hover {
             color: #00ff88;
         }
+
 
         /* MAIN */
 
@@ -73,6 +87,7 @@
             padding: 50px 25px;
         }
 
+
         .challenge {
             background: #0d0d0d;
             border: 1px solid #222;
@@ -80,63 +95,89 @@
             padding: 35px;
         }
 
+
         .top {
             display: flex;
             justify-content: space-between;
             align-items: center;
+
             gap: 15px;
             margin-bottom: 25px;
         }
+
 
         .title {
             font-size: 30px;
         }
 
+
         .badge {
             border: 1px solid #00ff88;
             color: #00ff88;
+
             padding: 7px 10px;
+
             border-radius: 5px;
+
             font-size: 12px;
             font-weight: bold;
+
+            white-space: nowrap;
         }
+
 
         .description {
             color: #999;
             line-height: 1.7;
+
             margin-bottom: 25px;
         }
 
-        /* MESSAGE */
+
+        /* MESSAGE BOX */
 
         .message-box {
             background: #070707;
             border: 1px solid #222;
+
             border-radius: 8px;
-            padding: 20px;
+
+            padding: 25px;
+
             margin-bottom: 25px;
         }
 
+
         .message-title {
             color: #777;
+
             font-size: 12px;
             font-weight: bold;
+
             margin-bottom: 12px;
         }
 
+
         .message-row {
             display: flex;
+
             align-items: center;
-            gap: 12px;
+            justify-content: space-between;
+
+            gap: 15px;
         }
+
 
         .message {
             color: #00ff88;
+
             font-family: monospace;
+
             font-size: 18px;
+
             word-break: break-word;
-            flex: 1;
         }
+
 
         /* COPY BUTTON */
 
@@ -144,54 +185,73 @@
             flex-shrink: 0;
 
             background: transparent;
+
             border: 1px solid #333;
+
             color: #aaa;
 
             padding: 8px 12px;
+
             border-radius: 6px;
 
+            cursor: pointer;
+
             font-size: 12px;
+
             font-weight: bold;
 
-            cursor: pointer;
             transition: 0.2s;
         }
 
+
         .copy-btn:hover {
-            color: #00ff88;
             border-color: #00ff88;
+            color: #00ff88;
         }
 
+
         .copy-btn.copied {
-            color: #00ff88;
             border-color: #00ff88;
+            color: #00ff88;
         }
+
 
         /* ANSWER */
 
         .answer-label {
             display: block;
+
             color: #aaa;
+
             font-size: 13px;
+
             margin-bottom: 8px;
         }
 
+
         .answer-input {
             width: 100%;
+
             padding: 13px;
 
             background: #070707;
+
             border: 1px solid #333;
+
             border-radius: 7px;
 
             color: white;
+
             outline: none;
+
             font-size: 15px;
         }
+
 
         .answer-input:focus {
             border-color: #00ff88;
         }
+
 
         .submit-btn {
             margin-top: 15px;
@@ -199,55 +259,75 @@
             padding: 12px 20px;
 
             background: #00ff88;
+
             border: none;
+
             border-radius: 7px;
 
             color: #050505;
+
             font-weight: bold;
 
             cursor: pointer;
         }
+
 
         .submit-btn:hover {
             box-shadow:
                 0 0 20px rgba(0, 255, 136, 0.15);
         }
 
+
         .submit-btn:disabled {
             opacity: 0.5;
             cursor: not-allowed;
         }
 
+
         /* RESULT */
 
         .result {
             margin-top: 20px;
+
             padding: 14px;
 
             border-radius: 7px;
 
             display: none;
+
             line-height: 1.5;
         }
 
+
         .success {
             display: block;
+
             color: #00ff88;
+
             border: 1px solid #00ff88;
-            background: rgba(0, 255, 136, 0.05);
+
+            background:
+                rgba(0, 255, 136, 0.05);
         }
+
 
         .error {
             display: block;
+
             color: #ff6b6b;
+
             border: 1px solid #ff6b6b;
-            background: rgba(255, 107, 107, 0.05);
+
+            background:
+                rgba(255, 107, 107, 0.05);
         }
+
 
         .points {
             color: #00ff88;
             font-weight: bold;
         }
+
 
         /* MOBILE */
 
@@ -257,34 +337,38 @@
                 padding: 15px 18px;
             }
 
+
             .logo img {
                 width: 125px;
             }
+
 
             .container {
                 padding: 30px 18px;
             }
 
+
             .challenge {
                 padding: 25px;
             }
+
 
             .top {
                 flex-direction: column;
                 align-items: flex-start;
             }
 
+
             .message-row {
                 align-items: flex-start;
+                flex-direction: column;
             }
 
-            .message {
-                font-size: 16px;
-            }
 
             .copy-btn {
-                padding: 7px 10px;
+                width: 100%;
             }
+
         }
 
     </style>
@@ -295,51 +379,94 @@
 <body>
 
 
+<!-- NAVBAR -->
+
 <nav class="navbar">
 
-    <a href="dashboard.html" class="logo">
-        <img src="logo.png" alt="0X1GHOST Logo">
+
+    <a
+        href="dashboard.html"
+        class="logo"
+    >
+
+        <img
+            src="logo.png"
+            alt="0X1GHOST Logo"
+        >
+
     </a>
 
-    <a href="challenges.html" class="back">
+
+    <a
+        href="challenges.html"
+        class="back"
+    >
+
         ← BACK TO CHALLENGES
+
     </a>
+
 
 </nav>
 
 
+
+<!-- MAIN -->
+
 <main class="container">
+
 
     <div class="challenge">
 
 
+        <!-- TOP -->
+
         <div class="top">
 
-            <h1 class="title" id="challengeName">
+
+            <h1
+                class="title"
+                id="challengeName"
+            >
                 Loading...
             </h1>
 
-            <div class="badge" id="challengeBadge">
+
+            <div
+                class="badge"
+                id="challengeBadge"
+            >
                 ...
             </div>
+
 
         </div>
 
 
-        <p class="description" id="challengeDescription">
+
+        <!-- DESCRIPTION -->
+
+        <p
+            class="description"
+            id="challengeDescription"
+        >
             Loading challenge...
         </p>
 
 
-        <!-- ENCRYPTED MESSAGE -->
+
+        <!-- CIPHERTEXT -->
 
         <div class="message-box">
 
+
             <div class="message-title">
-                ENCRYPTED MESSAGE
+                CIPHERTEXT
             </div>
 
+
             <div class="message-row">
+
 
                 <div
                     class="message"
@@ -347,6 +474,7 @@
                 >
                     Loading...
                 </div>
+
 
                 <button
                     type="button"
@@ -356,14 +484,18 @@
                     COPY
                 </button>
 
+
             </div>
 
+
         </div>
+
 
 
         <!-- ANSWER FORM -->
 
         <form id="answerForm">
+
 
             <label
                 class="answer-label"
@@ -371,6 +503,7 @@
             >
                 YOUR ANSWER
             </label>
+
 
             <input
                 id="answer"
@@ -381,6 +514,7 @@
                 required
             >
 
+
             <button
                 class="submit-btn"
                 id="submitButton"
@@ -389,8 +523,12 @@
                 SUBMIT ANSWER
             </button>
 
+
         </form>
 
+
+
+        <!-- RESULT -->
 
         <div
             id="result"
@@ -400,16 +538,22 @@
 
     </div>
 
+
 </main>
+
 
 
 <script type="module">
 
+
     import { createClient } from
-    "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+        "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
 
-    /* SUPABASE */
+
+    /* =====================================================
+       SUPABASE
+       ===================================================== */
 
     const SUPABASE_URL =
         "https://borturaxifoxufixewya.supabase.co";
@@ -426,9 +570,13 @@
         );
 
 
-    /* CHALLENGES */
+
+    /* =====================================================
+       CHALLENGES
+       ===================================================== */
 
     const challenges = {
+
 
         caesar: {
 
@@ -442,13 +590,10 @@
                 100,
 
             description:
-                "Caesar has hidden a secret message using a classical Caesar cipher. Decode the message and submit the plaintext.",
+                "Caesar has hidden a secret message using a classical Caesar cipher. Decode the message and submit the flag.",
 
             message:
-                "0X1GHOST{FDHVDU}",
-
-            answer:
-                "0X1GHOST{CAESAR}"
+                "FDHVDU"
 
         },
 
@@ -468,10 +613,7 @@
                 "This challenge is currently being prepared.",
 
             message:
-                "COMING SOON",
-
-            answer:
-                ""
+                "COMING SOON"
 
         },
 
@@ -491,10 +633,7 @@
                 "This challenge is currently being prepared.",
 
             message:
-                "COMING SOON",
-
-            answer:
-                ""
+                "COMING SOON"
 
         },
 
@@ -514,17 +653,17 @@
                 "This challenge is currently being prepared.",
 
             message:
-                "COMING SOON",
-
-            answer:
-                ""
+                "COMING SOON"
 
         }
 
     };
 
 
-    /* GET CHALLENGE ID */
+
+    /* =====================================================
+       GET CHALLENGE ID
+       ===================================================== */
 
     const params =
         new URLSearchParams(
@@ -540,7 +679,10 @@
         challenges[challengeId];
 
 
-    /* ELEMENTS */
+
+    /* =====================================================
+       ELEMENTS
+       ===================================================== */
 
     const challengeName =
         document.getElementById(
@@ -596,38 +738,52 @@
         );
 
 
-    /* DISPLAY CHALLENGE */
+
+    /* =====================================================
+       LOAD CHALLENGE
+       ===================================================== */
 
     if (!challenge) {
+
 
         challengeName.textContent =
             "Challenge Not Found";
 
+
         challengeBadge.textContent =
             "ERROR";
+
 
         challengeDescription.textContent =
             "The requested challenge does not exist.";
 
+
         challengeMessage.textContent =
             "404";
+
 
         answerForm.style.display =
             "none";
 
+
         copyButton.style.display =
             "none";
 
+
     } else {
+
 
         challengeName.textContent =
             challenge.name;
 
+
         challengeBadge.textContent =
             challenge.difficulty;
 
+
         challengeDescription.textContent =
             challenge.description;
+
 
         challengeMessage.textContent =
             challenge.message;
@@ -635,35 +791,30 @@
     }
 
 
-    /* CURRENT USER */
 
-    async function getCurrentUser() {
-
-        const {
-            data: { user }
-        } = await supabase.auth.getUser();
-
-        return user;
-
-    }
-
-
-    /* COPY CIPHERTEXT */
+    /* =====================================================
+       COPY CIPHERTEXT
+       ===================================================== */
 
     copyButton.addEventListener(
         "click",
         async function() {
 
+
             if (!challenge) return;
 
+
             try {
+
 
                 await navigator.clipboard.writeText(
                     challenge.message
                 );
 
+
                 copyButton.textContent =
                     "COPIED!";
+
 
                 copyButton.classList.add(
                     "copied"
@@ -684,18 +835,18 @@
                     1500
                 );
 
+
             } catch (error) {
 
+
                 console.error(
-                    "Copy failed:",
                     error
                 );
 
-                result.className =
-                    "result error";
 
-                result.textContent =
-                    "Could not copy the message.";
+                copyButton.textContent =
+                    "COPY FAILED";
+
 
             }
 
@@ -703,17 +854,49 @@
     );
 
 
-    /* SUBMIT ANSWER */
+
+    /* =====================================================
+       GET CURRENT USER
+       ===================================================== */
+
+    async function getCurrentUser() {
+
+
+        const {
+            data: {
+                user
+            }
+        } =
+            await supabase.auth.getUser();
+
+
+        return user;
+
+    }
+
+
+
+    /* =====================================================
+       SUBMIT ANSWER
+       ===================================================== */
 
     answerForm.addEventListener(
         "submit",
         async function(event) {
 
+
             event.preventDefault();
 
 
-            if (!challenge) return;
+            if (!challenge) {
+                return;
+            }
 
+
+
+            /* ---------------------------------------------
+               Check login
+               --------------------------------------------- */
 
             const user =
                 await getCurrentUser();
@@ -721,13 +904,41 @@
 
             if (!user) {
 
+
                 window.location.href =
                     "index.html";
+
 
                 return;
 
             }
 
+
+
+            /* ---------------------------------------------
+               Disable button while processing
+               --------------------------------------------- */
+
+            submitButton.disabled =
+                true;
+
+
+            submitButton.textContent =
+                "CHECKING...";
+
+
+            result.className =
+                "result";
+
+
+            result.textContent =
+                "";
+
+
+
+            /* ---------------------------------------------
+               Get answer
+               --------------------------------------------- */
 
             const userAnswer =
                 answerInput.value
@@ -735,165 +946,118 @@
                     .toUpperCase();
 
 
-            /* CHALLENGE NOT READY */
 
-            if (
-                !challenge.answer ||
-                challenge.answer.length === 0
-            ) {
-
-                result.className =
-                    "result error";
-
-                result.textContent =
-                    "This challenge is not available yet.";
-
-                return;
-
-            }
+            try {
 
 
-            /* CHECK ANSWER */
-
-            if (
-                userAnswer ===
-                challenge.answer.toUpperCase()
-            ) {
-
-
-                /*
-                 * Prevent repeated submissions
-                 * in this browser.
-                 */
-
-                const solvedKey =
-                    "0x1ghost_solved_" +
-                    challengeId +
-                    "_" +
-                    user.id;
-
-
-                if (
-                    localStorage.getItem(
-                        solvedKey
-                    )
-                ) {
-
-                    result.className =
-                        "result success";
-
-                    result.innerHTML =
-                        "You already solved this challenge.";
-
-                    return;
-
-                }
-
-
-                /* GET PROFILE */
+                /* -----------------------------------------
+                   Send answer to Supabase RPC
+                   ----------------------------------------- */
 
                 const {
-                    data: profile,
-                    error: profileError
-                } = await supabase
-                    .from("profiles")
-                    .select("score")
-                    .eq("id", user.id)
-                    .maybeSingle();
+                    data,
+                    error
+                } =
+                    await supabase.rpc(
+                        "submit_challenge_answer",
+                        {
+                            p_challenge_id:
+                                challengeId,
 
-
-                if (profileError) {
-
-                    console.error(
-                        "Profile error:",
-                        profileError
+                            p_answer:
+                                userAnswer
+                        }
                     );
 
-                    result.className =
-                        "result error";
-
-                    result.textContent =
-                        "Correct answer, but the score could not be updated.";
-
-                    return;
-
-                }
 
 
-                if (!profile) {
+                /* -----------------------------------------
+                   Supabase error
+                   ----------------------------------------- */
 
-                    result.className =
-                        "result error";
+                if (error) {
 
-                    result.textContent =
-                        "Profile not found.";
-
-                    return;
-
-                }
-
-
-                /* CALCULATE SCORE */
-
-                const currentScore =
-                    Number(profile.score || 0);
-
-
-                const newScore =
-                    currentScore +
-                    Number(challenge.points);
-
-
-                /* UPDATE SCORE */
-
-                const {
-                    error: updateError
-                } = await supabase
-                    .from("profiles")
-                    .update({
-                        score: newScore
-                    })
-                    .eq("id", user.id);
-
-
-                if (updateError) {
 
                     console.error(
-                        "Score update error:",
-                        updateError
+                        "Supabase RPC error:",
+                        error
                     );
+
 
                     result.className =
                         "result error";
 
+
                     result.textContent =
-                        "Correct answer, but the score could not be updated.";
+                        "Something went wrong while checking your answer. Please try again.";
+
+
+                    submitButton.disabled =
+                        false;
+
+
+                    submitButton.textContent =
+                        "SUBMIT ANSWER";
+
 
                     return;
 
                 }
 
 
-                /* SAVE SOLVED STATUS */
 
-                localStorage.setItem(
-                    solvedKey,
-                    "true"
-                );
+                /* -----------------------------------------
+                   Incorrect / other result
+                   ----------------------------------------- */
+
+                if (!data || !data.success) {
 
 
-                /* SUCCESS */
+                    result.className =
+                        "result error";
+
+
+                    result.textContent =
+                        data?.message ||
+                        "Incorrect answer. Try again.";
+
+
+                    submitButton.disabled =
+                        false;
+
+
+                    submitButton.textContent =
+                        "SUBMIT ANSWER";
+
+
+                    return;
+
+                }
+
+
+
+                /* -----------------------------------------
+                   Correct answer
+                   ----------------------------------------- */
 
                 result.className =
                     "result success";
+
 
                 result.innerHTML =
                     `
                     Correct! 🎉
                     You earned
                     <span class="points">
-                        ${challenge.points} points
+                        ${data.points} points
                     </span>.
+
+                    <br>
+
+                    New score:
+                    <span class="points">
+                        ${data.new_score}
+                    </span>
                     `;
 
 
@@ -904,16 +1068,34 @@
                 submitButton.disabled =
                     true;
 
-            } else {
+
+                submitButton.textContent =
+                    "SOLVED ✓";
 
 
-                /* WRONG ANSWER */
+
+            } catch (error) {
+
+
+                console.error(
+                    error
+                );
+
 
                 result.className =
                     "result error";
 
+
                 result.textContent =
-                    "Incorrect answer. Try again.";
+                    "An unexpected error occurred.";
+
+
+                submitButton.disabled =
+                    false;
+
+
+                submitButton.textContent =
+                    "SUBMIT ANSWER";
 
             }
 
@@ -927,3 +1109,4 @@
 
 </html>
 ```
+
