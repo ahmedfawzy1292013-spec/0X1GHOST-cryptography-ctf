@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard | 0X1GHOST</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #050505;
+            color: white;
+        }
+
+        /* NAVBAR */
+
+        .navbar {
+            height: 70px;
+            border-bottom: 1px solid #222;
+            background: #090909;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 35px;
+        }
+
+        .logo {
+            color: #00ff88;
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .user-info {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        .score {
+            color: #00ff88;
+            font-weight: bold;
+        }
+
+        .logout-btn {
+            background: transparent;
+            border: 1px solid #333;
+            color: #aaa;
+
+            padding: 9px 15px;
+            border-radius: 6px;
+
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .logout-btn:hover {
+            border-color: #ff6b6b;
+            color: #ff6b6b;
+        }
+
+        /* MAIN */
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 40px 25px;
+        }
+
+        .welcome {
+            margin-bottom: 35px;
+        }
+
+        .welcome h1 {
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .welcome h1 span {
+            color: #00ff88;
+        }
+
+        .welcome p {
+            color: #777;
+        }
+
+        /* STATS */
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-bottom: 35px;
+        }
+
+        .stat-card {
+            background: #0d0d0d;
+            border: 1px solid #222;
+            border-radius: 10px;
+            padding: 25px;
+        }
+
+        .stat-title {
+            color: #777;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .stat-value {
+            font-size: 25px;
+            font-weight: bold;
+            color: #00ff88;
+        }
+
+        /* CHALLENGE */
+
+        .section-title {
+            font-size: 20px;
+            margin-bottom: 18px;
+        }
+
+        .challenge {
+            background: #0d0d0d;
+            border: 1px solid #222;
+            border-radius: 10px;
+            padding: 30px;
+        }
+
+        .challenge-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 20px;
+        }
+
+        .challenge-name {
+            font-size: 22px;
+            font-weight: bold;
+        }
+
+        .difficulty {
+            color: #00ff88;
+            border: 1px solid #00ff88;
+            border-radius: 5px;
+            padding: 5px 10px;
+            font-size: 12px;
+        }
+
+        .description {
+            color: #aaa;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .cipher-box {
+            background: #080808;
+            border: 1px solid #292929;
+            border-radius: 7px;
+
+            padding: 20px;
+            margin-bottom: 25px;
+
+            font-family: monospace;
+            color: #00ff88;
+            word-break: break-all;
+        }
+
+        .answer-area {
+            display: flex;
+            gap: 10px;
+        }
+
+        .answer-input {
+            flex: 1;
+
+            padding: 13px;
+
+            background: #080808;
+            border: 1px solid #292929;
+            border-radius: 7px;
+
+            color: white;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .answer-input:focus {
+            border-color: #00ff88;
+        }
+
+        .submit-btn {
+            padding: 13px 22px;
+
+            border: none;
+            border-radius: 7px;
+
+            background: #00ff88;
+            color: #050505;
+
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            background: #00e67a;
+        }
+
+        #message {
+            margin-top: 18px;
+            min-height: 20px;
+
+            font-size: 14px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            .navbar {
+                padding: 0 18px;
+            }
+
+            .user-info {
+                display: none;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .challenge-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+            }
+
+            .answer-area {
+                flex-direction: column;
+            }
+
+            .submit-btn {
+                width: 100%;
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            0X1GHOST
+        </div>
+
+        <div class="nav-right">
+
+            <div class="user-info">
+                Player:
+                <span id="username">Loading...</span>
+            </div>
+
+            <div>
+                Score:
+                <span class="score" id="score">0</span>
+            </div>
+
+            <button
+                class="logout-btn"
+                id="logoutButton"
+            >
+                LOGOUT
+            </button>
+
+        </div>
+
+    </nav>
+
+
+    <!-- MAIN -->
+
+    <main class="container">
+
+        <div class="welcome">
+
+            <h1>
+                Welcome,
+                <span id="welcomeUsername">Player</span>
+            </h1>
+
+            <p>
+                Solve cryptography challenges and climb the leaderboard.
+            </p>
+
+        </div>
+
+
+        <!-- STATS -->
+
+        <div class="stats">
+
+            <div class="stat-card">
+
+                <div class="stat-title">
+                    SCORE
+                </div>
+
+                <div
+                    class="stat-value"
+                    id="scoreCard"
+                >
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-title">
+                    CHALLENGES SOLVED
+                </div>
+
+                <div
+                    class="stat-value"
+                    id="solved"
+                >
+                    0
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-title">
+                    RANK
+                </div>
+
+                <div
+                    class="stat-value"
+                    id="rank"
+                >
+                    -
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- CHALLENGES -->
+
+        <div class="section-title">
+            Available Challenges
+        </div>
+
+
+        <div class="challenge">
+
+            <div class="challenge-header">
+
+                <div class="challenge-name">
+                    Caesar's Secret
+                </div>
+
+                <div class="difficulty">
+                    EASY · 100 POINTS
+                </div>
+
+            </div>
+
+
+            <div class="description">
+
+                Caesar has hidden a secret message using a
+                Caesar cipher.
+
+                <br><br>
+
+                Decode the following message:
+
+            </div>
+
+
+            <div class="cipher-box">
+                KHOOR ZRUOG
+            </div>
+
+
+            <div class="answer-area">
+
+                <input
+                    type="text"
+                    id="answer"
+                    class="answer-input"
+                    placeholder="Enter your answer..."
+                    autocomplete="off"
+                >
+
+                <button
+                    class="submit-btn"
+                    id="submitButton"
+                >
+                    SUBMIT
+                </button>
+
+            </div>
+
+
+            <div id="message"></div>
+
+        </div>
+
+    </main>
+
+
+    <!-- SUPABASE -->
+
+    <script type="module">
+
+        import { createClient } from
+        "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+
+
+        const SUPABASE_URL =
+            "https://borturaxifoxufixewya.supabase.co";
+
+
+        const SUPABASE_KEY =
+            "sb_publishable__lZmTM96oe10-rurqgrujg__ta_C4wr";
+
+
+        const supabase =
+            createClient(
+                SUPABASE_URL,
+                SUPABASE_KEY
+            );
+
+
+        const usernameElement =
+            document.getElementById("username");
+
+        const welcomeUsername =
+            document.getElementById("welcomeUsername");
+
+        const scoreElement =
+            document.getElementById("score");
+
+        const scoreCard =
+            document.getElementById("scoreCard");
+
+        const solvedElement =
+            document.getElementById("solved");
+
+        const rankElement =
+            document.getElementById("rank");
+
+        const message =
+            document.getElementById("message");
+
+        const answerInput =
+            document.getElementById("answer");
+
+        const submitButton =
+            document.getElementById("submitButton");
+
+        const logoutButton =
+            document.getElementById("logoutButton");
+
+
+        /* CHECK LOGIN */
+
+        async function checkUser() {
+
+            const {
+                data: {
+                    user
+                }
+            } = await supabase.auth.getUser();
+
+
+            if (!user) {
+
+                window.location.href =
+                    "index.html";
+
+                return null;
+            }
+
+
+            return user;
+        }
+
+
+        /* LOAD PROFILE */
+
+        async function loadProfile() {
+
+            const user =
+                await checkUser();
+
+
+            if (!user) return;
+
+
+            const {
+                data: profile,
+                error
+            } = await supabase
+                .from("profiles")
+                .select("username, score")
+                .eq("id", user.id)
+                .maybeSingle();
+
+
+            if (error) {
+
+                console.error(error);
+
+                message.style.color =
+                    "#ff6b6b";
+
+                message.textContent =
+                    "Could not load your profile.";
+
+                return;
+            }
+
+
+            if (!profile) {
+
+                message.style.color =
+                    "#ff6b6b";
+
+                message.textContent =
+                    "Profile not found.";
+
+                return;
+            }
+
+
+            usernameElement.textContent =
+                profile.username;
+
+            welcomeUsername.textContent =
+                profile.username;
+
+            scoreElement.textContent =
+                profile.score;
+
+            scoreCard.textContent =
+                profile.score;
+
+
+            /* TEMPORARY */
+
+            solvedElement.textContent =
+                "0";
+
+            rankElement.textContent =
+                "-";
+        }
+
+
+        /* LOGOUT */
+
+        logoutButton.addEventListener(
+            "click",
+            async function() {
+
+                const {
+                    error
+                } = await supabase.auth.signOut();
+
+
+                if (error) {
+
+                    console.error(error);
+
+                    return;
+                }
+
+
+                window.location.href =
+                    "index.html";
+
+            }
+        );
+
+
+        /* CHALLENGE */
+
+        submitButton.addEventListener(
+            "click",
+            function() {
+
+                const answer =
+                    answerInput
+                    .value
+                    .trim()
+                    .toLowerCase();
+
+
+                if (!answer) {
+
+                    message.style.color =
+                        "#ff6b6b";
+
+                    message.textContent =
+                        "Please enter an answer.";
+
+                    return;
+                }
+
+
+                /*
+                 * Temporary answer check.
+                 *
+                 * We will move this validation
+                 * to the database/server later.
+                 */
+
+                if (answer === "hello world") {
+
+                    message.style.color =
+                        "#00ff88";
+
+                    message.textContent =
+                        "Correct! Challenge solved.";
+
+                } else {
+
+                    message.style.color =
+                        "#ff6b6b";
+
+                    message.textContent =
+                        "Incorrect answer.";
+
+                }
+
+            }
+        );
+
+
+        /* START */
+
+        loadProfile();
+
+    </script>
+
+</body>
+</html>
