@@ -243,7 +243,6 @@
 
 </nav>
 
-
 <main class="container">
 
     <h1 class="title">
@@ -253,7 +252,6 @@
     <p class="subtitle">
         Choose a difficulty level to see its challenges.
     </p>
-
 
     <div class="difficulty-grid">
 
@@ -272,7 +270,6 @@
             </div>
         </div>
 
-
         <div
             class="difficulty-card medium"
             data-level="medium"
@@ -288,7 +285,6 @@
             </div>
         </div>
 
-
         <div
             class="difficulty-card medium-hard"
             data-level="medium-hard"
@@ -303,7 +299,6 @@
                 300 POINTS
             </div>
         </div>
-
 
         <div
             class="difficulty-card hard"
@@ -322,11 +317,9 @@
 
     </div>
 
-
     <h2 class="section-title" id="challengeTitle">
         Select a difficulty
     </h2>
-
 
     <div
         class="challenge-grid"
@@ -338,7 +331,6 @@
     </div>
 
 </main>
-
 
 <script>
 
@@ -358,12 +350,11 @@
                 id: "rot13",
                 name: "What Type This ROT",
                 description:
-                    "A simple substitution cipher where every letter has been shifted by 13 positions. Decode the ciphertext and recover the flag.",
+                    "Identify the ROT13 cipher and decode the encrypted message to recover the hidden flag.",
                 points: 100
             }
 
         ],
-
 
         medium: [
 
@@ -377,7 +368,6 @@
 
         ],
 
-
         "medium-hard": [
 
             {
@@ -389,7 +379,6 @@
             }
 
         ],
-
 
         hard: [
 
@@ -405,24 +394,20 @@
 
     };
 
-
     const cards =
         document.querySelectorAll(
             ".difficulty-card"
         );
-
 
     const list =
         document.getElementById(
             "challengeList"
         );
 
-
     const title =
         document.getElementById(
             "challengeTitle"
         );
-
 
     cards.forEach(card => {
 
@@ -446,20 +431,16 @@
 
     });
 
-
     function showChallenges(level) {
 
         const levelChallenges =
             challenges[level];
 
-
         title.textContent =
             level.toUpperCase() +
             " CHALLENGES";
 
-
         list.innerHTML = "";
-
 
         levelChallenges.forEach(
             challenge => {
@@ -467,17 +448,14 @@
                 const card =
                     document.createElement("a");
 
-
                 card.className =
                     "challenge-card";
-
 
                 card.href =
                     "challenge.html?id=" +
                     encodeURIComponent(
                         challenge.id
                     );
-
 
                 card.innerHTML = `
 
@@ -494,7 +472,6 @@
                     </span>
 
                 `;
-
 
                 list.appendChild(card);
 
