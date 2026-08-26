@@ -3,11 +3,429 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Challenge Test</title>
+
+    <title>Challenges | 0X1GHOST</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #050505;
+            color: white;
+        }
+
+        .navbar {
+            height: 70px;
+            border-bottom: 1px solid #222;
+            background: #090909;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 0 35px;
+        }
+
+        .logo {
+            color: #00ff88;
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: #aaa;
+
+            border: 1px solid #333;
+            padding: 9px 15px;
+            border-radius: 6px;
+
+            transition: 0.2s;
+        }
+
+        .back-btn:hover {
+            border-color: #00ff88;
+            color: #00ff88;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 40px 25px;
+        }
+
+        h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #777;
+            margin-bottom: 35px;
+        }
+
+        .filters {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+            flex-wrap: wrap;
+        }
+
+        .filter {
+            background: #0d0d0d;
+            border: 1px solid #333;
+
+            color: #aaa;
+
+            padding: 9px 16px;
+            border-radius: 6px;
+
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .filter:hover,
+        .filter.active {
+            border-color: #00ff88;
+            color: #00ff88;
+        }
+
+        .challenge-grid {
+            display: grid;
+            grid-template-columns: repeat(
+                auto-fit,
+                minmax(280px, 1fr)
+            );
+
+            gap: 18px;
+        }
+
+        .challenge-card {
+            display: block;
+
+            text-decoration: none;
+            color: white;
+
+            background: #0d0d0d;
+            border: 1px solid #222;
+
+            border-radius: 10px;
+            padding: 25px;
+
+            transition: 0.2s;
+        }
+
+        .challenge-card:hover {
+            border-color: #00ff88;
+            transform: translateY(-3px);
+        }
+
+        .challenge-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 18px;
+        }
+
+        .challenge-name {
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .difficulty {
+            font-size: 11px;
+            padding: 5px 9px;
+
+            border-radius: 5px;
+            font-weight: bold;
+        }
+
+        .easy {
+            color: #00ff88;
+            border: 1px solid #00ff88;
+        }
+
+        .medium {
+            color: #ffd166;
+            border: 1px solid #ffd166;
+        }
+
+        .hard {
+            color: #ff6b6b;
+            border: 1px solid #ff6b6b;
+        }
+
+        .challenge-description {
+            color: #888;
+
+            line-height: 1.6;
+            font-size: 14px;
+
+            margin-bottom: 20px;
+        }
+
+        .points {
+            color: #00ff88;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .coming-soon {
+            cursor: default;
+        }
+
+        .coming-soon:hover {
+            transform: none;
+            border-color: #222;
+        }
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                padding: 0 18px;
+            }
+
+            .container {
+                padding: 30px 18px;
+            }
+
+            h1 {
+                font-size: 28px;
+            }
+
+            .challenge-top {
+                gap: 10px;
+            }
+
+            .challenge-name {
+                font-size: 18px;
+            }
+        }
+    </style>
 </head>
 
-<body style="background:black; color:#00ff88; font-family:Arial; padding:50px;">
-    <h1>0X1GHOST CHALLENGE TEST</h1>
-    <p>If you can see this, challenge.html is working.</p>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+
+        <div class="logo">
+            0X1GHOST
+        </div>
+
+        <a href="dashboard.html" class="back-btn">
+            ← DASHBOARD
+        </a>
+
+    </nav>
+
+
+    <!-- Main Content -->
+    <main class="container">
+
+        <h1>
+            Challenges
+        </h1>
+
+        <p class="subtitle">
+            Choose a challenge and test your cryptography skills.
+        </p>
+
+
+        <!-- Filters -->
+        <div class="filters">
+
+            <button
+                class="filter active"
+                onclick="filterChallenges('all', this)"
+            >
+                ALL
+            </button>
+
+            <button
+                class="filter"
+                onclick="filterChallenges('easy', this)"
+            >
+                EASY
+            </button>
+
+            <button
+                class="filter"
+                onclick="filterChallenges('medium', this)"
+            >
+                MEDIUM
+            </button>
+
+            <button
+                class="filter"
+                onclick="filterChallenges('hard', this)"
+            >
+                HARD
+            </button>
+
+        </div>
+
+
+        <!-- Challenges -->
+        <div class="challenge-grid">
+
+
+            <!-- Caesar Challenge -->
+            <a
+                href="caesar.html"
+                class="challenge-card"
+                data-difficulty="easy"
+            >
+
+                <div class="challenge-top">
+
+                    <div class="challenge-name">
+                        Caesar's Secret
+                    </div>
+
+                    <div class="difficulty easy">
+                        EASY
+                    </div>
+
+                </div>
+
+
+                <div class="challenge-description">
+                    Decode a message encrypted with a classic
+                    Caesar cipher and find the hidden flag.
+                </div>
+
+
+                <div class="points">
+                    100 POINTS
+                </div>
+
+            </a>
+
+
+            <!-- Medium Challenge -->
+            <div
+                class="challenge-card coming-soon"
+                data-difficulty="medium"
+            >
+
+                <div class="challenge-top">
+
+                    <div class="challenge-name">
+                        Coming Soon
+                    </div>
+
+                    <div class="difficulty medium">
+                        MEDIUM
+                    </div>
+
+                </div>
+
+
+                <div class="challenge-description">
+                    A new cryptography challenge is currently
+                    being prepared.
+                </div>
+
+
+                <div class="points">
+                    ?? POINTS
+                </div>
+
+            </div>
+
+
+            <!-- Hard Challenge -->
+            <div
+                class="challenge-card coming-soon"
+                data-difficulty="hard"
+            >
+
+                <div class="challenge-top">
+
+                    <div class="challenge-name">
+                        Coming Soon
+                    </div>
+
+                    <div class="difficulty hard">
+                        HARD
+                    </div>
+
+                </div>
+
+
+                <div class="challenge-description">
+                    A difficult cryptography challenge will
+                    appear here soon.
+                </div>
+
+
+                <div class="points">
+                    ?? POINTS
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Filter Script -->
+    <script>
+
+        function filterChallenges(difficulty, button) {
+
+            const cards =
+                document.querySelectorAll(".challenge-card");
+
+            const buttons =
+                document.querySelectorAll(".filter");
+
+
+            // Remove active state
+            buttons.forEach(function(btn) {
+                btn.classList.remove("active");
+            });
+
+
+            // Activate selected button
+            button.classList.add("active");
+
+
+            // Filter cards
+            cards.forEach(function(card) {
+
+                const cardDifficulty =
+                    card.dataset.difficulty;
+
+
+                if (
+                    difficulty === "all" ||
+                    cardDifficulty === difficulty
+                ) {
+
+                    card.style.display = "block";
+
+                } else {
+
+                    card.style.display = "none";
+
+                }
+
+            });
+
+        }
+
+    </script>
+
 </body>
 </html>
