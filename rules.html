@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Rules | 0X1GHOST</title>
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="favicon.png">
 
     <style>
         * {
@@ -116,7 +120,46 @@
             color: #00ff88;
         }
 
+        /* DISCORD BUTTON */
+
+        .discord-section {
+            text-align: center;
+            margin-top: 35px;
+            padding: 30px;
+            background: #0d0d0d;
+            border: 1px solid #222;
+            border-radius: 10px;
+        }
+
+        .discord-section h2 {
+            font-size: 22px;
+            margin-bottom: 10px;
+        }
+
+        .discord-section p {
+            color: #777;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .discord-btn {
+            display: inline-block;
+            padding: 13px 24px;
+            background: #5865F2;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 7px;
+            transition: 0.2s;
+        }
+
+        .discord-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(88, 101, 242, 0.35);
+        }
+
         @media (max-width: 600px) {
+
             .navbar {
                 padding: 0 18px;
             }
@@ -132,6 +175,10 @@
             .page-title {
                 font-size: 27px;
             }
+
+            .discord-section {
+                padding: 24px;
+            }
         }
     </style>
 </head>
@@ -140,7 +187,9 @@
 
     <nav class="navbar">
 
-        <div class="logo">0X1GHOST</div>
+        <div class="logo">
+            0X1GHOST
+        </div>
 
         <a href="dashboard.html" class="back-btn">
             ← DASHBOARD
@@ -164,13 +213,17 @@
 
             <div class="rule-number">01</div>
 
-            <h2 class="rule-title">Flag Format</h2>
+            <h2 class="rule-title">
+                Flag Format
+            </h2>
 
             <div class="rule-text">
 
                 Every flag on this platform follows the exact format:
 
-                <span class="flag">0X1GHOST{...}</span>
+                <span class="flag">
+                    0X1GHOST{...}
+                </span>
 
                 <br>
 
@@ -191,7 +244,9 @@
 
             <div class="rule-number">02</div>
 
-            <h2 class="rule-title">No AI Assistance</h2>
+            <h2 class="rule-title">
+                No AI Assistance
+            </h2>
 
             <div class="rule-text">
 
@@ -219,12 +274,16 @@
 
             <div class="rule-number">03</div>
 
-            <h2 class="rule-title">Goal of This Platform</h2>
+            <h2 class="rule-title">
+                Goal of This Platform
+            </h2>
 
             <div class="rule-text">
 
                 The long-term goal of
-                <span class="highlight">0X1GHOST Cryptography</span>
+                <span class="highlight">
+                    0X1GHOST Cryptography
+                </span>
                 is to reach 100 cryptography challenges.
 
                 <br><br>
@@ -260,7 +319,9 @@
 
             <div class="rule-number">04</div>
 
-            <h2 class="rule-title">Fair Play</h2>
+            <h2 class="rule-title">
+                Fair Play
+            </h2>
 
             <div class="rule-text">
 
@@ -280,7 +341,9 @@
 
             <div class="rule-number">05</div>
 
-            <h2 class="rule-title">Have Fun</h2>
+            <h2 class="rule-title">
+                Have Fun
+            </h2>
 
             <div class="rule-text">
 
@@ -294,7 +357,33 @@
 
         </section>
 
+
+        <!-- DISCORD -->
+
+        <section class="discord-section">
+
+            <h2>
+                Join Our Discord
+            </h2>
+
+            <p>
+                Join the official 0X1GHOST community,
+                chat with other players, and stay updated.
+            </p>
+
+            <a
+                href="https://discord.gg/ptTRacQeG"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="discord-btn"
+            >
+                JOIN OUR DISCORD →
+            </a>
+
+        </section>
+
     </main>
 
 </body>
 </html>
+
