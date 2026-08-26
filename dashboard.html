@@ -23,7 +23,7 @@
         /* NAVBAR */
 
         .navbar {
-            height: 70px;
+            min-height: 70px;
             border-bottom: 1px solid #222;
             background: #090909;
 
@@ -31,7 +31,8 @@
             align-items: center;
             justify-content: space-between;
 
-            padding: 0 35px;
+            padding: 12px 35px;
+            gap: 20px;
         }
 
         .logo {
@@ -39,12 +40,28 @@
             font-size: 22px;
             font-weight: bold;
             letter-spacing: 3px;
+            text-decoration: none;
         }
 
         .nav-right {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+
+        .nav-link {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #00ff88;
         }
 
         .user-info {
@@ -106,7 +123,7 @@
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 18px;
-            margin-bottom: 35px;
+            margin-bottom: 45px;
         }
 
         .stat-card {
@@ -128,135 +145,151 @@
             color: #00ff88;
         }
 
-        /* CHALLENGE */
+        /* CHALLENGES */
 
         .section-title {
-            font-size: 20px;
-            margin-bottom: 18px;
+            font-size: 24px;
+            margin-bottom: 8px;
         }
 
-        .challenge {
+        .section-subtitle {
+            color: #777;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .difficulty-title {
+            margin: 35px 0 15px;
+            font-size: 17px;
+            color: #ccc;
+        }
+
+        .challenge-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 18px;
+        }
+
+        .challenge-card {
+            display: block;
             background: #0d0d0d;
             border: 1px solid #222;
             border-radius: 10px;
-            padding: 30px;
+            padding: 25px;
+            text-decoration: none;
+            color: white;
+            transition: 0.2s;
+            cursor: pointer;
         }
 
-        .challenge-header {
+        .challenge-card:hover {
+            border-color: #00ff88;
+            transform: translateY(-3px);
+            box-shadow: 0 0 25px rgba(0, 255, 136, 0.08);
+        }
+
+        .challenge-top {
             display: flex;
             justify-content: space-between;
             align-items: center;
-
-            margin-bottom: 20px;
+            gap: 10px;
+            margin-bottom: 18px;
         }
 
         .challenge-name {
-            font-size: 22px;
+            font-size: 19px;
             font-weight: bold;
         }
 
         .difficulty {
+            border-radius: 5px;
+            padding: 5px 9px;
+            font-size: 11px;
+            font-weight: bold;
+            white-space: nowrap;
+        }
+
+        .easy {
             color: #00ff88;
             border: 1px solid #00ff88;
-            border-radius: 5px;
-            padding: 5px 10px;
-            font-size: 12px;
         }
 
-        .description {
-            color: #aaa;
-            line-height: 1.7;
-            margin-bottom: 25px;
+        .medium {
+            color: #ffd166;
+            border: 1px solid #ffd166;
         }
 
-        .cipher-box {
-            background: #080808;
-            border: 1px solid #292929;
-            border-radius: 7px;
-
-            padding: 20px;
-            margin-bottom: 25px;
-
-            font-family: monospace;
-            color: #00ff88;
-            word-break: break-all;
+        .hard {
+            color: #ff6b6b;
+            border: 1px solid #ff6b6b;
         }
 
-        .answer-area {
-            display: flex;
-            gap: 10px;
-        }
-
-        .answer-input {
-            flex: 1;
-
-            padding: 13px;
-
-            background: #080808;
-            border: 1px solid #292929;
-            border-radius: 7px;
-
-            color: white;
-            outline: none;
-            font-size: 15px;
-        }
-
-        .answer-input:focus {
-            border-color: #00ff88;
-        }
-
-        .submit-btn {
-            padding: 13px 22px;
-
-            border: none;
-            border-radius: 7px;
-
-            background: #00ff88;
-            color: #050505;
-
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        .submit-btn:hover {
-            background: #00e67a;
-        }
-
-        #message {
-            margin-top: 18px;
-            min-height: 20px;
-
+        .challenge-description {
+            color: #888;
             font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 22px;
+        }
+
+        .challenge-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: #00ff88;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .locked {
+            opacity: 0.55;
+            cursor: not-allowed;
+        }
+
+        .locked:hover {
+            border-color: #222;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .coming-soon {
+            color: #777;
+            font-size: 12px;
         }
 
         /* MOBILE */
 
-        @media (max-width: 700px) {
-
+        @media (max-width: 800px) {
             .navbar {
-                padding: 0 18px;
+                padding: 15px 18px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-right {
+                width: 100%;
+                justify-content: flex-start;
+            }
+
+            .stats {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .container {
+                padding: 30px 18px;
+            }
+
+            .welcome h1 {
+                font-size: 25px;
             }
 
             .user-info {
                 display: none;
             }
 
-            .stats {
-                grid-template-columns: 1fr;
-            }
-
-            .challenge-header {
-                flex-direction: column;
-                align-items: flex-start;
+            .nav-right {
                 gap: 12px;
-            }
-
-            .answer-area {
-                flex-direction: column;
-            }
-
-            .submit-btn {
-                width: 100%;
             }
         }
 
@@ -269,11 +302,23 @@
 
     <nav class="navbar">
 
-        <div class="logo">
+        <a href="dashboard.html" class="logo">
             0X1GHOST
-        </div>
+        </a>
 
         <div class="nav-right">
+
+            <a href="dashboard.html" class="nav-link active">
+                CHALLENGES
+            </a>
+
+            <a href="scoreboard.html" class="nav-link">
+                SCOREBOARD
+            </a>
+
+            <a href="rules.html" class="nav-link">
+                RULES
+            </a>
 
             <div class="user-info">
                 Player:
@@ -325,10 +370,7 @@
                     SCORE
                 </div>
 
-                <div
-                    class="stat-value"
-                    id="scoreCard"
-                >
+                <div class="stat-value" id="scoreCard">
                     0
                 </div>
 
@@ -341,10 +383,7 @@
                     CHALLENGES SOLVED
                 </div>
 
-                <div
-                    class="stat-value"
-                    id="solved"
-                >
+                <div class="stat-value" id="solved">
                     0
                 </div>
 
@@ -357,10 +396,7 @@
                     RANK
                 </div>
 
-                <div
-                    class="stat-value"
-                    id="rank"
-                >
+                <div class="stat-value" id="rank">
                     -
                 </div>
 
@@ -375,67 +411,124 @@
             Available Challenges
         </div>
 
+        <div class="section-subtitle">
+            Choose a challenge and solve it to earn points.
+        </div>
 
-        <div class="challenge">
 
-            <div class="challenge-header">
+        <!-- EASY -->
 
-                <div class="challenge-name">
-                    Caesar's Secret
+        <div class="difficulty-title">
+            🟢 EASY
+        </div>
+
+        <div class="challenge-grid">
+
+            <a
+                href="challenge.html?id=caesar"
+                class="challenge-card"
+            >
+
+                <div class="challenge-top">
+
+                    <div class="challenge-name">
+                        Caesar's Secret
+                    </div>
+
+                    <div class="difficulty easy">
+                        EASY · 100 PTS
+                    </div>
+
                 </div>
 
-                <div class="difficulty">
-                    EASY · 100 POINTS
+                <div class="challenge-description">
+                    Caesar has hidden a secret message using a
+                    classical Caesar cipher. Can you decode it?
+                </div>
+
+                <div class="challenge-footer">
+                    <span>OPEN CHALLENGE</span>
+                    <span>→</span>
+                </div>
+
+            </a>
+
+        </div>
+
+
+        <!-- MEDIUM -->
+
+        <div class="difficulty-title">
+            🟡 MEDIUM
+        </div>
+
+        <div class="challenge-grid">
+
+            <div class="challenge-card locked">
+
+                <div class="challenge-top">
+
+                    <div class="challenge-name">
+                        Coming Soon
+                    </div>
+
+                    <div class="difficulty medium">
+                        MEDIUM
+                    </div>
+
+                </div>
+
+                <div class="challenge-description">
+                    A more difficult cryptography challenge
+                    is being prepared.
+                </div>
+
+                <div class="coming-soon">
+                    COMING SOON
                 </div>
 
             </div>
 
+        </div>
 
-            <div class="description">
 
-                Caesar has hidden a secret message using a
-                Caesar cipher.
+        <!-- HARD -->
 
-                <br><br>
+        <div class="difficulty-title">
+            🔴 HARD
+        </div>
 
-                Decode the following message:
+        <div class="challenge-grid">
+
+            <div class="challenge-card locked">
+
+                <div class="challenge-top">
+
+                    <div class="challenge-name">
+                        Coming Soon
+                    </div>
+
+                    <div class="difficulty hard">
+                        HARD
+                    </div>
+
+                </div>
+
+                <div class="challenge-description">
+                    The hardest cryptography challenges
+                    will appear here.
+                </div>
+
+                <div class="coming-soon">
+                    COMING SOON
+                </div>
 
             </div>
-
-
-            <div class="cipher-box">
-                KHOOR ZRUOG
-            </div>
-
-
-            <div class="answer-area">
-
-                <input
-                    type="text"
-                    id="answer"
-                    class="answer-input"
-                    placeholder="Enter your answer..."
-                    autocomplete="off"
-                >
-
-                <button
-                    class="submit-btn"
-                    id="submitButton"
-                >
-                    SUBMIT
-                </button>
-
-            </div>
-
-
-            <div id="message"></div>
 
         </div>
 
     </main>
 
-
-    <!-- SUPABASE -->
 
     <script type="module">
 
@@ -476,15 +569,6 @@
         const rankElement =
             document.getElementById("rank");
 
-        const message =
-            document.getElementById("message");
-
-        const answerInput =
-            document.getElementById("answer");
-
-        const submitButton =
-            document.getElementById("submitButton");
-
         const logoutButton =
             document.getElementById("logoutButton");
 
@@ -494,16 +578,13 @@
         async function checkUser() {
 
             const {
-                data: {
-                    user
-                }
+                data: { user }
             } = await supabase.auth.getUser();
 
 
             if (!user) {
 
-                window.location.href =
-                    "index.html";
+                window.location.href = "index.html";
 
                 return null;
             }
@@ -517,9 +598,7 @@
 
         async function loadProfile() {
 
-            const user =
-                await checkUser();
-
+            const user = await checkUser();
 
             if (!user) return;
 
@@ -537,25 +616,13 @@
             if (error) {
 
                 console.error(error);
-
-                message.style.color =
-                    "#ff6b6b";
-
-                message.textContent =
-                    "Could not load your profile.";
-
                 return;
             }
 
 
             if (!profile) {
 
-                message.style.color =
-                    "#ff6b6b";
-
-                message.textContent =
-                    "Profile not found.";
-
+                console.error("Profile not found.");
                 return;
             }
 
@@ -573,13 +640,15 @@
                 profile.score;
 
 
-            /* TEMPORARY */
+            /*
+             * Temporary values.
+             * Next we will connect solved challenges
+             * and calculate the real rank.
+             */
 
-            solvedElement.textContent =
-                "0";
+            solvedElement.textContent = "0";
+            rankElement.textContent = "-";
 
-            rankElement.textContent =
-                "-";
         }
 
 
@@ -589,75 +658,19 @@
             "click",
             async function() {
 
-                const {
-                    error
-                } = await supabase.auth.signOut();
+                const { error } =
+                    await supabase.auth.signOut();
 
 
                 if (error) {
 
                     console.error(error);
-
                     return;
                 }
 
 
                 window.location.href =
                     "index.html";
-
-            }
-        );
-
-
-        /* CHALLENGE */
-
-        submitButton.addEventListener(
-            "click",
-            function() {
-
-                const answer =
-                    answerInput
-                    .value
-                    .trim()
-                    .toLowerCase();
-
-
-                if (!answer) {
-
-                    message.style.color =
-                        "#ff6b6b";
-
-                    message.textContent =
-                        "Please enter an answer.";
-
-                    return;
-                }
-
-
-                /*
-                 * Temporary answer check.
-                 *
-                 * We will move this validation
-                 * to the database/server later.
-                 */
-
-                if (answer === "hello world") {
-
-                    message.style.color =
-                        "#00ff88";
-
-                    message.textContent =
-                        "Correct! Challenge solved.";
-
-                } else {
-
-                    message.style.color =
-                        "#ff6b6b";
-
-                    message.textContent =
-                        "Incorrect answer.";
-
-                }
 
             }
         );
