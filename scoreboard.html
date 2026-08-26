@@ -1,15 +1,27 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Scoreboard | 0X1GHOST</title>
 
     <!-- FAVICON -->
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link
+        rel="icon"
+        type="image/png"
+        href="favicon.png"
+    >
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -23,178 +35,463 @@
             color: white;
         }
 
+        /* =========================
+           NAVBAR
+        ========================= */
+
         .navbar {
-            height: 70px;
+
+            min-height: 70px;
+
             border-bottom: 1px solid #222;
+
             background: #090909;
 
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
 
-            padding: 0 35px;
+            padding: 12px 35px;
+
+            gap: 20px;
+
         }
+
 
         .logo {
+
             display: flex;
+
             align-items: center;
+
+            text-decoration: none;
+
         }
+
 
         .logo img {
+
+            display: block;
+
             width: 150px;
+
             max-height: 55px;
+
             object-fit: contain;
+
         }
+
 
         .back-btn {
+
             text-decoration: none;
+
             color: #aaa;
+
             border: 1px solid #333;
+
             padding: 9px 15px;
+
             border-radius: 6px;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
             transition: 0.2s;
+
         }
+
 
         .back-btn:hover {
+
             color: #00ff88;
+
             border-color: #00ff88;
+
         }
+
+
+        /* =========================
+           CONTAINER
+        ========================= */
 
         .container {
+
             width: 100%;
-            max-width: 950px;
+
+            max-width: 1050px;
+
             margin: auto;
+
             padding: 45px 25px;
+
         }
+
 
         .title {
+
             font-size: 32px;
+
             margin-bottom: 10px;
+
         }
+
 
         .subtitle {
+
             color: #777;
+
             margin-bottom: 35px;
+
         }
 
+
+        /* =========================
+           BOARD
+        ========================= */
+
         .board {
+
             background: #0d0d0d;
+
             border: 1px solid #222;
+
             border-radius: 10px;
+
             overflow: hidden;
+
         }
+
 
         .table-header,
         .player-row {
+
             display: grid;
-            grid-template-columns: 100px 1fr 150px;
+
+            grid-template-columns:
+                100px
+                1fr
+                180px
+                150px;
+
             align-items: center;
+
             padding: 18px 25px;
+
         }
+
 
         .table-header {
+
             background: #090909;
+
             border-bottom: 1px solid #222;
+
             color: #777;
+
             font-size: 12px;
+
             font-weight: bold;
+
         }
+
 
         .player-row {
+
             border-bottom: 1px solid #1d1d1d;
+
             transition: 0.2s;
+
         }
+
 
         .player-row:last-child {
+
             border-bottom: none;
+
         }
+
 
         .player-row:hover {
+
             background: #111;
+
         }
+
+
+        /* =========================
+           RANK
+        ========================= */
 
         .rank {
+
             color: #aaa;
+
             font-weight: bold;
+
         }
+
 
         .rank.top {
+
             color: #00ff88;
+
         }
+
+
+        .rank.first {
+
+            font-size: 17px;
+
+        }
+
+
+        .rank.second {
+
+            color: #ffd166;
+
+        }
+
+
+        .rank.third {
+
+            color: #ff9f43;
+
+        }
+
+
+        /* =========================
+           PLAYER
+        ========================= */
 
         .player-name {
+
             font-weight: bold;
+
         }
 
-        .player-score {
-            color: #00ff88;
-            font-weight: bold;
-            text-align: right;
+
+        /* =========================
+           SOLVED
+        ========================= */
+
+        .player-solved {
+
+            color: #aaa;
+
+            text-align: center;
+
+            font-size: 14px;
+
         }
+
+
+        /* =========================
+           SCORE
+        ========================= */
+
+        .player-score {
+
+            color: #00ff88;
+
+            font-weight: bold;
+
+            text-align: right;
+
+        }
+
+
+        /* =========================
+           STATES
+        ========================= */
 
         .loading,
         .empty {
+
             padding: 35px;
+
             text-align: center;
+
             color: #777;
+
         }
 
-        @media (max-width: 600px) {
+
+        .error {
+
+            padding: 35px;
+
+            text-align: center;
+
+            color: #ff6b6b;
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 700px) {
 
             .navbar {
-                padding: 0 18px;
+
+                padding: 12px 18px;
+
             }
 
+
             .container {
+
                 padding: 30px 18px;
+
             }
+
 
             .table-header,
             .player-row {
+
                 grid-template-columns:
-                    60px 1fr 90px;
+                    60px
+                    1fr
+                    90px
+                    90px;
 
                 padding: 16px;
+
             }
+
+
+            .table-header {
+
+                font-size: 10px;
+
+            }
+
+
+            .player-solved {
+
+                font-size: 12px;
+
+            }
+
+
+            .player-score {
+
+                font-size: 13px;
+
+            }
+
 
             .title {
+
                 font-size: 27px;
+
             }
 
+
             .logo img {
+
                 width: 125px;
+
             }
+
         }
+
+
+        @media (max-width: 480px) {
+
+            .table-header,
+            .player-row {
+
+                grid-template-columns:
+                    50px
+                    1fr
+                    75px
+                    75px;
+
+                padding: 14px 10px;
+
+            }
+
+
+            .back-btn {
+
+                font-size: 11px;
+
+                padding: 8px 10px;
+
+            }
+
+        }
+
     </style>
+
 </head>
+
 
 <body>
 
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
 <nav class="navbar">
 
-    <a href="dashboard.html" class="logo">
-        <img src="logo.png" alt="0X1GHOST Logo">
+    <a
+        href="dashboard.html"
+        class="logo"
+    >
+
+        <img
+            src="logo.png"
+            alt="0X1GHOST Logo"
+        >
+
     </a>
 
-    <a href="dashboard.html" class="back-btn">
+
+    <a
+        href="dashboard.html"
+        class="back-btn"
+    >
+
         ← DASHBOARD
+
     </a>
 
 </nav>
 
 
+<!-- =========================
+     MAIN
+========================= -->
+
 <main class="container">
 
+
     <h1 class="title">
+
         Scoreboard
+
     </h1>
 
+
     <p class="subtitle">
+
         The best cryptography players on 0X1GHOST.
+
     </p>
 
 
     <div class="board">
+
+
+        <!-- HEADER -->
 
         <div class="table-header">
 
@@ -202,34 +499,53 @@
                 RANK
             </div>
 
+
             <div>
                 PLAYER
             </div>
 
-            <div style="text-align: right;">
+
+            <div style="text-align:center;">
+                SOLVED
+            </div>
+
+
+            <div style="text-align:right;">
                 SCORE
             </div>
 
         </div>
 
 
+        <!-- PLAYERS -->
+
         <div id="players">
 
             <div class="loading">
+
                 Loading players...
+
             </div>
 
         </div>
 
+
     </div>
+
 
 </main>
 
 
 <script type="module">
 
+
     import { createClient } from
-    "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+        "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+
+
+    /* =========================
+       SUPABASE
+    ========================= */
 
 
     const SUPABASE_URL =
@@ -253,14 +569,29 @@
         );
 
 
+    /* =========================
+       LOAD SCOREBOARD
+    ========================= */
+
+
     async function loadScoreboard() {
+
+
+        /*
+         * Get profiles
+         */
 
         const {
             data: players,
-            error
+            error: playersError
         } = await supabase
+
             .from("profiles")
-            .select("username, score")
+
+            .select(
+                "id, username, score"
+            )
+
             .order(
                 "score",
                 {
@@ -269,20 +600,42 @@
             );
 
 
-        if (error) {
+        /*
+         * Error
+         */
 
-            console.error(error);
+        if (playersError) {
+
+            console.error(
+                "Profiles error:",
+                playersError
+            );
+
 
             playersElement.innerHTML = `
-                <div class="empty">
+
+                <div class="error">
+
                     Could not load the scoreboard.
+
+                    <br><br>
+
+                    ${escapeHTML(
+                        playersError.message
+                    )}
+
                 </div>
+
             `;
 
             return;
 
         }
 
+
+        /*
+         * No players
+         */
 
         if (
             !players ||
@@ -290,9 +643,13 @@
         ) {
 
             playersElement.innerHTML = `
+
                 <div class="empty">
+
                     No players yet.
+
                 </div>
+
             `;
 
             return;
@@ -300,14 +657,91 @@
         }
 
 
+        /*
+         * Get solved challenges
+         */
+
+        const {
+            data: solves,
+            error: solvesError
+        } = await supabase
+
+            .from("challenge_solves")
+
+            .select(
+                "user_id"
+            );
+
+
+        if (solvesError) {
+
+            console.error(
+                "Challenge solves error:",
+                solvesError
+            );
+
+        }
+
+
+        /*
+         * Count solved challenges
+         * for every player
+         */
+
+        const solvedCounts = {};
+
+
+        if (solves) {
+
+            solves.forEach(
+                function(solve) {
+
+                    if (
+                        !solvedCounts[
+                            solve.user_id
+                        ]
+                    ) {
+
+                        solvedCounts[
+                            solve.user_id
+                        ] = 0;
+
+                    }
+
+
+                    solvedCounts[
+                        solve.user_id
+                    ]++;
+
+                }
+            );
+
+        }
+
+
+        /*
+         * Clear old data
+         */
+
         playersElement.innerHTML = "";
 
+
+        /*
+         * Create rows
+         */
 
         players.forEach(
             function(player, index) {
 
+
                 const rank =
                     index + 1;
+
+
+                const solved =
+                    solvedCounts[
+                        player.id
+                    ] || 0;
 
 
                 const row =
@@ -320,25 +754,68 @@
                     "player-row";
 
 
+                /*
+                 * Rank class
+                 */
+
+                let rankClass =
+                    "rank";
+
+
+                if (rank === 1) {
+
+                    rankClass +=
+                        " top first";
+
+                } else if (rank === 2) {
+
+                    rankClass +=
+                        " second";
+
+                } else if (rank === 3) {
+
+                    rankClass +=
+                        " third";
+
+                }
+
+
+                /*
+                 * Row HTML
+                 */
+
                 row.innerHTML = `
 
-                    <div class="
-                        rank
-                        ${rank <= 3 ? "top" : ""}
-                    ">
+                    <div class="${rankClass}">
+
                         #${rank}
+
                     </div>
+
 
                     <div class="player-name">
+
                         ${escapeHTML(
-                            player.username || "Player"
+                            player.username ||
+                            "Player"
                         )}
+
                     </div>
 
+
+                    <div class="player-solved">
+
+                        ${solved}
+
+                    </div>
+
+
                     <div class="player-score">
+
                         ${Number(
                             player.score || 0
                         )}
+
                     </div>
 
                 `;
@@ -354,21 +831,65 @@
     }
 
 
+    /* =========================
+       HTML ESCAPE
+    ========================= */
+
+
     function escapeHTML(value) {
 
         return String(value)
-            .replaceAll("&", "&amp;")
-            .replaceAll("<", "&lt;")
-            .replaceAll(">", "&gt;")
-            .replaceAll('"', "&quot;")
-            .replaceAll("'", "&#039;");
+
+            .replaceAll(
+                "&",
+                "&amp;"
+            )
+
+            .replaceAll(
+                "<",
+                "&lt;"
+            )
+
+            .replaceAll(
+                ">",
+                "&gt;"
+            )
+
+            .replaceAll(
+                '"',
+                "&quot;"
+            )
+
+            .replaceAll(
+                "'",
+                "&#039;"
+            );
 
     }
 
 
+    /* =========================
+       INITIAL LOAD
+    ========================= */
+
+
     loadScoreboard();
+
+
+    /*
+     * Refresh scoreboard every 10 seconds
+     */
+
+    setInterval(
+        loadScoreboard,
+        10000
+    );
+
 
 </script>
 
+
 </body>
+
 </html>
+```
