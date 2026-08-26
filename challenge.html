@@ -1,593 +1,357 @@
-
 <!DOCTYPE html>
+
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+```
+<title>Challenge | 0X1GHOST</title>
 
-    <title>Challenge | 0X1GHOST</title>
+<link rel="icon" type="image/png" href="favicon.png">
 
-    <!-- FAVICON -->
-    <link
-        rel="icon"
-        type="image/png"
-        href="favicon.png"
-    >
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+    }
 
-    <style>
+    body {
+        min-height: 100vh;
+        background: #050505;
+        color: white;
+    }
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
-        }
+    .navbar {
+        min-height: 70px;
+        border-bottom: 1px solid #222;
+        background: #090909;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 12px 35px;
+        gap: 20px;
+    }
 
+    .logo {
+        display: flex;
+        align-items: center;
+    }
 
-        body {
-            min-height: 100vh;
-            background: #050505;
-            color: white;
-        }
+    .logo img {
+        width: 150px;
+        max-height: 55px;
+        object-fit: contain;
+    }
 
+    .back {
+        color: #aaa;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 13px;
+    }
 
-        /* NAVBAR */
+    .back:hover {
+        color: #00ff88;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 900px;
+        margin: auto;
+        padding: 50px 25px;
+    }
+
+    .challenge {
+        background: #0d0d0d;
+        border: 1px solid #222;
+        border-radius: 12px;
+        padding: 35px;
+    }
+
+    .top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 25px;
+    }
+
+    .title {
+        font-size: 30px;
+    }
+
+    .badge {
+        border: 1px solid #00ff88;
+        color: #00ff88;
+        padding: 7px 10px;
+        border-radius: 5px;
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+    .description {
+        color: #999;
+        line-height: 1.7;
+        margin-bottom: 25px;
+    }
+
+    .message-box {
+        background: #070707;
+        border: 1px solid #222;
+        border-radius: 8px;
+        padding: 25px;
+        margin-bottom: 25px;
+    }
+
+    .message-title {
+        color: #777;
+        font-size: 12px;
+        font-weight: bold;
+        margin-bottom: 12px;
+    }
+
+    .message-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+    }
+
+    .message {
+        flex: 1;
+        color: #00ff88;
+        font-family: monospace;
+        font-size: 16px;
+        line-height: 1.8;
+        word-break: break-word;
+    }
+
+    .copy-btn {
+        flex-shrink: 0;
+        background: #111;
+        color: #00ff88;
+        border: 1px solid #333;
+        border-radius: 6px;
+        padding: 9px 12px;
+        cursor: pointer;
+        font-size: 13px;
+        font-weight: bold;
+    }
+
+    .copy-btn:hover {
+        border-color: #00ff88;
+    }
+
+    .answer-label {
+        display: block;
+        color: #aaa;
+        font-size: 13px;
+        margin-bottom: 8px;
+    }
+
+    .answer-input {
+        width: 100%;
+        padding: 13px;
+        background: #070707;
+        border: 1px solid #333;
+        border-radius: 7px;
+        color: white;
+        outline: none;
+        font-size: 15px;
+    }
+
+    .answer-input:focus {
+        border-color: #00ff88;
+    }
+
+    .submit-btn {
+        margin-top: 15px;
+        padding: 12px 20px;
+        background: #00ff88;
+        border: none;
+        border-radius: 7px;
+        color: #050505;
+        font-weight: bold;
+        cursor: pointer;
+    }
+
+    .submit-btn:hover {
+        box-shadow:
+            0 0 20px rgba(0, 255, 136, 0.15);
+    }
+
+    .result {
+        margin-top: 20px;
+        padding: 14px;
+        border-radius: 7px;
+        display: none;
+        line-height: 1.5;
+    }
+
+    .success {
+        display: block;
+        color: #00ff88;
+        border: 1px solid #00ff88;
+        background: rgba(0, 255, 136, 0.05);
+    }
+
+    .error {
+        display: block;
+        color: #ff6b6b;
+        border: 1px solid #ff6b6b;
+        background: rgba(255, 107, 107, 0.05);
+    }
+
+    .points {
+        color: #00ff88;
+        font-weight: bold;
+    }
+
+    @media (max-width: 600px) {
 
         .navbar {
-            min-height: 70px;
-
-            border-bottom: 1px solid #222;
-
-            background: #090909;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            padding: 12px 35px;
-
-            gap: 20px;
+            padding: 15px 18px;
         }
-
-
-        /* LOGO */
-
-        .logo {
-            display: flex;
-            align-items: center;
-        }
-
 
         .logo img {
-            display: block;
-
-            width: 150px;
-
-            max-height: 55px;
-
-            object-fit: contain;
+            width: 125px;
         }
-
-
-        /* BACK */
-
-        .back {
-            color: #aaa;
-
-            text-decoration: none;
-
-            font-weight: bold;
-
-            font-size: 13px;
-
-            transition: 0.2s;
-        }
-
-
-        .back:hover {
-            color: #00ff88;
-        }
-
-
-        /* MAIN */
 
         .container {
-            width: 100%;
-
-            max-width: 900px;
-
-            margin: auto;
-
-            padding: 50px 25px;
+            padding: 30px 18px;
         }
-
 
         .challenge {
-            background: #0d0d0d;
-
-            border: 1px solid #222;
-
-            border-radius: 12px;
-
-            padding: 35px;
+            padding: 25px;
         }
-
-
-        /* TOP */
 
         .top {
-            display: flex;
-
-            justify-content: space-between;
-
-            align-items: center;
-
-            gap: 15px;
-
-            margin-bottom: 25px;
+            flex-direction: column;
+            align-items: flex-start;
         }
-
-
-        .title {
-            font-size: 30px;
-        }
-
-
-        .badge {
-            border: 1px solid #00ff88;
-
-            color: #00ff88;
-
-            padding: 7px 10px;
-
-            border-radius: 5px;
-
-            font-size: 12px;
-
-            font-weight: bold;
-
-            white-space: nowrap;
-        }
-
-
-        /* DESCRIPTION */
-
-        .description {
-            color: #999;
-
-            line-height: 1.7;
-
-            margin-bottom: 25px;
-        }
-
-
-        /* MESSAGE BOX */
-
-        .message-box {
-            background: #070707;
-
-            border: 1px solid #222;
-
-            border-radius: 8px;
-
-            padding: 25px;
-
-            margin-bottom: 25px;
-        }
-
-
-        .message-title {
-            color: #777;
-
-            font-size: 12px;
-
-            font-weight: bold;
-
-            margin-bottom: 12px;
-        }
-
-
-        /* MESSAGE + COPY */
 
         .message-row {
-            display: flex;
-
-            align-items: center;
-
-            gap: 12px;
+            flex-direction: column;
         }
-
-
-        .message {
-            color: #00ff88;
-
-            font-family: monospace;
-
-            font-size: 18px;
-
-            word-break: break-word;
-
-            flex: 1;
-        }
-
 
         .copy-btn {
-            background: transparent;
-
-            border: 1px solid #333;
-
-            color: #aaa;
-
-            padding: 8px 12px;
-
-            border-radius: 6px;
-
-            cursor: pointer;
-
-            font-size: 12px;
-
-            font-weight: bold;
-
-            transition: 0.2s;
-
-            white-space: nowrap;
-        }
-
-
-        .copy-btn:hover {
-            border-color: #00ff88;
-
-            color: #00ff88;
-        }
-
-
-        /* ANSWER */
-
-        .answer-label {
-            display: block;
-
-            color: #aaa;
-
-            font-size: 13px;
-
-            margin-bottom: 8px;
-        }
-
-
-        .answer-input {
             width: 100%;
-
-            padding: 13px;
-
-            background: #070707;
-
-            border: 1px solid #333;
-
-            border-radius: 7px;
-
-            color: white;
-
-            outline: none;
-
-            font-size: 15px;
         }
-
-
-        .answer-input:focus {
-            border-color: #00ff88;
-        }
-
-
-        /* SUBMIT */
-
-        .submit-btn {
-            margin-top: 15px;
-
-            padding: 12px 20px;
-
-            background: #00ff88;
-
-            border: none;
-
-            border-radius: 7px;
-
-            color: #050505;
-
-            font-weight: bold;
-
-            cursor: pointer;
-
-            transition: 0.2s;
-        }
-
-
-        .submit-btn:hover {
-            box-shadow:
-                0 0 20px rgba(0, 255, 136, 0.15);
-        }
-
-
-        .submit-btn:disabled {
-            opacity: 0.5;
-
-            cursor: not-allowed;
-        }
-
-
-        /* RESULT */
-
-        .result {
-            margin-top: 20px;
-
-            padding: 14px;
-
-            border-radius: 7px;
-
-            display: none;
-
-            line-height: 1.5;
-        }
-
-
-        .success {
-            display: block;
-
-            color: #00ff88;
-
-            border: 1px solid #00ff88;
-
-            background: rgba(0, 255, 136, 0.05);
-        }
-
-
-        .error {
-            display: block;
-
-            color: #ff6b6b;
-
-            border: 1px solid #ff6b6b;
-
-            background: rgba(255, 107, 107, 0.05);
-        }
-
-
-        .points {
-            color: #00ff88;
-
-            font-weight: bold;
-        }
-
-
-        /* MOBILE */
-
-        @media (max-width: 600px) {
-
-            .navbar {
-                padding: 15px 18px;
-            }
-
-
-            .logo img {
-                width: 125px;
-            }
-
-
-            .container {
-                padding: 30px 18px;
-            }
-
-
-            .challenge {
-                padding: 25px;
-            }
-
-
-            .top {
-                flex-direction: column;
-
-                align-items: flex-start;
-            }
-
-
-            .message-row {
-                align-items: flex-start;
-
-                flex-direction: column;
-            }
-
-
-            .copy-btn {
-                width: 100%;
-            }
-
-        }
-
-    </style>
+    }
+</style>
+```
 
 </head>
 
-
 <body>
-
-
-<!-- NAVBAR -->
 
 <nav class="navbar">
 
+```
+<a href="dashboard.html" class="logo">
+    <img src="logo.png" alt="0X1GHOST Logo">
+</a>
 
-    <a
-        href="dashboard.html"
-        class="logo"
-    >
-
-        <img
-            src="logo.png"
-            alt="0X1GHOST Logo"
-        >
-
-    </a>
-
-
-    <a
-        href="challenges.html"
-        class="back"
-    >
-
-        ← BACK TO CHALLENGES
-
-    </a>
-
+<a href="challenges.html" class="back">
+    ← BACK TO CHALLENGES
+</a>
+```
 
 </nav>
 
-
-<!-- MAIN -->
-
 <main class="container">
 
+```
+<div class="challenge">
 
-    <div class="challenge">
+    <div class="top">
 
+        <h1 class="title" id="challengeName">
+            Loading...
+        </h1>
 
-        <!-- TOP -->
-
-        <div class="top">
-
-
-            <h1
-                class="title"
-                id="challengeName"
-            >
-                Loading...
-            </h1>
-
-
-            <div
-                class="badge"
-                id="challengeBadge"
-            >
-                ...
-            </div>
-
-
+        <div class="badge" id="challengeBadge">
+            ...
         </div>
-
-
-        <!-- DESCRIPTION -->
-
-        <p
-            class="description"
-            id="challengeDescription"
-        >
-            Loading challenge...
-        </p>
-
-
-        <!-- ENCRYPTED MESSAGE -->
-
-        <div class="message-box">
-
-
-            <div class="message-title">
-                ENCRYPTED MESSAGE
-            </div>
-
-
-            <div class="message-row">
-
-
-                <div
-                    class="message"
-                    id="challengeMessage"
-                >
-                    Loading...
-                </div>
-
-
-                <button
-                    type="button"
-                    class="copy-btn"
-                    id="copyButton"
-                >
-                    COPY
-                </button>
-
-
-            </div>
-
-
-        </div>
-
-
-        <!-- ANSWER -->
-
-        <form id="answerForm">
-
-
-            <label
-                class="answer-label"
-                for="answer"
-            >
-                YOUR ANSWER
-            </label>
-
-
-            <input
-                id="answer"
-                class="answer-input"
-                type="text"
-                autocomplete="off"
-                placeholder="Enter your answer..."
-                required
-            >
-
-
-            <button
-                class="submit-btn"
-                id="submitButton"
-                type="submit"
-            >
-                SUBMIT ANSWER
-            </button>
-
-
-        </form>
-
-
-        <!-- RESULT -->
-
-        <div
-            id="result"
-            class="result"
-        ></div>
-
 
     </div>
 
 
-</main>
+    <p class="description" id="challengeDescription">
+        Loading challenge...
+    </p>
 
+
+    <div class="message-box">
+
+        <div class="message-title">
+            CIPHERTEXT
+        </div>
+
+        <div class="message-row">
+
+            <div class="message" id="challengeMessage">
+                Loading...
+            </div>
+
+            <button
+                class="copy-btn"
+                id="copyButton"
+                type="button"
+            >
+                COPY
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <form id="answerForm">
+
+        <label
+            class="answer-label"
+            for="answer"
+        >
+            YOUR ANSWER
+        </label>
+
+        <input
+            id="answer"
+            class="answer-input"
+            type="text"
+            autocomplete="off"
+            placeholder="Enter the flag..."
+            required
+        >
+
+        <button
+            class="submit-btn"
+            type="submit"
+        >
+            SUBMIT ANSWER
+        </button>
+
+    </form>
+
+
+    <div
+        id="result"
+        class="result"
+    ></div>
+
+</div>
+```
+
+</main>
 
 <script type="module">
 
-
-    /* ============================================
-       SUPABASE
-    ============================================ */
-
-
     import {
         createClient
-    }
-    from
+    } from
     "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
 
@@ -606,28 +370,16 @@
         );
 
 
-
-    /* ============================================
-       CHALLENGES
-    ============================================ */
-
-
     const challenges = {
-
 
         caesar: {
 
-            name:
-                "Caesar's Secret",
-
-            difficulty:
-                "EASY · 100 PTS",
-
-            points:
-                100,
+            name: "Caesar's Secret",
+            difficulty: "EASY · 100 PTS",
+            points: 100,
 
             description:
-                "Caesar has hidden a secret message using a classical Caesar cipher. Decode the message and submit the plaintext.",
+                "Caesar has hidden a secret message using a classical Caesar cipher. Decode the message and submit the correct flag.",
 
             message:
                 "FDHVDU",
@@ -638,16 +390,29 @@
         },
 
 
+        binary: {
+
+            name: "Binary Flag",
+            difficulty: "EASY · 100 PTS",
+            points: 100,
+
+            description:
+                "A secret flag has been converted into binary. Decode the binary ciphertext and submit the correct flag.",
+
+            message:
+                "00110000 01011000 00110001 01000111 01001000 01001111 01010011 01010100 01111011 01100111 00110000 00110000 01100100 01011111 01101010 00110000 00110100 01011111 01110100 01101000 00110011 00110110 01011111 01100001 00110011 00110111 00110010 01111101",
+
+            answer:
+                "0X1GHOST{g00d_j04_th36_a372}"
+
+        },
+
+
         "coming-medium": {
 
-            name:
-                "Coming Soon",
-
-            difficulty:
-                "MEDIUM · 200 PTS",
-
-            points:
-                200,
+            name: "Coming Soon",
+            difficulty: "MEDIUM · 200 PTS",
+            points: 200,
 
             description:
                 "This challenge is currently being prepared.",
@@ -663,14 +428,9 @@
 
         "coming-medium-hard": {
 
-            name:
-                "Coming Soon",
-
-            difficulty:
-                "MEDIUM HARD · 300 PTS",
-
-            points:
-                300,
+            name: "Coming Soon",
+            difficulty: "MEDIUM HARD · 300 PTS",
+            points: 300,
 
             description:
                 "This challenge is currently being prepared.",
@@ -686,14 +446,9 @@
 
         "coming-hard": {
 
-            name:
-                "Coming Soon",
-
-            difficulty:
-                "HARD · 500 PTS",
-
-            points:
-                500,
+            name: "Coming Soon",
+            difficulty: "HARD · 500 PTS",
+            points: 500,
 
             description:
                 "This challenge is currently being prepared.",
@@ -707,12 +462,6 @@
         }
 
     };
-
-
-
-    /* ============================================
-       GET CHALLENGE ID
-    ============================================ */
 
 
     const params =
@@ -729,113 +478,61 @@
         challenges[challengeId];
 
 
-
-    /* ============================================
-       ELEMENTS
-    ============================================ */
-
-
     const challengeName =
-        document.getElementById(
-            "challengeName"
-        );
-
+        document.getElementById("challengeName");
 
     const challengeBadge =
-        document.getElementById(
-            "challengeBadge"
-        );
-
+        document.getElementById("challengeBadge");
 
     const challengeDescription =
-        document.getElementById(
-            "challengeDescription"
-        );
-
+        document.getElementById("challengeDescription");
 
     const challengeMessage =
-        document.getElementById(
-            "challengeMessage"
-        );
-
+        document.getElementById("challengeMessage");
 
     const answerForm =
-        document.getElementById(
-            "answerForm"
-        );
-
+        document.getElementById("answerForm");
 
     const answerInput =
-        document.getElementById(
-            "answer"
-        );
-
+        document.getElementById("answer");
 
     const result =
-        document.getElementById(
-            "result"
-        );
-
+        document.getElementById("result");
 
     const copyButton =
-        document.getElementById(
-            "copyButton"
-        );
-
-
-    const submitButton =
-        document.getElementById(
-            "submitButton"
-        );
-
-
-
-    /* ============================================
-       LOAD CHALLENGE
-    ============================================ */
+        document.getElementById("copyButton");
 
 
     if (!challenge) {
 
-
         challengeName.textContent =
             "Challenge Not Found";
-
 
         challengeBadge.textContent =
             "ERROR";
 
-
         challengeDescription.textContent =
             "The requested challenge does not exist.";
-
 
         challengeMessage.textContent =
             "404";
 
-
         answerForm.style.display =
             "none";
-
 
         copyButton.style.display =
             "none";
 
-
     } else {
-
 
         challengeName.textContent =
             challenge.name;
 
-
         challengeBadge.textContent =
             challenge.difficulty;
 
-
         challengeDescription.textContent =
             challenge.description;
-
 
         challengeMessage.textContent =
             challenge.message;
@@ -843,62 +540,38 @@
     }
 
 
-
-    /* ============================================
-       COPY BUTTON
-    ============================================ */
-
-
     copyButton.addEventListener(
         "click",
         async function() {
 
-
             if (!challenge) return;
 
-
             try {
-
 
                 await navigator.clipboard.writeText(
                     challenge.message
                 );
 
+                const oldText =
+                    copyButton.textContent;
 
                 copyButton.textContent =
-                    "COPIED!";
-
+                    "COPIED ✓";
 
                 setTimeout(
                     function() {
-
                         copyButton.textContent =
-                            "COPY";
-
+                            oldText;
                     },
                     1500
                 );
-
 
             } catch (error) {
 
-
                 console.error(error);
-
 
                 copyButton.textContent =
                     "FAILED";
-
-
-                setTimeout(
-                    function() {
-
-                        copyButton.textContent =
-                            "COPY";
-
-                    },
-                    1500
-                );
 
             }
 
@@ -906,215 +579,76 @@
     );
 
 
-
-    /* ============================================
-       GET CURRENT USER
-    ============================================ */
-
-
-    async function getCurrentUser() {
-
-
-        const {
-            data: {
-                user
-            }
-        } =
-        await supabase.auth.getUser();
-
-
-        return user;
-
-    }
-
-
-
-    /* ============================================
-       SUBMIT ANSWER
-    ============================================ */
-
-
     answerForm.addEventListener(
         "submit",
         async function(event) {
 
-
             event.preventDefault();
 
-
-            if (!challenge) {
-                return;
-            }
+            if (!challenge) return;
 
 
-            submitButton.disabled =
-                true;
-
-
-            result.className =
-                "result";
-
-
-            result.textContent =
-                "Checking answer...";
-
-
-            result.style.display =
-                "block";
-
-
-
-            /* USER */
-
-            const user =
-                await getCurrentUser();
+            const {
+                data: {
+                    user
+                }
+            } =
+                await supabase.auth.getUser();
 
 
             if (!user) {
 
-
                 window.location.href =
                     "index.html";
 
-
                 return;
 
             }
 
-
-
-            /* EMPTY CHALLENGE */
-
-            if (
-                !challenge.answer ||
-                challenge.answer.length === 0
-            ) {
-
-
-                result.className =
-                    "result error";
-
-
-                result.textContent =
-                    "This challenge is not available yet.";
-
-
-                submitButton.disabled =
-                    false;
-
-
-                return;
-
-            }
-
-
-
-            /* ANSWER */
 
             const userAnswer =
                 answerInput.value
-                    .trim()
-                    .toUpperCase();
-
-
-
-            /* ========================================
-               CHECK ANSWER LOCALLY
-            ======================================== */
-
-
-            if (
-                userAnswer !==
-                challenge.answer.toUpperCase()
-            ) {
-
-
-                result.className =
-                    "result error";
-
-
-                result.textContent =
-                    "Incorrect answer. Try again.";
-
-
-                submitButton.disabled =
-                    false;
-
-
-                return;
-
-            }
-
-
-
-            /* ========================================
-               SEND TO SUPABASE
-            ======================================== */
+                    .trim();
 
 
             const {
                 data,
                 error
             } =
-            await supabase.rpc(
-                "submit_challenge_answer",
-                {
-                    p_challenge_id:
-                        challengeId,
+                await supabase.rpc(
+                    "submit_challenge_answer",
+                    {
+                        p_challenge_id:
+                            challengeId,
 
-                    p_answer:
-                        userAnswer
-                }
-            );
-
-
-
-            /* ========================================
-               SUPABASE ERROR
-            ======================================== */
+                        p_answer:
+                            userAnswer
+                    }
+                );
 
 
             if (error) {
 
-
-                console.error(
-                    "Supabase RPC error:",
-                    error
-                );
-
+                console.error(error);
 
                 result.className =
                     "result error";
 
-
                 result.textContent =
-                    "Correct answer, but the score could not be updated.";
-
-
-                submitButton.disabled =
-                    false;
-
+                    "An error occurred while checking your answer.";
 
                 return;
 
             }
 
 
-
-            /* ========================================
-               RESULT
-            ======================================== */
-
-
             if (
                 data &&
-                data.success === true
+                data.success
             ) {
-
 
                 result.className =
                     "result success";
-
 
                 result.innerHTML =
                     `
@@ -1123,97 +657,47 @@
                     <span class="points">
                         ${data.points} points
                     </span>.
-
-                    <br>
-
-                    Your new score:
-                    <span class="points">
-                        ${data.new_score}
-                    </span>
                     `;
 
 
                 answerInput.disabled =
                     true;
 
-
-                submitButton.disabled =
+                document.querySelector(
+                    ".submit-btn"
+                ).disabled =
                     true;
 
-
-                return;
-
-            }
-
-
-
-            /* ========================================
-               ALREADY SOLVED
-            ======================================== */
-
-
-            if (
+            } else if (
                 data &&
-                data.already_solved === true
+                data.already_solved
             ) {
-
 
                 result.className =
                     "result success";
 
-
                 result.textContent =
                     "You already solved this challenge.";
 
+            } else {
 
-                answerInput.disabled =
-                    true;
+                result.className =
+                    "result error";
 
-
-                submitButton.disabled =
-                    true;
-
-
-                return;
+                result.textContent =
+                    data?.message ||
+                    "Incorrect answer. Try again.";
 
             }
-
-
-
-            /* ========================================
-               OTHER ERROR
-            ======================================== */
-
-
-            result.className =
-                "result error";
-
-
-            result.textContent =
-                (
-                    data &&
-                    data.message
-                )
-                ?
-                data.message
-                :
-                "Something went wrong.";
-
-
-            submitButton.disabled =
-                false;
-
 
         }
     );
 
-
 </script>
 
-
 </body>
-
 </html>
+
 
 
 
