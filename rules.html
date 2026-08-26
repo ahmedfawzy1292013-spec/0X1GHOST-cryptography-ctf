@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Rules | 0X1GHOST</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #050505;
+            color: white;
+        }
+
+        .navbar {
+            height: 70px;
+            border-bottom: 1px solid #222;
+            background: #090909;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 35px;
+        }
+
+        .logo {
+            color: #00ff88;
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: #aaa;
+            border: 1px solid #333;
+            padding: 9px 15px;
+            border-radius: 6px;
+            transition: 0.2s;
+        }
+
+        .back-btn:hover {
+            border-color: #00ff88;
+            color: #00ff88;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 900px;
+            margin: auto;
+            padding: 45px 25px;
+        }
+
+        .page-title {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #777;
+            margin-bottom: 35px;
+        }
+
+        .rule-card {
+            background: #0d0d0d;
+            border: 1px solid #222;
+            border-radius: 10px;
+            padding: 28px;
+            margin-bottom: 18px;
+        }
+
+        .rule-number {
+            color: #00ff88;
+            font-weight: bold;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .rule-title {
+            font-size: 20px;
+            margin-bottom: 15px;
+        }
+
+        .rule-text {
+            color: #aaa;
+            line-height: 1.8;
+            font-size: 15px;
+        }
+
+        .flag {
+            display: block;
+            margin-top: 15px;
+            padding: 15px;
+            background: #080808;
+            border: 1px solid #292929;
+            border-radius: 7px;
+            color: #00ff88;
+            font-family: monospace;
+        }
+
+        .rule-list {
+            margin-top: 12px;
+            padding-left: 20px;
+            color: #aaa;
+            line-height: 1.8;
+        }
+
+        .highlight {
+            color: #00ff88;
+        }
+
+        @media (max-width: 600px) {
+            .navbar {
+                padding: 0 18px;
+            }
+
+            .container {
+                padding: 30px 18px;
+            }
+
+            .rule-card {
+                padding: 22px;
+            }
+
+            .page-title {
+                font-size: 27px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">0X1GHOST</div>
+
+        <a href="dashboard.html" class="back-btn">
+            ← DASHBOARD
+        </a>
+
+    </nav>
+
+
+    <main class="container">
+
+        <h1 class="page-title">
+            0X1GHOST CRYPTOGRAPHY — RULES
+        </h1>
+
+        <p class="subtitle">
+            Please read the rules before solving challenges.
+        </p>
+
+
+        <section class="rule-card">
+
+            <div class="rule-number">01</div>
+
+            <h2 class="rule-title">Flag Format</h2>
+
+            <div class="rule-text">
+
+                Every flag on this platform follows the exact format:
+
+                <span class="flag">0X1GHOST{...}</span>
+
+                <br>
+
+                Submissions are checked case-insensitively, but they must
+                still match this format.
+
+                <br><br>
+
+                If your answer doesn't look like this, you haven't found
+                the flag yet.
+
+            </div>
+
+        </section>
+
+
+        <section class="rule-card">
+
+            <div class="rule-number">02</div>
+
+            <h2 class="rule-title">No AI Assistance</h2>
+
+            <div class="rule-text">
+
+                Using AI tools such as ChatGPT, Claude, Copilot, or any
+                other AI assistant to solve challenges is strictly forbidden.
+
+                <br><br>
+
+                Every challenge is meant to be solved with your own
+                knowledge, research, and tools.
+
+                <ul class="rule-list">
+                    <li>CyberChef</li>
+                    <li>Python scripts</li>
+                    <li>Online cipher solvers you understand and control</li>
+                    <li>Your own cryptography knowledge</li>
+                </ul>
+
+            </div>
+
+        </section>
+
+
+        <section class="rule-card">
+
+            <div class="rule-number">03</div>
+
+            <h2 class="rule-title">Goal of This Platform</h2>
+
+            <div class="rule-text">
+
+                The long-term goal of
+                <span class="highlight">0X1GHOST Cryptography</span>
+                is to reach 100 cryptography challenges.
+
+                <br><br>
+
+                Challenges will cover:
+
+                <ul class="rule-list">
+                    <li>Encoding</li>
+                    <li>Classical Ciphers</li>
+                    <li>XOR</li>
+                    <li>RSA</li>
+                    <li>AES</li>
+                    <li>Hashing</li>
+                    <li>And beyond</li>
+                </ul>
+
+                <br>
+
+                Difficulty levels:
+
+                <ul class="rule-list">
+                    <li>Easy</li>
+                    <li>Medium</li>
+                    <li>Hard</li>
+                </ul>
+
+            </div>
+
+        </section>
+
+
+        <section class="rule-card">
+
+            <div class="rule-number">04</div>
+
+            <h2 class="rule-title">Fair Play</h2>
+
+            <div class="rule-text">
+
+                Do not share flags with other players.
+
+                <br><br>
+
+                Do not attempt to read the flag directly from the database
+                or application files instead of solving the challenge.
+
+            </div>
+
+        </section>
+
+
+        <section class="rule-card">
+
+            <div class="rule-number">05</div>
+
+            <h2 class="rule-title">Have Fun</h2>
+
+            <div class="rule-text">
+
+                This platform exists to help you learn cryptography by doing.
+
+                <br><br>
+
+                Take your time, research the concepts, and enjoy the process.
+
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
