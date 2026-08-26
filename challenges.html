@@ -1,300 +1,344 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-```
-<title>Challenges | 0X1GHOST</title>
+    <title>Challenges | 0X1GHOST</title>
 
-<link rel="icon" type="image/png" href="favicon.png">
+    <link rel="icon" type="image/png" href="favicon.png">
 
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: Arial, Helvetica, sans-serif;
-    }
-
-    body {
-        min-height: 100vh;
-        background: #050505;
-        color: white;
-    }
-
-    .navbar {
-        min-height: 70px;
-        border-bottom: 1px solid #222;
-        background: #090909;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 12px 35px;
-        gap: 20px;
-    }
-
-    .logo {
-        display: flex;
-        align-items: center;
-    }
-
-    .logo img {
-        display: block;
-        width: 150px;
-        max-height: 55px;
-        object-fit: contain;
-    }
-
-    .nav-right {
-        display: flex;
-        align-items: center;
-        gap: 18px;
-    }
-
-    .nav-link {
-        color: #aaa;
-        text-decoration: none;
-        font-size: 13px;
-        font-weight: bold;
-    }
-
-    .nav-link:hover,
-    .nav-link.active {
-        color: #00ff88;
-    }
-
-    .container {
-        width: 100%;
-        max-width: 1100px;
-        margin: auto;
-        padding: 50px 25px;
-    }
-
-    .title {
-        font-size: 32px;
-        margin-bottom: 10px;
-    }
-
-    .subtitle {
-        color: #777;
-        margin-bottom: 35px;
-    }
-
-    .difficulty-grid {
-        display: grid;
-        grid-template-columns:
-            repeat(auto-fit, minmax(220px, 1fr));
-        gap: 18px;
-        margin-bottom: 40px;
-    }
-
-    .difficulty-card {
-        background: #0d0d0d;
-        border: 1px solid #222;
-        border-radius: 10px;
-        padding: 25px;
-        cursor: pointer;
-        transition: 0.2s;
-    }
-
-    .difficulty-card:hover {
-        transform: translateY(-3px);
-    }
-
-    .difficulty-card.active {
-        border-color: #00ff88;
-        box-shadow:
-            0 0 25px rgba(0, 255, 136, 0.08);
-    }
-
-    .difficulty-card h2 {
-        margin-bottom: 10px;
-    }
-
-    .difficulty-card p {
-        color: #777;
-        font-size: 14px;
-        line-height: 1.5;
-    }
-
-    .points {
-        margin-top: 18px;
-        color: #00ff88;
-        font-weight: bold;
-    }
-
-    .medium .points {
-        color: #ffd166;
-    }
-
-    .medium-hard .points {
-        color: #ff9f43;
-    }
-
-    .hard .points {
-        color: #ff6b6b;
-    }
-
-    .section-title {
-        font-size: 24px;
-        margin-bottom: 20px;
-    }
-
-    .challenge-grid {
-        display: grid;
-        grid-template-columns:
-            repeat(auto-fit, minmax(280px, 1fr));
-        gap: 18px;
-    }
-
-    .challenge-card {
-        background: #0d0d0d;
-        border: 1px solid #222;
-        border-radius: 10px;
-        padding: 25px;
-        text-decoration: none;
-        color: white;
-        transition: 0.2s;
-    }
-
-    .challenge-card:hover {
-        border-color: #00ff88;
-        transform: translateY(-3px);
-        box-shadow:
-            0 0 25px rgba(0, 255, 136, 0.08);
-    }
-
-    .challenge-card h3 {
-        font-size: 19px;
-        margin-bottom: 12px;
-    }
-
-    .challenge-card p {
-        color: #888;
-        line-height: 1.6;
-        font-size: 14px;
-    }
-
-    .challenge-points {
-        display: inline-block;
-        margin-top: 20px;
-        color: #00ff88;
-        font-size: 13px;
-        font-weight: bold;
-    }
-
-    .empty {
-        padding: 30px;
-        text-align: center;
-        color: #777;
-        border: 1px solid #222;
-        border-radius: 10px;
-    }
-
-    @media (max-width: 700px) {
-        .navbar {
-            flex-direction: column;
-            align-items: flex-start;
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
         }
 
-        .nav-right {
-            flex-wrap: wrap;
+        body {
+            min-height: 100vh;
+            background: #050505;
+            color: white;
+        }
+
+        .navbar {
+            min-height: 70px;
+            border-bottom: 1px solid #222;
+            background: #090909;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 12px 35px;
+            gap: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
         }
 
         .logo img {
-            width: 135px;
+            display: block;
+            width: 150px;
+            max-height: 55px;
+            object-fit: contain;
         }
-    }
-</style>
-```
 
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+        }
+
+        .nav-link {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #00ff88;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 50px 25px;
+        }
+
+        .title {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #777;
+            margin-bottom: 35px;
+        }
+
+        .difficulty-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
+            gap: 18px;
+            margin-bottom: 40px;
+        }
+
+        .difficulty-card {
+            background: #0d0d0d;
+            border: 1px solid #222;
+            border-radius: 10px;
+            padding: 25px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .difficulty-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .difficulty-card.active {
+            border-color: #00ff88;
+            box-shadow:
+                0 0 25px rgba(0, 255, 136, 0.08);
+        }
+
+        .difficulty-card h2 {
+            margin-bottom: 10px;
+        }
+
+        .difficulty-card p {
+            color: #777;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .points {
+            margin-top: 18px;
+            color: #00ff88;
+            font-weight: bold;
+        }
+
+        .medium .points {
+            color: #ffd166;
+        }
+
+        .medium-hard .points {
+            color: #ff9f43;
+        }
+
+        .hard .points {
+            color: #ff6b6b;
+        }
+
+        .section-title {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .challenge-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(280px, 1fr));
+
+            gap: 18px;
+        }
+
+        .challenge-card {
+            background: #0d0d0d;
+            border: 1px solid #222;
+            border-radius: 10px;
+            padding: 25px;
+            text-decoration: none;
+            color: white;
+            transition: 0.2s;
+        }
+
+        .challenge-card:hover {
+            border-color: #00ff88;
+            transform: translateY(-3px);
+            box-shadow:
+                0 0 25px rgba(0, 255, 136, 0.08);
+        }
+
+        .challenge-card h3 {
+            font-size: 19px;
+            margin-bottom: 12px;
+        }
+
+        .challenge-card p {
+            color: #888;
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        .challenge-points {
+            display: inline-block;
+            margin-top: 20px;
+            color: #00ff88;
+            font-size: 13px;
+            font-weight: bold;
+        }
+
+        .empty {
+            padding: 30px;
+            text-align: center;
+            color: #777;
+            border: 1px solid #222;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 700px) {
+
+            .navbar {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .nav-right {
+                flex-wrap: wrap;
+            }
+
+            .logo img {
+                width: 135px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
 <nav class="navbar">
 
-```
-<a href="dashboard.html" class="logo">
-    <img src="logo.png" alt="0X1GHOST Logo">
-</a>
-
-<div class="nav-right">
-
-    <a href="dashboard.html" class="nav-link">
-        DASHBOARD
+    <a href="dashboard.html" class="logo">
+        <img src="logo.png" alt="0X1GHOST Logo">
     </a>
 
-    <a href="challenges.html" class="nav-link active">
-        CHALLENGES
-    </a>
+    <div class="nav-right">
 
-    <a href="scoreboard.html" class="nav-link">
-        SCOREBOARD
-    </a>
+        <a href="dashboard.html" class="nav-link">
+            DASHBOARD
+        </a>
 
-    <a href="rules.html" class="nav-link">
-        RULES
-    </a>
+        <a href="challenges.html" class="nav-link active">
+            CHALLENGES
+        </a>
 
-</div>
-```
+        <a href="scoreboard.html" class="nav-link">
+            SCOREBOARD
+        </a>
+
+        <a href="rules.html" class="nav-link">
+            RULES
+        </a>
+
+    </div>
 
 </nav>
 
+
 <main class="container">
 
-```
-<h1 class="title">Challenges</h1>
+    <h1 class="title">
+        Challenges
+    </h1>
 
-<p class="subtitle">
-    Choose a difficulty level to see its challenges.
-</p>
+    <p class="subtitle">
+        Choose a difficulty level to see its challenges.
+    </p>
 
 
-<div class="difficulty-grid">
+    <div class="difficulty-grid">
 
-    <div class="difficulty-card easy" data-level="easy">
-        <h2>🟢 EASY</h2>
-        <p>Beginner-friendly cryptography challenges.</p>
-        <div class="points">100 POINTS</div>
+        <div
+            class="difficulty-card easy"
+            data-level="easy"
+        >
+            <h2>🟢 EASY</h2>
+
+            <p>
+                Beginner-friendly cryptography challenges.
+            </p>
+
+            <div class="points">
+                100 POINTS
+            </div>
+        </div>
+
+
+        <div
+            class="difficulty-card medium"
+            data-level="medium"
+        >
+            <h2>🟡 MEDIUM</h2>
+
+            <p>
+                Challenges that require more cryptographic thinking.
+            </p>
+
+            <div class="points">
+                200 POINTS
+            </div>
+        </div>
+
+
+        <div
+            class="difficulty-card medium-hard"
+            data-level="medium-hard"
+        >
+            <h2>🟠 MEDIUM HARD</h2>
+
+            <p>
+                More complex challenges for experienced players.
+            </p>
+
+            <div class="points">
+                300 POINTS
+            </div>
+        </div>
+
+
+        <div
+            class="difficulty-card hard"
+            data-level="hard"
+        >
+            <h2>🔴 HARD</h2>
+
+            <p>
+                The most difficult cryptography challenges.
+            </p>
+
+            <div class="points">
+                500 POINTS
+            </div>
+        </div>
+
     </div>
 
-    <div class="difficulty-card medium" data-level="medium">
-        <h2>🟡 MEDIUM</h2>
-        <p>Challenges that require more cryptographic thinking.</p>
-        <div class="points">200 POINTS</div>
+
+    <h2 class="section-title" id="challengeTitle">
+        Select a difficulty
+    </h2>
+
+
+    <div
+        class="challenge-grid"
+        id="challengeList"
+    >
+        <div class="empty">
+            Choose a difficulty above.
+        </div>
     </div>
-
-    <div class="difficulty-card medium-hard" data-level="medium-hard">
-        <h2>🟠 MEDIUM HARD</h2>
-        <p>More complex challenges for experienced players.</p>
-        <div class="points">300 POINTS</div>
-    </div>
-
-    <div class="difficulty-card hard" data-level="hard">
-        <h2>🔴 HARD</h2>
-        <p>The most difficult cryptography challenges.</p>
-        <div class="points">500 POINTS</div>
-    </div>
-
-</div>
-
-
-<h2 class="section-title" id="challengeTitle">
-    Select a difficulty
-</h2>
-
-<div class="challenge-grid" id="challengeList">
-    <div class="empty">
-        Choose a difficulty above.
-    </div>
-</div>
-```
 
 </main>
+
 
 <script>
 
@@ -311,14 +355,15 @@
             },
 
             {
-                id: "binary",
-                name: "Binary Flag",
+                id: "rot13",
+                name: "What Type This ROT",
                 description:
-                    "A secret flag has been converted into binary. Decode the binary ciphertext and submit the correct flag.",
+                    "A simple substitution cipher where every letter has been shifted by 13 positions. Decode the ciphertext and recover the flag.",
                 points: 100
             }
 
         ],
+
 
         medium: [
 
@@ -332,6 +377,7 @@
 
         ],
 
+
         "medium-hard": [
 
             {
@@ -343,6 +389,7 @@
             }
 
         ],
+
 
         hard: [
 
@@ -360,31 +407,42 @@
 
 
     const cards =
-        document.querySelectorAll(".difficulty-card");
+        document.querySelectorAll(
+            ".difficulty-card"
+        );
+
 
     const list =
-        document.getElementById("challengeList");
+        document.getElementById(
+            "challengeList"
+        );
+
 
     const title =
-        document.getElementById("challengeTitle");
+        document.getElementById(
+            "challengeTitle"
+        );
 
 
     cards.forEach(card => {
 
-        card.addEventListener("click", function() {
+        card.addEventListener(
+            "click",
+            function() {
 
-            cards.forEach(c =>
-                c.classList.remove("active")
-            );
+                cards.forEach(c =>
+                    c.classList.remove("active")
+                );
 
-            card.classList.add("active");
+                card.classList.add("active");
 
-            const level =
-                card.dataset.level;
+                const level =
+                    card.dataset.level;
 
-            showChallenges(level);
+                showChallenges(level);
 
-        });
+            }
+        );
 
     });
 
@@ -394,38 +452,54 @@
         const levelChallenges =
             challenges[level];
 
+
         title.textContent =
             level.toUpperCase() +
             " CHALLENGES";
 
+
         list.innerHTML = "";
 
 
-        levelChallenges.forEach(challenge => {
+        levelChallenges.forEach(
+            challenge => {
 
-            const card =
-                document.createElement("a");
+                const card =
+                    document.createElement("a");
 
-            card.className =
-                "challenge-card";
 
-            card.href =
-                "challenge.html?id=" +
-                encodeURIComponent(challenge.id);
+                card.className =
+                    "challenge-card";
 
-            card.innerHTML = `
-                <h3>${challenge.name}</h3>
 
-                <p>${challenge.description}</p>
+                card.href =
+                    "challenge.html?id=" +
+                    encodeURIComponent(
+                        challenge.id
+                    );
 
-                <span class="challenge-points">
-                    ${challenge.points} POINTS →
-                </span>
-            `;
 
-            list.appendChild(card);
+                card.innerHTML = `
 
-        });
+                    <h3>
+                        ${challenge.name}
+                    </h3>
+
+                    <p>
+                        ${challenge.description}
+                    </p>
+
+                    <span class="challenge-points">
+                        ${challenge.points} POINTS →
+                    </span>
+
+                `;
+
+
+                list.appendChild(card);
+
+            }
+        );
 
     }
 
