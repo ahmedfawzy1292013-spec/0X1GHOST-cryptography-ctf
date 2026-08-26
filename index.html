@@ -106,11 +106,18 @@
             transform: translateY(-1px);
         }
 
+        .login-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+        }
+
         #message {
             text-align: center;
             margin-top: 18px;
             font-size: 14px;
             min-height: 20px;
+            line-height: 1.5;
         }
 
         .register-link {
@@ -144,99 +151,260 @@
 
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <div class="card">
+    <div class="card">
 
-            <div class="logo">
-                0X1GHOST
-            </div>
+        <div class="logo">
+            0X1GHOST
+        </div>
 
-            <div class="subtitle">
-                CRYPTOGRAPHY CHALLENGE PLATFORM
-            </div>
+        <div class="subtitle">
+            CRYPTOGRAPHY CHALLENGE PLATFORM
+        </div>
 
-            <div class="title">
-                Login
-            </div>
+        <div class="title">
+            Login
+        </div>
 
-            <form onsubmit="login(event)">
+        <form id="loginForm">
 
-                <div class="input-group">
-                    <label for="username">
-                        Username
-                    </label>
+            <div class="input-group">
+                <label for="username">
+                    Username or Email
+                </label>
 
-                    <input
-                        type="text"
-                        id="username"
-                        placeholder="Enter your username"
-                        required
-                    >
-                </div>
-
-                <div class="input-group">
-                    <label for="password">
-                        Password
-                    </label>
-
-                    <input
-                        type="password"
-                        id="password"
-                        placeholder="Enter your password"
-                        required
-                    >
-                </div>
-
-                <button
-                    type="submit"
-                    class="login-btn"
+                <input
+                    type="text"
+                    id="username"
+                    placeholder="Enter your username or email"
+                    required
                 >
-                    LOGIN
-                </button>
-
-            </form>
-
-            <div id="message"></div>
-
-            <div class="register-link">
-                Don't have an account?
-                <a href="register.html">
-                    Register
-                </a>
             </div>
 
+            <div class="input-group">
+                <label for="password">
+                    Password
+                </label>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Enter your password"
+                    required
+                >
+            </div>
+
+            <button
+                type="submit"
+                class="login-btn"
+                id="loginButton"
+            >
+                LOGIN
+            </button>
+
+        </form>
+
+        <div id="message"></div>
+
+        <div class="register-link">
+            Don't have an account?
+            <a href="register.html">
+                Register
+            </a>
         </div>
 
     </div>
 
-    <script>
-        function login(event) {
-            event.preventDefault();
+</div>
 
-            const username =
-                document.getElementById("username").value.trim();
+<script type="module">
 
-            const password =
-                document.getElementById("password").value.trim();
+    import { createClient } from
+        "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
-            const message =
-                document.getElementById("message");
+    const SUPABASE_URL =
+        "https://borturaxifoxufixewya.supabase.co";
 
-            if (username === "" || password === "") {
-                message.style.color = "#ff6b6b";
+    const SUPABASE_KEY =
+        "sb_publishable__lZmTM96oe10-rurqgrujg__ta_C4wr";
+
+    const supabase = createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
+
+    const form =
+        document.getElementById("loginForm");
+
+    const message =
+        document.getElementById("message");
+
+    const button =
+        document.getElementById("loginButton");
+
+
+    form.addEventListener("submit", async function(event) {
+
+        event.preventDefault();
+
+        const loginValue =
+            document.getElementById("username")
+                .value
+                .trim();
+
+        const password =
+            document.getElementById("password")
+                .value;
+
+        message.textContent = "";
+
+        if (!loginValue || !password) {
+
+            message.style.color = "#ff6b6b";
+
+            message.textContent =
+                "Please enter your username and password.";
+
+            return;
+        }
+
+        button.disabled = true;
+        button.textContent = "LOGGING IN...";
+
+        try {
+
+            let email = loginValue;
+
+            /*
+             * إذا كتب المستخدم Username
+             * نبحث عنه في profiles
+             */
+
+            if (!loginValue.includes("@")) {
+
+                const { data: profile, error: profileError } =
+                    await supabase
+                        .from("profiles")
+                        .select("id, username")
+                        .eq("username", loginValue)
+                        .maybeSingle();
+
+                if (profileError) {
+                    throw profileError;
+                }
+
+                if (!profile) {
+
+                    message.style.color = "#ff6b6b";
+
+                    message.textContent =
+                        "Username not found.";
+
+                    button.disabled = false;
+                    button.textContent = "LOGIN";
+
+                    return;
+                }
+
+                /*
+                 * الحصول على البريد المرتبط بالحساب
+                 *
+                 * مهم:
+                 * Supabase لا يسمح للمتصفح بقراءة
+                 * email من auth.users.
+                 *
+                 * لذلك في النسخة الحالية:
+                 * تسجيل الدخول يكون بالبريد الإلكتروني.
+                 */
+
+                message.style.color = "#ffcc66";
+
                 message.textContent =
-                    "Please enter your username and password.";
+                    "Please login using your email address.";
+
+                button.disabled = false;
+                button.textContent = "LOGIN";
+
                 return;
             }
 
-            message.style.color = "#00ff88";
-            message.textContent =
-                "Login system will be connected to the server soon.";
 
-            console.log("Username:", username);
+            /*
+             * تسجيل الدخول الحقيقي
+             */
+
+            const { data, error } =
+                await supabase.auth.signInWithPassword({
+
+                    email: email,
+
+                    password: password
+
+                });
+
+
+            if (error) {
+                throw error;
+            }
+
+
+            if (!data.user) {
+                throw new Error("Login failed.");
+            }
+
+
+            message.style.color = "#00ff88";
+
+            message.textContent =
+                "Login successful!";
+
+
+            /*
+             * بعد تسجيل الدخول
+             * ننتقل إلى الصفحة الرئيسية
+             */
+
+            setTimeout(() => {
+
+                window.location.href =
+                    "dashboard.html";
+
+            }, 1000);
+
+
+        } catch (error) {
+
+            console.error(error);
+
+            message.style.color = "#ff6b6b";
+
+            if (
+                error.message &&
+                error.message
+                    .toLowerCase()
+                    .includes("invalid login credentials")
+            ) {
+
+                message.textContent =
+                    "Incorrect email or password.";
+
+            } else {
+
+                message.textContent =
+                    error.message ||
+                    "Login failed.";
+
+            }
+
+            button.disabled = false;
+            button.textContent = "LOGIN";
+
         }
-    </script>
+
+    });
+
+</script>
 
 </body>
 </html>
