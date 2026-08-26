@@ -4,7 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Challenges | 0X1GHOST</title>
+    <title>Challenge | 0X1GHOST</title>
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="favicon.png">
 
     <style>
         * {
@@ -21,7 +24,7 @@
         }
 
         .navbar {
-            height: 70px;
+            min-height: 70px;
             border-bottom: 1px solid #222;
             background: #090909;
 
@@ -29,184 +32,181 @@
             align-items: center;
             justify-content: space-between;
 
-            padding: 0 35px;
+            padding: 12px 35px;
+            gap: 20px;
         }
 
         .logo {
-            color: #00ff88;
-            font-size: 22px;
-            font-weight: bold;
-            letter-spacing: 3px;
+            display: flex;
+            align-items: center;
         }
 
-        .back-btn {
-            text-decoration: none;
+        .logo img {
+            width: 150px;
+            max-height: 55px;
+            object-fit: contain;
+        }
+
+        .back {
             color: #aaa;
-
-            border: 1px solid #333;
-            padding: 9px 15px;
-            border-radius: 6px;
-
-            transition: 0.2s;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 13px;
         }
 
-        .back-btn:hover {
-            border-color: #00ff88;
+        .back:hover {
             color: #00ff88;
         }
 
         .container {
-            max-width: 1100px;
+            width: 100%;
+            max-width: 900px;
             margin: auto;
-            padding: 40px 25px;
+            padding: 50px 25px;
         }
 
-        h1 {
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
-
-        .subtitle {
-            color: #777;
-            margin-bottom: 35px;
-        }
-
-        .filters {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 25px;
-            flex-wrap: wrap;
-        }
-
-        .filter {
-            background: #0d0d0d;
-            border: 1px solid #333;
-
-            color: #aaa;
-
-            padding: 9px 16px;
-            border-radius: 6px;
-
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .filter:hover,
-        .filter.active {
-            border-color: #00ff88;
-            color: #00ff88;
-        }
-
-        .challenge-grid {
-            display: grid;
-            grid-template-columns: repeat(
-                auto-fit,
-                minmax(280px, 1fr)
-            );
-
-            gap: 18px;
-        }
-
-        .challenge-card {
-            display: block;
-
-            text-decoration: none;
-            color: white;
-
+        .challenge {
             background: #0d0d0d;
             border: 1px solid #222;
-
-            border-radius: 10px;
-            padding: 25px;
-
-            transition: 0.2s;
+            border-radius: 12px;
+            padding: 35px;
         }
 
-        .challenge-card:hover {
-            border-color: #00ff88;
-            transform: translateY(-3px);
-        }
-
-        .challenge-top {
+        .top {
             display: flex;
             justify-content: space-between;
             align-items: center;
-
-            margin-bottom: 18px;
+            gap: 15px;
+            margin-bottom: 25px;
         }
 
-        .challenge-name {
-            font-size: 20px;
-            font-weight: bold;
+        .title {
+            font-size: 30px;
         }
 
-        .difficulty {
-            font-size: 11px;
-            padding: 5px 9px;
-
+        .badge {
+            border: 1px solid #00ff88;
+            color: #00ff88;
+            padding: 7px 10px;
             border-radius: 5px;
+            font-size: 12px;
             font-weight: bold;
         }
 
-        .easy {
+        .description {
+            color: #999;
+            line-height: 1.7;
+            margin-bottom: 25px;
+        }
+
+        .message-box {
+            background: #070707;
+            border: 1px solid #222;
+            border-radius: 8px;
+            padding: 25px;
+            margin-bottom: 25px;
+        }
+
+        .message-title {
+            color: #777;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .message {
+            color: #00ff88;
+            font-family: monospace;
+            font-size: 18px;
+            word-break: break-word;
+        }
+
+        .answer-label {
+            display: block;
+            color: #aaa;
+            font-size: 13px;
+            margin-bottom: 8px;
+        }
+
+        .answer-input {
+            width: 100%;
+            padding: 13px;
+            background: #070707;
+            border: 1px solid #333;
+            border-radius: 7px;
+            color: white;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .answer-input:focus {
+            border-color: #00ff88;
+        }
+
+        .submit-btn {
+            margin-top: 15px;
+            padding: 12px 20px;
+            background: #00ff88;
+            border: none;
+            border-radius: 7px;
+            color: #050505;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .submit-btn:hover {
+            box-shadow:
+                0 0 20px rgba(0, 255, 136, 0.15);
+        }
+
+        .result {
+            margin-top: 20px;
+            padding: 14px;
+            border-radius: 7px;
+            display: none;
+            line-height: 1.5;
+        }
+
+        .success {
+            display: block;
             color: #00ff88;
             border: 1px solid #00ff88;
+            background: rgba(0, 255, 136, 0.05);
         }
 
-        .medium {
-            color: #ffd166;
-            border: 1px solid #ffd166;
-        }
-
-        .hard {
+        .error {
+            display: block;
             color: #ff6b6b;
             border: 1px solid #ff6b6b;
-        }
-
-        .challenge-description {
-            color: #888;
-
-            line-height: 1.6;
-            font-size: 14px;
-
-            margin-bottom: 20px;
+            background: rgba(255, 107, 107, 0.05);
         }
 
         .points {
             color: #00ff88;
             font-weight: bold;
-            font-size: 14px;
-        }
-
-        .coming-soon {
-            cursor: default;
-        }
-
-        .coming-soon:hover {
-            transform: none;
-            border-color: #222;
         }
 
         @media (max-width: 600px) {
 
             .navbar {
-                padding: 0 18px;
+                padding: 15px 18px;
+            }
+
+            .logo img {
+                width: 125px;
             }
 
             .container {
                 padding: 30px 18px;
             }
 
-            h1 {
-                font-size: 28px;
+            .challenge {
+                padding: 25px;
             }
 
-            .challenge-top {
-                gap: 10px;
-            }
-
-            .challenge-name {
-                font-size: 18px;
+            .top {
+                flex-direction: column;
+                align-items: flex-start;
             }
         }
     </style>
@@ -214,218 +214,484 @@
 
 <body>
 
-    <!-- Navigation -->
-    <nav class="navbar">
+<nav class="navbar">
 
-        <div class="logo">
-            0X1GHOST
+    <a href="dashboard.html" class="logo">
+        <img src="logo.png" alt="0X1GHOST Logo">
+    </a>
+
+    <a href="challenges.html" class="back">
+        ← BACK TO CHALLENGES
+    </a>
+
+</nav>
+
+
+<main class="container">
+
+    <div class="challenge">
+
+        <div class="top">
+
+            <h1 class="title" id="challengeName">
+                Loading...
+            </h1>
+
+            <div class="badge" id="challengeBadge">
+                ...
+            </div>
+
         </div>
 
-        <a href="dashboard.html" class="back-btn">
-            ← DASHBOARD
-        </a>
 
-    </nav>
-
-
-    <!-- Main Content -->
-    <main class="container">
-
-        <h1>
-            Challenges
-        </h1>
-
-        <p class="subtitle">
-            Choose a challenge and test your cryptography skills.
+        <p class="description" id="challengeDescription">
+            Loading challenge...
         </p>
 
 
-        <!-- Filters -->
-        <div class="filters">
+        <div class="message-box">
 
-            <button
-                class="filter active"
-                onclick="filterChallenges('all', this)"
-            >
-                ALL
-            </button>
-
-            <button
-                class="filter"
-                onclick="filterChallenges('easy', this)"
-            >
-                EASY
-            </button>
-
-            <button
-                class="filter"
-                onclick="filterChallenges('medium', this)"
-            >
-                MEDIUM
-            </button>
-
-            <button
-                class="filter"
-                onclick="filterChallenges('hard', this)"
-            >
-                HARD
-            </button>
-
-        </div>
-
-
-        <!-- Challenges -->
-        <div class="challenge-grid">
-
-
-            <!-- Caesar Challenge -->
-            <a
-                href="caesar.html"
-                class="challenge-card"
-                data-difficulty="easy"
-            >
-
-                <div class="challenge-top">
-
-                    <div class="challenge-name">
-                        Caesar's Secret
-                    </div>
-
-                    <div class="difficulty easy">
-                        EASY
-                    </div>
-
-                </div>
-
-
-                <div class="challenge-description">
-                    Decode a message encrypted with a classic
-                    Caesar cipher and find the hidden flag.
-                </div>
-
-
-                <div class="points">
-                    100 POINTS
-                </div>
-
-            </a>
-
-
-            <!-- Medium Challenge -->
-            <div
-                class="challenge-card coming-soon"
-                data-difficulty="medium"
-            >
-
-                <div class="challenge-top">
-
-                    <div class="challenge-name">
-                        Coming Soon
-                    </div>
-
-                    <div class="difficulty medium">
-                        MEDIUM
-                    </div>
-
-                </div>
-
-
-                <div class="challenge-description">
-                    A new cryptography challenge is currently
-                    being prepared.
-                </div>
-
-
-                <div class="points">
-                    ?? POINTS
-                </div>
-
+            <div class="message-title">
+                ENCRYPTED MESSAGE
             </div>
 
-
-            <!-- Hard Challenge -->
-            <div
-                class="challenge-card coming-soon"
-                data-difficulty="hard"
-            >
-
-                <div class="challenge-top">
-
-                    <div class="challenge-name">
-                        Coming Soon
-                    </div>
-
-                    <div class="difficulty hard">
-                        HARD
-                    </div>
-
-                </div>
-
-
-                <div class="challenge-description">
-                    A difficult cryptography challenge will
-                    appear here soon.
-                </div>
-
-
-                <div class="points">
-                    ?? POINTS
-                </div>
-
+            <div class="message" id="challengeMessage">
+                Loading...
             </div>
 
         </div>
 
-    </main>
+
+        <form id="answerForm">
+
+            <label
+                class="answer-label"
+                for="answer"
+            >
+                YOUR ANSWER
+            </label>
+
+            <input
+                id="answer"
+                class="answer-input"
+                type="text"
+                autocomplete="off"
+                placeholder="Enter your answer..."
+                required
+            >
+
+            <button
+                class="submit-btn"
+                type="submit"
+            >
+                SUBMIT ANSWER
+            </button>
+
+        </form>
 
 
-    <!-- Filter Script -->
-    <script>
+        <div
+            id="result"
+            class="result"
+        ></div>
 
-        function filterChallenges(difficulty, button) {
+    </div>
 
-            const cards =
-                document.querySelectorAll(".challenge-card");
-
-            const buttons =
-                document.querySelectorAll(".filter");
+</main>
 
 
-            // Remove active state
-            buttons.forEach(function(btn) {
-                btn.classList.remove("active");
-            });
+<script type="module">
+
+    import { createClient } from
+    "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
 
-            // Activate selected button
-            button.classList.add("active");
+    const SUPABASE_URL =
+        "https://borturaxifoxufixewya.supabase.co";
 
 
-            // Filter cards
-            cards.forEach(function(card) {
-
-                const cardDifficulty =
-                    card.dataset.difficulty;
+    const SUPABASE_KEY =
+        "sb_publishable__lZmTM96oe10-rurqgrujg__ta_C4wr";
 
 
-                if (
-                    difficulty === "all" ||
-                    cardDifficulty === difficulty
-                ) {
+    const supabase =
+        createClient(
+            SUPABASE_URL,
+            SUPABASE_KEY
+        );
 
-                    card.style.display = "block";
 
-                } else {
+    const challenges = {
 
-                    card.style.display = "none";
+        caesar: {
 
-                }
+            name: "Caesar's Secret",
 
-            });
+            difficulty: "EASY · 100 PTS",
+
+            points: 100,
+
+            description:
+                "Caesar has hidden a secret message using a classical Caesar cipher. Decode the message and submit the plaintext.",
+
+            message:
+                "FDHVDU",
+
+            answer:
+                "CAESAR"
+
+        },
+
+
+        "coming-medium": {
+
+            name: "Coming Soon",
+
+            difficulty: "MEDIUM · 200 PTS",
+
+            points: 200,
+
+            description:
+                "This challenge is currently being prepared.",
+
+            message:
+                "COMING SOON",
+
+            answer:
+                ""
+
+        },
+
+
+        "coming-medium-hard": {
+
+            name: "Coming Soon",
+
+            difficulty: "MEDIUM HARD · 300 PTS",
+
+            points: 300,
+
+            description:
+                "This challenge is currently being prepared.",
+
+            message:
+                "COMING SOON",
+
+            answer:
+                ""
+
+        },
+
+
+        "coming-hard": {
+
+            name: "Coming Soon",
+
+            difficulty: "HARD · 500 PTS",
+
+            points: 500,
+
+            description:
+                "This challenge is currently being prepared.",
+
+            message:
+                "COMING SOON",
+
+            answer:
+                ""
 
         }
 
-    </script>
+    };
+
+
+    const params =
+        new URLSearchParams(
+            window.location.search
+        );
+
+
+    const challengeId =
+        params.get("id");
+
+
+    const challenge =
+        challenges[challengeId];
+
+
+    const challengeName =
+        document.getElementById(
+            "challengeName"
+        );
+
+    const challengeBadge =
+        document.getElementById(
+            "challengeBadge"
+        );
+
+    const challengeDescription =
+        document.getElementById(
+            "challengeDescription"
+        );
+
+    const challengeMessage =
+        document.getElementById(
+            "challengeMessage"
+        );
+
+    const answerForm =
+        document.getElementById(
+            "answerForm"
+        );
+
+    const answerInput =
+        document.getElementById(
+            "answer"
+        );
+
+    const result =
+        document.getElementById(
+            "result"
+        );
+
+
+    if (!challenge) {
+
+        challengeName.textContent =
+            "Challenge Not Found";
+
+        challengeBadge.textContent =
+            "ERROR";
+
+        challengeDescription.textContent =
+            "The requested challenge does not exist.";
+
+        challengeMessage.textContent =
+            "404";
+
+        answerForm.style.display =
+            "none";
+
+    } else {
+
+        challengeName.textContent =
+            challenge.name;
+
+        challengeBadge.textContent =
+            challenge.difficulty;
+
+        challengeDescription.textContent =
+            challenge.description;
+
+        challengeMessage.textContent =
+            challenge.message;
+
+    }
+
+
+    async function getCurrentUser() {
+
+        const {
+            data: { user }
+        } = await supabase.auth.getUser();
+
+        return user;
+
+    }
+
+
+    answerForm.addEventListener(
+        "submit",
+        async function(event) {
+
+            event.preventDefault();
+
+
+            if (!challenge) return;
+
+
+            const user =
+                await getCurrentUser();
+
+
+            if (!user) {
+
+                window.location.href =
+                    "index.html";
+
+                return;
+
+            }
+
+
+            const userAnswer =
+                answerInput.value
+                    .trim()
+                    .toUpperCase();
+
+
+            if (
+                !challenge.answer ||
+                challenge.answer.length === 0
+            ) {
+
+                result.className =
+                    "result error";
+
+                result.textContent =
+                    "This challenge is not available yet.";
+
+                return;
+
+            }
+
+
+            if (
+                userAnswer ===
+                challenge.answer.toUpperCase()
+            ) {
+
+                /*
+                 * Prevent repeatedly submitting
+                 * the same challenge in this browser.
+                 */
+
+                const solvedKey =
+                    "0x1ghost_solved_" +
+                    challengeId +
+                    "_" +
+                    user.id;
+
+
+                if (
+                    localStorage.getItem(
+                        solvedKey
+                    )
+                ) {
+
+                    result.className =
+                        "result success";
+
+                    result.innerHTML =
+                        "You already solved this challenge.";
+
+                    return;
+
+                }
+
+
+                const {
+                    data: profile,
+                    error: profileError
+                } = await supabase
+                    .from("profiles")
+                    .select("score")
+                    .eq("id", user.id)
+                    .maybeSingle();
+
+
+                if (profileError) {
+
+                    console.error(
+                        profileError
+                    );
+
+                    result.className =
+                        "result error";
+
+                    result.textContent =
+                        "Correct answer, but the score could not be updated.";
+
+                    return;
+
+                }
+
+
+                if (!profile) {
+
+                    result.className =
+                        "result error";
+
+                    result.textContent =
+                        "Profile not found.";
+
+                    return;
+
+                }
+
+
+                const newScore =
+                    Number(profile.score || 0) +
+                    Number(challenge.points);
+
+
+                const {
+                    error: updateError
+                } = await supabase
+                    .from("profiles")
+                    .update({
+                        score: newScore
+                    })
+                    .eq("id", user.id);
+
+
+                if (updateError) {
+
+                    console.error(
+                        updateError
+                    );
+
+                    result.className =
+                        "result error";
+
+                    result.textContent =
+                        "Correct answer, but the score could not be updated.";
+
+                    return;
+
+                }
+
+
+                localStorage.setItem(
+                    solvedKey,
+                    "true"
+                );
+
+
+                result.className =
+                    "result success";
+
+                result.innerHTML =
+                    `
+                    Correct! 🎉
+                    You earned
+                    <span class="points">
+                        ${challenge.points} points
+                    </span>.
+                    `;
+
+
+                answerInput.disabled =
+                    true;
+
+                document.querySelector(
+                    ".submit-btn"
+                ).disabled = true;
+
+            } else {
+
+                result.className =
+                    "result error";
+
+                result.textContent =
+                    "Incorrect answer. Try again.";
+
+            }
+
+        }
+    );
+
+</script>
 
 </body>
 </html>
