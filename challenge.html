@@ -1,6 +1,9 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -10,6 +13,7 @@
     <link rel="icon" type="image/png" href="favicon.png">
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -22,6 +26,8 @@
             background: #050505;
             color: white;
         }
+
+        /* NAVBAR */
 
         .navbar {
             min-height: 70px;
@@ -57,6 +63,8 @@
         .back:hover {
             color: #00ff88;
         }
+
+        /* MAIN */
 
         .container {
             width: 100%;
@@ -99,11 +107,13 @@
             margin-bottom: 25px;
         }
 
+        /* MESSAGE */
+
         .message-box {
             background: #070707;
             border: 1px solid #222;
             border-radius: 8px;
-            padding: 25px;
+            padding: 20px;
             margin-bottom: 25px;
         }
 
@@ -114,12 +124,50 @@
             margin-bottom: 12px;
         }
 
+        .message-row {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
         .message {
             color: #00ff88;
             font-family: monospace;
             font-size: 18px;
             word-break: break-word;
+            flex: 1;
         }
+
+        /* COPY BUTTON */
+
+        .copy-btn {
+            flex-shrink: 0;
+
+            background: transparent;
+            border: 1px solid #333;
+            color: #aaa;
+
+            padding: 8px 12px;
+            border-radius: 6px;
+
+            font-size: 12px;
+            font-weight: bold;
+
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .copy-btn:hover {
+            color: #00ff88;
+            border-color: #00ff88;
+        }
+
+        .copy-btn.copied {
+            color: #00ff88;
+            border-color: #00ff88;
+        }
+
+        /* ANSWER */
 
         .answer-label {
             display: block;
@@ -131,9 +179,11 @@
         .answer-input {
             width: 100%;
             padding: 13px;
+
             background: #070707;
             border: 1px solid #333;
             border-radius: 7px;
+
             color: white;
             outline: none;
             font-size: 15px;
@@ -145,12 +195,16 @@
 
         .submit-btn {
             margin-top: 15px;
+
             padding: 12px 20px;
+
             background: #00ff88;
             border: none;
             border-radius: 7px;
+
             color: #050505;
             font-weight: bold;
+
             cursor: pointer;
         }
 
@@ -159,10 +213,19 @@
                 0 0 20px rgba(0, 255, 136, 0.15);
         }
 
+        .submit-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        /* RESULT */
+
         .result {
             margin-top: 20px;
             padding: 14px;
+
             border-radius: 7px;
+
             display: none;
             line-height: 1.5;
         }
@@ -186,6 +249,8 @@
             font-weight: bold;
         }
 
+        /* MOBILE */
+
         @media (max-width: 600px) {
 
             .navbar {
@@ -208,11 +273,27 @@
                 flex-direction: column;
                 align-items: flex-start;
             }
+
+            .message-row {
+                align-items: flex-start;
+            }
+
+            .message {
+                font-size: 16px;
+            }
+
+            .copy-btn {
+                padding: 7px 10px;
+            }
         }
+
     </style>
+
 </head>
 
+
 <body>
+
 
 <nav class="navbar">
 
@@ -230,6 +311,7 @@
 <main class="container">
 
     <div class="challenge">
+
 
         <div class="top">
 
@@ -249,18 +331,37 @@
         </p>
 
 
+        <!-- ENCRYPTED MESSAGE -->
+
         <div class="message-box">
 
             <div class="message-title">
                 ENCRYPTED MESSAGE
             </div>
 
-            <div class="message" id="challengeMessage">
-                Loading...
+            <div class="message-row">
+
+                <div
+                    class="message"
+                    id="challengeMessage"
+                >
+                    Loading...
+                </div>
+
+                <button
+                    type="button"
+                    class="copy-btn"
+                    id="copyButton"
+                >
+                    COPY
+                </button>
+
             </div>
 
         </div>
 
+
+        <!-- ANSWER FORM -->
 
         <form id="answerForm">
 
@@ -282,6 +383,7 @@
 
             <button
                 class="submit-btn"
+                id="submitButton"
                 type="submit"
             >
                 SUBMIT ANSWER
@@ -295,6 +397,7 @@
             class="result"
         ></div>
 
+
     </div>
 
 </main>
@@ -305,6 +408,8 @@
     import { createClient } from
     "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
+
+    /* SUPABASE */
 
     const SUPABASE_URL =
         "https://borturaxifoxufixewya.supabase.co";
@@ -321,35 +426,43 @@
         );
 
 
+    /* CHALLENGES */
+
     const challenges = {
 
         caesar: {
 
-            name: "Caesar's Secret",
+            name:
+                "Caesar's Secret",
 
-            difficulty: "EASY · 100 PTS",
+            difficulty:
+                "EASY · 100 PTS",
 
-            points: 100,
+            points:
+                100,
 
             description:
                 "Caesar has hidden a secret message using a classical Caesar cipher. Decode the message and submit the plaintext.",
 
             message:
-                "FDHVDU",
+                "0X1GHOST{FDHVDU}",
 
             answer:
-                "CAESAR"
+                "0X1GHOST{CAESAR}"
 
         },
 
 
         "coming-medium": {
 
-            name: "Coming Soon",
+            name:
+                "Coming Soon",
 
-            difficulty: "MEDIUM · 200 PTS",
+            difficulty:
+                "MEDIUM · 200 PTS",
 
-            points: 200,
+            points:
+                200,
 
             description:
                 "This challenge is currently being prepared.",
@@ -365,11 +478,14 @@
 
         "coming-medium-hard": {
 
-            name: "Coming Soon",
+            name:
+                "Coming Soon",
 
-            difficulty: "MEDIUM HARD · 300 PTS",
+            difficulty:
+                "MEDIUM HARD · 300 PTS",
 
-            points: 300,
+            points:
+                300,
 
             description:
                 "This challenge is currently being prepared.",
@@ -385,11 +501,14 @@
 
         "coming-hard": {
 
-            name: "Coming Soon",
+            name:
+                "Coming Soon",
 
-            difficulty: "HARD · 500 PTS",
+            difficulty:
+                "HARD · 500 PTS",
 
-            points: 500,
+            points:
+                500,
 
             description:
                 "This challenge is currently being prepared.",
@@ -405,6 +524,8 @@
     };
 
 
+    /* GET CHALLENGE ID */
+
     const params =
         new URLSearchParams(
             window.location.search
@@ -419,41 +540,63 @@
         challenges[challengeId];
 
 
+    /* ELEMENTS */
+
     const challengeName =
         document.getElementById(
             "challengeName"
         );
+
 
     const challengeBadge =
         document.getElementById(
             "challengeBadge"
         );
 
+
     const challengeDescription =
         document.getElementById(
             "challengeDescription"
         );
+
 
     const challengeMessage =
         document.getElementById(
             "challengeMessage"
         );
 
+
     const answerForm =
         document.getElementById(
             "answerForm"
         );
+
 
     const answerInput =
         document.getElementById(
             "answer"
         );
 
+
+    const submitButton =
+        document.getElementById(
+            "submitButton"
+        );
+
+
+    const copyButton =
+        document.getElementById(
+            "copyButton"
+        );
+
+
     const result =
         document.getElementById(
             "result"
         );
 
+
+    /* DISPLAY CHALLENGE */
 
     if (!challenge) {
 
@@ -470,6 +613,9 @@
             "404";
 
         answerForm.style.display =
+            "none";
+
+        copyButton.style.display =
             "none";
 
     } else {
@@ -489,6 +635,8 @@
     }
 
 
+    /* CURRENT USER */
+
     async function getCurrentUser() {
 
         const {
@@ -499,6 +647,63 @@
 
     }
 
+
+    /* COPY CIPHERTEXT */
+
+    copyButton.addEventListener(
+        "click",
+        async function() {
+
+            if (!challenge) return;
+
+            try {
+
+                await navigator.clipboard.writeText(
+                    challenge.message
+                );
+
+                copyButton.textContent =
+                    "COPIED!";
+
+                copyButton.classList.add(
+                    "copied"
+                );
+
+
+                setTimeout(
+                    function() {
+
+                        copyButton.textContent =
+                            "COPY";
+
+                        copyButton.classList.remove(
+                            "copied"
+                        );
+
+                    },
+                    1500
+                );
+
+            } catch (error) {
+
+                console.error(
+                    "Copy failed:",
+                    error
+                );
+
+                result.className =
+                    "result error";
+
+                result.textContent =
+                    "Could not copy the message.";
+
+            }
+
+        }
+    );
+
+
+    /* SUBMIT ANSWER */
 
     answerForm.addEventListener(
         "submit",
@@ -530,6 +735,8 @@
                     .toUpperCase();
 
 
+            /* CHALLENGE NOT READY */
+
             if (
                 !challenge.answer ||
                 challenge.answer.length === 0
@@ -546,14 +753,17 @@
             }
 
 
+            /* CHECK ANSWER */
+
             if (
                 userAnswer ===
                 challenge.answer.toUpperCase()
             ) {
 
+
                 /*
-                 * Prevent repeatedly submitting
-                 * the same challenge in this browser.
+                 * Prevent repeated submissions
+                 * in this browser.
                  */
 
                 const solvedKey =
@@ -580,6 +790,8 @@
                 }
 
 
+                /* GET PROFILE */
+
                 const {
                     data: profile,
                     error: profileError
@@ -593,6 +805,7 @@
                 if (profileError) {
 
                     console.error(
+                        "Profile error:",
                         profileError
                     );
 
@@ -620,10 +833,18 @@
                 }
 
 
+                /* CALCULATE SCORE */
+
+                const currentScore =
+                    Number(profile.score || 0);
+
+
                 const newScore =
-                    Number(profile.score || 0) +
+                    currentScore +
                     Number(challenge.points);
 
+
+                /* UPDATE SCORE */
 
                 const {
                     error: updateError
@@ -638,6 +859,7 @@
                 if (updateError) {
 
                     console.error(
+                        "Score update error:",
                         updateError
                     );
 
@@ -652,11 +874,15 @@
                 }
 
 
+                /* SAVE SOLVED STATUS */
+
                 localStorage.setItem(
                     solvedKey,
                     "true"
                 );
 
+
+                /* SUCCESS */
 
                 result.className =
                     "result success";
@@ -674,11 +900,14 @@
                 answerInput.disabled =
                     true;
 
-                document.querySelector(
-                    ".submit-btn"
-                ).disabled = true;
+
+                submitButton.disabled =
+                    true;
 
             } else {
+
+
+                /* WRONG ANSWER */
 
                 result.className =
                     "result error";
@@ -693,5 +922,8 @@
 
 </script>
 
+
 </body>
+
 </html>
+```
