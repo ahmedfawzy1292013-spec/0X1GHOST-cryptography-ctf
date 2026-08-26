@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -27,11 +28,9 @@
             min-height: 70px;
             border-bottom: 1px solid #222;
             background: #090909;
-
             display: flex;
             align-items: center;
             justify-content: space-between;
-
             padding: 12px 35px;
             gap: 20px;
         }
@@ -306,8 +305,8 @@
                 CHALLENGES SOLVED
             </div>
 
-            <div class="stat-value">
-                <span id="solved">0</span>
+            <div class="stat-value" id="solved">
+                0
             </div>
 
         </div>
@@ -319,8 +318,8 @@
                 RANK
             </div>
 
-            <div class="stat-value">
-                <span id="rank">-</span>
+            <div class="stat-value" id="rank">
+                -
             </div>
 
         </div>
@@ -351,7 +350,7 @@
 <script type="module">
 
     import { createClient } from
-    "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+        "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
 
     const SUPABASE_URL =
@@ -381,6 +380,12 @@
     const scoreCard =
         document.getElementById("scoreCard");
 
+    const solvedElement =
+        document.getElementById("solved");
+
+    const rankElement =
+        document.getElementById("rank");
+
     const logoutButton =
         document.getElementById("logoutButton");
 
@@ -388,11 +393,12 @@
     async function checkUser() {
 
         const {
-            data: { user }
+            data: { user },
+            error
         } = await supabase.auth.getUser();
 
 
-        if (!user) {
+        if (error || !user) {
 
             window.location.href =
                 "index.html";
@@ -405,7 +411,7 @@
     }
 
 
-    async function loadProfile() {
+    async function loadDashboard() {
 
         const user =
             await checkUser();
@@ -413,9 +419,15 @@
         if (!user) return;
 
 
+        /*
+         * ==========================================
+         * LOAD PROFILE
+         * ==========================================
+         */
+
         const {
             data: profile,
-            error
+            error: profileError
         } = await supabase
             .from("profiles")
             .select("username, score")
@@ -423,9 +435,12 @@
             .maybeSingle();
 
 
-        if (error) {
+        if (profileError) {
 
-            console.error(error);
+            console.error(
+                "Profile error:",
+                profileError
+            );
 
             return;
         }
@@ -441,19 +456,142 @@
         }
 
 
+        /*
+         * ==========================================
+         * USERNAME
+         * ==========================================
+         */
+
         usernameElement.textContent =
-            profile.username;
+            profile.username || "Player";
 
         welcomeUsername.textContent =
-            profile.username;
+            profile.username || "Player";
+
+
+        /*
+         * ==========================================
+         * SCORE
+         * ==========================================
+         */
+
+        const userScore =
+            Number(profile.score || 0);
+
 
         scoreElement.textContent =
-            profile.score;
+            userScore;
 
         scoreCard.textContent =
-            profile.score;
+            userScore;
+
+
+        /*
+         * ==========================================
+         * CHALLENGES SOLVED
+         * ==========================================
+         */
+
+        const {
+            count: solvedCount,
+            error: solvedError
+        } = await supabase
+            .from("challenge_solves")
+            .select("*", {
+                count: "exact",
+                head: true
+            })
+            .eq("user_id", user.id);
+
+
+        if (solvedError) {
+
+            console.error(
+                "Solved challenges error:",
+                solvedError
+            );
+
+            solvedElement.textContent =
+                "0";
+
+        } else {
+
+            solvedElement.textContent =
+                solvedCount || 0;
+
+        }
+
+
+        /*
+         * ==========================================
+         * CALCULATE RANK
+         * ==========================================
+         *
+         * Rank is based on score.
+         *
+         * Example:
+         *
+         * Player A = 500
+         * Player B = 300
+         * Player C = 100
+         *
+         * Player C rank = #3
+         *
+         * ==========================================
+         */
+
+        const {
+            data: players,
+            error: playersError
+        } = await supabase
+            .from("profiles")
+            .select("id, score")
+            .order("score", {
+                ascending: false
+            });
+
+
+        if (playersError) {
+
+            console.error(
+                "Rank error:",
+                playersError
+            );
+
+            rankElement.textContent =
+                "-";
+
+        } else {
+
+            const playerIndex =
+                players.findIndex(
+                    player =>
+                        player.id === user.id
+                );
+
+
+            if (playerIndex !== -1) {
+
+                rankElement.textContent =
+                    "#" + (playerIndex + 1);
+
+            } else {
+
+                rankElement.textContent =
+                    "-";
+
+            }
+
+        }
+
     }
 
+
+    /*
+     * ==========================================
+     * LOGOUT
+     * ==========================================
+     */
 
     logoutButton.addEventListener(
         "click",
@@ -478,9 +616,16 @@
     );
 
 
-    loadProfile();
+    /*
+     * ==========================================
+     * START
+     * ==========================================
+     */
+
+    loadDashboard();
 
 </script>
 
 </body>
 </html>
+
