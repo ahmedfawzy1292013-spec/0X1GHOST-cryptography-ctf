@@ -6,6 +6,9 @@
 
     <title>Dashboard | 0X1GHOST</title>
 
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="favicon.png">
+
     <style>
         * {
             margin: 0;
@@ -20,8 +23,6 @@
             color: white;
         }
 
-        /* NAVBAR */
-
         .navbar {
             min-height: 70px;
             border-bottom: 1px solid #222;
@@ -34,8 +35,6 @@
             padding: 12px 35px;
             gap: 20px;
         }
-
-        /* LOGO */
 
         .logo {
             display: flex;
@@ -86,10 +85,8 @@
             background: transparent;
             border: 1px solid #333;
             color: #aaa;
-
             padding: 9px 15px;
             border-radius: 6px;
-
             cursor: pointer;
             transition: 0.2s;
         }
@@ -99,13 +96,11 @@
             color: #ff6b6b;
         }
 
-        /* MAIN */
-
         .container {
             width: 100%;
             max-width: 1100px;
             margin: auto;
-            padding: 40px 25px;
+            padding: 55px 25px;
         }
 
         .welcome {
@@ -113,8 +108,8 @@
         }
 
         .welcome h1 {
-            font-size: 30px;
-            margin-bottom: 8px;
+            font-size: 32px;
+            margin-bottom: 10px;
         }
 
         .welcome h1 span {
@@ -123,9 +118,8 @@
 
         .welcome p {
             color: #777;
+            line-height: 1.6;
         }
-
-        /* STATS */
 
         .stats {
             display: grid;
@@ -153,121 +147,42 @@
             color: #00ff88;
         }
 
-        /* CHALLENGES */
-
-        .section-title {
-            font-size: 24px;
-            margin-bottom: 8px;
-        }
-
-        .section-subtitle {
-            color: #777;
-            margin-bottom: 25px;
-            font-size: 14px;
-        }
-
-        .difficulty-title {
-            margin: 35px 0 15px;
-            font-size: 17px;
-            color: #ccc;
-        }
-
-        .challenge-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 18px;
-        }
-
-        .challenge-card {
-            display: block;
+        .challenge-box {
             background: #0d0d0d;
             border: 1px solid #222;
-            border-radius: 10px;
-            padding: 25px;
-            text-decoration: none;
-            color: white;
-            transition: 0.2s;
-            cursor: pointer;
+            border-radius: 12px;
+            padding: 35px;
+            text-align: center;
         }
 
-        .challenge-card:hover {
-            border-color: #00ff88;
-            transform: translateY(-3px);
-            box-shadow: 0 0 25px rgba(0, 255, 136, 0.08);
+        .challenge-box h2 {
+            font-size: 26px;
+            margin-bottom: 12px;
         }
 
-        .challenge-top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 18px;
-        }
-
-        .challenge-name {
-            font-size: 19px;
-            font-weight: bold;
-        }
-
-        .difficulty {
-            border-radius: 5px;
-            padding: 5px 9px;
-            font-size: 11px;
-            font-weight: bold;
-            white-space: nowrap;
-        }
-
-        .easy {
-            color: #00ff88;
-            border: 1px solid #00ff88;
-        }
-
-        .medium {
-            color: #ffd166;
-            border: 1px solid #ffd166;
-        }
-
-        .hard {
-            color: #ff6b6b;
-            border: 1px solid #ff6b6b;
-        }
-
-        .challenge-description {
-            color: #888;
-            font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 22px;
-        }
-
-        .challenge-footer {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #00ff88;
-            font-size: 13px;
-            font-weight: bold;
-        }
-
-        .locked {
-            opacity: 0.55;
-            cursor: not-allowed;
-        }
-
-        .locked:hover {
-            border-color: #222;
-            transform: none;
-            box-shadow: none;
-        }
-
-        .coming-soon {
+        .challenge-box p {
             color: #777;
-            font-size: 12px;
+            line-height: 1.6;
+            margin-bottom: 25px;
         }
 
-        /* MOBILE */
+        .go-btn {
+            display: inline-block;
+            background: #00ff88;
+            color: #050505;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 13px 24px;
+            border-radius: 7px;
+            transition: 0.2s;
+        }
+
+        .go-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(0, 255, 136, 0.2);
+        }
 
         @media (max-width: 800px) {
-
             .navbar {
                 padding: 15px 18px;
                 flex-direction: column;
@@ -289,419 +204,283 @@
         }
 
         @media (max-width: 500px) {
-
             .container {
-                padding: 30px 18px;
+                padding: 35px 18px;
             }
 
             .welcome h1 {
-                font-size: 25px;
+                font-size: 26px;
             }
 
             .user-info {
                 display: none;
             }
 
-            .nav-right {
-                gap: 12px;
-            }
-
             .logo img {
                 width: 125px;
             }
         }
-
     </style>
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
+<nav class="navbar">
 
-    <nav class="navbar">
+    <a href="dashboard.html" class="logo">
+        <img src="logo.png" alt="0X1GHOST Logo">
+    </a>
 
-        <!-- WEBSITE LOGO -->
+    <div class="nav-right">
 
-        <a href="dashboard.html" class="logo">
-            <img src="logo.png" alt="0X1GHOST Logo">
+        <a href="dashboard.html" class="nav-link active">
+            DASHBOARD
         </a>
 
+        <a href="challenges.html" class="nav-link">
+            CHALLENGES
+        </a>
 
-        <div class="nav-right">
+        <a href="scoreboard.html" class="nav-link">
+            SCOREBOARD
+        </a>
 
-            <a href="dashboard.html" class="nav-link active">
-                CHALLENGES
-            </a>
+        <a href="rules.html" class="nav-link">
+            RULES
+        </a>
 
-            <a href="scoreboard.html" class="nav-link">
-                SCOREBOARD
-            </a>
-
-            <a href="rules.html" class="nav-link">
-                RULES
-            </a>
-
-            <div class="user-info">
-                Player:
-                <span id="username">Loading...</span>
-            </div>
-
-            <div>
-                Score:
-                <span class="score" id="score">0</span>
-            </div>
-
-            <button
-                class="logout-btn"
-                id="logoutButton"
-            >
-                LOGOUT
-            </button>
-
+        <div class="user-info">
+            Player:
+            <span id="username">Loading...</span>
         </div>
 
-    </nav>
-
-
-    <!-- MAIN -->
-
-    <main class="container">
-
-        <div class="welcome">
-
-            <h1>
-                Welcome,
-                <span id="welcomeUsername">Player</span>
-            </h1>
-
-            <p>
-                Solve cryptography challenges and climb the leaderboard.
-            </p>
-
+        <div>
+            Score:
+            <span class="score" id="score">0</span>
         </div>
 
+        <button class="logout-btn" id="logoutButton">
+            LOGOUT
+        </button>
 
-        <!-- STATS -->
+    </div>
 
-        <div class="stats">
+</nav>
 
-            <div class="stat-card">
 
-                <div class="stat-title">
-                    SCORE
-                </div>
+<main class="container">
 
-                <div class="stat-value" id="scoreCard">
-                    0
-                </div>
+    <div class="welcome">
 
+        <h1>
+            Welcome,
+            <span id="welcomeUsername">Player</span>
+        </h1>
+
+        <p>
+            Welcome to 0X1GHOST. Choose a challenge,
+            solve it, and climb the leaderboard.
+        </p>
+
+    </div>
+
+
+    <div class="stats">
+
+        <div class="stat-card">
+
+            <div class="stat-title">
+                SCORE
             </div>
 
-
-            <div class="stat-card">
-
-                <div class="stat-title">
-                    CHALLENGES SOLVED
-                </div>
-
-                <div class="stat-value" id="solved">
-                    0
-                </div>
-
-            </div>
-
-
-            <div class="stat-card">
-
-                <div class="stat-title">
-                    RANK
-                </div>
-
-                <div class="stat-value" id="rank">
-                    -
-                </div>
-
+            <div class="stat-value" id="scoreCard">
+                0
             </div>
 
         </div>
 
 
-        <!-- CHALLENGES -->
+        <div class="stat-card">
 
-        <div class="section-title">
-            Available Challenges
-        </div>
+            <div class="stat-title">
+                CHALLENGES SOLVED
+            </div>
 
-        <div class="section-subtitle">
-            Choose a challenge and solve it to earn points.
-        </div>
-
-
-        <!-- EASY -->
-
-        <div class="difficulty-title">
-            🟢 EASY
-        </div>
-
-        <div class="challenge-grid">
-
-            <a
-                href="challenge.html?id=caesar"
-                class="challenge-card"
-            >
-
-                <div class="challenge-top">
-
-                    <div class="challenge-name">
-                        Caesar's Secret
-                    </div>
-
-                    <div class="difficulty easy">
-                        EASY · 100 PTS
-                    </div>
-
-                </div>
-
-                <div class="challenge-description">
-                    Caesar has hidden a secret message using a
-                    classical Caesar cipher. Can you decode it?
-                </div>
-
-                <div class="challenge-footer">
-                    <span>OPEN CHALLENGE</span>
-                    <span>→</span>
-                </div>
-
-            </a>
-
-        </div>
-
-
-        <!-- MEDIUM -->
-
-        <div class="difficulty-title">
-            🟡 MEDIUM
-        </div>
-
-        <div class="challenge-grid">
-
-            <div class="challenge-card locked">
-
-                <div class="challenge-top">
-
-                    <div class="challenge-name">
-                        Coming Soon
-                    </div>
-
-                    <div class="difficulty medium">
-                        MEDIUM
-                    </div>
-
-                </div>
-
-                <div class="challenge-description">
-                    A more difficult cryptography challenge
-                    is being prepared.
-                </div>
-
-                <div class="coming-soon">
-                    COMING SOON
-                </div>
-
+            <div class="stat-value">
+                <span id="solved">0</span>
             </div>
 
         </div>
 
 
-        <!-- HARD -->
+        <div class="stat-card">
 
-        <div class="difficulty-title">
-            🔴 HARD
-        </div>
+            <div class="stat-title">
+                RANK
+            </div>
 
-        <div class="challenge-grid">
-
-            <div class="challenge-card locked">
-
-                <div class="challenge-top">
-
-                    <div class="challenge-name">
-                        Coming Soon
-                    </div>
-
-                    <div class="difficulty hard">
-                        HARD
-                    </div>
-
-                </div>
-
-                <div class="challenge-description">
-                    The hardest cryptography challenges
-                    will appear here.
-                </div>
-
-                <div class="coming-soon">
-                    COMING SOON
-                </div>
-
+            <div class="stat-value">
+                <span id="rank">-</span>
             </div>
 
         </div>
 
-    </main>
+    </div>
 
 
-    <script type="module">
+    <div class="challenge-box">
 
-        import { createClient } from
-        "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+        <h2>
+            Ready for a challenge?
+        </h2>
 
+        <p>
+            Choose your difficulty level and select
+            the cryptography challenge you want to solve.
+        </p>
 
-        const SUPABASE_URL =
-            "https://borturaxifoxufixewya.supabase.co";
+        <a href="challenges.html" class="go-btn">
+            GO TO CHALLENGE →
+        </a>
 
+    </div>
 
-        const SUPABASE_KEY =
-            "sb_publishable__lZmTM96oe10-rurqgrujg__ta_C4wr";
-
-
-        const supabase =
-            createClient(
-                SUPABASE_URL,
-                SUPABASE_KEY
-            );
-
-
-        const usernameElement =
-            document.getElementById("username");
-
-        const welcomeUsername =
-            document.getElementById("welcomeUsername");
-
-        const scoreElement =
-            document.getElementById("score");
-
-        const scoreCard =
-            document.getElementById("scoreCard");
-
-        const solvedElement =
-            document.getElementById("solved");
-
-        const rankElement =
-            document.getElementById("rank");
-
-        const logoutButton =
-            document.getElementById("logoutButton");
+</main>
 
 
-        /* CHECK LOGIN */
+<script type="module">
 
-        async function checkUser() {
-
-            const {
-                data: { user }
-            } = await supabase.auth.getUser();
+    import { createClient } from
+    "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
 
-            if (!user) {
-
-                window.location.href = "index.html";
-
-                return null;
-            }
+    const SUPABASE_URL =
+        "https://borturaxifoxufixewya.supabase.co";
 
 
-            return user;
+    const SUPABASE_KEY =
+        "sb_publishable__lZmTM96oe10-rurqgrujg__ta_C4wr";
+
+
+    const supabase =
+        createClient(
+            SUPABASE_URL,
+            SUPABASE_KEY
+        );
+
+
+    const usernameElement =
+        document.getElementById("username");
+
+    const welcomeUsername =
+        document.getElementById("welcomeUsername");
+
+    const scoreElement =
+        document.getElementById("score");
+
+    const scoreCard =
+        document.getElementById("scoreCard");
+
+    const logoutButton =
+        document.getElementById("logoutButton");
+
+
+    async function checkUser() {
+
+        const {
+            data: { user }
+        } = await supabase.auth.getUser();
+
+
+        if (!user) {
+
+            window.location.href =
+                "index.html";
+
+            return null;
         }
 
 
-        /* LOAD PROFILE */
-
-        async function loadProfile() {
-
-            const user = await checkUser();
-
-            if (!user) return;
+        return user;
+    }
 
 
-            const {
-                data: profile,
-                error
-            } = await supabase
-                .from("profiles")
-                .select("username, score")
-                .eq("id", user.id)
-                .maybeSingle();
+    async function loadProfile() {
+
+        const user =
+            await checkUser();
+
+        if (!user) return;
+
+
+        const {
+            data: profile,
+            error
+        } = await supabase
+            .from("profiles")
+            .select("username, score")
+            .eq("id", user.id)
+            .maybeSingle();
+
+
+        if (error) {
+
+            console.error(error);
+
+            return;
+        }
+
+
+        if (!profile) {
+
+            console.error(
+                "Profile not found."
+            );
+
+            return;
+        }
+
+
+        usernameElement.textContent =
+            profile.username;
+
+        welcomeUsername.textContent =
+            profile.username;
+
+        scoreElement.textContent =
+            profile.score;
+
+        scoreCard.textContent =
+            profile.score;
+    }
+
+
+    logoutButton.addEventListener(
+        "click",
+        async function() {
+
+            const { error } =
+                await supabase.auth.signOut();
 
 
             if (error) {
 
                 console.error(error);
+
                 return;
             }
 
 
-            if (!profile) {
-
-                console.error("Profile not found.");
-                return;
-            }
-
-
-            usernameElement.textContent =
-                profile.username;
-
-            welcomeUsername.textContent =
-                profile.username;
-
-            scoreElement.textContent =
-                profile.score;
-
-            scoreCard.textContent =
-                profile.score;
-
-
-            /*
-             * Temporary values.
-             * Next we will connect solved challenges
-             * and calculate the real rank.
-             */
-
-            solvedElement.textContent = "0";
-            rankElement.textContent = "-";
+            window.location.href =
+                "index.html";
 
         }
+    );
 
 
-        /* LOGOUT */
+    loadProfile();
 
-        logoutButton.addEventListener(
-            "click",
-            async function() {
-
-                const { error } =
-                    await supabase.auth.signOut();
-
-
-                if (error) {
-
-                    console.error(error);
-                    return;
-                }
-
-
-                window.location.href =
-                    "index.html";
-
-            }
-        );
-
-
-        /* START */
-
-        loadProfile();
-
-    </script>
+</script>
 
 </body>
 </html>
