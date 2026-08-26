@@ -20,6 +20,10 @@
             color: white;
         }
 
+        /* =========================
+           NAVBAR
+        ========================= */
+
         .navbar {
             height: 70px;
             border-bottom: 1px solid #222;
@@ -30,12 +34,31 @@
             padding: 0 35px;
         }
 
-        .logo {
+        /* Website Logo */
+
+        .site-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
             color: #00ff88;
             font-size: 22px;
             font-weight: bold;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
         }
+
+        .site-logo img {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+            display: block;
+        }
+
+        .site-logo:hover {
+            color: #00ff88;
+        }
+
+        /* Back Button */
 
         .back-btn {
             text-decoration: none;
@@ -50,6 +73,10 @@
             color: #00ff88;
             border-color: #00ff88;
         }
+
+        /* =========================
+           MAIN CONTAINER
+        ========================= */
 
         .container {
             width: 100%;
@@ -67,6 +94,10 @@
             color: #777;
             margin-bottom: 35px;
         }
+
+        /* =========================
+           SCOREBOARD
+        ========================= */
 
         .board {
             background: #0d0d0d;
@@ -130,10 +161,23 @@
             color: #777;
         }
 
+        /* =========================
+           MOBILE
+        ========================= */
+
         @media (max-width: 600px) {
 
             .navbar {
                 padding: 0 18px;
+            }
+
+            .site-logo {
+                font-size: 18px;
+            }
+
+            .site-logo img {
+                width: 36px;
+                height: 36px;
             }
 
             .container {
@@ -155,18 +199,38 @@
 
 <body>
 
+    <!-- =========================
+         NAVBAR
+    ========================= -->
+
     <nav class="navbar">
 
-        <div class="logo">
-            0X1GHOST
-        </div>
+        <a href="index.html" class="site-logo">
 
-        <a href="dashboard.html" class="back-btn">
+            <img
+                src="logo.png"
+                alt="0X1GHOST Logo"
+            >
+
+            <span>
+                0X1GHOST
+            </span>
+
+        </a>
+
+        <a
+            href="dashboard.html"
+            class="back-btn"
+        >
             ← DASHBOARD
         </a>
 
     </nav>
 
+
+    <!-- =========================
+         MAIN
+    ========================= -->
 
     <main class="container">
 
@@ -179,13 +243,21 @@
         </p>
 
 
+        <!-- =========================
+             SCOREBOARD TABLE
+        ========================= -->
+
         <div class="board">
 
             <div class="table-header">
 
-                <div>RANK</div>
+                <div>
+                    RANK
+                </div>
 
-                <div>PLAYER</div>
+                <div>
+                    PLAYER
+                </div>
 
                 <div style="text-align: right;">
                     SCORE
@@ -207,9 +279,15 @@
     </main>
 
 
+    <!-- =========================
+         SUPABASE
+    ========================= -->
+
     <script type="module">
 
-        import { createClient } from
+        import {
+            createClient
+        } from
         "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
 
@@ -259,7 +337,10 @@
             }
 
 
-            if (!players || players.length === 0) {
+            if (
+                !players ||
+                players.length === 0
+            ) {
 
                 playersElement.innerHTML = `
                     <div class="empty">
