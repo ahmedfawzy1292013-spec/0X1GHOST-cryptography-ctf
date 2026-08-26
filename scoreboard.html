@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Scoreboard | 0X1GHOST</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #050505;
+            color: white;
+        }
+
+        .navbar {
+            height: 70px;
+            border-bottom: 1px solid #222;
+            background: #090909;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 35px;
+        }
+
+        .logo {
+            color: #00ff88;
+            font-size: 22px;
+            font-weight: bold;
+            letter-spacing: 3px;
+        }
+
+        .back-btn {
+            text-decoration: none;
+            color: #aaa;
+            border: 1px solid #333;
+            padding: 9px 15px;
+            border-radius: 6px;
+            transition: 0.2s;
+        }
+
+        .back-btn:hover {
+            color: #00ff88;
+            border-color: #00ff88;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 950px;
+            margin: auto;
+            padding: 45px 25px;
+        }
+
+        .title {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #777;
+            margin-bottom: 35px;
+        }
+
+        .board {
+            background: #0d0d0d;
+            border: 1px solid #222;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .table-header,
+        .player-row {
+            display: grid;
+            grid-template-columns: 100px 1fr 150px;
+            align-items: center;
+            padding: 18px 25px;
+        }
+
+        .table-header {
+            background: #090909;
+            border-bottom: 1px solid #222;
+            color: #777;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .player-row {
+            border-bottom: 1px solid #1d1d1d;
+            transition: 0.2s;
+        }
+
+        .player-row:last-child {
+            border-bottom: none;
+        }
+
+        .player-row:hover {
+            background: #111;
+        }
+
+        .rank {
+            color: #aaa;
+            font-weight: bold;
+        }
+
+        .rank.top {
+            color: #00ff88;
+        }
+
+        .player-name {
+            font-weight: bold;
+        }
+
+        .player-score {
+            color: #00ff88;
+            font-weight: bold;
+            text-align: right;
+        }
+
+        .loading,
+        .empty {
+            padding: 35px;
+            text-align: center;
+            color: #777;
+        }
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                padding: 0 18px;
+            }
+
+            .container {
+                padding: 30px 18px;
+            }
+
+            .table-header,
+            .player-row {
+                grid-template-columns: 60px 1fr 90px;
+                padding: 16px;
+            }
+
+            .title {
+                font-size: 27px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            0X1GHOST
+        </div>
+
+        <a href="dashboard.html" class="back-btn">
+            ← DASHBOARD
+        </a>
+
+    </nav>
+
+
+    <main class="container">
+
+        <h1 class="title">
+            Scoreboard
+        </h1>
+
+        <p class="subtitle">
+            The best cryptography players on 0X1GHOST.
+        </p>
+
+
+        <div class="board">
+
+            <div class="table-header">
+
+                <div>RANK</div>
+
+                <div>PLAYER</div>
+
+                <div style="text-align: right;">
+                    SCORE
+                </div>
+
+            </div>
+
+
+            <div id="players">
+
+                <div class="loading">
+                    Loading players...
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <script type="module">
+
+        import { createClient } from
+        "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+
+
+        const SUPABASE_URL =
+            "https://borturaxifoxufixewya.supabase.co";
+
+
+        const SUPABASE_KEY =
+            "sb_publishable__lZmTM96oe10-rurqgrujg__ta_C4wr";
+
+
+        const supabase =
+            createClient(
+                SUPABASE_URL,
+                SUPABASE_KEY
+            );
+
+
+        const playersElement =
+            document.getElementById("players");
+
+
+        async function loadScoreboard() {
+
+            const {
+                data: players,
+                error
+            } = await supabase
+                .from("profiles")
+                .select("username, score")
+                .order("score", {
+                    ascending: false
+                });
+
+
+            if (error) {
+
+                console.error(error);
+
+                playersElement.innerHTML = `
+                    <div class="empty">
+                        Could not load the scoreboard.
+                    </div>
+                `;
+
+                return;
+            }
+
+
+            if (!players || players.length === 0) {
+
+                playersElement.innerHTML = `
+                    <div class="empty">
+                        No players yet.
+                    </div>
+                `;
+
+                return;
+            }
+
+
+            playersElement.innerHTML = "";
+
+
+            players.forEach(
+                function(player, index) {
+
+                    const rank =
+                        index + 1;
+
+
+                    const row =
+                        document.createElement("div");
+
+
+                    row.className =
+                        "player-row";
+
+
+                    row.innerHTML = `
+
+                        <div class="
+                            rank
+                            ${rank <= 3 ? "top" : ""}
+                        ">
+                            #${rank}
+                        </div>
+
+                        <div class="player-name">
+                            ${player.username}
+                        </div>
+
+                        <div class="player-score">
+                            ${player.score}
+                        </div>
+
+                    `;
+
+
+                    playersElement.appendChild(row);
+
+                }
+            );
+
+        }
+
+
+        loadScoreboard();
+
+    </script>
+
+</body>
+</html>
