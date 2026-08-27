@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -107,6 +108,7 @@
 
         .difficulty-grid {
             display: grid;
+
             grid-template-columns:
                 repeat(auto-fit, minmax(220px, 1fr));
 
@@ -194,6 +196,7 @@
 
             background: #0d0d0d;
             border: 1px solid #222;
+
             border-radius: 10px;
             padding: 25px;
 
@@ -220,11 +223,6 @@
         }
 
 
-        .challenge-card.solved:hover {
-            border-color: #00ff88;
-        }
-
-
         .challenge-card h3 {
             font-size: 19px;
             margin-bottom: 12px;
@@ -240,7 +238,6 @@
 
         .challenge-points {
             display: inline-block;
-
             margin-top: 20px;
 
             color: #00ff88;
@@ -277,14 +274,13 @@
             padding: 30px;
             text-align: center;
             color: #777;
+
             border: 1px solid #222;
             border-radius: 10px;
         }
 
 
-        @media (
-            max-width: 700px
-        ) {
+        @media (max-width: 700px) {
 
             .navbar {
                 flex-direction: column;
@@ -304,6 +300,7 @@
         }
 
     </style>
+
 </head>
 
 <body>
@@ -378,10 +375,7 @@
             class="difficulty-card easy"
             data-level="easy"
         >
-
-            <h2>
-                🟢 EASY
-            </h2>
+            <h2>🟢 EASY</h2>
 
             <p>
                 Beginner-friendly cryptography challenges.
@@ -390,7 +384,6 @@
             <div class="points">
                 100 POINTS
             </div>
-
         </div>
 
 
@@ -398,10 +391,7 @@
             class="difficulty-card medium"
             data-level="medium"
         >
-
-            <h2>
-                🟡 MEDIUM
-            </h2>
+            <h2>🟡 MEDIUM</h2>
 
             <p>
                 Challenges that require more cryptographic thinking.
@@ -410,7 +400,6 @@
             <div class="points">
                 200 POINTS
             </div>
-
         </div>
 
 
@@ -418,10 +407,7 @@
             class="difficulty-card medium-hard"
             data-level="medium-hard"
         >
-
-            <h2>
-                🟠 MEDIUM HARD
-            </h2>
+            <h2>🟠 MEDIUM HARD</h2>
 
             <p>
                 More complex challenges for experienced players.
@@ -430,7 +416,6 @@
             <div class="points">
                 300 POINTS
             </div>
-
         </div>
 
 
@@ -438,10 +423,7 @@
             class="difficulty-card hard"
             data-level="hard"
         >
-
-            <h2>
-                🔴 HARD
-            </h2>
+            <h2>🔴 HARD</h2>
 
             <p>
                 The most difficult cryptography challenges.
@@ -450,7 +432,6 @@
             <div class="points">
                 500 POINTS
             </div>
-
         </div>
 
     </div>
@@ -468,11 +449,9 @@
         class="challenge-grid"
         id="challengeList"
     >
-
         <div class="empty">
             Choose a difficulty above.
         </div>
-
     </div>
 
 </main>
@@ -507,7 +486,9 @@
 
             {
                 id: "caesar",
-                name: "Caesar's Secret",
+
+                name:
+                    "Caesar's Secret",
 
                 description:
                     "Decode a secret message protected by a classical Caesar cipher.",
@@ -518,7 +499,9 @@
 
             {
                 id: "rot13",
-                name: "What type this rot?",
+
+                name:
+                    "What type this rot?",
 
                 description:
                     "A mysterious message has been encrypted using a famous rotation cipher. Can you identify it and recover the flag?",
@@ -529,7 +512,9 @@
 
             {
                 id: "binary",
-                name: "Binary Secret",
+
+                name:
+                    "Binary Secret",
 
                 description:
                     "A secret flag has been converted into binary. Can you decode it?",
@@ -540,7 +525,9 @@
 
             {
                 id: "base64",
-                name: "What is this?",
+
+                name:
+                    "What is this?",
 
                 description:
                     "We've found this suspicious encryption. Can you crack it?",
@@ -551,7 +538,9 @@
 
             {
                 id: "vigenere",
-                name: "The secret key",
+
+                name:
+                    "The secret key",
 
                 description:
                     "A secret message was encrypted with a classical Vigenere cipher. Find the key and recover the flag.",
@@ -562,7 +551,9 @@
 
             {
                 id: "many-layers",
-                name: "Many layers of encryption",
+
+                name:
+                    "Many layers of encryption",
 
                 description:
                     "I obtained this encryption. Can you decrypt it?",
@@ -573,10 +564,12 @@
 
             {
                 id: "secret-encryption",
-                name: "secret encryption",
+
+                name:
+                    "secret encryption",
 
                 description:
-                    "A secret message was encrypted using a substitution cipher. Can you recover the original flag?",
+                    "Decrypt the secret message using a substitution cipher.",
 
                 points: 100
             },
@@ -584,10 +577,12 @@
 
             {
                 id: "xor-repeating",
-                name: "XOR Repeating Key",
+
+                name:
+                    "XOR Repeating Key",
 
                 description:
-                    "A message was encrypted using XOR with a known repeating key. Can you decrypt it and recover the flag?",
+                    "Decrypt the ciphertext using the known repeating XOR key.",
 
                 points: 100
             }
@@ -599,7 +594,9 @@
 
             {
                 id: "coming-medium",
-                name: "Coming Soon",
+
+                name:
+                    "Coming Soon",
 
                 description:
                     "A medium-level cryptography challenge is being prepared.",
@@ -614,7 +611,9 @@
 
             {
                 id: "coming-medium-hard",
-                name: "Coming Soon",
+
+                name:
+                    "Coming Soon",
 
                 description:
                     "A more challenging cryptography problem is coming soon.",
@@ -629,7 +628,9 @@
 
             {
                 id: "coming-hard",
-                name: "Coming Soon",
+
+                name:
+                    "Coming Soon",
 
                 description:
                     "The hardest challenges will appear here.",
@@ -716,42 +717,40 @@
     }
 
 
-    cards.forEach(
-        card => {
+    cards.forEach(card => {
 
-            card.addEventListener(
-                "click",
-                async function() {
+        card.addEventListener(
+            "click",
+            async function() {
 
-                    cards.forEach(
-                        c =>
-                        c.classList.remove(
-                            "active"
-                        )
-                    );
-
-
-                    card.classList.add(
+                cards.forEach(
+                    c =>
+                    c.classList.remove(
                         "active"
-                    );
+                    )
+                );
 
 
-                    const level =
-                        card.dataset.level;
+                card.classList.add(
+                    "active"
+                );
 
 
-                    await loadSolvedChallenges();
+                const level =
+                    card.dataset.level;
 
 
-                    showChallenges(
-                        level
-                    );
+                await loadSolvedChallenges();
 
-                }
-            );
 
-        }
-    );
+                showChallenges(
+                    level
+                );
+
+            }
+        );
+
+    });
 
 
     function showChallenges(level) {
@@ -816,11 +815,15 @@
                     }
 
                     <h3>
-                        ${challenge.name}
+                        ${escapeHTML(
+                            challenge.name
+                        )}
                     </h3>
 
                     <p>
-                        ${challenge.description}
+                        ${escapeHTML(
+                            challenge.description
+                        )}
                     </p>
 
                     <span class="challenge-points">
@@ -841,6 +844,38 @@
 
             }
         );
+
+    }
+
+
+    function escapeHTML(value) {
+
+        return String(value)
+
+            .replaceAll(
+                "&",
+                "&amp;"
+            )
+
+            .replaceAll(
+                "<",
+                "&lt;"
+            )
+
+            .replaceAll(
+                ">",
+                "&gt;"
+            )
+
+            .replaceAll(
+                '"',
+                "&quot;"
+            )
+
+            .replaceAll(
+                "'",
+                "&#039;"
+            );
 
     }
 
