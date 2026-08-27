@@ -29,13 +29,11 @@
                 sans-serif;
         }
 
-
         body {
             min-height: 100vh;
             background: #050505;
             color: white;
         }
-
 
         .navbar {
             min-height: 70px;
@@ -50,12 +48,10 @@
             gap: 20px;
         }
 
-
         .logo {
             display: flex;
             align-items: center;
         }
-
 
         .logo img {
             display: block;
@@ -64,13 +60,11 @@
             object-fit: contain;
         }
 
-
         .nav-right {
             display: flex;
             align-items: center;
             gap: 18px;
         }
-
 
         .nav-link {
             color: #aaa;
@@ -79,12 +73,10 @@
             font-weight: bold;
         }
 
-
         .nav-link:hover,
         .nav-link.active {
             color: #00ff88;
         }
-
 
         .container {
             width: 100%;
@@ -93,29 +85,23 @@
             padding: 50px 25px;
         }
 
-
         .title {
             font-size: 32px;
             margin-bottom: 10px;
         }
-
 
         .subtitle {
             color: #777;
             margin-bottom: 35px;
         }
 
-
         .difficulty-grid {
             display: grid;
-
             grid-template-columns:
                 repeat(auto-fit, minmax(220px, 1fr));
-
             gap: 18px;
             margin-bottom: 40px;
         }
-
 
         .difficulty-card {
             background: #0d0d0d;
@@ -126,25 +112,20 @@
             transition: 0.2s;
         }
 
-
         .difficulty-card:hover {
             transform: translateY(-3px);
         }
 
-
         .difficulty-card.active {
             border-color: #00ff88;
-
             box-shadow:
                 0 0 25px
                 rgba(0, 255, 136, 0.08);
         }
 
-
         .difficulty-card h2 {
             margin-bottom: 10px;
         }
-
 
         .difficulty-card p {
             color: #777;
@@ -152,82 +133,63 @@
             line-height: 1.5;
         }
 
-
         .points {
             margin-top: 18px;
             color: #00ff88;
             font-weight: bold;
         }
 
-
         .medium .points {
             color: #ffd166;
         }
-
 
         .medium-hard .points {
             color: #ff9f43;
         }
 
-
         .hard .points {
             color: #ff6b6b;
         }
-
 
         .section-title {
             font-size: 24px;
             margin-bottom: 20px;
         }
 
-
         .challenge-grid {
             display: grid;
-
             grid-template-columns:
                 repeat(auto-fit, minmax(280px, 1fr));
-
             gap: 18px;
         }
 
-
         .challenge-card {
             position: relative;
-
             background: #0d0d0d;
             border: 1px solid #222;
-
             border-radius: 10px;
             padding: 25px;
-
             text-decoration: none;
             color: white;
-
             transition: 0.2s;
         }
 
-
         .challenge-card:hover {
             border-color: #00ff88;
-
             transform: translateY(-3px);
-
             box-shadow:
                 0 0 25px
                 rgba(0, 255, 136, 0.08);
         }
 
-
         .challenge-card.solved {
             border-color: #00ff88;
         }
-
 
         .challenge-card h3 {
             font-size: 19px;
             margin-bottom: 12px;
         }
-
 
         .challenge-card p {
             color: #888;
@@ -235,21 +197,16 @@
             font-size: 14px;
         }
 
-
         .challenge-points {
             display: inline-block;
             margin-top: 20px;
-
             color: #00ff88;
-
             font-size: 13px;
             font-weight: bold;
         }
 
-
         .solved-badge {
             position: absolute;
-
             top: 18px;
             right: 18px;
 
@@ -262,23 +219,19 @@
             color: #00ff88;
 
             padding: 6px 10px;
-
             border-radius: 20px;
 
             font-size: 11px;
             font-weight: bold;
         }
 
-
         .empty {
             padding: 30px;
             text-align: center;
             color: #777;
-
             border: 1px solid #222;
             border-radius: 10px;
         }
-
 
         @media (max-width: 700px) {
 
@@ -287,11 +240,9 @@
                 align-items: flex-start;
             }
 
-
             .nav-right {
                 flex-wrap: wrap;
             }
-
 
             .logo img {
                 width: 135px;
@@ -300,11 +251,9 @@
         }
 
     </style>
-
 </head>
 
 <body>
-
 
 <nav class="navbar">
 
@@ -318,7 +267,6 @@
         >
     </a>
 
-
     <div class="nav-right">
 
         <a
@@ -328,7 +276,6 @@
             DASHBOARD
         </a>
 
-
         <a
             href="challenges.html"
             class="nav-link active"
@@ -336,14 +283,12 @@
             CHALLENGES
         </a>
 
-
         <a
             href="scoreboard.html"
             class="nav-link"
         >
             SCOREBOARD
         </a>
-
 
         <a
             href="rules.html"
@@ -356,13 +301,11 @@
 
 </nav>
 
-
 <main class="container">
 
     <h1 class="title">
         Challenges
     </h1>
-
 
     <p class="subtitle">
         Choose a difficulty level to see its challenges.
@@ -486,104 +429,65 @@
 
             {
                 id: "caesar",
-
-                name:
-                    "Caesar's Secret",
-
+                name: "Caesar's Secret",
                 description:
                     "Decode a secret message protected by a classical Caesar cipher.",
-
                 points: 100
             },
-
 
             {
                 id: "rot13",
-
-                name:
-                    "What type this rot?",
-
+                name: "What type this rot?",
                 description:
                     "A mysterious message has been encrypted using a famous rotation cipher. Can you identify it and recover the flag?",
-
                 points: 100
             },
-
 
             {
                 id: "binary",
-
-                name:
-                    "Binary Secret",
-
+                name: "Binary Secret",
                 description:
                     "A secret flag has been converted into binary. Can you decode it?",
-
                 points: 100
             },
-
 
             {
                 id: "base64",
-
-                name:
-                    "What is this?",
-
+                name: "What is this?",
                 description:
                     "We've found this suspicious encryption. Can you crack it?",
-
                 points: 100
             },
-
 
             {
                 id: "vigenere",
-
-                name:
-                    "The secret key",
-
+                name: "The secret key",
                 description:
                     "A secret message was encrypted with a classical Vigenere cipher. Find the key and recover the flag.",
-
                 points: 100
             },
-
 
             {
                 id: "many-layers",
-
-                name:
-                    "Many layers of encryption",
-
+                name: "Many layers of encryption",
                 description:
                     "I obtained this encryption. Can you decrypt it?",
-
                 points: 100
             },
-
 
             {
                 id: "secret-encryption",
-
-                name:
-                    "secret encryption",
-
+                name: "secret encryption",
                 description:
                     "Decrypt the secret message using a substitution cipher.",
-
                 points: 100
             },
 
-
             {
-                id: "xor-repeating",
-
-                name:
-                    "XOR Repeating Key",
-
+                id: "xor-repeating-key",
+                name: "XOR Repeating Key",
                 description:
-                    "Decrypt the ciphertext using the known repeating XOR key.",
-
+                    "A message was encrypted using XOR with a known repeating key. Can you decrypt it and recover the flag?",
                 points: 100
             }
 
@@ -594,13 +498,9 @@
 
             {
                 id: "coming-medium",
-
-                name:
-                    "Coming Soon",
-
+                name: "Coming Soon",
                 description:
                     "A medium-level cryptography challenge is being prepared.",
-
                 points: 200
             }
 
@@ -611,13 +511,9 @@
 
             {
                 id: "coming-medium-hard",
-
-                name:
-                    "Coming Soon",
-
+                name: "Coming Soon",
                 description:
                     "A more challenging cryptography problem is coming soon.",
-
                 points: 300
             }
 
@@ -628,13 +524,9 @@
 
             {
                 id: "coming-hard",
-
-                name:
-                    "Coming Soon",
-
+                name: "Coming Soon",
                 description:
                     "The hardest challenges will appear here.",
-
                 points: 500
             }
 
@@ -676,7 +568,6 @@
         if (!user) {
 
             solvedChallenges = [];
-
             return;
 
         }
@@ -701,9 +592,7 @@
                 error
             );
 
-
             solvedChallenges = [];
-
             return;
 
         }
@@ -815,15 +704,11 @@
                     }
 
                     <h3>
-                        ${escapeHTML(
-                            challenge.name
-                        )}
+                        ${escapeHTML(challenge.name)}
                     </h3>
 
                     <p>
-                        ${escapeHTML(
-                            challenge.description
-                        )}
+                        ${escapeHTML(challenge.description)}
                     </p>
 
                     <span class="challenge-points">
