@@ -10,7 +10,9 @@
         content="width=device-width, initial-scale=1.0"
     >
 
-    <title>Challenge | 0X1GHOST</title>
+    <title>
+        Challenge | 0X1GHOST
+    </title>
 
     <link
         rel="icon"
@@ -36,6 +38,7 @@
             min-height: 100vh;
 
             background: #050505;
+
             color: white;
         }
 
@@ -43,15 +46,19 @@
         .navbar {
             min-height: 70px;
 
-            border-bottom: 1px solid #222;
+            border-bottom:
+                1px solid #222;
 
             background: #090909;
 
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
 
-            padding: 12px 35px;
+            padding:
+                12px 35px;
 
             gap: 20px;
         }
@@ -59,6 +66,7 @@
 
         .logo {
             display: flex;
+
             align-items: center;
         }
 
@@ -67,6 +75,7 @@
             display: block;
 
             width: 150px;
+
             max-height: 55px;
 
             object-fit: contain;
@@ -78,9 +87,11 @@
 
             color: #aaa;
 
-            border: 1px solid #333;
+            border:
+                1px solid #333;
 
-            padding: 9px 15px;
+            padding:
+                9px 15px;
 
             border-radius: 6px;
 
@@ -90,24 +101,28 @@
 
         .back-btn:hover {
             color: #00ff88;
+
             border-color: #00ff88;
         }
 
 
         .container {
             width: 100%;
+
             max-width: 950px;
 
             margin: auto;
 
-            padding: 50px 25px;
+            padding:
+                50px 25px;
         }
 
 
         .challenge-box {
             background: #0d0d0d;
 
-            border: 1px solid #222;
+            border:
+                1px solid #222;
 
             border-radius: 12px;
 
@@ -119,6 +134,7 @@
             color: #00ff88;
 
             font-size: 12px;
+
             font-weight: bold;
 
             letter-spacing: 2px;
@@ -140,8 +156,6 @@
             line-height: 1.7;
 
             margin-bottom: 30px;
-
-            white-space: pre-line;
         }
 
 
@@ -156,14 +170,11 @@
         }
 
 
-        /* =========================================
-           ENCRYPTED MESSAGE + COPY BUTTON
-        ========================================= */
-
         .encrypted-header {
             display: flex;
 
             align-items: center;
+
             justify-content: space-between;
 
             gap: 15px;
@@ -172,7 +183,8 @@
         }
 
 
-        .encrypted-header .section-title {
+        .encrypted-header
+        .section-title {
             margin-bottom: 0;
         }
 
@@ -182,13 +194,16 @@
 
             color: #00ff88;
 
-            border: 1px solid #00ff88;
+            border:
+                1px solid #00ff88;
 
-            padding: 8px 14px;
+            padding:
+                8px 14px;
 
             border-radius: 6px;
 
             font-size: 12px;
+
             font-weight: bold;
 
             cursor: pointer;
@@ -199,12 +214,14 @@
 
         .copy-btn:hover {
             background: #00ff88;
+
             color: #050505;
         }
 
 
         .copy-btn.copied {
             background: #00ff88;
+
             color: #050505;
         }
 
@@ -214,7 +231,8 @@
 
             background: #070707;
 
-            border: 1px solid #292929;
+            border:
+                1px solid #292929;
 
             border-radius: 8px;
 
@@ -243,9 +261,11 @@
         .hint-box {
             background: #101010;
 
-            border: 1px solid #333;
+            border:
+                1px solid #333;
 
-            border-left: 3px solid #00ff88;
+            border-left:
+                3px solid #00ff88;
 
             padding: 18px;
 
@@ -256,8 +276,81 @@
             line-height: 1.7;
 
             margin-bottom: 30px;
+        }
 
-            white-space: pre-line;
+
+        /* AUDIO */
+
+        .audio-box {
+            background: #070707;
+
+            border:
+                1px solid #292929;
+
+            border-radius: 8px;
+
+            padding: 20px;
+
+            margin-bottom: 30px;
+        }
+
+
+        .audio-row {
+            display: flex;
+
+            align-items: center;
+
+            gap: 15px;
+        }
+
+
+        .audio-player {
+            width: 100%;
+        }
+
+
+        .download-btn {
+            flex-shrink: 0;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 8px;
+
+            background: transparent;
+
+            color: #00ff88;
+
+            border:
+                1px solid #00ff88;
+
+            padding:
+                10px 15px;
+
+            border-radius: 6px;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            transition: 0.2s;
+        }
+
+
+        .download-btn:hover {
+            background: #00ff88;
+
+            color: #050505;
+        }
+
+
+        .download-icon {
+            font-size: 16px;
         }
 
 
@@ -279,7 +372,8 @@
 
             background: #070707;
 
-            border: 1px solid #333;
+            border:
+                1px solid #333;
 
             border-radius: 7px;
 
@@ -309,7 +403,8 @@
 
             border: none;
 
-            padding: 13px 24px;
+            padding:
+                13px 24px;
 
             border-radius: 7px;
 
@@ -322,11 +417,17 @@
 
 
         .submit-btn:hover {
-            transform: translateY(-2px);
+            transform:
+                translateY(-2px);
 
             box-shadow:
                 0 0 25px
-                rgba(0, 255, 136, 0.2);
+                rgba(
+                    0,
+                    255,
+                    136,
+                    0.2
+                );
         }
 
 
@@ -356,7 +457,12 @@
             display: block;
 
             background:
-                rgba(0, 255, 136, 0.08);
+                rgba(
+                    0,
+                    255,
+                    136,
+                    0.08
+                );
 
             border:
                 1px solid #00ff88;
@@ -369,7 +475,12 @@
             display: block;
 
             background:
-                rgba(255, 107, 107, 0.08);
+                rgba(
+                    255,
+                    107,
+                    107,
+                    0.08
+                );
 
             border:
                 1px solid #ff6b6b;
@@ -381,11 +492,13 @@
         .not-found {
             text-align: center;
 
-            padding: 60px 20px;
+            padding:
+                60px 20px;
 
             background: #0d0d0d;
 
-            border: 1px solid #222;
+            border:
+                1px solid #222;
 
             border-radius: 12px;
         }
@@ -408,32 +521,41 @@
         ) {
 
             .navbar {
-                padding: 15px 18px;
+                padding:
+                    15px 18px;
             }
-
 
             .container {
-                padding: 30px 18px;
+                padding:
+                    30px 18px;
             }
-
 
             .challenge-box {
                 padding: 22px;
             }
 
-
             .challenge-title {
                 font-size: 26px;
             }
-
 
             .logo img {
                 width: 125px;
             }
 
-
             .encrypted-header {
-                align-items: flex-start;
+                align-items:
+                    flex-start;
+            }
+
+            .audio-row {
+                flex-direction:
+                    column;
+                align-items:
+                    stretch;
+            }
+
+            .download-btn {
+                width: 100%;
             }
 
         }
@@ -484,11 +606,9 @@
 
 <script type="module">
 
-
     import {
         createClient
-    }
-    from
+    } from
     "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
 
@@ -513,20 +633,24 @@
         );
 
 
-    /* =========================================
-       MANY LAYERS CIPHERTEXT
-    ========================================= */
+    /*
+     * SUPABASE STORAGE
+     *
+     * The file must exist at:
+     *
+     * challenge-files/
+     * morse-wave/
+     * the-wave-morse.wave
+     */
 
-    const manyLayersCiphertext =
-        `30 31 30 30 31 31 30 31 20 30 31 30 30 30 31 31 30 20 30 31 31 30 30 31 31 31 20 30 31 31 31 31 30 30 30 20 30 31 30 31 30 30 31 30 20 30 30 31 31 30 30 30 30 20 30 31 31 30 31 30 30 30 20 30 31 30 31 30 30 30 30 20 30 31 30 31 30 31 30 31 20 30 30 31 31 30 30 30 31 20 30 31 30 31 30 30 31 30 20 30 30 31 31 30 31 31 31 20 30 31 31 30 30 30 31 30 20 30 31 31 30 31 31 30 31 20 30 30 31 31 31 30 30 31 20 30 30 31 31 30 30 30 30 20 30 31 30 31 31 30 30 30 20 30 30 31 31 30 30 31 31 20 30 31 31 30 31 30 31 31 20 30 31 31 31 31 30 30 31 20 30 31 30 30 31 31 31 31 20 30 31 30 31 30 31 30 30 20 30 31 31 30 30 31 30 30 20 30 31 31 30 30 31 31 30 20 30 31 30 31 31 30 30 31 20 30 31 30 31 30 31 31 31 20 30 30 31 31 30 31 30 31 20 30 31 31 30 31 30 31 31 20 30 31 30 30 31 31 31 31 20 30 31 30 30 30 31 30 30 20 30 31 31 30 31 30 31 31 20 30 30 31 31 30 31 30 31 20 30 31 30 30 31 31 30 31 20 30 31 31 30 31 30 31 30 20 30 31 30 30 31 31 31 30 20 30 31 31 30 30 31 31 30 20 30 31 30 30 31 31 30 31 20 30 31 30 30 30 31 30 30 20 30 31 30 31 30 30 30 31 20 30 30 31 31 30 30 30 31 20 30 31 30 31 31 30 30 30 20 30 30 31 31 30 30 31 30 20 30 31 30 30 31 31 31 30 20 30 31 31 30 31 30 31 31 20 30 31 31 30 30 31 31 30 20 30 31 30 31 30 30 30 31 20 30 30 31 31 31 31 30 31 20 30 30 31 31 31 31 30 31`;
+    const WAVE_AUDIO_URL =
+        SUPABASE_URL +
+        "/storage/v1/object/public/" +
+        "challenge-files/morse-wave/" +
+        "the-wave-morse.wave";
 
-
-    /* =========================================
-       CHALLENGES
-    ========================================= */
 
     const challenges = {
-
 
         caesar: {
 
@@ -640,7 +764,7 @@
                 "I obtained this encryption. Can you decrypt it?",
 
             encrypted:
-                manyLayersCiphertext,
+                `30 31 30 30 31 31 30 31 20 30 31 30 30 30 31 31 30 20 30 31 31 30 30 31 31 31 20 30 31 31 31 31 30 30 30 20 30 31 30 31 30 30 31 30 20 30 30 31 31 30 30 30 30 20 30 31 31 30 31 30 30 30 20 30 31 30 31 30 30 30 30 20 30 31 30 31 30 31 30 31 20 30 30 31 31 30 30 30 31`,
 
             hint:
                 "This message has multiple layers. Try decoding the layers in the correct order."
@@ -663,7 +787,7 @@
                 "0W1ABKPQ{IN_IXES_QBCP_HBXFFSJAS}",
 
             hint:
-                "Try to identify the substitution mapping."
+                "Look for a substitution mapping between the letters."
 
         },
 
@@ -680,10 +804,10 @@
                 "A message was encrypted using XOR with a known repeating key. Can you decrypt it and recover the flag?",
 
             encrypted:
-                "Known XOR repeating key challenge",
+                "XOR encrypted message",
 
             hint:
-                "The key is: 0X1GHOST"
+                "The repeating key is known: 0X1GHOST"
 
         },
 
@@ -697,23 +821,10 @@
                 "Shuffled Letters",
 
             description:
-                `The message was not encrypted by changing the letters themselves...
-
-They were only moved around.
-
-Something important is hidden inside this scrambled text.
-Can you restore the original order and recover the flag?`,
-
-            /*
-             * IMPORTANT:
-             * هذا نص مشفر بـ Rail Fence Cipher باستخدام 4 Rails.
-             *
-             * عند فك النص سيظهر:
-             * OX1GHOST{AHMED_MAKE_THIS_CHALLENGE_Y297}
-             */
+                "The message was not encrypted by changing the letters themselves. They were only moved around.\n\nSomething important is hidden inside this scrambled text. Can you restore the original order and recover the flag?",
 
             encrypted:
-                "OSEE_E2XOTMDK_SCLNY91H{H_ATIHLG_7GAMHAE}",
+                "0SEE_E2XOTMDK_SCLNY91H{H_ATIHLG_7GAMHAE}",
 
             hint:
                 "transposition-trial"
@@ -727,15 +838,13 @@ Can you restore the original order and recover the flag?`,
                 "RSA",
 
             title:
-                "Small d Attack",
+                "RSA Small D Attack",
 
             description:
-                `RSA is secure... unless the private exponent is too small.
-
-Can you recover the secret message?`,
+                "RSA is secure... unless the private exponent is too small.\n\nCan you recover the secret message?",
 
             encrypted:
-                `n =
+`n =
 6751707883568223352265511306376612420948928249339050632019308294345192414782054516704151146486974991833020856936790335045717317890208907774157388158920127
 
 e =
@@ -745,18 +854,32 @@ c =
 648206343342438473254594946905692057571683808242857227357817592020066576535308628446460370512108556834847409648870205175339825868223462724166`,
 
             hint:
-                `Sometimes RSA fails because the private exponent d is too small.
+                "Sometimes RSA fails because the private exponent d is too small.\n\nThink about continued fractions."
 
-Think about continued fractions.`
+        },
+
+
+        "the-wave": {
+
+            type:
+                "AUDIO / MORSE CODE",
+
+            title:
+                "The Wave",
+
+            description:
+                "Listen carefully. A Morse code message is hidden inside this audio file.\n\nDecode the Morse code and recover the flag.",
+
+            encrypted:
+                "",
+
+            hint:
+                "Listen to the audio carefully and translate the Morse code."
 
         }
 
     };
 
-
-    /* =========================================
-       GET CHALLENGE ID
-    ========================================= */
 
     const params =
         new URLSearchParams(
@@ -765,23 +888,14 @@ Think about continued fractions.`
 
 
     const challengeId =
-        params.get(
-            "id"
-        );
+        params.get("id");
 
 
     const challenge =
-        challenges[
-            challengeId
-        ];
+        challenges[challengeId];
 
-
-    /* =========================================
-       CHALLENGE NOT FOUND
-    ========================================= */
 
     if (!challenge) {
-
 
         challengeContainer.innerHTML = `
 
@@ -806,23 +920,20 @@ Think about continued fractions.`
 
         `;
 
-
     } else {
-
 
         document.title =
             challenge.title +
             " | 0X1GHOST";
 
 
-        /* =========================================
-           DISPLAY CHALLENGE
-        ========================================= */
+        const isWave =
+            challengeId === "the-wave";
+
 
         challengeContainer.innerHTML = `
 
             <div class="challenge-box">
-
 
                 <div class="challenge-type">
 
@@ -846,62 +957,129 @@ Think about continued fractions.`
 
                     ${escapeHTML(
                         challenge.description
+                    ).replaceAll(
+                        "\n",
+                        "<br>"
                     )}
 
                 </p>
 
 
-                <div class="encrypted-header">
+                ${
+                    isWave
+                    ?
 
+                    `
 
                     <div class="section-title">
+                        MORSE AUDIO
+                    </div>
 
-                        ENCRYPTED MESSAGE
+
+                    <div class="audio-box">
+
+                        <div class="audio-row">
+
+                            <audio
+                                class="audio-player"
+                                controls
+                                preload="metadata"
+                            >
+
+                                <source
+                                    src="${WAVE_AUDIO_URL}"
+                                    type="audio/wav"
+                                >
+
+                                Your browser does not support audio playback.
+
+                            </audio>
+
+
+                            <a
+                                class="download-btn"
+                                href="${WAVE_AUDIO_URL}"
+                                download="the-wave-morse.wave"
+                            >
+
+                                <span class="download-icon">
+                                    ↓
+                                </span>
+
+                                DOWNLOAD
+
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                    `
+
+                    :
+
+                    `
+
+                    <div class="encrypted-header">
+
+                        <div class="section-title">
+                            ENCRYPTED MESSAGE
+                        </div>
+
+
+                        <button
+                            id="copyButton"
+                            class="copy-btn"
+                            type="button"
+                        >
+                            COPY
+                        </button>
 
                     </div>
 
 
-                    <button
-                        id="copyButton"
-                        class="copy-btn"
-                        type="button"
+                    <div
+                        id="encryptedMessage"
+                        class="encrypted-message"
                     >
-                        COPY
-                    </button>
+                        ${escapeHTML(
+                            challenge.encrypted
+                        )}
+                    </div>
 
+                    `
 
-                </div>
-
-
-                <div
-                    id="encryptedMessage"
-                    class="encrypted-message"
-                >${escapeHTML(
-                    challenge.encrypted
-                )}</div>
+                }
 
 
                 ${
                     challenge.hint
-                    ? `
-
-                        <div class="section-title">
-
-                            HINT
-
-                        </div>
-
-
-                        <div class="hint-box">
-
-                            ${escapeHTML(
-                                challenge.hint
-                            )}
-
-                        </div>
+                    ?
 
                     `
-                    : ""
+
+                    <div class="section-title">
+                        HINT
+                    </div>
+
+
+                    <div class="hint-box">
+
+                        ${escapeHTML(
+                            challenge.hint
+                        ).replaceAll(
+                            "\n",
+                            "<br>"
+                        )}
+
+                    </div>
+
+                    `
+
+                    :
+
+                    ""
+
                 }
 
 
@@ -935,7 +1113,6 @@ Think about continued fractions.`
                     class="message"
                 ></div>
 
-
             </div>
 
         `;
@@ -965,85 +1142,60 @@ Think about continued fractions.`
             );
 
 
-        /* =========================================
-           COPY BUTTON
-        ========================================= */
+        if (copyButton) {
 
-        copyButton.addEventListener(
-            "click",
-            async function() {
+            copyButton.addEventListener(
+                "click",
+                async function() {
 
+                    try {
 
-                try {
-
-
-                    await navigator.clipboard.writeText(
-                        challenge.encrypted
-                    );
+                        await navigator.clipboard.writeText(
+                            challenge.encrypted
+                        );
 
 
-                    copyButton.textContent =
-                        "COPIED! ✓";
+                        copyButton.textContent =
+                            "COPIED! ✓";
 
 
-                    copyButton.classList.add(
-                        "copied"
-                    );
+                        copyButton.classList.add(
+                            "copied"
+                        );
 
 
-                    setTimeout(
-                        function() {
+                        setTimeout(
+                            function() {
+
+                                copyButton.textContent =
+                                    "COPY";
 
 
-                            copyButton.textContent =
-                                "COPY";
+                                copyButton.classList.remove(
+                                    "copied"
+                                );
+
+                            },
+                            2000
+                        );
+
+                    } catch (error) {
+
+                        console.error(
+                            error
+                        );
 
 
-                            copyButton.classList.remove(
-                                "copied"
-                            );
+                        copyButton.textContent =
+                            "FAILED";
 
-
-                        },
-                        2000
-                    );
-
-
-                } catch (error) {
-
-
-                    console.error(
-                        error
-                    );
-
-
-                    copyButton.textContent =
-                        "FAILED";
-
-
-                    setTimeout(
-                        function() {
-
-
-                            copyButton.textContent =
-                                "COPY";
-
-
-                        },
-                        2000
-                    );
-
+                    }
 
                 }
+            );
 
+        }
 
-            }
-        );
-
-
-        /* =========================================
-           SUBMIT BUTTON
-        ========================================= */
 
         submitButton.addEventListener(
             "click",
@@ -1055,28 +1207,19 @@ Think about continued fractions.`
             "keydown",
             function(event) {
 
-
                 if (
                     event.key === "Enter"
                 ) {
 
-
                     submitAnswer();
 
-
                 }
-
 
             }
         );
 
 
-        /* =========================================
-           SUBMIT ANSWER
-        ========================================= */
-
         async function submitAnswer() {
-
 
             const answer =
                 answerInput.value.trim();
@@ -1084,15 +1227,12 @@ Think about continued fractions.`
 
             if (!answer) {
 
-
                 showMessage(
                     "Please enter your answer.",
                     "error"
                 );
 
-
                 return;
-
 
             }
 
@@ -1107,40 +1247,22 @@ Think about continued fractions.`
 
             try {
 
-
                 const {
                     data: {
                         user
-                    },
-                    error: userError
+                    }
                 } =
-                    await supabase
-                        .auth
-                        .getUser();
+                    await supabase.auth.getUser();
 
 
-                if (
-                    userError ||
-                    !user
-                ) {
-
+                if (!user) {
 
                     showMessage(
                         "You must be logged in.",
                         "error"
                     );
 
-
-                    submitButton.disabled =
-                        false;
-
-
-                    submitButton.textContent =
-                        "SUBMIT ANSWER";
-
-
                     return;
-
 
                 }
 
@@ -1152,17 +1274,18 @@ Think about continued fractions.`
                     await supabase.rpc(
                         "submit_challenge_answer",
                         {
+
                             p_challenge_id:
                                 challengeId,
 
                             p_answer:
                                 answer
+
                         }
                     );
 
 
                 if (error) {
-
 
                     console.error(
                         error
@@ -1175,44 +1298,20 @@ Think about continued fractions.`
                         "error"
                     );
 
-
-                    submitButton.disabled =
-                        false;
-
-
-                    submitButton.textContent =
-                        "SUBMIT ANSWER";
-
-
                     return;
-
 
                 }
 
 
-                if (
-                    !data ||
-                    !data.success
-                ) {
-
+                if (!data.success) {
 
                     showMessage(
-                        data?.message ||
+                        data.message ||
                         "Incorrect answer.",
                         "error"
                     );
 
-
-                    submitButton.disabled =
-                        false;
-
-
-                    submitButton.textContent =
-                        "SUBMIT ANSWER";
-
-
                     return;
-
 
                 }
 
@@ -1231,12 +1330,7 @@ Think about continued fractions.`
                     true;
 
 
-                submitButton.textContent =
-                    "SOLVED ✓";
-
-
             } catch (error) {
-
 
                 console.error(
                     error
@@ -1248,30 +1342,29 @@ Think about continued fractions.`
                     "error"
                 );
 
+            } finally {
 
-                submitButton.disabled =
-                    false;
+                if (
+                    !answerInput.disabled
+                ) {
 
+                    submitButton.disabled =
+                        false;
 
-                submitButton.textContent =
-                    "SUBMIT ANSWER";
+                    submitButton.textContent =
+                        "SUBMIT ANSWER";
 
+                }
 
             }
 
-
         }
 
-
-        /* =========================================
-           SHOW MESSAGE
-        ========================================= */
 
         function showMessage(
             text,
             type
         ) {
-
 
             messageElement.textContent =
                 text;
@@ -1281,25 +1374,14 @@ Think about continued fractions.`
                 "message " +
                 type;
 
-
         }
-
 
     }
 
 
-    /* =========================================
-       ESCAPE HTML
-    ========================================= */
+    function escapeHTML(value) {
 
-    function escapeHTML(
-        value
-    ) {
-
-
-        return String(
-            value
-        )
+        return String(value)
 
             .replaceAll(
                 "&",
@@ -1326,12 +1408,9 @@ Think about continued fractions.`
                 "&#039;"
             );
 
-
     }
 
-
 </script>
-
 
 </body>
 
