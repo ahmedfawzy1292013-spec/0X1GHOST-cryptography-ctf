@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
     <meta charset="UTF-8">
@@ -18,12 +17,14 @@
         href="favicon.png"
     >
 
+
     <style>
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+
             font-family:
                 Arial,
                 Helvetica,
@@ -33,45 +34,64 @@
 
         body {
             min-height: 100vh;
+
             background: #050505;
+
             color: white;
         }
 
 
         .navbar {
             min-height: 70px;
-            border-bottom: 1px solid #222;
-            background: #090909;
+
+            border-bottom:
+                1px solid #222;
+
+            background:
+                #090909;
 
             display: flex;
-            align-items: center;
-            justify-content: space-between;
 
-            padding: 12px 35px;
+            align-items: center;
+
+            justify-content:
+                space-between;
+
+            padding:
+                12px 35px;
+
             gap: 20px;
         }
 
 
         .logo {
             display: flex;
+
             align-items: center;
         }
 
 
         .logo img {
             display: block;
+
             width: 150px;
+
             max-height: 55px;
+
             object-fit: contain;
         }
 
 
         .back-btn {
             text-decoration: none;
-            color: #aaa;
-            border: 1px solid #333;
 
-            padding: 9px 15px;
+            color: #aaa;
+
+            border:
+                1px solid #333;
+
+            padding:
+                9px 15px;
 
             border-radius: 6px;
 
@@ -81,24 +101,30 @@
 
         .back-btn:hover {
             color: #00ff88;
-            border-color: #00ff88;
+
+            border-color:
+                #00ff88;
         }
 
 
         .container {
             width: 100%;
+
             max-width: 950px;
 
             margin: auto;
 
-            padding: 50px 25px;
+            padding:
+                50px 25px;
         }
 
 
         .challenge-box {
-            background: #0d0d0d;
+            background:
+                #0d0d0d;
 
-            border: 1px solid #222;
+            border:
+                1px solid #222;
 
             border-radius: 12px;
 
@@ -107,9 +133,11 @@
 
 
         .challenge-type {
-            color: #00ff88;
+            color:
+                #00ff88;
 
             font-size: 12px;
+
             font-weight: bold;
 
             letter-spacing: 2px;
@@ -145,12 +173,17 @@
         }
 
 
+        /* =====================================
+           ENCRYPTED MESSAGE + COPY BUTTON
+        ===================================== */
+
         .encrypted-header {
             display: flex;
 
             align-items: center;
 
-            justify-content: space-between;
+            justify-content:
+                space-between;
 
             gap: 15px;
 
@@ -164,13 +197,17 @@
 
 
         .copy-btn {
-            background: transparent;
+            background:
+                transparent;
 
-            color: #00ff88;
+            color:
+                #00ff88;
 
-            border: 1px solid #00ff88;
+            border:
+                1px solid #00ff88;
 
-            padding: 8px 14px;
+            padding:
+                8px 14px;
 
             border-radius: 6px;
 
@@ -185,39 +222,51 @@
 
 
         .copy-btn:hover {
-            background: #00ff88;
-            color: #050505;
+            background:
+                #00ff88;
+
+            color:
+                #050505;
         }
 
 
         .copy-btn.copied {
-            background: #00ff88;
-            color: #050505;
+            background:
+                #00ff88;
+
+            color:
+                #050505;
         }
 
 
         .encrypted-message {
             width: 100%;
 
-            background: #070707;
+            background:
+                #070707;
 
-            border: 1px solid #292929;
+            border:
+                1px solid #292929;
 
             border-radius: 8px;
 
             padding: 20px;
 
-            color: #00ff88;
+            color:
+                #00ff88;
 
-            font-family: monospace;
+            font-family:
+                monospace;
 
             font-size: 14px;
 
             line-height: 1.7;
 
-            word-break: break-all;
+            word-break:
+                break-all;
 
-            white-space: pre-wrap;
+            white-space:
+                pre-wrap;
 
             margin-bottom: 30px;
 
@@ -228,11 +277,14 @@
 
 
         .hint-box {
-            background: #101010;
+            background:
+                #101010;
 
-            border: 1px solid #333;
+            border:
+                1px solid #333;
 
-            border-left: 3px solid #00ff88;
+            border-left:
+                3px solid #00ff88;
 
             padding: 18px;
 
@@ -262,9 +314,11 @@
         .answer-input {
             width: 100%;
 
-            background: #070707;
+            background:
+                #070707;
 
-            border: 1px solid #333;
+            border:
+                1px solid #333;
 
             border-radius: 7px;
 
@@ -272,7 +326,8 @@
 
             color: white;
 
-            font-family: monospace;
+            font-family:
+                monospace;
 
             font-size: 15px;
 
@@ -283,18 +338,22 @@
 
 
         .answer-input:focus {
-            border-color: #00ff88;
+            border-color:
+                #00ff88;
         }
 
 
         .submit-btn {
-            background: #00ff88;
+            background:
+                #00ff88;
 
-            color: #050505;
+            color:
+                #050505;
 
             border: none;
 
-            padding: 13px 24px;
+            padding:
+                13px 24px;
 
             border-radius: 7px;
 
@@ -307,18 +366,25 @@
 
 
         .submit-btn:hover {
-            transform: translateY(-2px);
+            transform:
+                translateY(-2px);
 
             box-shadow:
                 0 0 25px
-                rgba(0, 255, 136, 0.2);
+                rgba(
+                    0,
+                    255,
+                    136,
+                    0.2
+                );
         }
 
 
         .submit-btn:disabled {
             opacity: 0.6;
 
-            cursor: not-allowed;
+            cursor:
+                not-allowed;
 
             transform: none;
         }
@@ -341,12 +407,18 @@
             display: block;
 
             background:
-                rgba(0, 255, 136, 0.08);
+                rgba(
+                    0,
+                    255,
+                    136,
+                    0.08
+                );
 
             border:
                 1px solid #00ff88;
 
-            color: #00ff88;
+            color:
+                #00ff88;
         }
 
 
@@ -354,36 +426,32 @@
             display: block;
 
             background:
-                rgba(255, 107, 107, 0.08);
+                rgba(
+                    255,
+                    107,
+                    107,
+                    0.08
+                );
 
             border:
                 1px solid #ff6b6b;
 
-            color: #ff6b6b;
-        }
-
-
-        .message.rate-limit {
-            display: block;
-
-            background:
-                rgba(255, 209, 102, 0.08);
-
-            border:
-                1px solid #ffd166;
-
-            color: #ffd166;
+            color:
+                #ff6b6b;
         }
 
 
         .not-found {
             text-align: center;
 
-            padding: 60px 20px;
+            padding:
+                60px 20px;
 
-            background: #0d0d0d;
+            background:
+                #0d0d0d;
 
-            border: 1px solid #222;
+            border:
+                1px solid #222;
 
             border-radius: 12px;
         }
@@ -401,15 +469,19 @@
         }
 
 
-        @media (max-width: 600px) {
+        @media (
+            max-width: 600px
+        ) {
 
             .navbar {
-                padding: 15px 18px;
+                padding:
+                    15px 18px;
             }
 
 
             .container {
-                padding: 30px 18px;
+                padding:
+                    30px 18px;
             }
 
 
@@ -429,7 +501,8 @@
 
 
             .encrypted-header {
-                align-items: flex-start;
+                align-items:
+                    flex-start;
             }
 
         }
@@ -469,7 +542,9 @@
 
 <main class="container">
 
-    <div id="challengeContainer">
+    <div
+        id="challengeContainer"
+    >
 
         Loading challenge...
 
@@ -480,11 +555,19 @@
 
 <script type="module">
 
+
     import {
         createClient
-    } from
+    }
+
+    from
+
     "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
+
+    /* =====================================
+       SUPABASE
+    ===================================== */
 
     const SUPABASE_URL =
         "https://borturaxifoxufixewya.supabase.co";
@@ -507,21 +590,28 @@
         );
 
 
+    /* =====================================
+       MANY LAYERS CIPHERTEXT
+    ===================================== */
+
     const manyLayersCiphertext =
         `30 31 30 30 31 31 30 31 20 30 31 30 30 30 31 31 30 20 30 31 31 30 30 31 31 31 20 30 31 31 31 31 30 30 30 20 30 31 30 31 30 30 31 30 20 30 30 31 31 30 30 30 30 20 30 31 31 30 31 30 30 30 20 30 31 30 31 30 30 30 30 20 30 31 30 31 30 31 30 31 20 30 30 31 31 30 30 30 31 20 30 31 30 31 30 30 31 30 20 30 30 31 31 30 31 31 31 20 30 31 31 30 30 30 31 30 20 30 31 31 30 31 31 30 31 20 30 30 31 31 31 30 30 31 20 30 30 31 31 30 30 30 30 20 30 31 30 31 31 30 30 30 20 30 30 31 31 30 30 31 31 20 30 31 31 30 31 30 31 31 20 30 31 31 31 31 30 30 31 20 30 31 30 30 31 31 31 31 20 30 31 30 31 30 31 30 30 20 30 31 31 30 30 31 30 30 20 30 31 31 30 30 31 31 30 20 30 31 30 31 31 30 30 31 20 30 31 30 31 30 31 31 31 20 30 30 31 31 30 31 30 31 20 30 31 31 30 31 30 31 31 20 30 31 30 30 31 31 31 31 20 30 31 30 30 30 31 30 30 20 30 31 31 30 31 30 31 31 20 30 30 31 31 30 31 30 31 20 30 31 30 30 31 31 30 31 20 30 31 31 30 31 30 31 30 20 30 31 30 30 31 31 31 30 20 30 31 31 30 30 31 31 30 20 30 31 30 30 31 31 30 31 20 30 31 30 30 30 31 30 30 20 30 31 30 31 30 30 30 31 20 30 30 31 31 30 30 30 31 20 30 31 30 31 31 30 30 30 20 30 30 31 31 30 30 31 30 20 30 31 30 30 31 31 31 30 20 30 31 31 30 31 30 31 31 20 30 31 31 30 30 31 31 30 20 30 31 30 31 30 30 30 31 20 30 30 31 31 31 31 30 31 20 30 30 31 31 31 31 30 31`;
 
 
-    const xorCiphertext =
-        "00 00 00 00 00 00 00 00 4B 1F 7E 08 0C 10 66 67 01 6C 00 18 1F 7B 60 66 03 14 75 3A";
-
+    /* =====================================
+       ALL CHALLENGES
+    ===================================== */
 
     const challenges = {
 
+
         caesar: {
 
-            type: "CAESAR CIPHER",
+            type:
+                "CAESAR CIPHER",
 
-            title: "Caesar's Secret",
+            title:
+                "Caesar's Secret",
 
             description:
                 "Decode a secret message protected by a classical Caesar cipher.",
@@ -529,16 +619,19 @@
             encrypted:
                 "0X1GHOST{FDHVDU}",
 
-            hint: ""
+            hint:
+                ""
 
         },
 
 
         rot13: {
 
-            type: "ROT13",
+            type:
+                "ROT13",
 
-            title: "What type this rot?",
+            title:
+                "What type this rot?",
 
             description:
                 "A mysterious message has been encrypted using a famous rotation cipher. Can you identify it and recover the flag?",
@@ -546,33 +639,39 @@
             encrypted:
                 "0K1TUBFG{V_N9521_C02E90E3Eq_103_fqns}",
 
-            hint: ""
+            hint:
+                ""
 
         },
 
 
         binary: {
 
-            type: "BINARY",
+            type:
+                "BINARY",
 
-            title: "Binary Secret",
+            title:
+                "Binary Secret",
 
             description:
                 "A secret flag has been converted into binary. Can you decode it?",
 
             encrypted:
-                "00110000 01011000 00110001 01000111 01001000 01001111 01010011 01010100 01111011 01100111 00110000 00110000 01100100 01011111 01101010 00110000 00110100 01111111 01110100 01101000 00110011 00110110 01011111 01100001 00110011 00110111 00110010 01111101",
+                "00110000 01011000 00110001 01000111 01001000 01001111 01010011 01010100 01111011 01100111 00110000 00110000 01100100 01011111 01101010 00110000 00110100 01011111 01110100 01101000 00110011 00110110 01011111 01100001 00110011 00110111 00110010 01111101",
 
-            hint: ""
+            hint:
+                ""
 
         },
 
 
         base64: {
 
-            type: "BASE64",
+            type:
+                "BASE64",
 
-            title: "What is this?",
+            title:
+                "What is this?",
 
             description:
                 "We've found this suspicious encryption. Can you crack it?",
@@ -580,16 +679,19 @@
             encrypted:
                 "MFgxR0hPU1R7QkE2NDYxOV9JU18xMjBPX24zNH0=",
 
-            hint: ""
+            hint:
+                ""
 
         },
 
 
         vigenere: {
 
-            type: "VIGENERE CIPHER",
+            type:
+                "VIGENERE CIPHER",
 
-            title: "The secret key",
+            title:
+                "The secret key",
 
             description:
                 "A secret message was encrypted with a classical Vigenere cipher. Find the key and recover the flag.",
@@ -605,9 +707,11 @@
 
         "many-layers": {
 
-            type: "MANY LAYERS",
+            type:
+                "MANY LAYERS",
 
-            title: "Many layers of encryption",
+            title:
+                "Many layers of encryption",
 
             description:
                 "I obtained this encryption. Can you decrypt it?",
@@ -623,41 +727,69 @@
 
         "secret-encryption": {
 
-            type: "SUBSTITUTION CIPHER",
+            type:
+                "SUBSTITUTION CIPHER",
 
-            title: "secret encryption",
+            title:
+                "secret encryption",
 
             description:
-                "Decrypt the secret message using a substitution cipher.",
+                "Decrypt the secret message using a substitution cipher. Can you recover the original flag?",
 
             encrypted:
                 "0W1ABKPQ{IN_IXES_QBCP_HBXFFSJAS}",
 
             hint:
-                "The same encrypted letter always represents the same original letter."
+                ""
 
         },
 
 
         "xor-repeating-key": {
 
-            type: "XOR REPEATING KEY",
+            type:
+                "XOR REPEATING KEY",
 
-            title: "XOR Repeating Key",
+            title:
+                "XOR Repeating Key",
 
             description:
                 "A message was encrypted using XOR with a known repeating key. Can you decrypt it and recover the flag?",
 
             encrypted:
-                xorCiphertext,
+                "00 00 00 00 00 00 00 00 4b 1f 7e 08 0c 10 66 67 01 6c 00 18 1f 7b 60 66 03 14 75 3a",
 
             hint:
-                "Key: 0X1GHOST"
+                "The repeating XOR key is: 0X1GHOST"
+
+        },
+
+
+        "shuffled-letters": {
+
+            type:
+                "TRANSPOSITION CIPHER",
+
+            title:
+                "Shuffled Letters",
+
+            description:
+                "The message was not encrypted by changing the letters themselves...\nThey were only moved around.\n\nSomething important is hidden inside this scrambled text.\nCan you restore the original order and recover the flag?",
+
+            encrypted:
+                "OSEE_E2XOTMDK_SCLNY91H{H_ATIHLG_7GAMHAE}",
+
+            hint:
+                "transposition-trial"
 
         }
 
     };
 
+
+    /* =====================================
+       GET CHALLENGE ID
+    ===================================== */
 
     const params =
         new URLSearchParams(
@@ -666,14 +798,23 @@
 
 
     const challengeId =
-        params.get("id");
+        params.get(
+            "id"
+        );
 
 
     const challenge =
-        challenges[challengeId];
+        challenges[
+            challengeId
+        ];
 
+
+    /* =====================================
+       CHALLENGE NOT FOUND
+    ===================================== */
 
     if (!challenge) {
+
 
         challengeContainer.innerHTML = `
 
@@ -683,9 +824,11 @@
                     Challenge Not Found
                 </h1>
 
+
                 <p>
                     The requested challenge does not exist.
                 </p>
+
 
                 <a
                     href="challenges.html"
@@ -698,43 +841,64 @@
 
         `;
 
+
     } else {
+
+
+        /* =================================
+           PAGE TITLE
+        ================================= */
 
         document.title =
             challenge.title +
             " | 0X1GHOST";
 
 
+        /* =================================
+           DISPLAY CHALLENGE
+        ================================= */
+
         challengeContainer.innerHTML = `
 
             <div class="challenge-box">
 
+
                 <div class="challenge-type">
+
                     ${escapeHTML(
                         challenge.type
                     )}
+
                 </div>
 
 
                 <h1 class="challenge-title">
+
                     ${escapeHTML(
                         challenge.title
                     )}
+
                 </h1>
 
 
                 <p class="challenge-description">
+
                     ${escapeHTML(
                         challenge.description
                     )}
+
                 </p>
 
 
                 <div class="encrypted-header">
 
+
                     <div class="section-title">
+
                         ENCRYPTED MESSAGE
+
                     </div>
+
 
                     <button
                         id="copyButton"
@@ -743,6 +907,7 @@
                     >
                         COPY
                     </button>
+
 
                 </div>
 
@@ -757,20 +922,28 @@
 
                 ${
                     challenge.hint
+
                     ? `
 
                         <div class="section-title">
+
                             HINT
+
                         </div>
 
+
                         <div class="hint-box">
+
                             ${escapeHTML(
                                 challenge.hint
                             )}
+
                         </div>
 
                     `
+
                     : ""
+
                 }
 
 
@@ -804,10 +977,15 @@
                     class="message"
                 ></div>
 
+
             </div>
 
         `;
 
+
+        /* =================================
+           ELEMENTS
+        ================================= */
 
         const answerInput =
             document.getElementById(
@@ -833,16 +1011,19 @@
             );
 
 
-        let countdownTimer = null;
-
-
-        
+        /* =================================
+           COPY BUTTON
+        ================================= */
 
         copyButton.addEventListener(
+
             "click",
+
             async function() {
 
+
                 try {
+
 
                     await navigator.clipboard.writeText(
                         challenge.encrypted
@@ -859,22 +1040,32 @@
 
 
                     setTimeout(
+
                         function() {
+
 
                             copyButton.textContent =
                                 "COPY";
+
 
                             copyButton.classList.remove(
                                 "copied"
                             );
 
+
                         },
+
                         2000
+
                     );
+
 
                 } catch (error) {
 
-                    console.error(error);
+
+                    console.error(
+                        error
+                    );
 
 
                     copyButton.textContent =
@@ -882,30 +1073,51 @@
 
 
                     setTimeout(
+
                         function() {
+
 
                             copyButton.textContent =
                                 "COPY";
 
+
                         },
+
                         2000
+
                     );
+
 
                 }
 
             }
+
         );
 
+
+        /* =================================
+           SUBMIT BUTTON
+        ================================= */
 
         submitButton.addEventListener(
+
             "click",
+
             submitAnswer
+
         );
 
 
+        /* =================================
+           ENTER KEY
+        ================================= */
+
         answerInput.addEventListener(
+
             "keydown",
+
             function(event) {
+
 
                 if (
                     event.key === "Enter"
@@ -916,18 +1128,15 @@
                 }
 
             }
+
         );
 
 
+        /* =================================
+           SUBMIT ANSWER FUNCTION
+        ================================= */
+
         async function submitAnswer() {
-
-            if (
-                submitButton.disabled
-            ) {
-
-                return;
-
-            }
 
 
             const answer =
@@ -936,10 +1145,15 @@
 
             if (!answer) {
 
+
                 showMessage(
+
                     "Please enter your answer.",
+
                     "error"
+
                 );
+
 
                 return;
 
@@ -954,19 +1168,30 @@
                 "CHECKING...";
 
 
+            /* =============================
+               CHECK USER
+            ============================= */
+
             const {
+
                 data: {
+
                     user
+
                 }
-            } =
-                await supabase.auth.getUser();
+
+            } = await supabase.auth.getUser();
 
 
             if (!user) {
 
+
                 showMessage(
+
                     "You must be logged in.",
+
                     "error"
+
                 );
 
 
@@ -983,40 +1208,61 @@
             }
 
 
+            /* =============================
+               SEND ANSWER TO SUPABASE
+            ============================= */
+
             const {
+
                 data,
+
                 error
-            } =
-                await supabase.rpc(
-                    "submit_challenge_answer",
-                    {
-                        p_challenge_id:
-                            challengeId,
 
-                        p_answer:
-                            answer
-                    }
-                );
+            } = await supabase.rpc(
 
+                "submit_challenge_answer",
+
+                {
+
+                    p_challenge_id:
+                        challengeId,
+
+                    p_answer:
+                        answer
+
+                }
+
+            );
+
+
+            submitButton.disabled =
+                false;
+
+
+            submitButton.textContent =
+                "SUBMIT ANSWER";
+
+
+            /* =============================
+               DATABASE ERROR
+            ============================= */
 
             if (error) {
 
-                console.error(error);
 
-
-                showMessage(
-                    error.message ||
-                    "Something went wrong.",
-                    "error"
+                console.error(
+                    error
                 );
 
 
-                submitButton.disabled =
-                    false;
+                showMessage(
 
+                    error.message ||
+                    "Something went wrong.",
 
-                submitButton.textContent =
-                    "SUBMIT ANSWER";
+                    "error"
+
+                );
 
 
                 return;
@@ -1024,26 +1270,158 @@
             }
 
 
+            /* =============================
+               RATE LIMIT
+            ============================= */
+
             if (
-                data &&
+
+                data
+
+                &&
+
                 data.rate_limited
+
             ) {
 
+
                 const seconds =
-                    Number(
-                        data.retry_after || 10
+
+                    data.retry_after ||
+
+                    10;
+
+
+                showMessage(
+
+                    `Too many incorrect attempts. Please wait ${seconds} seconds before trying again.`,
+
+                    "error"
+
+                );
+
+
+                submitButton.disabled =
+                    true;
+
+
+                answerInput.disabled =
+                    true;
+
+
+                let remaining =
+                    seconds;
+
+
+                submitButton.textContent =
+                    `WAIT ${remaining}s`;
+
+
+                const countdown =
+                    setInterval(
+
+                        function() {
+
+
+                            remaining--;
+
+
+                            if (
+                                remaining <= 0
+                            ) {
+
+
+                                clearInterval(
+                                    countdown
+                                );
+
+
+                                submitButton.disabled =
+                                    false;
+
+
+                                answerInput.disabled =
+                                    false;
+
+
+                                submitButton.textContent =
+                                    "SUBMIT ANSWER";
+
+
+                                showMessage(
+
+                                    "You can try again now.",
+
+                                    "success"
+
+                                );
+
+
+                                return;
+
+                            }
+
+
+                            submitButton.textContent =
+                                `WAIT ${remaining}s`;
+
+
+                        },
+
+                        1000
+
                     );
 
 
-                startRateLimit(
-                    seconds
-                );
+                return;
+
+            }
+
+
+            /* =============================
+               WRONG ANSWER
+            ============================= */
+
+            if (
+
+                !data
+
+                ||
+
+                !data.success
+
+            ) {
+
+
+                let errorText =
+                    data?.message ||
+                    "Incorrect answer.";
+
+
+                if (
+
+                    data
+
+                    &&
+
+                    typeof data.attempts_left ===
+                    "number"
+
+                ) {
+
+
+                    errorText +=
+                        ` Attempts remaining: ${data.attempts_left}.`;
+
+                }
 
 
                 showMessage(
-                    data.message ||
-                    `Too many incorrect attempts. Please wait ${seconds} seconds.`,
-                    "rate-limit"
+
+                    errorText,
+
+                    "error"
+
                 );
 
 
@@ -1052,24 +1430,34 @@
             }
 
 
+            /* =============================
+               ALREADY SOLVED
+            ============================= */
+
             if (
-                !data ||
-                !data.success
+                data.already_solved
             ) {
 
+
                 showMessage(
-                    data?.message ||
-                    "Incorrect answer.",
-                    "error"
+
+                    "✓ You already solved this challenge.",
+
+                    "success"
+
                 );
+
+
+                answerInput.disabled =
+                    true;
 
 
                 submitButton.disabled =
-                    false;
+                    true;
 
 
                 submitButton.textContent =
-                    "SUBMIT ANSWER";
+                    "SOLVED ✓";
 
 
                 return;
@@ -1077,9 +1465,16 @@
             }
 
 
+            /* =============================
+               CORRECT ANSWER
+            ============================= */
+
             showMessage(
+
                 `✓ Correct answer! You earned ${data.points} points. New score: ${data.new_score}`,
+
                 "success"
+
             );
 
 
@@ -1097,141 +1492,90 @@
         }
 
 
-        function startRateLimit(
-            seconds
-        ) {
-
-            clearInterval(
-                countdownTimer
-            );
-
-
-            let remaining =
-                Number(seconds);
-
-
-            answerInput.disabled =
-                true;
-
-
-            submitButton.disabled =
-                true;
-
-
-            function updateButton() {
-
-                if (
-                    remaining <= 0
-                ) {
-
-                    clearInterval(
-                        countdownTimer
-                    );
-
-
-                    answerInput.disabled =
-                        false;
-
-
-                    submitButton.disabled =
-                        false;
-
-
-                    submitButton.textContent =
-                        "SUBMIT ANSWER";
-
-
-                    showMessage(
-                        "You can try again now.",
-                        "error"
-                    );
-
-
-                    return;
-
-                }
-
-
-                submitButton.textContent =
-                    `WAIT ${remaining}s`;
-
-
-                remaining--;
-
-            }
-
-
-            updateButton();
-
-
-            countdownTimer =
-                setInterval(
-                    updateButton,
-                    1000
-                );
-
-        }
-
+        /* =================================
+           SHOW MESSAGE
+        ================================= */
 
         function showMessage(
+
             text,
+
             type
+
         ) {
+
 
             messageElement.textContent =
                 text;
 
 
             messageElement.className =
-                "message " + type;
+                "message " +
+                type;
 
         }
 
     }
 
 
+    /* =====================================
+       ESCAPE HTML
+    ===================================== */
+
     function escapeHTML(
         value
     ) {
 
-        return String(value)
 
-            .replaceAll(
-                "&",
-                "&amp;"
-            )
+        return String(
+            value
+        )
 
-            .replaceAll(
-                "<",
-                "&lt;"
-            )
+        .replaceAll(
 
-            .replaceAll(
-                ">",
-                "&gt;"
-            )
+            "&",
 
-            .replaceAll(
-                '"',
-                "&quot;"
-            )
+            "&amp;"
 
-            .replaceAll(
-                "'",
-                "&#039;"
-            );
+        )
+
+        .replaceAll(
+
+            "<",
+
+            "&lt;"
+
+        )
+
+        .replaceAll(
+
+            ">",
+
+            "&gt;"
+
+        )
+
+        .replaceAll(
+
+            '"',
+
+            "&quot;"
+
+        )
+
+        .replaceAll(
+
+            "'",
+
+            "&#039;"
+
+        );
 
     }
 
+
 </script>
 
+
 </body>
-
 </html>
-
-
-
-
-      
-
-
