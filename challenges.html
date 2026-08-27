@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -83,7 +82,8 @@
 
         .difficulty-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
             gap: 18px;
             margin-bottom: 40px;
         }
@@ -103,7 +103,8 @@
 
         .difficulty-card.active {
             border-color: #00ff88;
-            box-shadow: 0 0 25px rgba(0, 255, 136, 0.08);
+            box-shadow:
+                0 0 25px rgba(0, 255, 136, 0.08);
         }
 
         .difficulty-card h2 {
@@ -141,7 +142,8 @@
 
         .challenge-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns:
+                repeat(auto-fit, minmax(280px, 1fr));
             gap: 18px;
         }
 
@@ -158,7 +160,8 @@
         .challenge-card:hover {
             border-color: #00ff88;
             transform: translateY(-3px);
-            box-shadow: 0 0 25px rgba(0, 255, 136, 0.08);
+            box-shadow:
+                0 0 25px rgba(0, 255, 136, 0.08);
         }
 
         .challenge-card h3 {
@@ -235,6 +238,7 @@
 
 </nav>
 
+
 <main class="container">
 
     <h1 class="title">
@@ -245,9 +249,13 @@
         Choose a difficulty level to see its challenges.
     </p>
 
+
     <div class="difficulty-grid">
 
-        <div class="difficulty-card easy" data-level="easy">
+        <div
+            class="difficulty-card easy"
+            data-level="easy"
+        >
             <h2>🟢 EASY</h2>
 
             <p>
@@ -259,7 +267,11 @@
             </div>
         </div>
 
-        <div class="difficulty-card medium" data-level="medium">
+
+        <div
+            class="difficulty-card medium"
+            data-level="medium"
+        >
             <h2>🟡 MEDIUM</h2>
 
             <p>
@@ -271,7 +283,11 @@
             </div>
         </div>
 
-        <div class="difficulty-card medium-hard" data-level="medium-hard">
+
+        <div
+            class="difficulty-card medium-hard"
+            data-level="medium-hard"
+        >
             <h2>🟠 MEDIUM HARD</h2>
 
             <p>
@@ -283,7 +299,11 @@
             </div>
         </div>
 
-        <div class="difficulty-card hard" data-level="hard">
+
+        <div
+            class="difficulty-card hard"
+            data-level="hard"
+        >
             <h2>🔴 HARD</h2>
 
             <p>
@@ -297,19 +317,23 @@
 
     </div>
 
+
     <h2 class="section-title" id="challengeTitle">
         Select a difficulty
     </h2>
 
-    <div class="challenge-grid" id="challengeList">
 
+    <div
+        class="challenge-grid"
+        id="challengeList"
+    >
         <div class="empty">
             Choose a difficulty above.
         </div>
-
     </div>
 
 </main>
+
 
 <script>
 
@@ -321,23 +345,31 @@ const challenges = {
             id: "caesar",
             name: "Caesar's Secret",
             description:
-                "Decode a secret message protected by a classical Caesar cipher.",
-            points: 100
-        },
-
-        {
-            id: "rot13",
-            name: "What Type This ROT",
-            description:
-                "A mysterious encrypted message is waiting. Identify the ROT cipher and recover the flag.",
+                "Caesar has hidden a secret message using a classical Caesar cipher. Decode the message and submit the flag.",
             points: 100
         },
 
         {
             id: "binary",
-            name: "Binary Secret",
+            name: "Binary Decoder",
             description:
-                "The message has been converted into binary. Decode the binary data and recover the hidden flag.",
+                "A mysterious message has been written entirely in binary. Decode it and find the hidden flag.",
+            points: 100
+        },
+
+        {
+            id: "rot13",
+            name: "What type is this ROT?",
+            description:
+                "This encrypted text uses a mysterious ROT cipher. Can you identify it and recover the hidden flag?",
+            points: 100
+        },
+
+        {
+            id: "base64",
+            name: "What is this?",
+            description:
+                "We've found this suspicious encryption. Can you crack it?",
             points: 100
         }
 
@@ -381,33 +413,45 @@ const challenges = {
 
 };
 
+
 const cards =
-    document.querySelectorAll(".difficulty-card");
+    document.querySelectorAll(
+        ".difficulty-card"
+    );
 
 const list =
-    document.getElementById("challengeList");
+    document.getElementById(
+        "challengeList"
+    );
 
 const title =
-    document.getElementById("challengeTitle");
+    document.getElementById(
+        "challengeTitle"
+    );
+
 
 cards.forEach(card => {
 
-    card.addEventListener("click", function() {
+    card.addEventListener(
+        "click",
+        function() {
 
-        cards.forEach(c =>
-            c.classList.remove("active")
-        );
+            cards.forEach(c =>
+                c.classList.remove("active")
+            );
 
-        card.classList.add("active");
+            card.classList.add("active");
 
-        const level =
-            card.dataset.level;
+            const level =
+                card.dataset.level;
 
-        showChallenges(level);
+            showChallenges(level);
 
-    });
+        }
+    );
 
 });
+
 
 function showChallenges(level) {
 
@@ -415,41 +459,46 @@ function showChallenges(level) {
         challenges[level];
 
     title.textContent =
-        level.toUpperCase() + " CHALLENGES";
+        level.toUpperCase() +
+        " CHALLENGES";
 
     list.innerHTML = "";
 
-    levelChallenges.forEach(challenge => {
+    levelChallenges.forEach(
+        challenge => {
 
-        const card =
-            document.createElement("a");
+            const card =
+                document.createElement("a");
 
-        card.className =
-            "challenge-card";
+            card.className =
+                "challenge-card";
 
-        card.href =
-            "challenge.html?id=" +
-            encodeURIComponent(challenge.id);
+            card.href =
+                "challenge.html?id=" +
+                encodeURIComponent(
+                    challenge.id
+                );
 
-        card.innerHTML = `
+            card.innerHTML = `
 
-            <h3>
-                ${challenge.name}
-            </h3>
+                <h3>
+                    ${challenge.name}
+                </h3>
 
-            <p>
-                ${challenge.description}
-            </p>
+                <p>
+                    ${challenge.description}
+                </p>
 
-            <span class="challenge-points">
-                ${challenge.points} POINTS →
-            </span>
+                <span class="challenge-points">
+                    ${challenge.points} POINTS →
+                </span>
 
-        `;
+            `;
 
-        list.appendChild(card);
+            list.appendChild(card);
 
-    });
+        }
+    );
 
 }
 
@@ -457,5 +506,3 @@ function showChallenges(level) {
 
 </body>
 </html>
-
-
