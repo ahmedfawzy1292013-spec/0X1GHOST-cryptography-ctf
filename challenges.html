@@ -1,14 +1,25 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Challenges | 0X1GHOST</title>
 
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link
+        rel="icon"
+        type="image/png"
+        href="favicon.png"
+    >
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -173,10 +184,6 @@
             border-color: #00ff88;
         }
 
-        .challenge-card.solved:hover {
-            border-color: #00ff88;
-        }
-
         .challenge-card h3 {
             font-size: 19px;
             margin-bottom: 12px;
@@ -235,32 +242,52 @@
                 width: 135px;
             }
         }
+
     </style>
+
 </head>
 
 <body>
 
 <nav class="navbar">
 
-    <a href="dashboard.html" class="logo">
-        <img src="logo.png" alt="0X1GHOST Logo">
+    <a
+        href="dashboard.html"
+        class="logo"
+    >
+        <img
+            src="logo.png"
+            alt="0X1GHOST Logo"
+        >
     </a>
 
     <div class="nav-right">
 
-        <a href="dashboard.html" class="nav-link">
+        <a
+            href="dashboard.html"
+            class="nav-link"
+        >
             DASHBOARD
         </a>
 
-        <a href="challenges.html" class="nav-link active">
+        <a
+            href="challenges.html"
+            class="nav-link active"
+        >
             CHALLENGES
         </a>
 
-        <a href="scoreboard.html" class="nav-link">
+        <a
+            href="scoreboard.html"
+            class="nav-link"
+        >
             SCOREBOARD
         </a>
 
-        <a href="rules.html" class="nav-link">
+        <a
+            href="rules.html"
+            class="nav-link"
+        >
             RULES
         </a>
 
@@ -370,321 +397,339 @@
 
 <script type="module">
 
-    import {
-        createClient
-    } from
-    "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+import {
+    createClient
+} from
+"https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
 
-    const SUPABASE_URL =
-        "https://borturaxifoxufixewya.supabase.co";
+const SUPABASE_URL =
+    "https://borturaxifoxufixewya.supabase.co";
 
 
-    const SUPABASE_KEY =
-        "sb_publishable__lZmTM96oe10-rurqgrujg__ta_C4wr";
+const SUPABASE_KEY =
+    "sb_publishable__lZmTM96oe10-rurqgrujg__ta_C4wr";
 
 
-    const supabase =
-        createClient(
-            SUPABASE_URL,
-            SUPABASE_KEY
-        );
+const supabase =
+    createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
 
 
-    const challenges = {
+const challenges = {
 
-        easy: [
+    easy: [
 
-            {
-                id: "caesar",
-                name: "Caesar's Secret",
-                description:
-                    "Decode a secret message protected by a classical Caesar cipher.",
-                points: 100
-            },
+        {
+            id: "caesar",
+            name: "Caesar's Secret",
+            description:
+                "Decode a secret message protected by a classical Caesar cipher.",
+            points: 100
+        },
 
-            {
-                id: "rot13",
-                name: "What type this rot?",
-                description:
-                    "A mysterious message has been encrypted using a famous rotation cipher. Can you identify it and recover the flag?",
-                points: 100
-            },
+        {
+            id: "rot13",
+            name: "What type this rot?",
+            description:
+                "A mysterious message has been encrypted using a famous rotation cipher. Can you identify it and recover the flag?",
+            points: 100
+        },
 
-            {
-                id: "binary",
-                name: "Binary Secret",
-                description:
-                    "A secret flag has been converted into binary. Can you decode it?",
-                points: 100
-            },
+        {
+            id: "binary",
+            name: "Binary Secret",
+            description:
+                "A secret flag has been converted into binary. Can you decode it?",
+            points: 100
+        },
 
-            {
-                id: "base64",
-                name: "What is this?",
-                description:
-                    "We've found this suspicious encryption. Can you crack it?",
-                points: 100
-            },
+        {
+            id: "base64",
+            name: "What is this?",
+            description:
+                "We've found this suspicious encryption. Can you crack it?",
+            points: 100
+        },
 
-            {
-                id: "vigenere",
-                name: "The secret key",
-                description:
-                    "A secret message was encrypted with a classical Vigenere cipher. Find the key and recover the flag.",
-                points: 100
-            },
+        {
+            id: "vigenere",
+            name: "The secret key",
+            description:
+                "A secret message was encrypted with a classical Vigenere cipher. Find the key and recover the flag.",
+            points: 100
+        },
 
-            {
-                id: "many-layers",
-                name: "Many layers of encryption",
-                description:
-                    "I obtained this encryption. Can you decrypt it?",
-                points: 100
-            }
+        {
+            id: "many-layers",
+            name: "Many layers of encryption",
+            description:
+                "I obtained this encryption. Can you decrypt it?",
+            points: 100
+        },
 
-        ],
-
-
-        medium: [
-
-            {
-                id: "coming-medium",
-                name: "Coming Soon",
-                description:
-                    "A medium-level cryptography challenge is being prepared.",
-                points: 200
-            }
-
-        ],
-
-
-        "medium-hard": [
-
-            {
-                id: "coming-medium-hard",
-                name: "Coming Soon",
-                description:
-                    "A more challenging cryptography problem is coming soon.",
-                points: 300
-            }
-
-        ],
-
-
-        hard: [
-
-            {
-                id: "coming-hard",
-                name: "Coming Soon",
-                description:
-                    "The hardest challenges will appear here.",
-                points: 500
-            }
-
-        ]
-
-    };
-
-
-    const cards =
-        document.querySelectorAll(
-            ".difficulty-card"
-        );
-
-
-    const list =
-        document.getElementById(
-            "challengeList"
-        );
-
-
-    const title =
-        document.getElementById(
-            "challengeTitle"
-        );
-
-
-    let solvedChallenges = [];
-
-
-    async function loadSolvedChallenges() {
-
-        const {
-            data: {
-                user
-            }
-        } = await supabase.auth.getUser();
-
-
-        if (!user) {
-
-            solvedChallenges = [];
-            return;
-
+        {
+            id: "substitution",
+            name: "Secret Encryption",
+            description:
+                "A secret message was encrypted using a substitution cipher. Can you decrypt it and recover the flag?",
+            points: 100
         }
 
-
-        const {
-            data,
-            error
-        } = await supabase
-            .from("challenge_solves")
-            .select("challenge_id")
-            .eq(
-                "user_id",
-                user.id
-            );
+    ],
 
 
-        if (error) {
+    medium: [
 
-            console.error(
-                "Could not load solved challenges:",
-                error
-            );
-
-            solvedChallenges = [];
-            return;
-
+        {
+            id: "coming-medium",
+            name: "Coming Soon",
+            description:
+                "A medium-level cryptography challenge is being prepared.",
+            points: 200
         }
 
+    ],
 
-        solvedChallenges =
-            (data || []).map(
-                solve => solve.challenge_id
-            );
 
+    "medium-hard": [
+
+        {
+            id: "coming-medium-hard",
+            name: "Coming Soon",
+            description:
+                "A more challenging cryptography problem is coming soon.",
+            points: 300
+        }
+
+    ],
+
+
+    hard: [
+
+        {
+            id: "coming-hard",
+            name: "Coming Soon",
+            description:
+                "The hardest challenges will appear here.",
+            points: 500
+        }
+
+    ]
+
+};
+
+
+const cards =
+    document.querySelectorAll(
+        ".difficulty-card"
+    );
+
+
+const list =
+    document.getElementById(
+        "challengeList"
+    );
+
+
+const title =
+    document.getElementById(
+        "challengeTitle"
+    );
+
+
+let solvedChallenges = [];
+
+
+async function loadSolvedChallenges() {
+
+    const {
+        data: {
+            user
+        }
+    } = await supabase.auth.getUser();
+
+
+    if (!user) {
+
+        solvedChallenges = [];
+
+        return;
     }
 
 
-    cards.forEach(card => {
+    const {
+        data,
+        error
+    } = await supabase
+        .from("challenge_solves")
+        .select("challenge_id")
+        .eq(
+            "user_id",
+            user.id
+        );
 
-        card.addEventListener(
-            "click",
-            async function() {
 
-                cards.forEach(
-                    c =>
+    if (error) {
+
+        console.error(
+            "Could not load solved challenges:",
+            error
+        );
+
+        solvedChallenges = [];
+
+        return;
+    }
+
+
+    solvedChallenges =
+        (data || []).map(
+            solve =>
+                solve.challenge_id
+        );
+
+}
+
+
+cards.forEach(card => {
+
+    card.addEventListener(
+        "click",
+        async function() {
+
+            cards.forEach(
+                c =>
                     c.classList.remove(
                         "active"
                     )
+            );
+
+
+            card.classList.add(
+                "active"
+            );
+
+
+            const level =
+                card.dataset.level;
+
+
+            await loadSolvedChallenges();
+
+
+            showChallenges(level);
+
+        }
+    );
+
+});
+
+
+function showChallenges(level) {
+
+    const levelChallenges =
+        challenges[level];
+
+
+    title.textContent =
+        level.toUpperCase() +
+        " CHALLENGES";
+
+
+    list.innerHTML = "";
+
+
+    levelChallenges.forEach(
+        challenge => {
+
+            const card =
+                document.createElement("a");
+
+
+            const isSolved =
+                solvedChallenges.includes(
+                    challenge.id
                 );
 
+
+            card.className =
+                "challenge-card";
+
+
+            if (isSolved) {
 
                 card.classList.add(
-                    "active"
-                );
-
-
-                const level =
-                    card.dataset.level;
-
-
-                await loadSolvedChallenges();
-
-
-                showChallenges(
-                    level
+                    "solved"
                 );
 
             }
-        );
-
-    });
 
 
-    function showChallenges(level) {
-
-        const levelChallenges =
-            challenges[level];
-
-
-        title.textContent =
-            level.toUpperCase() +
-            " CHALLENGES";
+            card.href =
+                "challenge.html?id=" +
+                encodeURIComponent(
+                    challenge.id
+                );
 
 
-        list.innerHTML = "";
+            card.innerHTML = `
 
-
-        levelChallenges.forEach(
-            challenge => {
-
-                const card =
-                    document.createElement(
-                        "a"
-                    );
-
-
-                const isSolved =
-                    solvedChallenges.includes(
-                        challenge.id
-                    );
-
-
-                card.className =
-                    "challenge-card";
-
-
-                if (isSolved) {
-
-                    card.classList.add(
-                        "solved"
-                    );
-
+                ${
+                    isSolved
+                    ? `
+                        <div class="solved-badge">
+                            ✓ SOLVED
+                        </div>
+                    `
+                    : ""
                 }
 
+                <h3>
+                    ${escapeHTML(challenge.name)}
+                </h3>
 
-                card.href =
-                    "challenge.html?id=" +
-                    encodeURIComponent(
-                        challenge.id
-                    );
+                <p>
+                    ${escapeHTML(challenge.description)}
+                </p>
 
-
-                card.innerHTML = `
+                <span class="challenge-points">
 
                     ${
                         isSolved
-                        ? `
-                            <div class="solved-badge">
-                                ✓ SOLVED
-                            </div>
-                        `
-                        : ""
+                        ? "✓ SOLVED"
+                        : challenge.points +
+                          " POINTS →"
                     }
 
-                    <h3>
-                        ${challenge.name}
-                    </h3>
+                </span>
 
-                    <p>
-                        ${challenge.description}
-                    </p>
-
-                    <span class="challenge-points">
-                        ${
-                            isSolved
-                            ? "✓ SOLVED"
-                            : challenge.points +
-                              " POINTS →"
-                        }
-                    </span>
-
-                `;
+            `;
 
 
-                list.appendChild(
-                    card
-                );
+            list.appendChild(card);
 
-            }
-        );
+        }
+    );
 
-    }
+}
+
+
+function escapeHTML(value) {
+
+    return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+
+}
 
 </script>
 
 </body>
 </html>
+
