@@ -28,13 +28,11 @@
                 sans-serif;
         }
 
-
         body {
             min-height: 100vh;
             background: #050505;
             color: white;
         }
-
 
         .navbar {
             min-height: 70px;
@@ -49,12 +47,10 @@
             gap: 20px;
         }
 
-
         .logo {
             display: flex;
             align-items: center;
         }
-
 
         .logo img {
             display: block;
@@ -63,252 +59,160 @@
             object-fit: contain;
         }
 
-
         .back-btn {
             text-decoration: none;
             color: #aaa;
             border: 1px solid #333;
-
             padding: 9px 15px;
-
             border-radius: 6px;
-
             transition: 0.2s;
         }
-
 
         .back-btn:hover {
             color: #00ff88;
             border-color: #00ff88;
         }
 
-
         .container {
             width: 100%;
             max-width: 950px;
-
             margin: auto;
-
             padding: 50px 25px;
         }
 
-
         .challenge-box {
             background: #0d0d0d;
-
             border: 1px solid #222;
-
             border-radius: 12px;
-
             padding: 35px;
         }
 
-
         .challenge-type {
             color: #00ff88;
-
             font-size: 12px;
             font-weight: bold;
-
             letter-spacing: 2px;
-
             margin-bottom: 15px;
         }
-
 
         .challenge-title {
             font-size: 32px;
-
             margin-bottom: 15px;
         }
 
-
         .challenge-description {
             color: #999;
-
             line-height: 1.7;
-
             margin-bottom: 30px;
         }
 
-
         .section-title {
             font-size: 14px;
-
             color: #777;
-
             margin-bottom: 12px;
-
             font-weight: bold;
         }
-
 
         .encrypted-header {
             display: flex;
             align-items: center;
             justify-content: space-between;
-
             gap: 15px;
-
             margin-bottom: 12px;
         }
-
 
         .encrypted-header .section-title {
             margin-bottom: 0;
         }
 
-
         .copy-btn {
             background: transparent;
-
             color: #00ff88;
-
             border: 1px solid #00ff88;
-
             padding: 8px 14px;
-
             border-radius: 6px;
-
             font-size: 12px;
             font-weight: bold;
-
             cursor: pointer;
-
             transition: 0.2s;
         }
 
-
-        .copy-btn:hover {
-            background: #00ff88;
-            color: #050505;
-        }
-
-
+        .copy-btn:hover,
         .copy-btn.copied {
             background: #00ff88;
             color: #050505;
         }
 
-
         .encrypted-message {
             width: 100%;
-
             background: #070707;
-
             border: 1px solid #292929;
-
             border-radius: 8px;
-
             padding: 20px;
-
             color: #00ff88;
-
             font-family: monospace;
-
             font-size: 14px;
-
             line-height: 1.7;
-
             word-break: break-all;
-
             white-space: pre-wrap;
-
             margin-bottom: 30px;
-
             max-height: 350px;
-
             overflow-y: auto;
         }
 
-
         .hint-box {
             background: #101010;
-
             border: 1px solid #333;
-
             border-left: 3px solid #00ff88;
-
             padding: 18px;
-
             border-radius: 7px;
-
             color: #aaa;
-
             line-height: 1.7;
-
             margin-bottom: 30px;
         }
 
-
         .answer-label {
             display: block;
-
             color: #777;
-
             font-size: 13px;
-
             font-weight: bold;
-
             margin-bottom: 10px;
         }
 
-
         .answer-input {
             width: 100%;
-
             background: #070707;
-
             border: 1px solid #333;
-
             border-radius: 7px;
-
             padding: 15px;
-
             color: white;
-
             font-family: monospace;
-
             font-size: 15px;
-
             outline: none;
-
             margin-bottom: 15px;
         }
-
 
         .answer-input:focus {
             border-color: #00ff88;
         }
 
-
         .submit-btn {
             background: #00ff88;
-
             color: #050505;
-
             border: none;
-
             padding: 13px 24px;
-
             border-radius: 7px;
-
             font-weight: bold;
-
             cursor: pointer;
-
             transition: 0.2s;
         }
 
-
         .submit-btn:hover {
             transform: translateY(-2px);
-
             box-shadow:
                 0 0 25px
                 rgba(0, 255, 136, 0.2);
         }
-
 
         .submit-btn:disabled {
             opacity: 0.6;
@@ -316,74 +220,50 @@
             transform: none;
         }
 
-
         .message {
             display: none;
-
             margin-top: 20px;
-
             padding: 15px;
-
             border-radius: 7px;
-
             line-height: 1.6;
         }
 
-
         .message.success {
             display: block;
-
             background:
                 rgba(0, 255, 136, 0.08);
-
             border:
                 1px solid #00ff88;
-
             color: #00ff88;
         }
 
-
         .message.error {
             display: block;
-
             background:
                 rgba(255, 107, 107, 0.08);
-
             border:
                 1px solid #ff6b6b;
-
             color: #ff6b6b;
         }
 
-
         .not-found {
             text-align: center;
-
             padding: 60px 20px;
-
             background: #0d0d0d;
-
             border: 1px solid #222;
-
             border-radius: 12px;
         }
-
 
         .not-found h1 {
             margin-bottom: 15px;
         }
 
-
         .not-found p {
             color: #777;
-
             margin-bottom: 25px;
         }
 
-
-        @media (
-            max-width: 600px
-        ) {
+        @media (max-width: 600px) {
 
             .navbar {
                 padding: 15px 18px;
@@ -408,14 +288,12 @@
             .encrypted-header {
                 align-items: flex-start;
             }
-
         }
 
     </style>
 </head>
 
 <body>
-
 
 <nav class="navbar">
 
@@ -429,7 +307,6 @@
         >
     </a>
 
-
     <a
         href="challenges.html"
         class="back-btn"
@@ -439,17 +316,13 @@
 
 </nav>
 
-
 <main class="container">
 
-    <div
-        id="challengeContainer"
-    >
+    <div id="challengeContainer">
         Loading challenge...
     </div>
 
 </main>
-
 
 <script type="module">
 
@@ -489,13 +362,10 @@
         caesar: {
             type: "CAESAR CIPHER",
             title: "Caesar's Secret",
-
             description:
                 "Decode a secret message protected by a classical Caesar cipher.",
-
             encrypted:
                 "0X1GHOST{FDHVDU}",
-
             hint:
                 ""
         },
@@ -504,13 +374,10 @@
         rot13: {
             type: "ROT13",
             title: "What type this rot?",
-
             description:
                 "A mysterious message has been encrypted using a famous rotation cipher. Can you identify it and recover the flag?",
-
             encrypted:
                 "0K1TUBFG{V_N9521_C02E90E3Eq_103_fqns}",
-
             hint:
                 ""
         },
@@ -519,13 +386,10 @@
         binary: {
             type: "BINARY",
             title: "Binary Secret",
-
             description:
                 "A secret flag has been converted into binary. Can you decode it?",
-
             encrypted:
                 "00110000 01011000 00110001 01000111 01001000 01001111 01010011 01010100 01111011 01100111 00110000 00110000 01100100 01011111 01101010 00110000 00110100 01011111 01110100 01101000 00110011 00110110 01011111 01100001 00110011 00110111 00110010 01111101",
-
             hint:
                 ""
         },
@@ -534,13 +398,10 @@
         base64: {
             type: "BASE64",
             title: "What is this?",
-
             description:
                 "We've found this suspicious encryption. Can you crack it?",
-
             encrypted:
                 "MFgxR0hPU1R7QkE2NDYxOV9JU18xMjBPX24zNH0=",
-
             hint:
                 ""
         },
@@ -549,28 +410,22 @@
         vigenere: {
             type: "VIGENERE CIPHER",
             title: "The secret key",
-
             description:
                 "A secret message was encrypted with a classical Vigenere cipher. Find the key and recover the flag.",
-
             encrypted:
                 "0X1NTSVT{F9724_MVH_GVAH_ln_2571}",
-
             hint:
-                "Key hint: The key could be the real name of the platform owner."
+                "The key could be the real name of the platform owner."
         },
 
 
         "many-layers": {
             type: "MANY LAYERS",
             title: "Many layers of encryption",
-
             description:
                 "I obtained this encryption. Can you decrypt it?",
-
             encrypted:
                 manyLayersCiphertext,
-
             hint:
                 "This message has multiple layers. Try decoding the layers in the correct order."
         },
@@ -579,30 +434,24 @@
         "secret-encryption": {
             type: "SUBSTITUTION CIPHER",
             title: "secret encryption",
-
             description:
-                "A secret message has been encrypted using a substitution cipher. Can you decrypt it?",
-
+                "Decrypt the secret message using a substitution cipher.",
             encrypted:
                 "0W1ABKPQ{IN_IXES_QBCP_HBXFFSJAS}",
-
             hint:
-                "Each encrypted letter is consistently replaced by another letter."
+                "The same encrypted letter always represents the same original letter."
         },
 
 
-        "xor-repeating": {
+        "xor-repeating-key": {
             type: "XOR REPEATING KEY",
             title: "XOR Repeating Key",
-
             description:
-                "Decrypt the ciphertext using the known repeating XOR key.",
-
+                "A message was encrypted using XOR with a known repeating key. Can you decrypt it and recover the flag?",
             encrypted:
                 "00 00 00 00 00 00 00 00 4B 1F 7E 08 0C 10 66 67 01 6C 00 18 1F 7B 60 66 03 14 75 3A",
-
             hint:
-                "Known key: 0X1GHOST"
+                "The XOR repeating key is: 0X1GHOST"
         }
 
     };
@@ -662,16 +511,13 @@
                     ${escapeHTML(challenge.type)}
                 </div>
 
-
                 <h1 class="challenge-title">
                     ${escapeHTML(challenge.title)}
                 </h1>
 
-
                 <p class="challenge-description">
                     ${escapeHTML(challenge.description)}
                 </p>
-
 
                 <div class="encrypted-header">
 
@@ -689,12 +535,10 @@
 
                 </div>
 
-
                 <div
                     id="encryptedMessage"
                     class="encrypted-message"
                 >${escapeHTML(challenge.encrypted)}</div>
-
 
                 ${
                     challenge.hint
@@ -710,14 +554,12 @@
                     : ""
                 }
 
-
                 <label
                     class="answer-label"
                     for="answer"
                 >
                     SUBMIT FLAG
                 </label>
-
 
                 <input
                     id="answer"
@@ -727,14 +569,12 @@
                     autocomplete="off"
                 >
 
-
                 <button
                     id="submitButton"
                     class="submit-btn"
                 >
                     SUBMIT ANSWER
                 </button>
-
 
                 <div
                     id="message"
@@ -747,19 +587,27 @@
 
 
         const answerInput =
-            document.getElementById("answer");
+            document.getElementById(
+                "answer"
+            );
 
 
         const submitButton =
-            document.getElementById("submitButton");
+            document.getElementById(
+                "submitButton"
+            );
 
 
         const messageElement =
-            document.getElementById("message");
+            document.getElementById(
+                "message"
+            );
 
 
         const copyButton =
-            document.getElementById("copyButton");
+            document.getElementById(
+                "copyButton"
+            );
 
 
         copyButton.addEventListener(
@@ -777,7 +625,9 @@
                         "COPIED! ✓";
 
 
-                    copyButton.classList.add("copied");
+                    copyButton.classList.add(
+                        "copied"
+                    );
 
 
                     setTimeout(
@@ -785,6 +635,7 @@
 
                             copyButton.textContent =
                                 "COPY";
+
 
                             copyButton.classList.remove(
                                 "copied"
@@ -829,8 +680,12 @@
             "keydown",
             function(event) {
 
-                if (event.key === "Enter") {
+                if (
+                    event.key === "Enter"
+                ) {
+
                     submitAnswer();
+
                 }
 
             }
@@ -885,6 +740,7 @@
                 submitButton.textContent =
                     "SUBMIT ANSWER";
 
+
                 return;
 
             }
@@ -905,23 +761,24 @@
             );
 
 
+            submitButton.disabled =
+                false;
+
+
+            submitButton.textContent =
+                "SUBMIT ANSWER";
+
+
             if (error) {
 
                 console.error(error);
+
 
                 showMessage(
                     error.message ||
                     "Something went wrong.",
                     "error"
                 );
-
-
-                submitButton.disabled =
-                    false;
-
-
-                submitButton.textContent =
-                    "SUBMIT ANSWER";
 
                 return;
 
@@ -935,14 +792,6 @@
                     "Incorrect answer.",
                     "error"
                 );
-
-
-                submitButton.disabled =
-                    false;
-
-
-                submitButton.textContent =
-                    "SUBMIT ANSWER";
 
                 return;
 
@@ -961,10 +810,6 @@
 
             submitButton.disabled =
                 true;
-
-
-            submitButton.textContent =
-                "SOLVED ✓";
 
         }
 
