@@ -1,15 +1,23 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Challenge | 0X1GHOST</title>
 
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link
+        rel="icon"
+        type="image/png"
+        href="favicon.png"
+    >
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -34,6 +42,11 @@
 
             padding: 12px 35px;
             gap: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
         }
 
         .logo img {
@@ -98,22 +111,18 @@
             background: #070707;
             border: 1px solid #222;
             border-radius: 8px;
-            padding: 20px;
+            padding: 25px;
             margin-bottom: 25px;
         }
 
         .message-title {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             color: #777;
             font-size: 12px;
             font-weight: bold;
             margin-bottom: 12px;
-            gap: 10px;
         }
 
-        .message-wrapper {
+        .message-row {
             display: flex;
             align-items: flex-start;
             gap: 12px;
@@ -122,26 +131,24 @@
         .message {
             color: #00ff88;
             font-family: monospace;
-            font-size: 17px;
-            line-height: 1.7;
-            word-break: break-all;
+            font-size: 18px;
+            word-break: break-word;
             flex: 1;
+            line-height: 1.7;
         }
 
         .copy-btn {
-            flex-shrink: 0;
             background: #111;
             border: 1px solid #333;
-            color: #aaa;
-            padding: 7px 11px;
+            color: #00ff88;
+            padding: 8px 12px;
             border-radius: 6px;
             cursor: pointer;
-            font-size: 11px;
+            font-size: 13px;
             font-weight: bold;
         }
 
         .copy-btn:hover {
-            color: #00ff88;
             border-color: #00ff88;
         }
 
@@ -178,9 +185,9 @@
             cursor: pointer;
         }
 
-        .submit-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
+        .submit-btn:hover {
+            box-shadow:
+                0 0 20px rgba(0, 255, 136, 0.15);
         }
 
         .result {
@@ -233,14 +240,16 @@
                 align-items: flex-start;
             }
 
-            .message-wrapper {
+            .message-row {
                 flex-direction: column;
             }
 
             .copy-btn {
-                align-self: flex-start;
+                width: 100%;
             }
+
         }
+
     </style>
 </head>
 
@@ -248,15 +257,25 @@
 
 <nav class="navbar">
 
-    <a href="dashboard.html" class="logo">
-        <img src="logo.png" alt="0X1GHOST Logo">
+    <a
+        href="dashboard.html"
+        class="logo"
+    >
+        <img
+            src="logo.png"
+            alt="0X1GHOST Logo"
+        >
     </a>
 
-    <a href="challenges.html" class="back">
+    <a
+        href="challenges.html"
+        class="back"
+    >
         ← BACK TO CHALLENGES
     </a>
 
 </nav>
+
 
 <main class="container">
 
@@ -264,33 +283,43 @@
 
         <div class="top">
 
-            <h1 class="title" id="challengeName">
+            <h1
+                class="title"
+                id="challengeName"
+            >
                 Loading...
             </h1>
 
-            <div class="badge" id="challengeBadge">
+            <div
+                class="badge"
+                id="challengeBadge"
+            >
                 ...
             </div>
 
         </div>
 
-        <p class="description" id="challengeDescription">
+
+        <p
+            class="description"
+            id="challengeDescription"
+        >
             Loading challenge...
         </p>
+
 
         <div class="message-box">
 
             <div class="message-title">
-
-                <span>
-                    ENCRYPTED MESSAGE
-                </span>
-
+                ENCRYPTED MESSAGE
             </div>
 
-            <div class="message-wrapper">
+            <div class="message-row">
 
-                <div class="message" id="challengeMessage">
+                <div
+                    class="message"
+                    id="challengeMessage"
+                >
                     Loading...
                 </div>
 
@@ -306,6 +335,7 @@
 
         </div>
 
+
         <form id="answerForm">
 
             <label
@@ -320,7 +350,7 @@
                 class="answer-input"
                 type="text"
                 autocomplete="off"
-                placeholder="Enter the flag..."
+                placeholder="Enter your flag..."
                 required
             >
 
@@ -333,6 +363,7 @@
 
         </form>
 
+
         <div
             id="result"
             class="result"
@@ -342,16 +373,22 @@
 
 </main>
 
+
 <script type="module">
 
-import { createClient } from
+import {
+    createClient
+} from
 "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+
 
 const SUPABASE_URL =
     "https://borturaxifoxufixewya.supabase.co";
 
+
 const SUPABASE_KEY =
     "sb_publishable__lZmTM96oe10-rurqgrujg__ta_C4wr";
+
 
 const supabase =
     createClient(
@@ -364,14 +401,17 @@ const challenges = {
 
     caesar: {
 
-        name: "Caesar's Secret",
+        name:
+            "Caesar's Secret",
 
-        difficulty: "EASY · 100 PTS",
+        difficulty:
+            "EASY · 100 PTS",
 
-        points: 100,
+        points:
+            100,
 
         description:
-            "Caesar has hidden a secret message using a classical Caesar cipher. Decode the message and submit the plaintext.",
+            "Caesar has hidden a secret message using a classical Caesar cipher. Decode the message and submit the flag.",
 
         message:
             "FDHVDU"
@@ -379,33 +419,19 @@ const challenges = {
     },
 
 
-    rot13: {
-
-        name: "What Type This ROT",
-
-        difficulty: "EASY · 100 PTS",
-
-        points: 100,
-
-        description:
-            "Identify the ROT cipher used to transform the ciphertext, decode it, and submit the flag.",
-
-        message:
-            "0K1TUBFG{V_N9521_C02E90E3Eq_103_fqns}"
-
-    },
-
-
     binary: {
 
-        name: "Binary Secret",
+        name:
+            "Binary Decoder",
 
-        difficulty: "EASY · 100 PTS",
+        difficulty:
+            "EASY · 100 PTS",
 
-        points: 100,
+        points:
+            100,
 
         description:
-            "The secret message has been represented using binary. Convert the binary bytes into text and submit the hidden flag.",
+            "A mysterious message has been written entirely in binary. Decode it and find the hidden flag.",
 
         message:
             "00110000 01011000 00110001 01000111 01001000 01001111 01010011 01010100 01111011 01100111 00110000 00110000 01100100 01011111 01101010 00110000 00110100 01011111 01110100 01101000 00110011 00110110 01011111 01100001 00110011 00110111 00110010 01111101"
@@ -413,13 +439,56 @@ const challenges = {
     },
 
 
+    rot13: {
+
+        name:
+            "What type is this ROT?",
+
+        difficulty:
+            "EASY · 100 PTS",
+
+        points:
+            100,
+
+        description:
+            "This encrypted text uses a mysterious ROT cipher. Can you identify it and recover the hidden flag?",
+
+        message:
+            "0K1TUBFG{V_N9521_C02E90E3Eq_103_fqns}"
+
+    },
+
+
+    base64: {
+
+        name:
+            "What is this?",
+
+        difficulty:
+            "EASY · 100 PTS",
+
+        points:
+            100,
+
+        description:
+            "We've found this suspicious encryption. Can you crack it?",
+
+        message:
+            "MFgxR0hPU1R7QkE2NDYxOV9JU18xMjBPX24zNH0="
+
+    },
+
+
     "coming-medium": {
 
-        name: "Coming Soon",
+        name:
+            "Coming Soon",
 
-        difficulty: "MEDIUM · 200 PTS",
+        difficulty:
+            "MEDIUM · 200 PTS",
 
-        points: 200,
+        points:
+            200,
 
         description:
             "This challenge is currently being prepared.",
@@ -432,11 +501,14 @@ const challenges = {
 
     "coming-medium-hard": {
 
-        name: "Coming Soon",
+        name:
+            "Coming Soon",
 
-        difficulty: "MEDIUM HARD · 300 PTS",
+        difficulty:
+            "MEDIUM HARD · 300 PTS",
 
-        points: 300,
+        points:
+            300,
 
         description:
             "This challenge is currently being prepared.",
@@ -449,11 +521,14 @@ const challenges = {
 
     "coming-hard": {
 
-        name: "Coming Soon",
+        name:
+            "Coming Soon",
 
-        difficulty: "HARD · 500 PTS",
+        difficulty:
+            "HARD · 500 PTS",
 
-        points: 500,
+        points:
+            500,
 
         description:
             "This challenge is currently being prepared.",
@@ -471,8 +546,10 @@ const params =
         window.location.search
     );
 
+
 const challengeId =
     params.get("id");
+
 
 const challenge =
     challenges[challengeId];
@@ -483,35 +560,42 @@ const challengeName =
         "challengeName"
     );
 
+
 const challengeBadge =
     document.getElementById(
         "challengeBadge"
     );
+
 
 const challengeDescription =
     document.getElementById(
         "challengeDescription"
     );
 
+
 const challengeMessage =
     document.getElementById(
         "challengeMessage"
     );
+
 
 const answerForm =
     document.getElementById(
         "answerForm"
     );
 
+
 const answerInput =
     document.getElementById(
         "answer"
     );
 
+
 const result =
     document.getElementById(
         "result"
     );
+
 
 const copyButton =
     document.getElementById(
@@ -556,8 +640,6 @@ if (!challenge) {
 }
 
 
-/* COPY CIPHERTEXT */
-
 copyButton.addEventListener(
     "click",
     async function() {
@@ -575,8 +657,10 @@ copyButton.addEventListener(
 
             setTimeout(
                 function() {
+
                     copyButton.textContent =
                         "COPY";
+
                 },
                 1500
             );
@@ -585,37 +669,24 @@ copyButton.addEventListener(
 
             console.error(error);
 
-            copyButton.textContent =
-                "FAILED";
-
-            setTimeout(
-                function() {
-                    copyButton.textContent =
-                        "COPY";
-                },
-                1500
-            );
-
         }
 
     }
 );
 
 
-/* GET CURRENT USER */
-
 async function getCurrentUser() {
 
     const {
-        data: { user }
+        data: {
+            user
+        }
     } = await supabase.auth.getUser();
 
     return user;
 
 }
 
-
-/* SUBMIT */
 
 answerForm.addEventListener(
     "submit",
@@ -641,14 +712,8 @@ answerForm.addEventListener(
 
 
         const userAnswer =
-            answerInput.value.trim();
-
-
-        if (!userAnswer) {
-
-            return;
-
-        }
+            answerInput.value
+                .trim();
 
 
         result.className =
@@ -656,6 +721,9 @@ answerForm.addEventListener(
 
         result.textContent =
             "Checking answer...";
+
+        result.style.display =
+            "block";
 
 
         const {
@@ -681,65 +749,60 @@ answerForm.addEventListener(
                 "result error";
 
             result.textContent =
-                "Could not submit the answer. Please try again.";
+                "An error occurred while submitting your answer.";
 
             return;
 
         }
 
 
-        if (!data) {
+        if (!data.success) {
 
-            result.className =
-                "result error";
+            if (data.already_solved) {
 
-            result.textContent =
-                "No response from server.";
+                result.className =
+                    "result success";
+
+                result.textContent =
+                    data.message;
+
+            } else {
+
+                result.className =
+                    "result error";
+
+                result.textContent =
+                    data.message;
+
+            }
 
             return;
 
         }
 
 
-        if (data.success) {
+        result.className =
+            "result success";
 
-            result.className =
-                "result success";
 
-            result.innerHTML =
-                `
-                Correct! 🎉
-                You earned
-                <span class="points">
-                    ${data.points} points
-                </span>.
-                `;
+        result.innerHTML =
+            `
+            Correct! 🎉
+            You earned
+            <span class="points">
+                ${data.points} points
+            </span>.
+            `;
 
-            answerInput.disabled =
-                true;
 
-            document.querySelector(
-                ".submit-btn"
-            ).disabled = true;
+        answerInput.disabled =
+            true;
 
-        } else if (data.already_solved) {
 
-            result.className =
-                "result success";
-
-            result.textContent =
-                "You already solved this challenge.";
-
-        } else {
-
-            result.className =
-                "result error";
-
-            result.textContent =
-                data.message ||
-                "Incorrect answer. Try again.";
-
-        }
+        document.querySelector(
+            ".submit-btn"
+        ).disabled =
+            true;
 
     }
 );
