@@ -1,446 +1,276 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Dashboard | 0X1GHOST</title>
 
-    <link
-        rel="icon"
-        type="image/png"
-        href="favicon.png"
-    >
+    <link rel="icon" type="image/png" href="favicon.png">
 
     <style>
-
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
         }
-
 
         body {
             min-height: 100vh;
-
             background: #050505;
-
             color: white;
         }
 
-
         .navbar {
             min-height: 70px;
-
             border-bottom: 1px solid #222;
-
             background: #090909;
 
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
 
             padding: 12px 35px;
-
             gap: 20px;
         }
 
-
         .logo {
             display: flex;
-
             align-items: center;
-
             text-decoration: none;
         }
-
 
         .logo img {
             display: block;
-
             width: 150px;
-
             height: auto;
-
             max-height: 55px;
-
             object-fit: contain;
         }
 
-
         .nav-right {
             display: flex;
-
             align-items: center;
-
             gap: 14px;
-
             flex-wrap: wrap;
-
             justify-content: flex-end;
         }
 
-
         .nav-link {
             color: #aaa;
-
             text-decoration: none;
-
             font-size: 13px;
-
             font-weight: bold;
-
             transition: 0.2s;
         }
-
 
         .nav-link:hover,
         .nav-link.active {
             color: #00ff88;
         }
 
-
         .user-info {
             color: #aaa;
-
             font-size: 14px;
         }
 
-
         .score {
             color: #00ff88;
-
             font-weight: bold;
         }
 
-
         .logout-btn {
             background: transparent;
-
             border: 1px solid #333;
-
             color: #aaa;
-
             padding: 9px 15px;
-
             border-radius: 6px;
-
             cursor: pointer;
-
             transition: 0.2s;
         }
 
-
         .logout-btn:hover {
             border-color: #ff6b6b;
-
             color: #ff6b6b;
         }
 
-
         .container {
             width: 100%;
-
             max-width: 1100px;
-
             margin: auto;
-
             padding: 55px 25px;
         }
-
 
         .welcome {
             margin-bottom: 35px;
         }
 
-
         .welcome h1 {
             font-size: 32px;
-
             margin-bottom: 10px;
         }
-
 
         .welcome h1 span {
             color: #00ff88;
         }
 
-
         .welcome p {
             color: #777;
-
             line-height: 1.6;
         }
-
 
         .stats {
             display: grid;
-
-            grid-template-columns:
-                repeat(3, 1fr);
-
+            grid-template-columns: repeat(3, 1fr);
             gap: 18px;
-
             margin-bottom: 45px;
         }
 
-
         .stat-card {
             background: #0d0d0d;
-
             border: 1px solid #222;
-
             border-radius: 10px;
-
             padding: 25px;
         }
 
-
         .stat-title {
             color: #777;
-
             font-size: 13px;
-
             margin-bottom: 10px;
         }
 
-
         .stat-value {
             font-size: 25px;
-
             font-weight: bold;
-
             color: #00ff88;
         }
 
-
         .challenge-box {
             background: #0d0d0d;
-
             border: 1px solid #222;
-
             border-radius: 12px;
-
             padding: 35px;
-
             text-align: center;
         }
 
-
         .challenge-box h2 {
             font-size: 26px;
-
             margin-bottom: 12px;
         }
 
-
         .challenge-box p {
             color: #777;
-
             line-height: 1.6;
-
             margin-bottom: 25px;
         }
 
-
         .go-btn {
             display: inline-block;
-
             background: #00ff88;
-
             color: #050505;
-
             text-decoration: none;
-
             font-weight: bold;
-
             padding: 13px 24px;
-
             border-radius: 7px;
-
             transition: 0.2s;
         }
 
-
         .go-btn:hover {
             transform: translateY(-2px);
-
-            box-shadow:
-                0 0 25px
-                rgba(
-                    0,
-                    255,
-                    136,
-                    0.2
-                );
+            box-shadow: 0 0 25px rgba(0, 255, 136, 0.2);
         }
 
+        .error-message {
+            display: none;
+            margin-bottom: 25px;
+            padding: 15px;
+            border: 1px solid #ff6b6b;
+            border-radius: 7px;
+            color: #ff6b6b;
+            background: rgba(255, 107, 107, 0.08);
+        }
 
         @media (max-width: 800px) {
-
             .navbar {
                 padding: 15px 18px;
-
                 flex-direction: column;
-
                 align-items: flex-start;
             }
 
-
             .nav-right {
                 width: 100%;
-
                 justify-content: flex-start;
             }
-
 
             .stats {
                 grid-template-columns: 1fr;
             }
 
-
             .logo img {
                 width: 135px;
             }
-
         }
 
-
         @media (max-width: 500px) {
-
             .container {
                 padding: 35px 18px;
             }
-
 
             .welcome h1 {
                 font-size: 26px;
             }
 
-
             .user-info {
                 display: none;
             }
 
-
             .logo img {
                 width: 125px;
             }
-
         }
-
     </style>
-
 </head>
-
 
 <body>
 
-
 <nav class="navbar">
 
-
-    <a
-        href="dashboard.html"
-        class="logo"
-    >
-
-        <img
-            src="logo.png"
-            alt="0X1GHOST Logo"
-        >
-
+    <a href="dashboard.html" class="logo">
+        <img src="logo.png" alt="0X1GHOST Logo">
     </a>
-
 
     <div class="nav-right">
 
-
-        <a
-            href="dashboard.html"
-            class="nav-link active"
-        >
+        <a href="dashboard.html" class="nav-link active">
             DASHBOARD
         </a>
 
-
-        <a
-            href="challenges.html"
-            class="nav-link"
-        >
+        <a href="challenges.html" class="nav-link">
             CHALLENGES
         </a>
 
-
-        <a
-            href="scoreboard.html"
-            class="nav-link"
-        >
+        <a href="scoreboard.html" class="nav-link">
             SCOREBOARD
         </a>
 
-
-        <a
-            href="first-blood.html"
-            class="nav-link"
-        >
-            FIRST BLOOD
-        </a>
-
-
-        <a
-            href="rules.html"
-            class="nav-link"
-        >
+        <a href="rules.html" class="nav-link">
             RULES
         </a>
 
-
         <div class="user-info">
-
             Player:
-
-            <span id="username">
-                Loading...
-            </span>
-
+            <span id="username">Loading...</span>
         </div>
-
 
         <div>
-
             Score:
-
-            <span
-                class="score"
-                id="score"
-            >
-                0
-            </span>
-
+            <span class="score" id="score">0</span>
         </div>
 
-
-        <button
-            class="logout-btn"
-            id="logoutButton"
-        >
+        <button class="logout-btn" id="logoutButton">
             LOGOUT
         </button>
-
 
     </div>
 
@@ -449,199 +279,164 @@
 
 <main class="container">
 
-
     <div class="welcome">
 
-
         <h1>
-
             Welcome,
-
-            <span id="welcomeUsername">
-                Player
-            </span>
-
+            <span id="welcomeUsername">Player</span>
         </h1>
 
-
         <p>
-            Welcome to 0X1GHOST.
-            Choose a challenge,
+            Welcome to 0X1GHOST. Choose a challenge,
             solve it, and climb the leaderboard.
         </p>
-
 
     </div>
 
 
+    <div id="errorMessage" class="error-message"></div>
+
+
     <div class="stats">
 
-
         <div class="stat-card">
-
 
             <div class="stat-title">
                 SCORE
             </div>
 
-
-            <div
-                class="stat-value"
-                id="scoreCard"
-            >
+            <div class="stat-value" id="scoreCard">
                 0
             </div>
-
 
         </div>
 
 
         <div class="stat-card">
-
 
             <div class="stat-title">
                 CHALLENGES SOLVED
             </div>
 
-
             <div class="stat-value">
-
-                <span id="solved">
-                    0
-                </span>
-
+                <span id="solved">0</span>
             </div>
-
 
         </div>
 
 
         <div class="stat-card">
 
-
             <div class="stat-title">
                 RANK
             </div>
 
-
             <div class="stat-value">
-
-                <span id="rank">
-                    -
-                </span>
-
+                <span id="rank">-</span>
             </div>
 
-
         </div>
-
 
     </div>
 
 
     <div class="challenge-box">
 
-
         <h2>
             Ready for a challenge?
         </h2>
-
 
         <p>
             Choose your difficulty level and select
             the cryptography challenge you want to solve.
         </p>
 
-
-        <a
-            href="challenges.html"
-            class="go-btn"
-        >
+        <a href="challenges.html" class="go-btn">
             GO TO CHALLENGE →
         </a>
 
-
     </div>
-
 
 </main>
 
 
 <script type="module">
 
-
-    import {
-        createClient
-    } from
-    "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
-
-
-    const SUPABASE_URL =
-        "https://borturaxifoxufixewya.supabase.co";
+import {
+    createClient
+} from
+"https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
 
-    const SUPABASE_KEY =
-        "sb_publishable__lZmTM96oe10-rurqgrujg__ta_C4wr";
+const SUPABASE_URL =
+    "https://borturaxifoxufixewya.supabase.co";
 
 
-    const supabase =
-        createClient(
-            SUPABASE_URL,
-            SUPABASE_KEY
-        );
+const SUPABASE_KEY =
+    "sb_publishable__lZmTM96oe10-rurqgrujg__ta_C4wr";
 
 
-    const usernameElement =
-        document.getElementById(
-            "username"
-        );
+const supabase =
+    createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
 
 
-    const welcomeUsername =
-        document.getElementById(
-            "welcomeUsername"
-        );
+const usernameElement =
+    document.getElementById("username");
+
+const welcomeUsername =
+    document.getElementById("welcomeUsername");
+
+const scoreElement =
+    document.getElementById("score");
+
+const scoreCard =
+    document.getElementById("scoreCard");
+
+const solvedElement =
+    document.getElementById("solved");
+
+const rankElement =
+    document.getElementById("rank");
+
+const logoutButton =
+    document.getElementById("logoutButton");
+
+const errorElement =
+    document.getElementById("errorMessage");
 
 
-    const scoreElement =
-        document.getElementById(
-            "score"
-        );
+async function loadDashboard() {
 
+    try {
 
-    const scoreCard =
-        document.getElementById(
-            "scoreCard"
-        );
-
-
-    const solvedElement =
-        document.getElementById(
-            "solved"
-        );
-
-
-    const rankElement =
-        document.getElementById(
-            "rank"
-        );
-
-
-    const logoutButton =
-        document.getElementById(
-            "logoutButton"
-        );
-
-
-    async function checkUser() {
-
+        /*
+         * ==========================================
+         * GET CURRENT USER
+         * ==========================================
+         */
 
         const {
             data: {
                 user
-            }
+            },
+            error: userError
         } =
-            await supabase.auth.getUser();
+        await supabase.auth.getUser();
+
+
+        if (userError) {
+
+            console.error(userError);
+
+            window.location.href =
+                "index.html";
+
+            return;
+
+        }
 
 
         if (!user) {
@@ -649,52 +444,37 @@
             window.location.href =
                 "index.html";
 
-            return null;
-
-        }
-
-
-        return user;
-
-    }
-
-
-    async function loadDashboard() {
-
-
-        const user =
-            await checkUser();
-
-
-        if (!user) {
             return;
+
         }
 
 
         /*
-         * PROFILE
+         * ==========================================
+         * GET PROFILE
+         * ==========================================
          */
 
         const {
             data: profile,
             error: profileError
         } =
-            await supabase
-                .from("profiles")
-                .select(
-                    "username, score"
-                )
-                .eq(
-                    "id",
-                    user.id
-                )
-                .maybeSingle();
+        await supabase
+            .from("profiles")
+            .select("username, score")
+            .eq("id", user.id)
+            .maybeSingle();
 
 
         if (profileError) {
 
             console.error(
+                "Profile error:",
                 profileError
+            );
+
+            showError(
+                "Could not load your profile."
             );
 
             return;
@@ -708,63 +488,84 @@
                 "Profile not found."
             );
 
+            showError(
+                "Your profile was not found."
+            );
+
             return;
 
         }
 
 
-        usernameElement.textContent =
+        /*
+         * ==========================================
+         * USERNAME
+         * ==========================================
+         */
+
+        const username =
             profile.username ||
             "Player";
 
+
+        usernameElement.textContent =
+            username;
 
         welcomeUsername.textContent =
-            profile.username ||
-            "Player";
+            username;
 
+
+        /*
+         * ==========================================
+         * SCORE
+         * ==========================================
+         */
 
         const score =
-            Number(
-                profile.score || 0
-            );
+            Number(profile.score) || 0;
 
 
         scoreElement.textContent =
             score;
-
 
         scoreCard.textContent =
             score;
 
 
         /*
-         * CHALLENGES SOLVED
+         * ==========================================
+         * COUNT SOLVED CHALLENGES
+         * ==========================================
          */
 
         const {
             count: solvedCount,
             error: solvesError
         } =
-            await supabase
-                .from("challenge_solves")
-                .select(
-                    "challenge_id",
-                    {
-                        count: "exact",
-                        head: true
-                    }
-                )
-                .eq(
-                    "user_id",
-                    user.id
-                );
+        await supabase
+            .from("challenge_solves")
+            .select(
+                "*",
+                {
+                    count: "exact",
+                    head: true
+                }
+            )
+            .eq(
+                "user_id",
+                user.id
+            );
 
 
         if (solvesError) {
 
             console.error(
+                "Solves error:",
                 solvesError
             );
+
+            solvedElement.textContent =
+                "0";
 
         } else {
 
@@ -775,31 +576,31 @@
 
 
         /*
-         * RANK
-         *
-         * نحسب عدد اللاعبين
-         * الذين لديهم score أعلى
+         * ==========================================
+         * GET ALL PLAYERS FOR RANK
+         * ==========================================
          */
 
         const {
-            data: higherPlayers,
-            error: rankError
+            data: players,
+            error: playersError
         } =
-            await supabase
-                .from("profiles")
-                .select(
-                    "id"
-                )
-                .gt(
-                    "score",
-                    score
-                );
+        await supabase
+            .from("profiles")
+            .select("id, score")
+            .order(
+                "score",
+                {
+                    ascending: false
+                }
+            );
 
 
-        if (rankError) {
+        if (playersError) {
 
             console.error(
-                rankError
+                "Rank error:",
+                playersError
             );
 
             rankElement.textContent =
@@ -807,53 +608,118 @@
 
         } else {
 
-            const rank =
-                (
-                    higherPlayers?.length ||
-                    0
-                ) + 1;
+            const playerIndex =
+                players.findIndex(
+                    function(player) {
+
+                        return (
+                            player.id === user.id
+                        );
+
+                    }
+                );
 
 
-            rankElement.textContent =
-                "#" + rank;
+            if (playerIndex !== -1) {
 
-        }
+                rankElement.textContent =
+                    "#" + (playerIndex + 1);
 
-    }
+            } else {
 
-
-    logoutButton.addEventListener(
-        "click",
-        async function() {
-
-
-            const {
-                error
-            } =
-                await supabase.auth.signOut();
-
-
-            if (error) {
-
-                console.error(error);
-
-                return;
+                rankElement.textContent =
+                    "-";
 
             }
 
+        }
 
-            window.location.href =
-                "index.html";
+    } catch (error) {
+
+        console.error(error);
+
+        showError(
+            "Something went wrong while loading the dashboard."
+        );
+
+    }
+
+}
+
+
+/*
+ * ==========================================
+ * ERROR MESSAGE
+ * ==========================================
+ */
+
+function showError(message) {
+
+    errorElement.textContent =
+        message;
+
+    errorElement.style.display =
+        "block";
+
+}
+
+
+/*
+ * ==========================================
+ * LOGOUT
+ * ==========================================
+ */
+
+logoutButton.addEventListener(
+    "click",
+    async function() {
+
+        logoutButton.disabled =
+            true;
+
+        logoutButton.textContent =
+            "LOGGING OUT...";
+
+
+        const {
+            error
+        } =
+        await supabase.auth.signOut();
+
+
+        if (error) {
+
+            console.error(error);
+
+            logoutButton.disabled =
+                false;
+
+            logoutButton.textContent =
+                "LOGOUT";
+
+            return;
 
         }
-    );
 
 
-    loadDashboard();
+        window.location.href =
+            "index.html";
+
+    }
+);
+
+
+/*
+ * ==========================================
+ * LOAD DASHBOARD
+ * ==========================================
+ */
+
+loadDashboard();
 
 </script>
 
-
 </body>
-
 </html>
+
+
