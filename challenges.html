@@ -1,24 +1,15 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Challenges | 0X1GHOST</title>
 
-    <link
-        rel="icon"
-        type="image/png"
-        href="favicon.png"
-    >
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="favicon.png">
 
     <style>
-
         * {
             margin: 0;
             padding: 0;
@@ -94,7 +85,6 @@
 
         .difficulty-grid {
             display: grid;
-
             grid-template-columns:
                 repeat(auto-fit, minmax(220px, 1fr));
 
@@ -106,7 +96,6 @@
             background: #0d0d0d;
             border: 1px solid #222;
             border-radius: 10px;
-
             padding: 25px;
             cursor: pointer;
             transition: 0.2s;
@@ -118,10 +107,8 @@
 
         .difficulty-card.active {
             border-color: #00ff88;
-
             box-shadow:
-                0 0 25px
-                rgba(0, 255, 136, 0.08);
+                0 0 25px rgba(0, 255, 136, 0.08);
         }
 
         .difficulty-card h2 {
@@ -159,7 +146,6 @@
 
         .challenge-grid {
             display: grid;
-
             grid-template-columns:
                 repeat(auto-fit, minmax(280px, 1fr));
 
@@ -170,23 +156,17 @@
             background: #0d0d0d;
             border: 1px solid #222;
             border-radius: 10px;
-
             padding: 25px;
-
             text-decoration: none;
             color: white;
-
             transition: 0.2s;
         }
 
         .challenge-card:hover {
             border-color: #00ff88;
-
             transform: translateY(-3px);
-
             box-shadow:
-                0 0 25px
-                rgba(0, 255, 136, 0.08);
+                0 0 25px rgba(0, 255, 136, 0.08);
         }
 
         .challenge-card h3 {
@@ -203,19 +183,50 @@
         .challenge-points {
             display: inline-block;
             margin-top: 20px;
-
             color: #00ff88;
-
             font-size: 13px;
             font-weight: bold;
+        }
+
+        /* =========================
+           SOLVED CHALLENGE
+        ========================= */
+
+        .challenge-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 12px;
+        }
+
+        .challenge-header h3 {
+            margin-bottom: 12px;
+        }
+
+        .solved-badge {
+            flex-shrink: 0;
+            color: #00ff88;
+            border: 1px solid #00ff88;
+            background: rgba(0, 255, 136, 0.08);
+            padding: 6px 9px;
+            border-radius: 5px;
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        .solved-card {
+            border-color: #00ff88;
+            background: #0b100d;
+        }
+
+        .solved-card .challenge-points {
+            color: #00ff88;
         }
 
         .empty {
             padding: 30px;
             text-align: center;
-
             color: #777;
-
             border: 1px solid #222;
             border-radius: 10px;
         }
@@ -234,9 +245,19 @@
             .logo img {
                 width: 135px;
             }
-
         }
 
+        @media (max-width: 500px) {
+
+            .challenge-header {
+                flex-direction: column;
+                gap: 5px;
+            }
+
+            .solved-badge {
+                align-self: flex-start;
+            }
+        }
     </style>
 </head>
 
@@ -244,43 +265,25 @@
 
 <nav class="navbar">
 
-    <a
-        href="dashboard.html"
-        class="logo"
-    >
-        <img
-            src="logo.png"
-            alt="0X1GHOST Logo"
-        >
+    <a href="dashboard.html" class="logo">
+        <img src="logo.png" alt="0X1GHOST Logo">
     </a>
 
     <div class="nav-right">
 
-        <a
-            href="dashboard.html"
-            class="nav-link"
-        >
+        <a href="dashboard.html" class="nav-link">
             DASHBOARD
         </a>
 
-        <a
-            href="challenges.html"
-            class="nav-link active"
-        >
+        <a href="challenges.html" class="nav-link active">
             CHALLENGES
         </a>
 
-        <a
-            href="scoreboard.html"
-            class="nav-link"
-        >
+        <a href="scoreboard.html" class="nav-link">
             SCOREBOARD
         </a>
 
-        <a
-            href="rules.html"
-            class="nav-link"
-        >
+        <a href="rules.html" class="nav-link">
             RULES
         </a>
 
@@ -306,7 +309,6 @@
             class="difficulty-card easy"
             data-level="easy"
         >
-
             <h2>🟢 EASY</h2>
 
             <p>
@@ -316,7 +318,6 @@
             <div class="points">
                 100 POINTS
             </div>
-
         </div>
 
 
@@ -324,7 +325,6 @@
             class="difficulty-card medium"
             data-level="medium"
         >
-
             <h2>🟡 MEDIUM</h2>
 
             <p>
@@ -334,7 +334,6 @@
             <div class="points">
                 200 POINTS
             </div>
-
         </div>
 
 
@@ -342,7 +341,6 @@
             class="difficulty-card medium-hard"
             data-level="medium-hard"
         >
-
             <h2>🟠 MEDIUM HARD</h2>
 
             <p>
@@ -352,7 +350,6 @@
             <div class="points">
                 300 POINTS
             </div>
-
         </div>
 
 
@@ -360,7 +357,6 @@
             class="difficulty-card hard"
             data-level="hard"
         >
-
             <h2>🔴 HARD</h2>
 
             <p>
@@ -370,7 +366,6 @@
             <div class="points">
                 500 POINTS
             </div>
-
         </div>
 
     </div>
@@ -398,7 +393,30 @@
 </main>
 
 
-<script>
+<script type="module">
+
+    import { createClient } from
+    "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+
+
+    const SUPABASE_URL =
+        "https://borturaxifoxufixewya.supabase.co";
+
+
+    const SUPABASE_KEY =
+        "sb_publishable__lZmTM96oe10-rurqgrujg__ta_C4wr";
+
+
+    const supabase =
+        createClient(
+            SUPABASE_URL,
+            SUPABASE_KEY
+        );
+
+
+    /* =========================
+       ALL CHALLENGES
+    ========================= */
 
     const challenges = {
 
@@ -406,65 +424,41 @@
 
             {
                 id: "caesar",
-
-                name:
-                    "Caesar's Secret",
-
+                name: "Caesar's Secret",
                 description:
                     "Decode a secret message protected by a classical Caesar cipher.",
-
                 points: 100
             },
-
-
-            {
-                id: "rot13",
-
-                name:
-                    "What type is this ROT?",
-
-                description:
-                    "A strange message has been encrypted using a classic rotation cipher. Can you identify it and recover the flag?",
-
-                points: 100
-            },
-
 
             {
                 id: "binary",
-
-                name:
-                    "Binary Mystery",
-
+                name: "Binary Secret",
                 description:
-                    "A mysterious message is written entirely in binary. Decode it and find the hidden flag.",
-
+                    "A secret flag has been converted into binary. Decode the binary message.",
                 points: 100
             },
 
+            {
+                id: "rot13",
+                name: "What Type Is This?",
+                description:
+                    "We've found a suspicious encrypted message. Can you identify the cipher and decode it?",
+                points: 100
+            },
 
             {
                 id: "base64",
-
-                name:
-                    "What is this?",
-
+                name: "What is this ?",
                 description:
                     "We've found this suspicious encryption. Can you crack it?",
-
                 points: 100
             },
 
-
             {
                 id: "vigenere",
-
-                name:
-                    "The secret key",
-
+                name: "The Secret Key",
                 description:
-                    "A secret message was encrypted with a classical Vigenère cipher. Find the key and recover the hidden flag.",
-
+                    "A secret message has been encrypted using a Vigenere cipher. Can you discover the key and decrypt it?",
                 points: 100
             }
 
@@ -475,13 +469,9 @@
 
             {
                 id: "coming-medium",
-
-                name:
-                    "Coming Soon",
-
+                name: "Coming Soon",
                 description:
                     "A medium-level cryptography challenge is being prepared.",
-
                 points: 200
             }
 
@@ -492,13 +482,9 @@
 
             {
                 id: "coming-medium-hard",
-
-                name:
-                    "Coming Soon",
-
+                name: "Coming Soon",
                 description:
                     "A more challenging cryptography problem is coming soon.",
-
                 points: 300
             }
 
@@ -509,13 +495,9 @@
 
             {
                 id: "coming-hard",
-
-                name:
-                    "Coming Soon",
-
+                name: "Coming Soon",
                 description:
                     "The hardest challenges will appear here.",
-
                 points: 500
             }
 
@@ -542,18 +524,114 @@
         );
 
 
+    let solvedChallenges = [];
+
+
+    /* =========================
+       GET LOGGED-IN USER
+    ========================= */
+
+    async function getCurrentUser() {
+
+        const {
+            data: {
+                user
+            },
+            error
+        } = await supabase.auth.getUser();
+
+
+        if (error) {
+
+            console.error(
+                "Could not get user:",
+                error
+            );
+
+            return null;
+
+        }
+
+
+        return user;
+
+    }
+
+
+    /* =========================
+       LOAD SOLVED CHALLENGES
+    ========================= */
+
+    async function getSolvedChallenges() {
+
+        const user =
+            await getCurrentUser();
+
+
+        if (!user) {
+
+            solvedChallenges = [];
+            return;
+
+        }
+
+
+        const {
+            data,
+            error
+        } = await supabase
+            .from("challenge_solves")
+            .select("challenge_id")
+            .eq(
+                "user_id",
+                user.id
+            );
+
+
+        if (error) {
+
+            console.error(
+                "Could not load solved challenges:",
+                error
+            );
+
+            solvedChallenges = [];
+            return;
+
+        }
+
+
+        solvedChallenges =
+            (data || []).map(
+                function(solve) {
+
+                    return solve.challenge_id;
+
+                }
+            );
+
+    }
+
+
+    /* =========================
+       DIFFICULTY CLICK
+    ========================= */
+
     cards.forEach(
-        card => {
+        function(card) {
 
             card.addEventListener(
                 "click",
-                function() {
+                async function() {
 
                     cards.forEach(
-                        c =>
+                        function(c) {
+
                             c.classList.remove(
                                 "active"
-                            )
+                            );
+
+                        }
                     );
 
 
@@ -564,6 +642,18 @@
 
                     const level =
                         card.dataset.level;
+
+
+                    list.innerHTML = `
+
+                        <div class="empty">
+                            Loading challenges...
+                        </div>
+
+                    `;
+
+
+                    await getSolvedChallenges();
 
 
                     showChallenges(
@@ -577,6 +667,10 @@
     );
 
 
+    /* =========================
+       SHOW CHALLENGES
+    ========================= */
+
     function showChallenges(level) {
 
         const levelChallenges =
@@ -584,21 +678,39 @@
 
 
         title.textContent =
-            level
-                .toUpperCase()
-                .replace(
-                    "-",
-                    " "
-                )
-            +
+            level.toUpperCase() +
             " CHALLENGES";
 
 
         list.innerHTML = "";
 
 
+        if (
+            !levelChallenges ||
+            levelChallenges.length === 0
+        ) {
+
+            list.innerHTML = `
+
+                <div class="empty">
+                    No challenges available.
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
         levelChallenges.forEach(
-            challenge => {
+            function(challenge) {
+
+                const isSolved =
+                    solvedChallenges.includes(
+                        challenge.id
+                    );
+
 
                 const card =
                     document.createElement(
@@ -610,9 +722,17 @@
                     "challenge-card";
 
 
+                if (isSolved) {
+
+                    card.classList.add(
+                        "solved-card"
+                    );
+
+                }
+
+
                 card.href =
-                    "challenge.html?id="
-                    +
+                    "challenge.html?id=" +
                     encodeURIComponent(
                         challenge.id
                     );
@@ -620,16 +740,42 @@
 
                 card.innerHTML = `
 
-                    <h3>
-                        ${escapeHTML(challenge.name)}
-                    </h3>
+                    <div class="challenge-header">
+
+                        <h3>
+                            ${escapeHTML(
+                                challenge.name
+                            )}
+                        </h3>
+
+                        ${
+                            isSolved
+                                ? `
+                                    <span class="solved-badge">
+                                        ✓ SOLVED
+                                    </span>
+                                `
+                                : ""
+                        }
+
+                    </div>
+
 
                     <p>
-                        ${escapeHTML(challenge.description)}
+                        ${escapeHTML(
+                            challenge.description
+                        )}
                     </p>
 
+
                     <span class="challenge-points">
-                        ${challenge.points} POINTS →
+
+                        ${
+                            isSolved
+                                ? "✓ COMPLETED"
+                                : challenge.points + " POINTS →"
+                        }
+
                     </span>
 
                 `;
@@ -645,30 +791,29 @@
     }
 
 
+    /* =========================
+       HTML PROTECTION
+    ========================= */
+
     function escapeHTML(value) {
 
         return String(value)
-
             .replaceAll(
                 "&",
                 "&amp;"
             )
-
             .replaceAll(
                 "<",
                 "&lt;"
             )
-
             .replaceAll(
                 ">",
                 "&gt;"
             )
-
             .replaceAll(
                 '"',
                 "&quot;"
             )
-
             .replaceAll(
                 "'",
                 "&#039;"
