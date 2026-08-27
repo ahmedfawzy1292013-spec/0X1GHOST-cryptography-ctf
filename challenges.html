@@ -2,13 +2,22 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Challenges | 0X1GHOST</title>
 
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link
+        rel="icon"
+        type="image/png"
+        href="favicon.png"
+    >
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -26,18 +35,11 @@
             min-height: 70px;
             border-bottom: 1px solid #222;
             background: #090909;
-
             display: flex;
             align-items: center;
             justify-content: space-between;
-
             padding: 12px 35px;
             gap: 20px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
         }
 
         .logo img {
@@ -86,7 +88,6 @@
             display: grid;
             grid-template-columns:
                 repeat(auto-fit, minmax(220px, 1fr));
-
             gap: 18px;
             margin-bottom: 40px;
         }
@@ -106,7 +107,6 @@
 
         .difficulty-card.active {
             border-color: #00ff88;
-
             box-shadow:
                 0 0 25px rgba(0, 255, 136, 0.08);
         }
@@ -148,33 +148,23 @@
             display: grid;
             grid-template-columns:
                 repeat(auto-fit, minmax(280px, 1fr));
-
             gap: 18px;
         }
 
         .challenge-card {
             position: relative;
-
             background: #0d0d0d;
-
             border: 1px solid #222;
-
             border-radius: 10px;
-
             padding: 25px;
-
             text-decoration: none;
-
             color: white;
-
             transition: 0.2s;
         }
 
         .challenge-card:hover {
             border-color: #00ff88;
-
             transform: translateY(-3px);
-
             box-shadow:
                 0 0 25px rgba(0, 255, 136, 0.08);
         }
@@ -196,49 +186,33 @@
 
         .challenge-points {
             display: inline-block;
-
             margin-top: 20px;
-
             color: #00ff88;
-
             font-size: 13px;
-
             font-weight: bold;
         }
 
         .solved-badge {
             position: absolute;
-
             top: 18px;
             right: 18px;
 
-            background:
-                rgba(0, 255, 136, 0.12);
-
-            border:
-                1px solid #00ff88;
-
+            background: rgba(0, 255, 136, 0.12);
+            border: 1px solid #00ff88;
             color: #00ff88;
 
             padding: 6px 10px;
-
             border-radius: 20px;
 
             font-size: 11px;
-
             font-weight: bold;
         }
 
         .empty {
             padding: 30px;
-
             text-align: center;
-
             color: #777;
-
-            border:
-                1px solid #222;
-
+            border: 1px solid #222;
             border-radius: 10px;
         }
 
@@ -256,11 +230,14 @@
             .logo img {
                 width: 135px;
             }
+
         }
+
     </style>
 </head>
 
 <body>
+
 
 <nav class="navbar">
 
@@ -274,33 +251,22 @@
         >
     </a>
 
+
     <div class="nav-right">
 
-        <a
-            href="dashboard.html"
-            class="nav-link"
-        >
+        <a href="dashboard.html" class="nav-link">
             DASHBOARD
         </a>
 
-        <a
-            href="challenges.html"
-            class="nav-link active"
-        >
+        <a href="challenges.html" class="nav-link active">
             CHALLENGES
         </a>
 
-        <a
-            href="scoreboard.html"
-            class="nav-link"
-        >
+        <a href="scoreboard.html" class="nav-link">
             SCOREBOARD
         </a>
 
-        <a
-            href="rules.html"
-            class="nav-link"
-        >
+        <a href="rules.html" class="nav-link">
             RULES
         </a>
 
@@ -315,6 +281,7 @@
         Challenges
     </h1>
 
+
     <p class="subtitle">
         Choose a difficulty level to see its challenges.
     </p>
@@ -326,10 +293,7 @@
             class="difficulty-card easy"
             data-level="easy"
         >
-
-            <h2>
-                🟢 EASY
-            </h2>
+            <h2>🟢 EASY</h2>
 
             <p>
                 Beginner-friendly cryptography challenges.
@@ -338,7 +302,6 @@
             <div class="points">
                 100 POINTS
             </div>
-
         </div>
 
 
@@ -346,10 +309,7 @@
             class="difficulty-card medium"
             data-level="medium"
         >
-
-            <h2>
-                🟡 MEDIUM
-            </h2>
+            <h2>🟡 MEDIUM</h2>
 
             <p>
                 Challenges that require more cryptographic thinking.
@@ -358,7 +318,6 @@
             <div class="points">
                 200 POINTS
             </div>
-
         </div>
 
 
@@ -366,10 +325,7 @@
             class="difficulty-card medium-hard"
             data-level="medium-hard"
         >
-
-            <h2>
-                🟠 MEDIUM HARD
-            </h2>
+            <h2>🟠 MEDIUM HARD</h2>
 
             <p>
                 More complex challenges for experienced players.
@@ -378,7 +334,6 @@
             <div class="points">
                 300 POINTS
             </div>
-
         </div>
 
 
@@ -386,10 +341,7 @@
             class="difficulty-card hard"
             data-level="hard"
         >
-
-            <h2>
-                🔴 HARD
-            </h2>
+            <h2>🔴 HARD</h2>
 
             <p>
                 The most difficult cryptography challenges.
@@ -398,7 +350,6 @@
             <div class="points">
                 500 POINTS
             </div>
-
         </div>
 
     </div>
@@ -416,11 +367,9 @@
         class="challenge-grid"
         id="challengeList"
     >
-
         <div class="empty">
             Choose a difficulty above.
         </div>
-
     </div>
 
 </main>
@@ -461,7 +410,6 @@
                 points: 100
             },
 
-
             {
                 id: "rot13",
                 name: "What type this rot?",
@@ -469,7 +417,6 @@
                     "A mysterious message has been encrypted using a famous rotation cipher. Can you identify it and recover the flag?",
                 points: 100
             },
-
 
             {
                 id: "binary",
@@ -479,7 +426,6 @@
                 points: 100
             },
 
-
             {
                 id: "base64",
                 name: "What is this?",
@@ -487,7 +433,6 @@
                     "We've found this suspicious encryption. Can you crack it?",
                 points: 100
             },
-
 
             {
                 id: "vigenere",
@@ -497,7 +442,6 @@
                 points: 100
             },
 
-
             {
                 id: "many-layers",
                 name: "Many layers of encryption",
@@ -506,39 +450,27 @@
                 points: 100
             },
 
-
             {
-                id: "secret-encryption",
-                name: "secret encryption",
+                id: "substitution",
+                name: "Secret encryption",
                 description:
-                    "A secret message was encrypted using a substitution cipher. Can you recover the original flag?",
+                    "A secret message has been encrypted using a substitution cipher. Can you discover the mapping and recover the flag?",
                 points: 100
             },
 
-
             {
-                id: "xor-repeating-key",
-                name: "XOR Repeating Key",
+                id: "xor",
+                name: "XOR Secret",
                 description:
-                    "A message was encrypted using XOR with a known repeating key. Can you decrypt it and recover the flag?",
+                    "A message was encrypted using XOR with a repeating key.",
                 points: 100
             },
-
 
             {
                 id: "shuffled-letters",
                 name: "Shuffled Letters",
                 description:
-                    "The message was not encrypted by changing the letters themselves. They were only moved around. Restore the original order and recover the flag.",
-                points: 100
-            },
-
-
-            {
-                id: "the-wave",
-                name: "The Wave",
-                description:
-                    "Listen carefully. A Morse code message is hidden inside this audio file. Decode it and recover the flag.",
+                    "The letters were not changed. They were only moved around.",
                 points: 100
             }
 
@@ -549,7 +481,7 @@
 
             {
                 id: "rsa-small-d",
-                name: "RSA Small D Attack",
+                name: "RSA: Small d Attack",
                 description:
                     "RSA is secure... unless the private exponent is too small. Can you recover the secret message?",
                 points: 200
@@ -619,7 +551,6 @@
         if (!user) {
 
             solvedChallenges = [];
-
             return;
 
         }
@@ -645,7 +576,6 @@
             );
 
             solvedChallenges = [];
-
             return;
 
         }
@@ -653,53 +583,54 @@
 
         solvedChallenges =
             (data || []).map(
-                solve =>
-                    solve.challenge_id
+                solve => solve.challenge_id
             );
 
     }
 
 
-    cards.forEach(card => {
+    cards.forEach(
+        card => {
 
-        card.addEventListener(
-            "click",
-            async function() {
+            card.addEventListener(
+                "click",
+                async function() {
 
-                cards.forEach(
-                    c =>
-                    c.classList.remove(
+                    cards.forEach(
+                        c =>
+                        c.classList.remove(
+                            "active"
+                        )
+                    );
+
+
+                    card.classList.add(
                         "active"
-                    )
-                );
+                    );
 
 
-                card.classList.add(
-                    "active"
-                );
+                    const level =
+                        card.dataset.level;
 
 
-                const level =
-                    card.dataset.level;
+                    await loadSolvedChallenges();
 
 
-                await loadSolvedChallenges();
+                    showChallenges(
+                        level
+                    );
 
+                }
+            );
 
-                showChallenges(
-                    level
-                );
-
-            }
-        );
-
-    });
+        }
+    );
 
 
     function showChallenges(level) {
 
         const levelChallenges =
-            challenges[level] || [];
+            challenges[level];
 
 
         title.textContent =
@@ -708,19 +639,6 @@
 
 
         list.innerHTML = "";
-
-
-        if (!levelChallenges.length) {
-
-            list.innerHTML = `
-                <div class="empty">
-                    No challenges available.
-                </div>
-            `;
-
-            return;
-
-        }
 
 
         levelChallenges.forEach(
@@ -771,26 +689,20 @@
                     }
 
                     <h3>
-                        ${escapeHTML(
-                            challenge.name
-                        )}
+                        ${challenge.name}
                     </h3>
 
                     <p>
-                        ${escapeHTML(
-                            challenge.description
-                        )}
+                        ${challenge.description}
                     </p>
 
                     <span class="challenge-points">
-
                         ${
                             isSolved
                             ? "✓ SOLVED"
                             : challenge.points +
                               " POINTS →"
                         }
-
                     </span>
 
                 `;
@@ -802,38 +714,6 @@
 
             }
         );
-
-    }
-
-
-    function escapeHTML(value) {
-
-        return String(value)
-
-            .replaceAll(
-                "&",
-                "&amp;"
-            )
-
-            .replaceAll(
-                "<",
-                "&lt;"
-            )
-
-            .replaceAll(
-                ">",
-                "&gt;"
-            )
-
-            .replaceAll(
-                '"',
-                "&quot;"
-            )
-
-            .replaceAll(
-                "'",
-                "&#039;"
-            );
 
     }
 
