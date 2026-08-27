@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
 
     <meta
@@ -23,11 +22,9 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
         }
+
 
         body {
             min-height: 100vh;
@@ -35,9 +32,12 @@
             color: white;
         }
 
+
         .navbar {
             min-height: 70px;
+
             border-bottom: 1px solid #222;
+
             background: #090909;
 
             display: flex;
@@ -45,207 +45,349 @@
             justify-content: space-between;
 
             padding: 12px 35px;
+
             gap: 20px;
         }
+
 
         .logo {
             display: flex;
             align-items: center;
         }
 
+
         .logo img {
             display: block;
+
             width: 150px;
+
             max-height: 55px;
+
             object-fit: contain;
         }
 
+
         .nav-right {
             display: flex;
+
             align-items: center;
+
             gap: 18px;
         }
 
+
         .nav-link {
             color: #aaa;
+
             text-decoration: none;
+
             font-size: 13px;
+
             font-weight: bold;
+
+            transition: 0.2s;
         }
+
 
         .nav-link:hover,
         .nav-link.active {
             color: #00ff88;
         }
 
+
         .container {
             width: 100%;
+
             max-width: 1100px;
+
             margin: auto;
+
             padding: 50px 25px;
         }
 
+
         .title {
             font-size: 32px;
+
             margin-bottom: 10px;
         }
 
+
         .subtitle {
             color: #777;
+
             margin-bottom: 35px;
         }
 
+
+        /* =========================================
+           DIFFICULTY CARDS
+        ========================================= */
+
         .difficulty-grid {
             display: grid;
+
             grid-template-columns:
                 repeat(auto-fit, minmax(220px, 1fr));
+
             gap: 18px;
+
             margin-bottom: 40px;
         }
 
+
         .difficulty-card {
             background: #0d0d0d;
+
             border: 1px solid #222;
+
             border-radius: 10px;
+
             padding: 25px;
+
             cursor: pointer;
+
             transition: 0.2s;
         }
 
+
         .difficulty-card:hover {
             transform: translateY(-3px);
+
+            border-color: #333;
         }
+
 
         .difficulty-card.active {
             border-color: #00ff88;
+
             box-shadow:
                 0 0 25px
                 rgba(0, 255, 136, 0.08);
         }
+
 
         .difficulty-card h2 {
             margin-bottom: 10px;
         }
 
+
         .difficulty-card p {
             color: #777;
+
             font-size: 14px;
+
             line-height: 1.5;
         }
 
+
         .points {
             margin-top: 18px;
+
             color: #00ff88;
+
             font-weight: bold;
         }
+
 
         .medium .points {
             color: #ffd166;
         }
 
+
         .medium-hard .points {
             color: #ff9f43;
         }
+
 
         .hard .points {
             color: #ff6b6b;
         }
 
+
+        /* =========================================
+           CHALLENGES
+        ========================================= */
+
         .section-title {
             font-size: 24px;
+
             margin-bottom: 20px;
         }
 
+
         .challenge-grid {
             display: grid;
+
             grid-template-columns:
                 repeat(auto-fit, minmax(280px, 1fr));
+
             gap: 18px;
         }
 
+
         .challenge-card {
             position: relative;
+
+            display: block;
+
             background: #0d0d0d;
+
             border: 1px solid #222;
+
             border-radius: 10px;
+
             padding: 25px;
+
             text-decoration: none;
+
             color: white;
+
             transition: 0.2s;
         }
 
+
         .challenge-card:hover {
             border-color: #00ff88;
+
             transform: translateY(-3px);
+
             box-shadow:
                 0 0 25px
                 rgba(0, 255, 136, 0.08);
         }
 
+
         .challenge-card.solved {
             border-color: #00ff88;
         }
 
+
+        .challenge-card.solved:hover {
+            border-color: #00ff88;
+        }
+
+
         .challenge-card h3 {
             font-size: 19px;
+
             margin-bottom: 12px;
+
+            padding-right: 80px;
         }
+
 
         .challenge-card p {
             color: #888;
+
             line-height: 1.6;
+
             font-size: 14px;
         }
 
+
         .challenge-points {
             display: inline-block;
+
             margin-top: 20px;
+
             color: #00ff88;
+
             font-size: 13px;
+
             font-weight: bold;
         }
 
+
+        /* =========================================
+           SOLVED BADGE
+        ========================================= */
+
         .solved-badge {
             position: absolute;
+
             top: 18px;
+
             right: 18px;
 
             background:
                 rgba(0, 255, 136, 0.12);
 
-            border:
-                1px solid #00ff88;
+            border: 1px solid #00ff88;
 
             color: #00ff88;
 
             padding: 6px 10px;
+
             border-radius: 20px;
 
             font-size: 11px;
+
             font-weight: bold;
         }
 
+
+        /* =========================================
+           EMPTY
+        ========================================= */
+
         .empty {
             padding: 30px;
+
             text-align: center;
+
             color: #777;
+
             border: 1px solid #222;
+
             border-radius: 10px;
         }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
 
         @media (max-width: 700px) {
 
             .navbar {
                 flex-direction: column;
+
                 align-items: flex-start;
+
+                padding: 15px 18px;
             }
+
 
             .nav-right {
                 flex-wrap: wrap;
+
+                gap: 14px;
             }
+
 
             .logo img {
                 width: 135px;
+            }
+
+
+            .container {
+                padding: 30px 18px;
+            }
+
+
+            .title {
+                font-size: 28px;
+            }
+
+
+            .difficulty-grid {
+                grid-template-columns: 1fr;
+            }
+
+
+            .challenge-grid {
+                grid-template-columns: 1fr;
             }
 
         }
@@ -253,7 +395,9 @@
     </style>
 </head>
 
+
 <body>
+
 
 <nav class="navbar">
 
@@ -261,11 +405,14 @@
         href="dashboard.html"
         class="logo"
     >
+
         <img
             src="logo.png"
             alt="0X1GHOST Logo"
         >
+
     </a>
+
 
     <div class="nav-right">
 
@@ -276,6 +423,7 @@
             DASHBOARD
         </a>
 
+
         <a
             href="challenges.html"
             class="nav-link active"
@@ -283,12 +431,14 @@
             CHALLENGES
         </a>
 
+
         <a
             href="scoreboard.html"
             class="nav-link"
         >
             SCOREBOARD
         </a>
+
 
         <a
             href="rules.html"
@@ -301,11 +451,14 @@
 
 </nav>
 
+
 <main class="container">
+
 
     <h1 class="title">
         Challenges
     </h1>
+
 
     <p class="subtitle">
         Choose a difficulty level to see its challenges.
@@ -314,11 +467,15 @@
 
     <div class="difficulty-grid">
 
+
         <div
             class="difficulty-card easy"
             data-level="easy"
         >
-            <h2>🟢 EASY</h2>
+
+            <h2>
+                🟢 EASY
+            </h2>
 
             <p>
                 Beginner-friendly cryptography challenges.
@@ -327,6 +484,7 @@
             <div class="points">
                 100 POINTS
             </div>
+
         </div>
 
 
@@ -334,7 +492,10 @@
             class="difficulty-card medium"
             data-level="medium"
         >
-            <h2>🟡 MEDIUM</h2>
+
+            <h2>
+                🟡 MEDIUM
+            </h2>
 
             <p>
                 Challenges that require more cryptographic thinking.
@@ -343,6 +504,7 @@
             <div class="points">
                 200 POINTS
             </div>
+
         </div>
 
 
@@ -350,7 +512,10 @@
             class="difficulty-card medium-hard"
             data-level="medium-hard"
         >
-            <h2>🟠 MEDIUM HARD</h2>
+
+            <h2>
+                🟠 MEDIUM HARD
+            </h2>
 
             <p>
                 More complex challenges for experienced players.
@@ -359,6 +524,7 @@
             <div class="points">
                 300 POINTS
             </div>
+
         </div>
 
 
@@ -366,7 +532,10 @@
             class="difficulty-card hard"
             data-level="hard"
         >
-            <h2>🔴 HARD</h2>
+
+            <h2>
+                🔴 HARD
+            </h2>
 
             <p>
                 The most difficult cryptography challenges.
@@ -375,6 +544,7 @@
             <div class="points">
                 500 POINTS
             </div>
+
         </div>
 
     </div>
@@ -392,9 +562,11 @@
         class="challenge-grid"
         id="challengeList"
     >
+
         <div class="empty">
             Choose a difficulty above.
         </div>
+
     </div>
 
 </main>
@@ -402,9 +574,11 @@
 
 <script type="module">
 
+
     import {
         createClient
-    } from
+    }
+    from
     "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
 
@@ -423,71 +597,107 @@
         );
 
 
+    /* =========================================
+       CHALLENGES
+    ========================================= */
+
     const challenges = {
+
 
         easy: [
 
             {
                 id: "caesar",
+
                 name: "Caesar's Secret",
+
                 description:
                     "Decode a secret message protected by a classical Caesar cipher.",
+
                 points: 100
             },
+
 
             {
                 id: "rot13",
+
                 name: "What type this rot?",
+
                 description:
                     "A mysterious message has been encrypted using a famous rotation cipher. Can you identify it and recover the flag?",
+
                 points: 100
             },
+
 
             {
                 id: "binary",
+
                 name: "Binary Secret",
+
                 description:
                     "A secret flag has been converted into binary. Can you decode it?",
+
                 points: 100
             },
+
 
             {
                 id: "base64",
+
                 name: "What is this?",
+
                 description:
                     "We've found this suspicious encryption. Can you crack it?",
+
                 points: 100
             },
+
 
             {
                 id: "vigenere",
+
                 name: "The secret key",
+
                 description:
                     "A secret message was encrypted with a classical Vigenere cipher. Find the key and recover the flag.",
+
                 points: 100
             },
+
 
             {
                 id: "many-layers",
+
                 name: "Many layers of encryption",
+
                 description:
                     "I obtained this encryption. Can you decrypt it?",
+
                 points: 100
             },
+
 
             {
                 id: "secret-encryption",
+
                 name: "secret encryption",
+
                 description:
                     "Decrypt the secret message using a substitution cipher.",
+
                 points: 100
             },
 
+
             {
                 id: "xor-repeating-key",
+
                 name: "XOR Repeating Key",
+
                 description:
                     "A message was encrypted using XOR with a known repeating key. Can you decrypt it and recover the flag?",
+
                 points: 100
             }
 
@@ -498,9 +708,12 @@
 
             {
                 id: "coming-medium",
+
                 name: "Coming Soon",
+
                 description:
                     "A medium-level cryptography challenge is being prepared.",
+
                 points: 200
             }
 
@@ -511,9 +724,12 @@
 
             {
                 id: "coming-medium-hard",
+
                 name: "Coming Soon",
+
                 description:
                     "A more challenging cryptography problem is coming soon.",
+
                 points: 300
             }
 
@@ -524,9 +740,12 @@
 
             {
                 id: "coming-hard",
+
                 name: "Coming Soon",
+
                 description:
                     "The hardest challenges will appear here.",
+
                 points: 500
             }
 
@@ -534,6 +753,10 @@
 
     };
 
+
+    /* =========================================
+       ELEMENTS
+    ========================================= */
 
     const cards =
         document.querySelectorAll(
@@ -556,18 +779,25 @@
     let solvedChallenges = [];
 
 
+    /* =========================================
+       LOAD SOLVED CHALLENGES
+    ========================================= */
+
     async function loadSolvedChallenges() {
+
 
         const {
             data: {
                 user
             }
-        } = await supabase.auth.getUser();
+        } =
+        await supabase.auth.getUser();
 
 
         if (!user) {
 
             solvedChallenges = [];
+
             return;
 
         }
@@ -576,7 +806,8 @@
         const {
             data,
             error
-        } = await supabase
+        } =
+        await supabase
             .from("challenge_solves")
             .select("challenge_id")
             .eq(
@@ -593,6 +824,7 @@
             );
 
             solvedChallenges = [];
+
             return;
 
         }
@@ -600,49 +832,62 @@
 
         solvedChallenges =
             (data || []).map(
-                solve => solve.challenge_id
+                solve =>
+                    solve.challenge_id
             );
 
     }
 
 
-    cards.forEach(card => {
+    /* =========================================
+       DIFFICULTY BUTTONS
+    ========================================= */
 
-        card.addEventListener(
-            "click",
-            async function() {
+    cards.forEach(
+        card => {
 
-                cards.forEach(
-                    c =>
-                    c.classList.remove(
+            card.addEventListener(
+                "click",
+                async function() {
+
+
+                    cards.forEach(
+                        c =>
+                            c.classList.remove(
+                                "active"
+                            )
+                    );
+
+
+                    card.classList.add(
                         "active"
-                    )
-                );
+                    );
 
 
-                card.classList.add(
-                    "active"
-                );
+                    const level =
+                        card.dataset.level;
 
 
-                const level =
-                    card.dataset.level;
+                    await loadSolvedChallenges();
 
 
-                await loadSolvedChallenges();
+                    showChallenges(
+                        level
+                    );
+
+                }
+            );
+
+        }
+    );
 
 
-                showChallenges(
-                    level
-                );
-
-            }
-        );
-
-    });
-
+    /* =========================================
+       SHOW CHALLENGES
+    ========================================= */
 
     function showChallenges(level) {
+
 
         const levelChallenges =
             challenges[level];
@@ -656,8 +901,25 @@
         list.innerHTML = "";
 
 
+        if (
+            !levelChallenges ||
+            levelChallenges.length === 0
+        ) {
+
+            list.innerHTML = `
+                <div class="empty">
+                    No challenges available.
+                </div>
+            `;
+
+            return;
+
+        }
+
+
         levelChallenges.forEach(
             challenge => {
+
 
                 const card =
                     document.createElement(
@@ -684,6 +946,12 @@
                 }
 
 
+                /*
+                 * IMPORTANT:
+                 * The ID here must exactly match
+                 * the ID inside challenge.html
+                 */
+
                 card.href =
                     "challenge.html?id=" +
                     encodeURIComponent(
@@ -692,6 +960,7 @@
 
 
                 card.innerHTML = `
+
 
                     ${
                         isSolved
@@ -703,22 +972,32 @@
                         : ""
                     }
 
+
                     <h3>
-                        ${escapeHTML(challenge.name)}
+                        ${escapeHTML(
+                            challenge.name
+                        )}
                     </h3>
 
+
                     <p>
-                        ${escapeHTML(challenge.description)}
+                        ${escapeHTML(
+                            challenge.description
+                        )}
                     </p>
 
+
                     <span class="challenge-points">
+
                         ${
                             isSolved
                             ? "✓ SOLVED"
                             : challenge.points +
                               " POINTS →"
                         }
+
                     </span>
+
 
                 `;
 
@@ -733,7 +1012,12 @@
     }
 
 
+    /* =========================================
+       HTML ESCAPE
+    ========================================= */
+
     function escapeHTML(value) {
+
 
         return String(value)
 
@@ -764,7 +1048,58 @@
 
     }
 
+
+    /* =========================================
+       AUTO SELECT EASY
+    ========================================= */
+
+    const easyCard =
+        document.querySelector(
+            '.difficulty-card[data-level="easy"]'
+        );
+
+
+    if (easyCard) {
+
+        easyCard.click();
+
+    }
+
+
+    /* =========================================
+       REFRESH SOLVED STATUS
+       AFTER RETURNING TO THIS PAGE
+    ========================================= */
+
+    supabase.auth.onAuthStateChange(
+        async function() {
+
+            const activeCard =
+                document.querySelector(
+                    ".difficulty-card.active"
+                );
+
+
+            if (!activeCard) {
+
+                return;
+
+            }
+
+
+            await loadSolvedChallenges();
+
+
+            showChallenges(
+                activeCard.dataset.level
+            );
+
+        }
+    );
+
+
 </script>
+
 
 </body>
 </html>
