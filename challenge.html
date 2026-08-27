@@ -70,6 +70,7 @@
             border: 1px solid #333;
 
             padding: 9px 15px;
+
             border-radius: 6px;
 
             transition: 0.2s;
@@ -96,6 +97,7 @@
             background: #0d0d0d;
 
             border: 1px solid #222;
+
             border-radius: 12px;
 
             padding: 35px;
@@ -127,8 +129,6 @@
             line-height: 1.7;
 
             margin-bottom: 30px;
-
-            white-space: pre-line;
         }
 
 
@@ -142,6 +142,10 @@
             font-weight: bold;
         }
 
+
+        /* =========================================
+           ENCRYPTED MESSAGE + COPY BUTTON
+        ========================================= */
 
         .encrypted-header {
             display: flex;
@@ -216,7 +220,7 @@
 
             margin-bottom: 30px;
 
-            max-height: 450px;
+            max-height: 350px;
 
             overflow-y: auto;
         }
@@ -238,8 +242,6 @@
             line-height: 1.7;
 
             margin-bottom: 30px;
-
-            white-space: pre-line;
         }
 
 
@@ -447,7 +449,9 @@
     <div
         id="challengeContainer"
     >
+
         Loading challenge...
+
     </div>
 
 </main>
@@ -491,54 +495,73 @@
         caesar: {
             type: "CAESAR CIPHER",
             title: "Caesar's Secret",
+
             description:
                 "Decode a secret message protected by a classical Caesar cipher.",
+
             encrypted:
                 "0X1GHOST{FDHVDU}",
-            hint: ""
+
+            hint:
+                ""
         },
 
 
         rot13: {
             type: "ROT13",
             title: "What type this rot?",
+
             description:
                 "A mysterious message has been encrypted using a famous rotation cipher. Can you identify it and recover the flag?",
+
             encrypted:
                 "0K1TUBFG{V_N9521_C02E90E3Eq_103_fqns}",
-            hint: ""
+
+            hint:
+                ""
         },
 
 
         binary: {
             type: "BINARY",
             title: "Binary Secret",
+
             description:
                 "A secret flag has been converted into binary. Can you decode it?",
+
             encrypted:
                 "00110000 01011000 00110001 01000111 01001000 01001111 01010011 01010100 01111011 01100111 00110000 00110000 01100100 01011111 01101010 00110000 00110100 01011111 01110100 01101000 00110011 00110110 01011111 01100001 00110011 00110111 00110010 01111101",
-            hint: ""
+
+            hint:
+                ""
         },
 
 
         base64: {
             type: "BASE64",
             title: "What is this?",
+
             description:
                 "We've found this suspicious encryption. Can you crack it?",
+
             encrypted:
                 "MFgxR0hPU1R7QkE2NDYxOV9JU18xMjBPX24zNH0=",
-            hint: ""
+
+            hint:
+                ""
         },
 
 
         vigenere: {
             type: "VIGENERE CIPHER",
             title: "The secret key",
+
             description:
                 "A secret message was encrypted with a classical Vigenere cipher. Find the key and recover the flag.",
+
             encrypted:
                 "0X1NTSVT{F9724_MVH_GVAH_ln_2571}",
+
             hint:
                 "The key could be the real name of the platform owner."
         },
@@ -547,34 +570,43 @@
         "many-layers": {
             type: "MANY LAYERS",
             title: "Many layers of encryption",
+
             description:
                 "I obtained this encryption. Can you decrypt it?",
+
             encrypted:
                 manyLayersCiphertext,
+
             hint:
                 "This message has multiple layers. Try decoding the layers in the correct order."
         },
 
 
-        substitution: {
+        "secret-encryption": {
             type: "SUBSTITUTION CIPHER",
-            title: "Secret encryption",
+            title: "secret encryption",
+
             description:
-                "A secret message has been encrypted using a substitution cipher. Can you discover the mapping and recover the flag?",
+                "A secret message was encrypted using a substitution cipher. Can you recover the original flag?",
+
             encrypted:
                 "0W1ABKPQ{IN_IXES_QBCP_HBXFFSJAS}",
+
             hint:
-                "The letters were replaced, but their positions were not changed."
+                ""
         },
 
 
-        xor: {
-            type: "REPEATING-KEY XOR",
-            title: "XOR Secret",
+        "xor-repeating-key": {
+            type: "XOR REPEATING KEY",
+            title: "XOR Repeating Key",
+
             description:
-                "A message was encrypted using XOR with a repeating key. The key is already known.",
+                "A message was encrypted using XOR with a known repeating key. Can you decrypt it and recover the flag?",
+
             encrypted:
-                "",
+                "0X1GHOST{GOOD_53141_W4323LD}",
+
             hint:
                 "Key: 0X1GHOST"
         },
@@ -583,41 +615,15 @@
         "shuffled-letters": {
             type: "TRANSPOSITION CIPHER",
             title: "Shuffled Letters",
-            description:
-                `The message was not encrypted by changing the letters themselves...
-They were only moved around.
 
-Something important is hidden inside this scrambled text.
-Can you restore the original order and recover the flag?`,
+            description:
+                "The message was not encrypted by changing the letters themselves...\nThey were only moved around.\n\nSomething important is hidden inside this scrambled text.\nCan you restore the original order and recover the flag?",
+
             encrypted:
-                "OX1GHOST{AHMED_MAKE_THIS_CHALLENGE_Y297}",
+                "0SEE_E2XOTMDK_SCLNY91H{H_ATIHLG_7GAMHAE}",
+
             hint:
                 "transposition-trial"
-        },
-
-
-        "rsa-small-d": {
-            type: "RSA • SMALL d ATTACK",
-            title: "RSA: Small d Attack",
-            description:
-                `RSA is secure... unless the private exponent is too small.
-
-Can you recover the secret message?`,
-            encrypted:
-                `Public values:
-
-n =
-6751707883568223352265511306376612420948928249339050632019308294345192414782054516704151146486974991833020856936790335045717317890208907774157388158920127
-
-e =
-4796507504015413061165810583496193566765142445145973687710271591374079003252025583903943115397790141040610728109478696394855253978354676010469527841396935
-
-c =
-648206343342438473254594946905692057571683808242857227357817592020066576535308628446460370512108556834847409648870205175339825868223462724166`,
-            hint:
-                `Sometimes RSA fails because the private exponent d is too small.
-
-Think about continued fractions.`
         }
 
     };
@@ -674,17 +680,25 @@ Think about continued fractions.`
             <div class="challenge-box">
 
                 <div class="challenge-type">
-                    ${escapeHTML(challenge.type)}
+                    ${escapeHTML(
+                        challenge.type
+                    )}
                 </div>
 
 
                 <h1 class="challenge-title">
-                    ${escapeHTML(challenge.title)}
+                    ${escapeHTML(
+                        challenge.title
+                    )}
                 </h1>
 
 
-                <p class="challenge-description">
-                    ${escapeHTML(challenge.description)}
+                <p
+                    class="challenge-description"
+                >
+                    ${escapeHTML(
+                        challenge.description
+                    )}
                 </p>
 
 
@@ -708,7 +722,9 @@ Think about continued fractions.`
                 <div
                     id="encryptedMessage"
                     class="encrypted-message"
-                >${escapeHTML(challenge.encrypted)}</div>
+                >${escapeHTML(
+                    challenge.encrypted
+                )}</div>
 
 
                 ${
@@ -719,7 +735,9 @@ Think about continued fractions.`
                         </div>
 
                         <div class="hint-box">
-                            ${escapeHTML(challenge.hint)}
+                            ${escapeHTML(
+                                challenge.hint
+                            )}
                         </div>
                     `
                     : ""
@@ -762,19 +780,27 @@ Think about continued fractions.`
 
 
         const answerInput =
-            document.getElementById("answer");
+            document.getElementById(
+                "answer"
+            );
 
 
         const submitButton =
-            document.getElementById("submitButton");
+            document.getElementById(
+                "submitButton"
+            );
 
 
         const messageElement =
-            document.getElementById("message");
+            document.getElementById(
+                "message"
+            );
 
 
         const copyButton =
-            document.getElementById("copyButton");
+            document.getElementById(
+                "copyButton"
+            );
 
 
         copyButton.addEventListener(
@@ -803,6 +829,7 @@ Think about continued fractions.`
                             copyButton.textContent =
                                 "COPY";
 
+
                             copyButton.classList.remove(
                                 "copied"
                             );
@@ -815,8 +842,20 @@ Think about continued fractions.`
 
                     console.error(error);
 
+
                     copyButton.textContent =
                         "FAILED";
+
+
+                    setTimeout(
+                        function() {
+
+                            copyButton.textContent =
+                                "COPY";
+
+                        },
+                        2000
+                    );
 
                 }
 
@@ -837,7 +876,9 @@ Think about continued fractions.`
                 if (
                     event.key === "Enter"
                 ) {
+
                     submitAnswer();
+
                 }
 
             }
@@ -862,7 +903,9 @@ Think about continued fractions.`
             }
 
 
-            submitButton.disabled = true;
+            submitButton.disabled =
+                true;
+
 
             submitButton.textContent =
                 "CHECKING...";
@@ -882,10 +925,14 @@ Think about continued fractions.`
                     "error"
                 );
 
-                submitButton.disabled = false;
+
+                submitButton.disabled =
+                    false;
+
 
                 submitButton.textContent =
                     "SUBMIT ANSWER";
+
 
                 return;
 
@@ -907,7 +954,9 @@ Think about continued fractions.`
             );
 
 
-            submitButton.disabled = false;
+            submitButton.disabled =
+                false;
+
 
             submitButton.textContent =
                 "SUBMIT ANSWER";
@@ -916,6 +965,7 @@ Think about continued fractions.`
             if (error) {
 
                 console.error(error);
+
 
                 showMessage(
                     error.message ||
@@ -947,9 +997,12 @@ Think about continued fractions.`
             );
 
 
-            answerInput.disabled = true;
+            answerInput.disabled =
+                true;
 
-            submitButton.disabled = true;
+
+            submitButton.disabled =
+                true;
 
         }
 
@@ -961,6 +1014,7 @@ Think about continued fractions.`
 
             messageElement.textContent =
                 text;
+
 
             messageElement.className =
                 "message " + type;
@@ -974,11 +1028,30 @@ Think about continued fractions.`
 
         return String(value)
 
-            .replaceAll("&", "&amp;")
-            .replaceAll("<", "&lt;")
-            .replaceAll(">", "&gt;")
-            .replaceAll('"', "&quot;")
-            .replaceAll("'", "&#039;");
+            .replaceAll(
+                "&",
+                "&amp;"
+            )
+
+            .replaceAll(
+                "<",
+                "&lt;"
+            )
+
+            .replaceAll(
+                ">",
+                "&gt;"
+            )
+
+            .replaceAll(
+                '"',
+                "&quot;"
+            )
+
+            .replaceAll(
+                "'",
+                "&#039;"
+            );
 
     }
 
