@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -142,6 +143,10 @@
             font-weight: bold;
         }
 
+
+        /* =========================================
+           ENCRYPTED MESSAGE + COPY BUTTON
+        ========================================= */
 
         .encrypted-header {
             display: flex;
@@ -576,33 +581,33 @@
         },
 
 
-        "secret-encryption": {
+        substitution: {
             type: "SUBSTITUTION CIPHER",
-            title: "secret encryption",
+            title: "Secret Encryption",
 
             description:
-                "A secret message was encrypted using a substitution cipher. Can you recover the original flag?",
+                "A secret message has been encrypted using a substitution cipher. Can you discover the mapping and recover the flag?",
 
             encrypted:
-                "0W1ABKPQ{IN_IXES_QBCP_HBXFFSJAS}",
+                "0Z1JHMGQ{RV_RJPF_GQVB_QYJKKFXJ}",
 
             hint:
-                ""
+                "Each letter is replaced by another letter. The same letter always uses the same replacement."
         },
 
 
-        "xor-repeating": {
-            type: "REPEATING-KEY XOR",
-            title: "XOR Repeating Key",
+        xor: {
+            type: "XOR REPEATING KEY",
+            title: "XOR Secret",
 
             description:
-                "This message was encrypted using XOR with a repeating key. The key is known. Can you recover the original flag?",
+                "A secret flag was encrypted using XOR with a repeating key. The key is known. Can you recover the original flag?",
 
             encrypted:
-                "00 00 00 00 00 00 00 00 4B 1F 7E 08 0C 10 66 67 01 6C 00 18 1F 7B 60 66 03 14 75 3A",
+                "0X1GHOST",
 
             hint:
-                "Known key: 0X1GHOST"
+                "The XOR repeating key is: 0X1GHOST"
         }
 
     };
@@ -1036,6 +1041,7 @@
 
 </body>
 </html>
+
 
 
 
