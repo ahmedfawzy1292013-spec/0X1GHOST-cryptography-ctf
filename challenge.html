@@ -1,8 +1,6 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
     <meta charset="UTF-8">
 
     <meta
@@ -18,21 +16,25 @@
         href="favicon.png"
     >
 
-
     <style>
 
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
         }
+
 
         body {
             min-height: 100vh;
             background: #050505;
             color: white;
         }
+
 
         .navbar {
             min-height: 70px;
@@ -47,246 +49,317 @@
             gap: 20px;
         }
 
+
         .logo {
             display: flex;
             align-items: center;
         }
 
+
         .logo img {
+            display: block;
             width: 150px;
             max-height: 55px;
             object-fit: contain;
         }
 
-        .back {
-            color: #aaa;
+
+        .back-btn {
             text-decoration: none;
-            font-weight: bold;
-            font-size: 13px;
-        }
-
-        .back:hover {
-            color: #00ff88;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 900px;
-            margin: auto;
-            padding: 50px 25px;
-        }
-
-        .challenge {
-            background: #0d0d0d;
-            border: 1px solid #222;
-            border-radius: 12px;
-            padding: 35px;
-        }
-
-        .top {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 25px;
-        }
-
-        .title {
-            font-size: 30px;
-        }
-
-        .badge {
-            border: 1px solid #00ff88;
-            color: #00ff88;
-            padding: 7px 10px;
-            border-radius: 5px;
-            font-size: 12px;
-            font-weight: bold;
-        }
-
-        .description {
-            color: #999;
-            line-height: 1.7;
-            margin-bottom: 25px;
-        }
-
-        .message-box {
-            background: #070707;
-            border: 1px solid #222;
-            border-radius: 8px;
-            padding: 25px;
-            margin-bottom: 25px;
-        }
-
-        .message-title {
-            color: #777;
-            font-size: 12px;
-            font-weight: bold;
-            margin-bottom: 12px;
-        }
-
-        .message-row {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .message {
-            color: #00ff88;
-            font-family: monospace;
-            font-size: 18px;
-            word-break: break-word;
-            flex: 1;
-        }
-
-        .copy-btn {
-            background: #111;
-            border: 1px solid #333;
             color: #aaa;
-            padding: 8px 12px;
+            border: 1px solid #333;
+
+            padding: 9px 15px;
+
             border-radius: 6px;
-            cursor: pointer;
-            font-size: 12px;
-            font-weight: bold;
-            white-space: nowrap;
+
+            transition: 0.2s;
         }
 
-        .copy-btn:hover {
+
+        .back-btn:hover {
             color: #00ff88;
             border-color: #00ff88;
         }
 
-        .hint-box {
-            display: none;
-            background: rgba(0, 255, 136, 0.04);
-            border: 1px solid #00ff88;
-            border-radius: 8px;
-            padding: 18px;
-            margin-bottom: 25px;
+
+        .container {
+            width: 100%;
+            max-width: 950px;
+
+            margin: auto;
+
+            padding: 50px 25px;
         }
 
-        .hint-title {
+
+        .challenge-box {
+            background: #0d0d0d;
+
+            border: 1px solid #222;
+
+            border-radius: 12px;
+
+            padding: 35px;
+        }
+
+
+        .challenge-type {
             color: #00ff88;
+
             font-size: 12px;
             font-weight: bold;
-            margin-bottom: 8px;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 15px;
         }
 
-        .hint-text {
-            color: #aaa;
-            line-height: 1.6;
-            font-family: monospace;
+
+        .challenge-title {
+            font-size: 32px;
+
+            margin-bottom: 15px;
         }
+
+
+        .challenge-description {
+            color: #999;
+
+            line-height: 1.7;
+
+            margin-bottom: 30px;
+        }
+
+
+        .section-title {
+            font-size: 14px;
+
+            color: #777;
+
+            margin-bottom: 12px;
+
+            font-weight: bold;
+        }
+
+
+        .encrypted-message {
+            width: 100%;
+
+            background: #070707;
+
+            border: 1px solid #292929;
+
+            border-radius: 8px;
+
+            padding: 20px;
+
+            color: #00ff88;
+
+            font-family: monospace;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            word-break: break-all;
+
+            white-space: pre-wrap;
+
+            margin-bottom: 30px;
+
+            max-height: 350px;
+
+            overflow-y: auto;
+        }
+
+
+        .hint-box {
+            background: #101010;
+
+            border: 1px solid #333;
+
+            border-left: 3px solid #00ff88;
+
+            padding: 18px;
+
+            border-radius: 7px;
+
+            color: #aaa;
+
+            line-height: 1.7;
+
+            margin-bottom: 30px;
+        }
+
 
         .answer-label {
             display: block;
-            color: #aaa;
+
+            color: #777;
+
             font-size: 13px;
-            margin-bottom: 8px;
+
+            font-weight: bold;
+
+            margin-bottom: 10px;
         }
+
 
         .answer-input {
             width: 100%;
-            padding: 13px;
+
             background: #070707;
+
             border: 1px solid #333;
+
             border-radius: 7px;
+
+            padding: 15px;
+
             color: white;
-            outline: none;
+
+            font-family: monospace;
+
             font-size: 15px;
+
+            outline: none;
+
+            margin-bottom: 15px;
         }
+
 
         .answer-input:focus {
             border-color: #00ff88;
         }
 
+
         .submit-btn {
-            margin-top: 15px;
-            padding: 12px 20px;
             background: #00ff88;
-            border: none;
-            border-radius: 7px;
+
             color: #050505;
+
+            border: none;
+
+            padding: 13px 24px;
+
+            border-radius: 7px;
+
             font-weight: bold;
+
             cursor: pointer;
+
+            transition: 0.2s;
         }
 
+
         .submit-btn:hover {
+            transform: translateY(-2px);
+
             box-shadow:
-                0 0 20px
-                rgba(0, 255, 136, 0.15);
+                0 0 25px
+                rgba(0, 255, 136, 0.2);
         }
+
 
         .submit-btn:disabled {
             opacity: 0.6;
             cursor: not-allowed;
+            transform: none;
         }
 
-        .result {
-            margin-top: 20px;
-            padding: 14px;
-            border-radius: 7px;
+
+        .message {
             display: none;
-            line-height: 1.5;
+
+            margin-top: 20px;
+
+            padding: 15px;
+
+            border-radius: 7px;
+
+            line-height: 1.6;
         }
 
-        .success {
+
+        .message.success {
             display: block;
-            color: #00ff88;
-            border: 1px solid #00ff88;
+
             background:
-                rgba(0, 255, 136, 0.05);
+                rgba(0, 255, 136, 0.08);
+
+            border:
+                1px solid #00ff88;
+
+            color: #00ff88;
         }
 
-        .error {
+
+        .message.error {
             display: block;
+
+            background:
+                rgba(255, 107, 107, 0.08);
+
+            border:
+                1px solid #ff6b6b;
+
             color: #ff6b6b;
-            border: 1px solid #ff6b6b;
-            background:
-                rgba(255, 107, 107, 0.05);
         }
 
-        .points {
-            color: #00ff88;
-            font-weight: bold;
+
+        .not-found {
+            text-align: center;
+
+            padding: 60px 20px;
+
+            background: #0d0d0d;
+
+            border: 1px solid #222;
+
+            border-radius: 12px;
         }
 
-        @media (max-width: 600px) {
+
+        .not-found h1 {
+            margin-bottom: 15px;
+        }
+
+
+        .not-found p {
+            color: #777;
+
+            margin-bottom: 25px;
+        }
+
+
+        @media (
+            max-width: 600px
+        ) {
 
             .navbar {
                 padding: 15px 18px;
-            }
-
-            .logo img {
-                width: 125px;
             }
 
             .container {
                 padding: 30px 18px;
             }
 
-            .challenge {
-                padding: 25px;
+            .challenge-box {
+                padding: 22px;
             }
 
-            .top {
-                flex-direction: column;
-                align-items: flex-start;
+            .challenge-title {
+                font-size: 26px;
             }
 
-            .message-row {
-                align-items: flex-start;
-                flex-direction: column;
-            }
-
-            .copy-btn {
-                width: 100%;
+            .logo img {
+                width: 125px;
             }
 
         }
 
     </style>
-
 </head>
 
 <body>
@@ -298,20 +371,18 @@
         href="dashboard.html"
         class="logo"
     >
-
         <img
             src="logo.png"
             alt="0X1GHOST Logo"
         >
-
     </a>
 
 
     <a
         href="challenges.html"
-        class="back"
+        class="back-btn"
     >
-        ← BACK TO CHALLENGES
+        ← CHALLENGES
     </a>
 
 </nav>
@@ -319,120 +390,11 @@
 
 <main class="container">
 
-    <div class="challenge">
+    <div
+        id="challengeContainer"
+    >
 
-
-        <div class="top">
-
-            <h1
-                class="title"
-                id="challengeName"
-            >
-                Loading...
-            </h1>
-
-
-            <div
-                class="badge"
-                id="challengeBadge"
-            >
-                ...
-            </div>
-
-        </div>
-
-
-        <p
-            class="description"
-            id="challengeDescription"
-        >
-            Loading challenge...
-        </p>
-
-
-        <div class="message-box">
-
-            <div class="message-title">
-                ENCRYPTED MESSAGE
-            </div>
-
-
-            <div class="message-row">
-
-                <div
-                    class="message"
-                    id="challengeMessage"
-                >
-                    Loading...
-                </div>
-
-
-                <button
-                    class="copy-btn"
-                    id="copyButton"
-                    type="button"
-                >
-                    COPY
-                </button>
-
-            </div>
-
-        </div>
-
-
-        <div
-            class="hint-box"
-            id="hintBox"
-        >
-
-            <div class="hint-title">
-                HINT
-            </div>
-
-            <div
-                class="hint-text"
-                id="hintText"
-            >
-            </div>
-
-        </div>
-
-
-        <form id="answerForm">
-
-            <label
-                class="answer-label"
-                for="answer"
-            >
-                YOUR ANSWER
-            </label>
-
-
-            <input
-                id="answer"
-                class="answer-input"
-                type="text"
-                autocomplete="off"
-                placeholder="Enter your answer..."
-                required
-            >
-
-
-            <button
-                class="submit-btn"
-                type="submit"
-            >
-                SUBMIT ANSWER
-            </button>
-
-        </form>
-
-
-        <div
-            id="result"
-            class="result"
-        >
-        </div>
+        Loading challenge...
 
     </div>
 
@@ -443,8 +405,7 @@
 
     import {
         createClient
-    }
-    from
+    } from
     "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
 
@@ -463,189 +424,105 @@
         );
 
 
+    const challengeContainer =
+        document.getElementById(
+            "challengeContainer"
+        );
+
+
+    const manyLayersCiphertext =
+        `30 31 30 30 31 31 30 31 20 30 31 30 30 30 31 31 30 20 30 31 31 30 30 31 31 31 20 30 31 31 31 31 30 30 30 20 30 31 30 31 30 30 31 30 20 30 30 31 31 30 30 30 30 20 30 31 31 30 31 30 30 30 20 30 31 30 31 30 30 30 30 20 30 31 30 31 30 31 30 31 20 30 30 31 31 30 30 30 31 20 30 31 30 31 30 30 31 30 20 30 30 31 31 30 31 31 31 20 30 31 31 30 30 30 31 30 20 30 31 31 30 31 31 30 31 20 30 30 31 31 31 30 30 31 20 30 30 31 31 30 30 30 30 20 30 31 30 31 31 30 30 30 20 30 30 31 31 30 30 31 31 20 30 31 31 30 31 30 31 31 20 30 31 31 31 31 30 30 31 20 30 31 30 30 31 31 31 31 20 30 31 30 31 30 31 30 30 20 30 31 31 30 30 31 30 30 20 30 31 31 30 30 31 31 30 20 30 31 30 31 31 30 30 31 20 30 31 30 31 30 31 31 31 20 30 30 31 31 30 31 30 31 20 30 31 31 30 31 30 31 31 20 30 31 30 30 31 31 31 31 20 30 31 30 30 30 31 30 30 20 30 31 31 30 31 30 31 31 20 30 30 31 31 30 31 30 31 20 30 31 30 30 31 31 30 31 20 30 31 31 30 31 30 31 30 20 30 31 30 30 31 31 31 30 20 30 31 31 30 30 31 31 30 20 30 31 30 30 31 31 30 31 20 30 31 30 30 30 31 30 30 20 30 31 30 31 30 30 30 31 20 30 30 31 31 30 30 30 31 20 30 31 30 31 31 30 30 30 20 30 30 31 31 30 30 31 30 20 30 31 30 30 31 31 31 30 20 30 31 31 30 31 30 31 31 20 30 31 31 30 30 31 31 30 20 30 31 30 31 30 30 30 31 20 30 30 31 31 31 31 30 31 20 30 30 31 31 31 31 30 31`;
+
+
     const challenges = {
 
         caesar: {
-
-            name:
-                "Caesar's Secret",
-
-            difficulty:
-                "EASY · 100 PTS",
-
-            points:
-                100,
+            type: "CAESAR CIPHER",
+            title: "Caesar's Secret",
 
             description:
-                "Caesar has hidden a secret message using a classical Caesar cipher. Decode the message and submit the plaintext.",
+                "Decode a secret message protected by a classical Caesar cipher.",
 
-            message:
-                "FDHVDU",
+            encrypted:
+                "0X1GHOST{FDHVDU}",
 
             hint:
                 ""
-
         },
 
 
         rot13: {
-
-            name:
-                "What type is this ROT?",
-
-            difficulty:
-                "EASY · 100 PTS",
-
-            points:
-                100,
+            type: "ROT13",
+            title: "What type this rot?",
 
             description:
-                "A strange message has been encrypted using a classic rotation cipher. Identify the cipher and recover the flag.",
+                "A mysterious message has been encrypted using a famous rotation cipher. Can you identify it and recover the flag?",
 
-            message:
+            encrypted:
                 "0K1TUBFG{V_N9521_C02E90E3Eq_103_fqns}",
 
             hint:
                 ""
-
         },
 
 
         binary: {
-
-            name:
-                "Binary Mystery",
-
-            difficulty:
-                "EASY · 100 PTS",
-
-            points:
-                100,
+            type: "BINARY",
+            title: "Binary Secret",
 
             description:
-                "A mysterious message is written entirely in binary. Decode it and find the hidden flag.",
+                "A secret flag has been converted into binary. Can you decode it?",
 
-            message:
+            encrypted:
                 "00110000 01011000 00110001 01000111 01001000 01001111 01010011 01010100 01111011 01100111 00110000 00110000 01100100 01011111 01101010 00110000 00110100 01011111 01110100 01101000 00110011 00110110 01011111 01100001 00110011 00110111 00110010 01111101",
 
             hint:
                 ""
-
         },
 
 
         base64: {
-
-            name:
-                "What is this?",
-
-            difficulty:
-                "EASY · 100 PTS",
-
-            points:
-                100,
+            type: "BASE64",
+            title: "What is this?",
 
             description:
                 "We've found this suspicious encryption. Can you crack it?",
 
-            message:
+            encrypted:
                 "MFgxR0hPU1R7QkE2NDYxOV9JU18xMjBPX24zNH0=",
 
             hint:
                 ""
-
         },
 
 
         vigenere: {
-
-            name:
-                "The secret key",
-
-            difficulty:
-                "EASY · 100 PTS",
-
-            points:
-                100,
+            type: "VIGENERE CIPHER",
+            title: "The secret key",
 
             description:
-                "A secret message was encrypted with a classical Vigenère cipher. Find the key and recover the hidden flag.",
+                "A secret message was encrypted with a classical Vigenere cipher. Find the key and recover the flag.",
 
-            message:
+            encrypted:
                 "0X1NTSVT{F9724_MVH_GVAH_ln_2571}",
 
             hint:
-                "hint key : The key could be the real name of the platform owner."
-
+                "The key could be the real name of the platform owner."
         },
 
 
-        "coming-medium": {
-
-            name:
-                "Coming Soon",
-
-            difficulty:
-                "MEDIUM · 200 PTS",
-
-            points:
-                200,
+        "many-layers": {
+            type: "MANY LAYERS",
+            title: "Many layers of encryption",
 
             description:
-                "This challenge is currently being prepared.",
+                "I obtained this encryption. Can you decrypt it?",
 
-            message:
-                "COMING SOON",
-
-            hint:
-                ""
-
-        },
-
-
-        "coming-medium-hard": {
-
-            name:
-                "Coming Soon",
-
-            difficulty:
-                "MEDIUM HARD · 300 PTS",
-
-            points:
-                300,
-
-            description:
-                "This challenge is currently being prepared.",
-
-            message:
-                "COMING SOON",
+            encrypted:
+                manyLayersCiphertext,
 
             hint:
-                ""
-
-        },
-
-
-        "coming-hard": {
-
-            name:
-                "Coming Soon",
-
-            difficulty:
-                "HARD · 500 PTS",
-
-            points:
-                500,
-
-            description:
-                "This challenge is currently being prepared.",
-
-            message:
-                "COMING SOON",
-
-            hint:
-                ""
-
+                "This message has multiple layers. Try decoding the layers in the correct order."
         }
 
     };
@@ -665,218 +542,181 @@
         challenges[challengeId];
 
 
-    const challengeName =
-        document.getElementById(
-            "challengeName"
-        );
-
-
-    const challengeBadge =
-        document.getElementById(
-            "challengeBadge"
-        );
-
-
-    const challengeDescription =
-        document.getElementById(
-            "challengeDescription"
-        );
-
-
-    const challengeMessage =
-        document.getElementById(
-            "challengeMessage"
-        );
-
-
-    const answerForm =
-        document.getElementById(
-            "answerForm"
-        );
-
-
-    const answerInput =
-        document.getElementById(
-            "answer"
-        );
-
-
-    const result =
-        document.getElementById(
-            "result"
-        );
-
-
-    const hintBox =
-        document.getElementById(
-            "hintBox"
-        );
-
-
-    const hintText =
-        document.getElementById(
-            "hintText"
-        );
-
-
-    const copyButton =
-        document.getElementById(
-            "copyButton"
-        );
-
-
-    const submitButton =
-        document.querySelector(
-            ".submit-btn"
-        );
-
-
     if (!challenge) {
 
-        challengeName.textContent =
-            "Challenge Not Found";
+        challengeContainer.innerHTML = `
+
+            <div class="not-found">
+
+                <h1>
+                    Challenge Not Found
+                </h1>
+
+                <p>
+                    The requested challenge does not exist.
+                </p>
+
+                <a
+                    href="challenges.html"
+                    class="back-btn"
+                >
+                    ← BACK TO CHALLENGES
+                </a>
+
+            </div>
+
+        `;
+
+    } else {
+
+        document.title =
+            challenge.title +
+            " | 0X1GHOST";
 
 
-        challengeBadge.textContent =
-            "ERROR";
+        challengeContainer.innerHTML = `
+
+            <div class="challenge-box">
+
+                <div class="challenge-type">
+                    ${escapeHTML(
+                        challenge.type
+                    )}
+                </div>
 
 
-        challengeDescription.textContent =
-            "The requested challenge does not exist.";
+                <h1 class="challenge-title">
+                    ${escapeHTML(
+                        challenge.title
+                    )}
+                </h1>
 
 
-        challengeMessage.textContent =
-            "404";
+                <p
+                    class="challenge-description"
+                >
+                    ${escapeHTML(
+                        challenge.description
+                    )}
+                </p>
 
 
-        copyButton.style.display =
-            "none";
+                <div class="section-title">
+                    ENCRYPTED MESSAGE
+                </div>
 
 
-        answerForm.style.display =
-            "none";
-
-    }
-
-    else {
-
-        challengeName.textContent =
-            challenge.name;
+                <div
+                    class="encrypted-message"
+                >${escapeHTML(
+                    challenge.encrypted
+                )}</div>
 
 
-        challengeBadge.textContent =
-            challenge.difficulty;
+                ${
+                    challenge.hint
+                    ? `
+                        <div class="section-title">
+                            HINT
+                        </div>
+
+                        <div class="hint-box">
+                            ${escapeHTML(
+                                challenge.hint
+                            )}
+                        </div>
+                    `
+                    : ""
+                }
 
 
-        challengeDescription.textContent =
-            challenge.description;
+                <label
+                    class="answer-label"
+                    for="answer"
+                >
+                    SUBMIT FLAG
+                </label>
 
 
-        challengeMessage.textContent =
-            challenge.message;
+                <input
+                    id="answer"
+                    class="answer-input"
+                    type="text"
+                    placeholder="0X1GHOST{...}"
+                    autocomplete="off"
+                >
 
 
-        if (
-            challenge.hint &&
-            challenge.hint.trim() !== ""
-        ) {
-
-            hintBox.style.display =
-                "block";
-
-
-            hintText.textContent =
-                challenge.hint;
-
-        }
-
-    }
+                <button
+                    id="submitButton"
+                    class="submit-btn"
+                >
+                    SUBMIT ANSWER
+                </button>
 
 
-    copyButton.addEventListener(
-        "click",
-        async function() {
+                <div
+                    id="message"
+                    class="message"
+                ></div>
 
-            if (!challenge) return;
+            </div>
+
+        `;
 
 
-            try {
+        const answerInput =
+            document.getElementById(
+                "answer"
+            );
 
-                await navigator.clipboard.writeText(
-                    challenge.message
+
+        const submitButton =
+            document.getElementById(
+                "submitButton"
+            );
+
+
+        const messageElement =
+            document.getElementById(
+                "message"
+            );
+
+
+        submitButton.addEventListener(
+            "click",
+            submitAnswer
+        );
+
+
+        answerInput.addEventListener(
+            "keydown",
+            function(event) {
+
+                if (
+                    event.key === "Enter"
+                ) {
+
+                    submitAnswer();
+
+                }
+
+            }
+        );
+
+
+        async function submitAnswer() {
+
+            const answer =
+                answerInput.value.trim();
+
+
+            if (!answer) {
+
+                showMessage(
+                    "Please enter your answer.",
+                    "error"
                 );
-
-
-                const oldText =
-                    copyButton.textContent;
-
-
-                copyButton.textContent =
-                    "COPIED ✓";
-
-
-                setTimeout(
-                    function() {
-
-                        copyButton.textContent =
-                            oldText;
-
-                    },
-                    1500
-                );
-
-            }
-
-            catch (error) {
-
-                console.error(error);
-
-
-                copyButton.textContent =
-                    "FAILED";
-
-            }
-
-        }
-    );
-
-
-    async function getCurrentUser() {
-
-        const {
-            data: {
-                user
-            }
-        } =
-        await supabase
-            .auth
-            .getUser();
-
-
-        return user;
-
-    }
-
-
-    answerForm.addEventListener(
-        "submit",
-
-        async function(event) {
-
-            event.preventDefault();
-
-
-            if (!challenge) return;
-
-
-            const user =
-                await getCurrentUser();
-
-
-            if (!user) {
-
-                window.location.href =
-                    "index.html";
 
                 return;
 
@@ -887,29 +727,59 @@
                 true;
 
 
-            result.className =
-                "result";
+            submitButton.textContent =
+                "CHECKING...";
 
 
-            result.style.display =
-                "none";
+            const {
+                data: {
+                    user
+                }
+            } = await supabase.auth.getUser();
+
+
+            if (!user) {
+
+                showMessage(
+                    "You must be logged in.",
+                    "error"
+                );
+
+
+                submitButton.disabled =
+                    false;
+
+
+                submitButton.textContent =
+                    "SUBMIT ANSWER";
+
+
+                return;
+
+            }
 
 
             const {
                 data,
                 error
-            } =
-            await supabase.rpc(
+            } = await supabase.rpc(
                 "submit_challenge_answer",
                 {
                     p_challenge_id:
                         challengeId,
 
                     p_answer:
-                        answerInput.value
-                            .trim()
+                        answer
                 }
             );
+
+
+            submitButton.disabled =
+                false;
+
+
+            submitButton.textContent =
+                "SUBMIT ANSWER";
 
 
             if (error) {
@@ -917,113 +787,95 @@
                 console.error(error);
 
 
-                result.className =
-                    "result error";
-
-
-                result.textContent =
-                    "Could not submit your answer.";
-
-
-                submitButton.disabled =
-                    false;
+                showMessage(
+                    error.message ||
+                    "Something went wrong.",
+                    "error"
+                );
 
                 return;
 
             }
 
 
-            if (!data) {
+            if (!data.success) {
 
-                result.className =
-                    "result error";
-
-
-                result.textContent =
-                    "Unexpected server response.";
-
-
-                submitButton.disabled =
-                    false;
+                showMessage(
+                    data.message ||
+                    "Incorrect answer.",
+                    "error"
+                );
 
                 return;
 
             }
 
 
-            if (
-                data.success
-            ) {
-
-                result.className =
-                    "result success";
+            showMessage(
+                `✓ Correct answer! You earned ${data.points} points. New score: ${data.new_score}`,
+                "success"
+            );
 
 
-                result.innerHTML =
-                    `
-                    Correct! 🎉
-                    You earned
-                    <span class="points">
-                        ${data.points} points
-                    </span>.
-                    `;
+            answerInput.disabled =
+                true;
 
 
-                answerInput.disabled =
-                    true;
-
-
-                submitButton.disabled =
-                    true;
-
-            }
-
-            else if (
-                data.already_solved
-            ) {
-
-                result.className =
-                    "result success";
-
-
-                result.textContent =
-                    "You already solved this challenge.";
-
-
-                answerInput.disabled =
-                    true;
-
-
-                submitButton.disabled =
-                    true;
-
-            }
-
-            else {
-
-                result.className =
-                    "result error";
-
-
-                result.textContent =
-                    data.message
-                    ||
-                    "Incorrect answer. Try again.";
-
-
-                submitButton.disabled =
-                    false;
-
-            }
+            submitButton.disabled =
+                true;
 
         }
-    );
+
+
+        function showMessage(
+            text,
+            type
+        ) {
+
+            messageElement.textContent =
+                text;
+
+
+            messageElement.className =
+                "message " + type;
+
+        }
+
+    }
+
+
+    function escapeHTML(value) {
+
+        return String(value)
+
+            .replaceAll(
+                "&",
+                "&amp;"
+            )
+
+            .replaceAll(
+                "<",
+                "&lt;"
+            )
+
+            .replaceAll(
+                ">",
+                "&gt;"
+            )
+
+            .replaceAll(
+                '"',
+                "&quot;"
+            )
+
+            .replaceAll(
+                "'",
+                "&#039;"
+            );
+
+    }
 
 </script>
 
 </body>
 </html>
-
-
-
-
