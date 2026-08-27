@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,11 +34,6 @@
 
             padding: 12px 35px;
             gap: 20px;
-        }
-
-        .logo {
-            display: flex;
-            align-items: center;
         }
 
         .logo img {
@@ -102,27 +98,32 @@
             background: #070707;
             border: 1px solid #222;
             border-radius: 8px;
-            padding: 25px;
+            padding: 20px;
             margin-bottom: 25px;
         }
 
         .message-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             color: #777;
             font-size: 12px;
             font-weight: bold;
             margin-bottom: 12px;
+            gap: 10px;
         }
 
-        .message-row {
+        .message-wrapper {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 12px;
         }
 
         .message {
             color: #00ff88;
             font-family: monospace;
-            font-size: 18px;
+            font-size: 17px;
+            line-height: 1.7;
             word-break: break-all;
             flex: 1;
         }
@@ -132,22 +133,16 @@
             background: #111;
             border: 1px solid #333;
             color: #aaa;
-            padding: 9px 13px;
+            padding: 7px 11px;
             border-radius: 6px;
             cursor: pointer;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: bold;
-            transition: 0.2s;
         }
 
         .copy-btn:hover {
-            border-color: #00ff88;
             color: #00ff88;
-        }
-
-        .copy-btn.copied {
             border-color: #00ff88;
-            color: #00ff88;
         }
 
         .answer-label {
@@ -181,11 +176,6 @@
             color: #050505;
             font-weight: bold;
             cursor: pointer;
-        }
-
-        .submit-btn:hover {
-            box-shadow:
-                0 0 20px rgba(0, 255, 136, 0.15);
         }
 
         .submit-btn:disabled {
@@ -243,13 +233,12 @@
                 align-items: flex-start;
             }
 
-            .message-row {
-                align-items: flex-start;
+            .message-wrapper {
                 flex-direction: column;
             }
 
             .copy-btn {
-                width: 100%;
+                align-self: flex-start;
             }
         }
     </style>
@@ -292,15 +281,16 @@
         <div class="message-box">
 
             <div class="message-title">
-                ENCRYPTED MESSAGE
+
+                <span>
+                    ENCRYPTED MESSAGE
+                </span>
+
             </div>
 
-            <div class="message-row">
+            <div class="message-wrapper">
 
-                <div
-                    class="message"
-                    id="challengeMessage"
-                >
+                <div class="message" id="challengeMessage">
                     Loading...
                 </div>
 
@@ -330,7 +320,7 @@
                 class="answer-input"
                 type="text"
                 autocomplete="off"
-                placeholder="Enter your answer..."
+                placeholder="Enter the flag..."
                 required
             >
 
@@ -354,400 +344,393 @@
 
 <script type="module">
 
-    import { createClient } from
-    "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
-
-    const SUPABASE_URL =
-        "https://borturaxifoxufixewya.supabase.co";
-
-    const SUPABASE_KEY =
-        "sb_publishable__lZmTM96oe10-rurqgrujg__ta_C4wr";
-
-    const supabase =
-        createClient(
-            SUPABASE_URL,
-            SUPABASE_KEY
-        );
-
-    const challenges = {
-
-        caesar: {
-
-            name: "Caesar's Secret",
-
-            difficulty: "EASY · 100 PTS",
-
-            points: 100,
-
-            description:
-                "Caesar has hidden a secret message using a classical Caesar cipher. Decode the message and submit the plaintext.",
-
-            message:
-                "FDHVDU",
-
-            answer:
-                "0X1GHOST{CAESAR}"
-
-        },
-
-        rot13: {
-
-            name: "What Type This ROT",
-
-            difficulty: "EASY · 100 PTS",
-
-            points: 100,
-
-            description:
-                "Identify the ROT13 cipher and decode the encrypted message to recover the hidden flag.",
-
-            message:
-                "0K1TUBFG{V_N9521_C02R90R3Eq_103_fqns}",
-
-            answer:
-                "0X1GHOST{I_A9521_P02R90R3Rd_103_sdaf}"
-
-        },
-
-        "coming-medium": {
-
-            name: "Coming Soon",
-
-            difficulty: "MEDIUM · 200 PTS",
-
-            points: 200,
-
-            description:
-                "This challenge is currently being prepared.",
-
-            message:
-                "COMING SOON",
-
-            answer:
-                ""
-
-        },
-
-        "coming-medium-hard": {
-
-            name: "Coming Soon",
-
-            difficulty: "MEDIUM HARD · 300 PTS",
-
-            points: 300,
-
-            description:
-                "This challenge is currently being prepared.",
-
-            message:
-                "COMING SOON",
-
-            answer:
-                ""
-
-        },
-
-        "coming-hard": {
-
-            name: "Coming Soon",
-
-            difficulty: "HARD · 500 PTS",
-
-            points: 500,
-
-            description:
-                "This challenge is currently being prepared.",
-
-            message:
-                "COMING SOON",
-
-            answer:
-                ""
-
-        }
-
-    };
-
-    const params =
-        new URLSearchParams(
-            window.location.search
-        );
-
-    const challengeId =
-        params.get("id");
-
-    const challenge =
-        challenges[challengeId];
-
-    const challengeName =
-        document.getElementById(
-            "challengeName"
-        );
-
-    const challengeBadge =
-        document.getElementById(
-            "challengeBadge"
-        );
-
-    const challengeDescription =
-        document.getElementById(
-            "challengeDescription"
-        );
-
-    const challengeMessage =
-        document.getElementById(
-            "challengeMessage"
-        );
-
-    const copyButton =
-        document.getElementById(
-            "copyButton"
-        );
-
-    const answerForm =
-        document.getElementById(
-            "answerForm"
-        );
-
-    const answerInput =
-        document.getElementById(
-            "answer"
-        );
-
-    const result =
-        document.getElementById(
-            "result"
-        );
-
-    const submitButton =
-        document.querySelector(
-            ".submit-btn"
-        );
-
-    if (!challenge) {
-
-        challengeName.textContent =
-            "Challenge Not Found";
-
-        challengeBadge.textContent =
-            "ERROR";
-
-        challengeDescription.textContent =
-            "The requested challenge does not exist.";
-
-        challengeMessage.textContent =
-            "404";
-
-        answerForm.style.display =
-            "none";
-
-        copyButton.style.display =
-            "none";
-
-    } else {
-
-        challengeName.textContent =
-            challenge.name;
-
-        challengeBadge.textContent =
-            challenge.difficulty;
-
-        challengeDescription.textContent =
-            challenge.description;
-
-        challengeMessage.textContent =
-            challenge.message;
-
-    }
-
-    copyButton.addEventListener(
-        "click",
-        async function() {
-
-            if (!challenge) return;
-
-            try {
-
-                await navigator.clipboard.writeText(
-                    challenge.message
-                );
-
-                copyButton.textContent =
-                    "COPIED!";
-
-                copyButton.classList.add(
-                    "copied"
-                );
-
-                setTimeout(
-                    function() {
-
-                        copyButton.textContent =
-                            "COPY";
-
-                        copyButton.classList.remove(
-                            "copied"
-                        );
-
-                    },
-                    1500
-                );
-
-            } catch (error) {
-
-                console.error(error);
-
-            }
-
-        }
+import { createClient } from
+"https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+
+const SUPABASE_URL =
+    "https://borturaxifoxufixewya.supabase.co";
+
+const SUPABASE_KEY =
+    "sb_publishable__lZmTM96oe10-rurqgrujg__ta_C4wr";
+
+const supabase =
+    createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
     );
 
-    async function getCurrentUser() {
 
-        const {
-            data: { user }
-        } = await supabase.auth.getUser();
+const challenges = {
 
-        return user;
+    caesar: {
+
+        name: "Caesar's Secret",
+
+        difficulty: "EASY · 100 PTS",
+
+        points: 100,
+
+        description:
+            "Caesar has hidden a secret message using a classical Caesar cipher. Decode the message and submit the plaintext.",
+
+        message:
+            "FDHVDU"
+
+    },
+
+
+    rot13: {
+
+        name: "What Type This ROT",
+
+        difficulty: "EASY · 100 PTS",
+
+        points: 100,
+
+        description:
+            "Identify the ROT cipher used to transform the ciphertext, decode it, and submit the flag.",
+
+        message:
+            "0K1TUBFG{V_N9521_C02E90E3Eq_103_fqns}"
+
+    },
+
+
+    binary: {
+
+        name: "Binary Secret",
+
+        difficulty: "EASY · 100 PTS",
+
+        points: 100,
+
+        description:
+            "The secret message has been represented using binary. Convert the binary bytes into text and submit the hidden flag.",
+
+        message:
+            "00110000 01011000 00110001 01000111 01001000 01001111 01010011 01010100 01111011 01100111 00110000 00110000 01100100 01011111 01101010 00110000 00110100 01011111 01110100 01101000 00110011 00110110 01011111 01100001 00110011 00110111 00110010 01111101"
+
+    },
+
+
+    "coming-medium": {
+
+        name: "Coming Soon",
+
+        difficulty: "MEDIUM · 200 PTS",
+
+        points: 200,
+
+        description:
+            "This challenge is currently being prepared.",
+
+        message:
+            "COMING SOON"
+
+    },
+
+
+    "coming-medium-hard": {
+
+        name: "Coming Soon",
+
+        difficulty: "MEDIUM HARD · 300 PTS",
+
+        points: 300,
+
+        description:
+            "This challenge is currently being prepared.",
+
+        message:
+            "COMING SOON"
+
+    },
+
+
+    "coming-hard": {
+
+        name: "Coming Soon",
+
+        difficulty: "HARD · 500 PTS",
+
+        points: 500,
+
+        description:
+            "This challenge is currently being prepared.",
+
+        message:
+            "COMING SOON"
 
     }
 
-    answerForm.addEventListener(
-        "submit",
-        async function(event) {
+};
 
-            event.preventDefault();
 
-            if (!challenge) return;
+const params =
+    new URLSearchParams(
+        window.location.search
+    );
 
-            const user =
-                await getCurrentUser();
+const challengeId =
+    params.get("id");
 
-            if (!user) {
+const challenge =
+    challenges[challengeId];
 
-                window.location.href =
-                    "index.html";
 
-                return;
+const challengeName =
+    document.getElementById(
+        "challengeName"
+    );
 
-            }
+const challengeBadge =
+    document.getElementById(
+        "challengeBadge"
+    );
 
-            const userAnswer =
-                answerInput.value
-                    .trim();
+const challengeDescription =
+    document.getElementById(
+        "challengeDescription"
+    );
 
-            if (
-                !challenge.answer ||
-                challenge.answer.length === 0
-            ) {
+const challengeMessage =
+    document.getElementById(
+        "challengeMessage"
+    );
 
-                result.className =
-                    "result error";
+const answerForm =
+    document.getElementById(
+        "answerForm"
+    );
 
-                result.textContent =
-                    "This challenge is not available yet.";
+const answerInput =
+    document.getElementById(
+        "answer"
+    );
 
-                return;
+const result =
+    document.getElementById(
+        "result"
+    );
 
-            }
+const copyButton =
+    document.getElementById(
+        "copyButton"
+    );
 
-            submitButton.disabled = true;
 
-            result.className =
-                "result";
+if (!challenge) {
 
-            result.textContent =
-                "Checking answer...";
+    challengeName.textContent =
+        "Challenge Not Found";
 
-            const {
-                data,
-                error
-            } = await supabase.rpc(
-                "submit_challenge_answer",
-                {
-                    p_challenge_id:
-                        challengeId,
+    challengeBadge.textContent =
+        "ERROR";
 
-                    p_answer:
-                        userAnswer
-                }
+    challengeDescription.textContent =
+        "The requested challenge does not exist.";
+
+    challengeMessage.textContent =
+        "404";
+
+    answerForm.style.display =
+        "none";
+
+    copyButton.style.display =
+        "none";
+
+} else {
+
+    challengeName.textContent =
+        challenge.name;
+
+    challengeBadge.textContent =
+        challenge.difficulty;
+
+    challengeDescription.textContent =
+        challenge.description;
+
+    challengeMessage.textContent =
+        challenge.message;
+
+}
+
+
+/* COPY CIPHERTEXT */
+
+copyButton.addEventListener(
+    "click",
+    async function() {
+
+        if (!challenge) return;
+
+        try {
+
+            await navigator.clipboard.writeText(
+                challenge.message
             );
 
-            if (error) {
+            copyButton.textContent =
+                "COPIED!";
 
-                console.error(error);
+            setTimeout(
+                function() {
+                    copyButton.textContent =
+                        "COPY";
+                },
+                1500
+            );
 
-                result.className =
-                    "result error";
+        } catch (error) {
 
-                result.textContent =
-                    "Could not submit the answer. Please try again.";
+            console.error(error);
 
-                submitButton.disabled =
-                    false;
+            copyButton.textContent =
+                "FAILED";
 
-                return;
+            setTimeout(
+                function() {
+                    copyButton.textContent =
+                        "COPY";
+                },
+                1500
+            );
 
+        }
+
+    }
+);
+
+
+/* GET CURRENT USER */
+
+async function getCurrentUser() {
+
+    const {
+        data: { user }
+    } = await supabase.auth.getUser();
+
+    return user;
+
+}
+
+
+/* SUBMIT */
+
+answerForm.addEventListener(
+    "submit",
+    async function(event) {
+
+        event.preventDefault();
+
+        if (!challenge) return;
+
+
+        const user =
+            await getCurrentUser();
+
+
+        if (!user) {
+
+            window.location.href =
+                "index.html";
+
+            return;
+
+        }
+
+
+        const userAnswer =
+            answerInput.value.trim();
+
+
+        if (!userAnswer) {
+
+            return;
+
+        }
+
+
+        result.className =
+            "result";
+
+        result.textContent =
+            "Checking answer...";
+
+
+        const {
+            data,
+            error
+        } = await supabase.rpc(
+            "submit_challenge_answer",
+            {
+                p_challenge_id:
+                    challengeId,
+
+                p_answer:
+                    userAnswer
             }
+        );
 
-            if (!data) {
 
-                result.className =
-                    "result error";
+        if (error) {
 
-                result.textContent =
-                    "No response from server.";
+            console.error(error);
 
-                submitButton.disabled =
-                    false;
+            result.className =
+                "result error";
 
-                return;
+            result.textContent =
+                "Could not submit the answer. Please try again.";
 
-            }
+            return;
 
-            if (data.success) {
+        }
 
-                result.className =
-                    "result success";
 
-                result.innerHTML =
-                    `
-                    Correct! 🎉
-                    You earned
-                    <span class="points">
-                        ${data.points} points
-                    </span>.
-                    <br>
-                    New score:
-                    <span class="points">
-                        ${data.new_score}
-                    </span>
-                    `;
+        if (!data) {
 
-                answerInput.disabled =
-                    true;
+            result.className =
+                "result error";
 
-                submitButton.disabled =
-                    true;
+            result.textContent =
+                "No response from server.";
 
-                return;
+            return;
 
-            }
+        }
 
-            if (data.already_solved) {
 
-                result.className =
-                    "result success";
+        if (data.success) {
 
-                result.textContent =
-                    "You already solved this challenge.";
+            result.className =
+                "result success";
 
-                submitButton.disabled =
-                    false;
+            result.innerHTML =
+                `
+                Correct! 🎉
+                You earned
+                <span class="points">
+                    ${data.points} points
+                </span>.
+                `;
 
-                return;
+            answerInput.disabled =
+                true;
 
-            }
+            document.querySelector(
+                ".submit-btn"
+            ).disabled = true;
+
+        } else if (data.already_solved) {
+
+            result.className =
+                "result success";
+
+            result.textContent =
+                "You already solved this challenge.";
+
+        } else {
 
             result.className =
                 "result error";
@@ -756,13 +739,14 @@
                 data.message ||
                 "Incorrect answer. Try again.";
 
-            submitButton.disabled =
-                false;
-
         }
-    );
+
+    }
+);
 
 </script>
 
 </body>
 </html>
+
+
