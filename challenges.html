@@ -1,14 +1,24 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Challenges | 0X1GHOST</title>
 
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link
+        rel="icon"
+        type="image/png"
+        href="favicon.png"
+    >
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -26,9 +36,11 @@
             min-height: 70px;
             border-bottom: 1px solid #222;
             background: #090909;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
+
             padding: 12px 35px;
             gap: 20px;
         }
@@ -82,8 +94,10 @@
 
         .difficulty-grid {
             display: grid;
+
             grid-template-columns:
                 repeat(auto-fit, minmax(220px, 1fr));
+
             gap: 18px;
             margin-bottom: 40px;
         }
@@ -92,6 +106,7 @@
             background: #0d0d0d;
             border: 1px solid #222;
             border-radius: 10px;
+
             padding: 25px;
             cursor: pointer;
             transition: 0.2s;
@@ -103,8 +118,10 @@
 
         .difficulty-card.active {
             border-color: #00ff88;
+
             box-shadow:
-                0 0 25px rgba(0, 255, 136, 0.08);
+                0 0 25px
+                rgba(0, 255, 136, 0.08);
         }
 
         .difficulty-card h2 {
@@ -142,8 +159,10 @@
 
         .challenge-grid {
             display: grid;
+
             grid-template-columns:
                 repeat(auto-fit, minmax(280px, 1fr));
+
             gap: 18px;
         }
 
@@ -151,17 +170,23 @@
             background: #0d0d0d;
             border: 1px solid #222;
             border-radius: 10px;
+
             padding: 25px;
+
             text-decoration: none;
             color: white;
+
             transition: 0.2s;
         }
 
         .challenge-card:hover {
             border-color: #00ff88;
+
             transform: translateY(-3px);
+
             box-shadow:
-                0 0 25px rgba(0, 255, 136, 0.08);
+                0 0 25px
+                rgba(0, 255, 136, 0.08);
         }
 
         .challenge-card h3 {
@@ -178,7 +203,9 @@
         .challenge-points {
             display: inline-block;
             margin-top: 20px;
+
             color: #00ff88;
+
             font-size: 13px;
             font-weight: bold;
         }
@@ -186,12 +213,15 @@
         .empty {
             padding: 30px;
             text-align: center;
+
             color: #777;
+
             border: 1px solid #222;
             border-radius: 10px;
         }
 
         @media (max-width: 700px) {
+
             .navbar {
                 flex-direction: column;
                 align-items: flex-start;
@@ -204,7 +234,9 @@
             .logo img {
                 width: 135px;
             }
+
         }
+
     </style>
 </head>
 
@@ -212,25 +244,43 @@
 
 <nav class="navbar">
 
-    <a href="dashboard.html" class="logo">
-        <img src="logo.png" alt="0X1GHOST Logo">
+    <a
+        href="dashboard.html"
+        class="logo"
+    >
+        <img
+            src="logo.png"
+            alt="0X1GHOST Logo"
+        >
     </a>
 
     <div class="nav-right">
 
-        <a href="dashboard.html" class="nav-link">
+        <a
+            href="dashboard.html"
+            class="nav-link"
+        >
             DASHBOARD
         </a>
 
-        <a href="challenges.html" class="nav-link active">
+        <a
+            href="challenges.html"
+            class="nav-link active"
+        >
             CHALLENGES
         </a>
 
-        <a href="scoreboard.html" class="nav-link">
+        <a
+            href="scoreboard.html"
+            class="nav-link"
+        >
             SCOREBOARD
         </a>
 
-        <a href="rules.html" class="nav-link">
+        <a
+            href="rules.html"
+            class="nav-link"
+        >
             RULES
         </a>
 
@@ -256,6 +306,7 @@
             class="difficulty-card easy"
             data-level="easy"
         >
+
             <h2>🟢 EASY</h2>
 
             <p>
@@ -265,6 +316,7 @@
             <div class="points">
                 100 POINTS
             </div>
+
         </div>
 
 
@@ -272,6 +324,7 @@
             class="difficulty-card medium"
             data-level="medium"
         >
+
             <h2>🟡 MEDIUM</h2>
 
             <p>
@@ -281,6 +334,7 @@
             <div class="points">
                 200 POINTS
             </div>
+
         </div>
 
 
@@ -288,6 +342,7 @@
             class="difficulty-card medium-hard"
             data-level="medium-hard"
         >
+
             <h2>🟠 MEDIUM HARD</h2>
 
             <p>
@@ -297,6 +352,7 @@
             <div class="points">
                 300 POINTS
             </div>
+
         </div>
 
 
@@ -304,6 +360,7 @@
             class="difficulty-card hard"
             data-level="hard"
         >
+
             <h2>🔴 HARD</h2>
 
             <p>
@@ -313,12 +370,16 @@
             <div class="points">
                 500 POINTS
             </div>
+
         </div>
 
     </div>
 
 
-    <h2 class="section-title" id="challengeTitle">
+    <h2
+        class="section-title"
+        id="challengeTitle"
+    >
         Select a difficulty
     </h2>
 
@@ -327,9 +388,11 @@
         class="challenge-grid"
         id="challengeList"
     >
+
         <div class="empty">
             Choose a difficulty above.
         </div>
+
     </div>
 
 </main>
@@ -337,172 +400,284 @@
 
 <script>
 
-const challenges = {
+    const challenges = {
 
-    easy: [
+        easy: [
 
-        {
-            id: "caesar",
-            name: "Caesar's Secret",
-            description:
-                "Caesar has hidden a secret message using a classical Caesar cipher. Decode the message and submit the flag.",
-            points: 100
-        },
+            {
+                id: "caesar",
 
-        {
-            id: "binary",
-            name: "Binary Decoder",
-            description:
-                "A mysterious message has been written entirely in binary. Decode it and find the hidden flag.",
-            points: 100
-        },
+                name:
+                    "Caesar's Secret",
 
-        {
-            id: "rot13",
-            name: "What type is this ROT?",
-            description:
-                "This encrypted text uses a mysterious ROT cipher. Can you identify it and recover the hidden flag?",
-            points: 100
-        },
+                description:
+                    "Decode a secret message protected by a classical Caesar cipher.",
 
-        {
-            id: "base64",
-            name: "What is this?",
-            description:
-                "We've found this suspicious encryption. Can you crack it?",
-            points: 100
-        }
-
-    ],
-
-    medium: [
-
-        {
-            id: "coming-medium",
-            name: "Coming Soon",
-            description:
-                "A medium-level cryptography challenge is being prepared.",
-            points: 200
-        }
-
-    ],
-
-    "medium-hard": [
-
-        {
-            id: "coming-medium-hard",
-            name: "Coming Soon",
-            description:
-                "A more challenging cryptography problem is coming soon.",
-            points: 300
-        }
-
-    ],
-
-    hard: [
-
-        {
-            id: "coming-hard",
-            name: "Coming Soon",
-            description:
-                "The hardest challenges will appear here.",
-            points: 500
-        }
-
-    ]
-
-};
+                points: 100
+            },
 
 
-const cards =
-    document.querySelectorAll(
-        ".difficulty-card"
-    );
+            {
+                id: "rot13",
 
-const list =
-    document.getElementById(
-        "challengeList"
-    );
+                name:
+                    "What type is this ROT?",
 
-const title =
-    document.getElementById(
-        "challengeTitle"
-    );
+                description:
+                    "A strange message has been encrypted using a classic rotation cipher. Can you identify it and recover the flag?",
+
+                points: 100
+            },
 
 
-cards.forEach(card => {
+            {
+                id: "binary",
 
-    card.addEventListener(
-        "click",
-        function() {
+                name:
+                    "Binary Mystery",
 
-            cards.forEach(c =>
-                c.classList.remove("active")
+                description:
+                    "A mysterious message is written entirely in binary. Decode it and find the hidden flag.",
+
+                points: 100
+            },
+
+
+            {
+                id: "base64",
+
+                name:
+                    "What is this?",
+
+                description:
+                    "We've found this suspicious encryption. Can you crack it?",
+
+                points: 100
+            },
+
+
+            {
+                id: "vigenere",
+
+                name:
+                    "The secret key",
+
+                description:
+                    "A secret message was encrypted with a classical Vigenère cipher. Find the key and recover the hidden flag.",
+
+                points: 100
+            }
+
+        ],
+
+
+        medium: [
+
+            {
+                id: "coming-medium",
+
+                name:
+                    "Coming Soon",
+
+                description:
+                    "A medium-level cryptography challenge is being prepared.",
+
+                points: 200
+            }
+
+        ],
+
+
+        "medium-hard": [
+
+            {
+                id: "coming-medium-hard",
+
+                name:
+                    "Coming Soon",
+
+                description:
+                    "A more challenging cryptography problem is coming soon.",
+
+                points: 300
+            }
+
+        ],
+
+
+        hard: [
+
+            {
+                id: "coming-hard",
+
+                name:
+                    "Coming Soon",
+
+                description:
+                    "The hardest challenges will appear here.",
+
+                points: 500
+            }
+
+        ]
+
+    };
+
+
+    const cards =
+        document.querySelectorAll(
+            ".difficulty-card"
+        );
+
+
+    const list =
+        document.getElementById(
+            "challengeList"
+        );
+
+
+    const title =
+        document.getElementById(
+            "challengeTitle"
+        );
+
+
+    cards.forEach(
+        card => {
+
+            card.addEventListener(
+                "click",
+                function() {
+
+                    cards.forEach(
+                        c =>
+                            c.classList.remove(
+                                "active"
+                            )
+                    );
+
+
+                    card.classList.add(
+                        "active"
+                    );
+
+
+                    const level =
+                        card.dataset.level;
+
+
+                    showChallenges(
+                        level
+                    );
+
+                }
             );
 
-            card.classList.add("active");
-
-            const level =
-                card.dataset.level;
-
-            showChallenges(level);
-
         }
     );
 
-});
+
+    function showChallenges(level) {
+
+        const levelChallenges =
+            challenges[level];
 
 
-function showChallenges(level) {
+        title.textContent =
+            level
+                .toUpperCase()
+                .replace(
+                    "-",
+                    " "
+                )
+            +
+            " CHALLENGES";
 
-    const levelChallenges =
-        challenges[level];
 
-    title.textContent =
-        level.toUpperCase() +
-        " CHALLENGES";
+        list.innerHTML = "";
 
-    list.innerHTML = "";
 
-    levelChallenges.forEach(
-        challenge => {
+        levelChallenges.forEach(
+            challenge => {
 
-            const card =
-                document.createElement("a");
+                const card =
+                    document.createElement(
+                        "a"
+                    );
 
-            card.className =
-                "challenge-card";
 
-            card.href =
-                "challenge.html?id=" +
-                encodeURIComponent(
-                    challenge.id
+                card.className =
+                    "challenge-card";
+
+
+                card.href =
+                    "challenge.html?id="
+                    +
+                    encodeURIComponent(
+                        challenge.id
+                    );
+
+
+                card.innerHTML = `
+
+                    <h3>
+                        ${escapeHTML(challenge.name)}
+                    </h3>
+
+                    <p>
+                        ${escapeHTML(challenge.description)}
+                    </p>
+
+                    <span class="challenge-points">
+                        ${challenge.points} POINTS →
+                    </span>
+
+                `;
+
+
+                list.appendChild(
+                    card
                 );
 
-            card.innerHTML = `
+            }
+        );
 
-                <h3>
-                    ${challenge.name}
-                </h3>
+    }
 
-                <p>
-                    ${challenge.description}
-                </p>
 
-                <span class="challenge-points">
-                    ${challenge.points} POINTS →
-                </span>
+    function escapeHTML(value) {
 
-            `;
+        return String(value)
 
-            list.appendChild(card);
+            .replaceAll(
+                "&",
+                "&amp;"
+            )
 
-        }
-    );
+            .replaceAll(
+                "<",
+                "&lt;"
+            )
 
-}
+            .replaceAll(
+                ">",
+                "&gt;"
+            )
+
+            .replaceAll(
+                '"',
+                "&quot;"
+            )
+
+            .replaceAll(
+                "'",
+                "&#039;"
+            );
+
+    }
 
 </script>
 
 </body>
 </html>
+
