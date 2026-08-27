@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>First Blood | 0X1GHOST</title>
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="favicon.png"
+    >
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+
+        body {
+            min-height: 100vh;
+            background: #050505;
+            color: white;
+        }
+
+
+        .navbar {
+            min-height: 70px;
+            border-bottom: 1px solid #222;
+            background: #090909;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            padding: 12px 35px;
+
+            gap: 20px;
+        }
+
+
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
+
+
+        .logo img {
+            display: block;
+
+            width: 150px;
+
+            max-height: 55px;
+
+            object-fit: contain;
+        }
+
+
+        .nav-right {
+            display: flex;
+
+            align-items: center;
+
+            gap: 18px;
+
+            flex-wrap: wrap;
+
+            justify-content: flex-end;
+        }
+
+
+        .nav-link {
+            color: #aaa;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            transition: 0.2s;
+        }
+
+
+        .nav-link:hover,
+        .nav-link.active {
+            color: #00ff88;
+        }
+
+
+        .container {
+            width: 100%;
+
+            max-width: 1050px;
+
+            margin: auto;
+
+            padding: 50px 25px;
+        }
+
+
+        .page-title {
+            font-size: 34px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .page-title span {
+            color: #00ff88;
+        }
+
+
+        .subtitle {
+            color: #777;
+
+            line-height: 1.6;
+
+            margin-bottom: 35px;
+        }
+
+
+        .board {
+            background: #0d0d0d;
+
+            border: 1px solid #222;
+
+            border-radius: 12px;
+
+            overflow: hidden;
+        }
+
+
+        .table-header,
+        .blood-row {
+
+            display: grid;
+
+            grid-template-columns:
+                1.5fr
+                120px
+                1.3fr
+                180px;
+
+            align-items: center;
+
+            gap: 20px;
+
+            padding: 18px 25px;
+        }
+
+
+        .table-header {
+
+            background: #090909;
+
+            border-bottom: 1px solid #222;
+
+            color: #777;
+
+            font-size: 12px;
+
+            font-weight: bold;
+        }
+
+
+        .blood-row {
+
+            border-bottom: 1px solid #1d1d1d;
+
+            transition: 0.2s;
+        }
+
+
+        .blood-row:last-child {
+            border-bottom: none;
+        }
+
+
+        .blood-row:hover {
+            background: #111;
+        }
+
+
+        .challenge-name {
+            font-weight: bold;
+        }
+
+
+        .difficulty {
+            color: #00ff88;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            letter-spacing: 1px;
+        }
+
+
+        .solver {
+            font-weight: bold;
+        }
+
+
+        .time {
+            color: #777;
+
+            font-size: 13px;
+
+            text-align: right;
+        }
+
+
+        .blood-icon {
+            color: #00ff88;
+
+            margin-right: 8px;
+        }
+
+
+        .loading,
+        .empty,
+        .error {
+            padding: 40px;
+
+            text-align: center;
+
+            color: #777;
+        }
+
+
+        .error {
+            color: #ff6b6b;
+        }
+
+
+        @media (max-width: 750px) {
+
+            .navbar {
+                padding: 15px 18px;
+
+                flex-direction: column;
+
+                align-items: flex-start;
+            }
+
+
+            .nav-right {
+                width: 100%;
+
+                justify-content: flex-start;
+            }
+
+
+            .container {
+                padding: 35px 18px;
+            }
+
+
+            .table-header,
+            .blood-row {
+
+                grid-template-columns:
+                    1fr
+                    100px;
+
+                gap: 10px;
+
+                padding: 16px;
+            }
+
+
+            .table-header div:nth-child(3),
+            .table-header div:nth-child(4) {
+                display: none;
+            }
+
+
+            .blood-row .solver {
+                grid-column: 1;
+            }
+
+
+            .blood-row .time {
+                grid-column: 2;
+
+                grid-row: 1 / span 2;
+
+                align-self: center;
+            }
+
+
+            .page-title {
+                font-size: 28px;
+            }
+
+
+            .logo img {
+                width: 130px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<nav class="navbar">
+
+
+    <a
+        href="dashboard.html"
+        class="logo"
+    >
+
+        <img
+            src="logo.png"
+            alt="0X1GHOST Logo"
+        >
+
+    </a>
+
+
+    <div class="nav-right">
+
+        <a
+            href="dashboard.html"
+            class="nav-link"
+        >
+            DASHBOARD
+        </a>
+
+
+        <a
+            href="challenges.html"
+            class="nav-link"
+        >
+            CHALLENGES
+        </a>
+
+
+        <a
+            href="scoreboard.html"
+            class="nav-link"
+        >
+            SCOREBOARD
+        </a>
+
+
+        <a
+            href="first-blood.html"
+            class="nav-link active"
+        >
+            FIRST BLOOD
+        </a>
+
+
+        <a
+            href="rules.html"
+            class="nav-link"
+        >
+            RULES
+        </a>
+
+    </div>
+
+</nav>
+
+
+<main class="container">
+
+
+    <h1 class="page-title">
+        <span>FIRST BLOOD</span>
+    </h1>
+
+
+    <p class="subtitle">
+        The first player to solve each challenge earns the First Blood.
+    </p>
+
+
+    <div class="board">
+
+
+        <div class="table-header">
+
+            <div>
+                CHALLENGE
+            </div>
+
+
+            <div>
+                DIFFICULTY
+            </div>
+
+
+            <div>
+                FIRST SOLVER
+            </div>
+
+
+            <div style="text-align:right;">
+                SOLVED AT
+            </div>
+
+        </div>
+
+
+        <div id="bloodList">
+
+            <div class="loading">
+                Loading First Blood...
+            </div>
+
+        </div>
+
+    </div>
+
+</main>
+
+
+<script type="module">
+
+
+    import {
+        createClient
+    } from
+    "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+
+
+    const SUPABASE_URL =
+        "https://borturaxifoxufixewya.supabase.co";
+
+
+    const SUPABASE_KEY =
+        "sb_publishable__lZmTM96oe10-rurqgrujg__ta_C4wr";
+
+
+    const supabase =
+        createClient(
+            SUPABASE_URL,
+            SUPABASE_KEY
+        );
+
+
+    const bloodList =
+        document.getElementById(
+            "bloodList"
+        );
+
+
+    /*
+     * تحديات المنصة
+     */
+
+    const challengeInfo = {
+
+        caesar: {
+            name: "Caesar's Secret",
+            difficulty: "EASY"
+        },
+
+
+        rot13: {
+            name: "What type this rot?",
+            difficulty: "EASY"
+        },
+
+
+        binary: {
+            name: "Binary Secret",
+            difficulty: "EASY"
+        },
+
+
+        base64: {
+            name: "What is this?",
+            difficulty: "EASY"
+        },
+
+
+        vigenere: {
+            name: "The secret key",
+            difficulty: "EASY"
+        },
+
+
+        "many-layers": {
+            name: "Many layers of encryption",
+            difficulty: "EASY"
+        }
+
+    };
+
+
+    async function loadFirstBlood() {
+
+
+        const {
+            data: {
+                user
+            }
+        } =
+            await supabase.auth.getUser();
+
+
+        if (!user) {
+
+            window.location.href =
+                "index.html";
+
+            return;
+
+        }
+
+
+        /*
+         * جلب جميع الحلول
+         */
+
+        const {
+            data: solves,
+            error
+        } =
+            await supabase
+                .from("challenge_solves")
+                .select(
+                    "user_id, challenge_id, solved_at"
+                )
+                .order(
+                    "solved_at",
+                    {
+                        ascending: true
+                    }
+                );
+
+
+        if (error) {
+
+            console.error(error);
+
+            bloodList.innerHTML = `
+                <div class="error">
+                    Could not load First Blood.
+                    <br><br>
+                    ${escapeHTML(error.message)}
+                </div>
+            `;
+
+            return;
+
+        }
+
+
+        if (
+            !solves ||
+            solves.length === 0
+        ) {
+
+            bloodList.innerHTML = `
+                <div class="empty">
+                    No challenges have been solved yet.
+                </div>
+            `;
+
+            return;
+
+        }
+
+
+        /*
+         * أول حل لكل تحدي
+         */
+
+        const firstSolves = new Map();
+
+
+        for (
+            const solve of solves
+        ) {
+
+            if (
+                !firstSolves.has(
+                    solve.challenge_id
+                )
+            ) {
+
+                firstSolves.set(
+                    solve.challenge_id,
+                    solve
+                );
+
+            }
+
+        }
+
+
+        const firstBloods =
+            Array.from(
+                firstSolves.values()
+            );
+
+
+        /*
+         * جلب أسماء اللاعبين
+         */
+
+        const userIds =
+            firstBloods.map(
+                solve =>
+                    solve.user_id
+            );
+
+
+        const {
+            data: profiles,
+            error: profilesError
+        } =
+            await supabase
+                .from("profiles")
+                .select(
+                    "id, username"
+                )
+                .in(
+                    "id",
+                    userIds
+                );
+
+
+        if (profilesError) {
+
+            console.error(
+                profilesError
+            );
+
+            bloodList.innerHTML = `
+                <div class="error">
+                    Could not load player names.
+                    <br><br>
+                    ${escapeHTML(
+                        profilesError.message
+                    )}
+                </div>
+            `;
+
+            return;
+
+        }
+
+
+        const profileMap =
+            new Map();
+
+
+        if (profiles) {
+
+            profiles.forEach(
+                profile => {
+
+                    profileMap.set(
+                        profile.id,
+                        profile.username ||
+                        "Player"
+                    );
+
+                }
+            );
+
+        }
+
+
+        bloodList.innerHTML = "";
+
+
+        /*
+         * ترتيب First Blood
+         */
+
+        firstBloods.forEach(
+            solve => {
+
+
+                const info =
+                    challengeInfo[
+                        solve.challenge_id
+                    ];
+
+
+                /*
+                 * لو التحدي غير موجود
+                 * في القائمة
+                 */
+
+                if (!info) {
+                    return;
+                }
+
+
+                const row =
+                    document.createElement(
+                        "div"
+                    );
+
+
+                row.className =
+                    "blood-row";
+
+
+                const username =
+                    profileMap.get(
+                        solve.user_id
+                    ) ||
+                    "Player";
+
+
+                const solvedDate =
+                    new Date(
+                        solve.solved_at
+                    );
+
+
+                const formattedDate =
+                    solvedDate.toLocaleString(
+                        "en-US",
+                        {
+                            year: "numeric",
+                            month: "short",
+                            day: "numeric",
+                            hour: "2-digit",
+                            minute: "2-digit"
+                        }
+                    );
+
+
+                row.innerHTML = `
+
+                    <div class="challenge-name">
+
+                        <span class="blood-icon">
+                            🩸
+                        </span>
+
+                        ${escapeHTML(
+                            info.name
+                        )}
+
+                    </div>
+
+
+                    <div class="difficulty">
+                        ${escapeHTML(
+                            info.difficulty
+                        )}
+                    </div>
+
+
+                    <div class="solver">
+                        ${escapeHTML(
+                            username
+                        )}
+                    </div>
+
+
+                    <div class="time">
+                        ${escapeHTML(
+                            formattedDate
+                        )}
+                    </div>
+
+                `;
+
+
+                bloodList.appendChild(
+                    row
+                );
+
+            }
+        );
+
+
+        if (
+            bloodList.children.length === 0
+        ) {
+
+            bloodList.innerHTML = `
+                <div class="empty">
+                    No First Blood records yet.
+                </div>
+            `;
+
+        }
+
+    }
+
+
+    function escapeHTML(value) {
+
+        return String(value)
+
+            .replaceAll(
+                "&",
+                "&amp;"
+            )
+
+            .replaceAll(
+                "<",
+                "&lt;"
+            )
+
+            .replaceAll(
+                ">",
+                "&gt;"
+            )
+
+            .replaceAll(
+                '"',
+                "&quot;"
+            )
+
+            .replaceAll(
+                "'",
+                "&#039;"
+            );
+
+    }
+
+
+    loadFirstBlood();
+
+</script>
+
+
+</body>
+
+</html>
