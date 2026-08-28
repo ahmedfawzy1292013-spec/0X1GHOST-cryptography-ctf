@@ -35,9 +35,11 @@
             min-height: 70px;
             border-bottom: 1px solid #222;
             background: #090909;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
+
             padding: 12px 35px;
             gap: 20px;
         }
@@ -88,6 +90,7 @@
             display: grid;
             grid-template-columns:
                 repeat(auto-fit, minmax(220px, 1fr));
+
             gap: 18px;
             margin-bottom: 40px;
         }
@@ -148,6 +151,7 @@
             display: grid;
             grid-template-columns:
                 repeat(auto-fit, minmax(280px, 1fr));
+
             gap: 18px;
         }
 
@@ -254,19 +258,31 @@
 
     <div class="nav-right">
 
-        <a href="dashboard.html" class="nav-link">
+        <a
+            href="dashboard.html"
+            class="nav-link"
+        >
             DASHBOARD
         </a>
 
-        <a href="challenges.html" class="nav-link active">
+        <a
+            href="challenges.html"
+            class="nav-link active"
+        >
             CHALLENGES
         </a>
 
-        <a href="scoreboard.html" class="nav-link">
+        <a
+            href="scoreboard.html"
+            class="nav-link"
+        >
             SCOREBOARD
         </a>
 
-        <a href="rules.html" class="nav-link">
+        <a
+            href="rules.html"
+            class="nav-link"
+        >
             RULES
         </a>
 
@@ -472,6 +488,14 @@
                 description:
                     "The letters were not changed. They were only moved around.",
                 points: 100
+            },
+
+            {
+                id: "emoji-cipher",
+                name: "EMOJI CIPHER",
+                description:
+                    "A strange message has been encoded using emojis. Can you decode the hidden flag?",
+                points: 100
             }
 
         ],
@@ -551,6 +575,7 @@
         if (!user) {
 
             solvedChallenges = [];
+
             return;
 
         }
@@ -576,6 +601,7 @@
             );
 
             solvedChallenges = [];
+
             return;
 
         }
@@ -583,7 +609,8 @@
 
         solvedChallenges =
             (data || []).map(
-                solve => solve.challenge_id
+                solve =>
+                    solve.challenge_id
             );
 
     }
@@ -598,9 +625,9 @@
 
                     cards.forEach(
                         c =>
-                        c.classList.remove(
-                            "active"
-                        )
+                            c.classList.remove(
+                                "active"
+                            )
                     );
 
 
@@ -689,11 +716,15 @@
                     }
 
                     <h3>
-                        ${challenge.name}
+                        ${escapeHTML(
+                            challenge.name
+                        )}
                     </h3>
 
                     <p>
-                        ${challenge.description}
+                        ${escapeHTML(
+                            challenge.description
+                        )}
                     </p>
 
                     <span class="challenge-points">
@@ -717,8 +748,42 @@
 
     }
 
+
+    function escapeHTML(value) {
+
+        return String(value)
+
+            .replaceAll(
+                "&",
+                "&amp;"
+            )
+
+            .replaceAll(
+                "<",
+                "&lt;"
+            )
+
+            .replaceAll(
+                ">",
+                "&gt;"
+            )
+
+            .replaceAll(
+                '"',
+                "&quot;"
+            )
+
+            .replaceAll(
+                "'",
+                "&#039;"
+            );
+
+    }
+
 </script>
 
 </body>
 </html>
-               
+
+
+ 
