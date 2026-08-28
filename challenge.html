@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
 
     <meta charset="UTF-8">
@@ -24,7 +23,6 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-
             font-family:
                 Arial,
                 Helvetica,
@@ -34,62 +32,42 @@
 
         body {
             min-height: 100vh;
-
             background: #050505;
-
             color: white;
         }
 
 
         .navbar {
-
             min-height: 70px;
-
             border-bottom: 1px solid #222;
-
             background: #090909;
 
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
 
             padding: 12px 35px;
-
             gap: 20px;
-
         }
 
 
         .logo {
-
             display: flex;
-
             align-items: center;
-
         }
 
 
         .logo img {
-
             display: block;
-
             width: 150px;
-
             max-height: 55px;
-
             object-fit: contain;
-
         }
 
 
         .back-btn {
-
             text-decoration: none;
-
             color: #aaa;
-
             border: 1px solid #333;
 
             padding: 9px 15px;
@@ -97,34 +75,26 @@
             border-radius: 6px;
 
             transition: 0.2s;
-
         }
 
 
         .back-btn:hover {
-
             color: #00ff88;
-
             border-color: #00ff88;
-
         }
 
 
         .container {
-
             width: 100%;
-
             max-width: 950px;
 
             margin: auto;
 
             padding: 50px 25px;
-
         }
 
 
         .challenge-box {
-
             background: #0d0d0d;
 
             border: 1px solid #222;
@@ -132,36 +102,29 @@
             border-radius: 12px;
 
             padding: 35px;
-
         }
 
 
         .challenge-type {
-
             color: #00ff88;
 
             font-size: 12px;
-
             font-weight: bold;
 
             letter-spacing: 2px;
 
             margin-bottom: 15px;
-
         }
 
 
         .challenge-title {
-
             font-size: 32px;
 
             margin-bottom: 15px;
-
         }
 
 
         .challenge-description {
-
             color: #999;
 
             line-height: 1.7;
@@ -169,12 +132,10 @@
             margin-bottom: 30px;
 
             white-space: pre-line;
-
         }
 
 
         .section-title {
-
             font-size: 14px;
 
             color: #777;
@@ -182,34 +143,30 @@
             margin-bottom: 12px;
 
             font-weight: bold;
-
         }
 
 
+        /* =========================================
+           ENCRYPTED MESSAGE + COPY BUTTON
+        ========================================= */
+
         .encrypted-header {
-
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
 
             gap: 15px;
 
             margin-bottom: 12px;
-
         }
 
 
         .encrypted-header .section-title {
-
             margin-bottom: 0;
-
         }
 
 
         .copy-btn {
-
             background: transparent;
 
             color: #00ff88;
@@ -221,36 +178,27 @@
             border-radius: 6px;
 
             font-size: 12px;
-
             font-weight: bold;
 
             cursor: pointer;
 
             transition: 0.2s;
-
         }
 
 
         .copy-btn:hover {
-
             background: #00ff88;
-
             color: #050505;
-
         }
 
 
         .copy-btn.copied {
-
             background: #00ff88;
-
             color: #050505;
-
         }
 
 
         .encrypted-message {
-
             width: 100%;
 
             background: #070707;
@@ -275,15 +223,13 @@
 
             margin-bottom: 30px;
 
-            max-height: 450px;
+            max-height: 350px;
 
             overflow-y: auto;
-
         }
 
 
         .hint-box {
-
             background: #101010;
 
             border: 1px solid #333;
@@ -301,12 +247,10 @@
             margin-bottom: 30px;
 
             white-space: pre-line;
-
         }
 
 
         .answer-label {
-
             display: block;
 
             color: #777;
@@ -316,12 +260,10 @@
             font-weight: bold;
 
             margin-bottom: 10px;
-
         }
 
 
         .answer-input {
-
             width: 100%;
 
             background: #070707;
@@ -341,19 +283,15 @@
             outline: none;
 
             margin-bottom: 15px;
-
         }
 
 
         .answer-input:focus {
-
             border-color: #00ff88;
-
         }
 
 
         .submit-btn {
-
             background: #00ff88;
 
             color: #050505;
@@ -369,34 +307,26 @@
             cursor: pointer;
 
             transition: 0.2s;
-
         }
 
 
-        .submit-btn:hover {
-
+        .submit-btn:hover:not(:disabled) {
             transform: translateY(-2px);
 
             box-shadow:
                 0 0 25px
                 rgba(0, 255, 136, 0.2);
-
         }
 
 
         .submit-btn:disabled {
-
             opacity: 0.6;
-
             cursor: not-allowed;
-
             transform: none;
-
         }
 
 
         .message {
-
             display: none;
 
             margin-top: 20px;
@@ -406,12 +336,10 @@
             border-radius: 7px;
 
             line-height: 1.6;
-
         }
 
 
         .message.success {
-
             display: block;
 
             background:
@@ -421,12 +349,10 @@
                 1px solid #00ff88;
 
             color: #00ff88;
-
         }
 
 
         .message.error {
-
             display: block;
 
             background:
@@ -436,12 +362,23 @@
                 1px solid #ff6b6b;
 
             color: #ff6b6b;
+        }
 
+
+        .message.warning {
+            display: block;
+
+            background:
+                rgba(255, 209, 102, 0.08);
+
+            border:
+                1px solid #ffd166;
+
+            color: #ffd166;
         }
 
 
         .not-found {
-
             text-align: center;
 
             padding: 60px 20px;
@@ -451,23 +388,18 @@
             border: 1px solid #222;
 
             border-radius: 12px;
-
         }
 
 
         .not-found h1 {
-
             margin-bottom: 15px;
-
         }
 
 
         .not-found p {
-
             color: #777;
 
             margin-bottom: 25px;
-
         }
 
 
@@ -476,44 +408,32 @@
         ) {
 
             .navbar {
-
                 padding: 15px 18px;
-
             }
 
 
             .container {
-
                 padding: 30px 18px;
-
             }
 
 
             .challenge-box {
-
                 padding: 22px;
-
             }
 
 
             .challenge-title {
-
                 font-size: 26px;
-
             }
 
 
             .logo img {
-
                 width: 125px;
-
             }
 
 
             .encrypted-header {
-
                 align-items: flex-start;
-
             }
 
         }
@@ -521,7 +441,6 @@
     </style>
 
 </head>
-
 
 <body>
 
@@ -532,12 +451,10 @@
         href="dashboard.html"
         class="logo"
     >
-
         <img
             src="logo.png"
             alt="0X1GHOST Logo"
         >
-
     </a>
 
 
@@ -545,9 +462,7 @@
         href="challenges.html"
         class="back-btn"
     >
-
         ← CHALLENGES
-
     </a>
 
 </nav>
@@ -558,9 +473,7 @@
     <div
         id="challengeContainer"
     >
-
         Loading challenge...
-
     </div>
 
 </main>
@@ -568,13 +481,16 @@
 
 <script type="module">
 
-
     import {
         createClient
     }
     from
     "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
+
+    /* =========================================
+       SUPABASE
+    ========================================= */
 
     const SUPABASE_URL =
         "https://borturaxifoxufixewya.supabase.co";
@@ -591,24 +507,42 @@
         );
 
 
+    /* =========================================
+       PAGE ELEMENT
+    ========================================= */
+
     const challengeContainer =
         document.getElementById(
             "challengeContainer"
         );
 
 
+    /* =========================================
+       MANY LAYERS CIPHERTEXT
+    ========================================= */
+
     const manyLayersCiphertext =
         `30 31 30 30 31 31 30 31 20 30 31 30 30 30 31 31 30 20 30 31 31 30 30 31 31 31 20 30 31 31 31 31 30 30 30 20 30 31 30 31 30 30 31 30 20 30 30 31 31 30 30 30 30 20 30 31 31 30 31 30 30 30 20 30 31 30 31 30 30 30 30 20 30 31 30 31 30 31 30 31 20 30 30 31 31 30 30 30 31 20 30 31 30 31 30 30 31 30 20 30 30 31 31 30 31 31 31 20 30 31 31 30 30 30 31 30 20 30 31 31 30 31 31 30 31 20 30 30 31 31 31 30 30 31 20 30 30 31 31 30 30 30 30 20 30 31 30 31 31 30 30 30 20 30 30 31 31 30 30 31 31 20 30 31 31 30 31 30 31 31 20 30 31 31 31 31 30 30 31 20 30 31 30 30 31 31 31 31 20 30 31 30 31 30 31 30 30 20 30 31 31 30 30 31 30 30 20 30 31 31 30 30 31 31 30 20 30 31 30 31 31 30 30 31 20 30 31 30 31 30 31 31 31 20 30 30 31 31 30 31 30 31 20 30 31 31 30 31 30 31 31 20 30 31 30 30 31 31 31 31 20 30 31 30 30 30 31 30 30 20 30 31 31 30 31 30 31 31 20 30 30 31 31 30 31 30 31 20 30 31 30 30 31 31 30 31 20 30 31 31 30 31 30 31 30 20 30 31 30 30 31 31 31 30 20 30 31 31 30 30 31 31 30 20 30 31 30 30 31 31 30 31 20 30 31 30 30 30 31 30 30 20 30 31 30 31 30 30 30 31 20 30 30 31 31 30 30 30 31 20 30 31 30 31 31 30 30 30 20 30 30 31 31 30 30 31 30 20 30 31 30 30 31 31 31 30 20 30 31 31 30 31 30 31 31 20 30 31 31 30 30 31 31 30 20 30 31 30 31 30 30 30 31 20 30 30 31 31 31 31 30 31 20 30 30 31 31 31 31 30 31`;
 
 
+    /* =========================================
+       ALL CHALLENGES
+    ========================================= */
+
     const challenges = {
 
 
+        /* =====================================
+           EASY
+        ===================================== */
+
         caesar: {
 
-            type: "CAESAR CIPHER",
+            type:
+                "CAESAR CIPHER",
 
-            title: "Caesar's Secret",
+            title:
+                "Caesar's Secret",
 
             description:
                 "Decode a secret message protected by a classical Caesar cipher.",
@@ -616,16 +550,19 @@
             encrypted:
                 "0X1GHOST{FDHVDU}",
 
-            hint: ""
+            hint:
+                ""
 
         },
 
 
         rot13: {
 
-            type: "ROT13",
+            type:
+                "ROT13",
 
-            title: "What type this rot?",
+            title:
+                "What type this rot?",
 
             description:
                 "A mysterious message has been encrypted using a famous rotation cipher. Can you identify it and recover the flag?",
@@ -633,16 +570,19 @@
             encrypted:
                 "0K1TUBFG{V_N9521_C02E90E3Eq_103_fqns}",
 
-            hint: ""
+            hint:
+                ""
 
         },
 
 
         binary: {
 
-            type: "BINARY",
+            type:
+                "BINARY",
 
-            title: "Binary Secret",
+            title:
+                "Binary Secret",
 
             description:
                 "A secret flag has been converted into binary. Can you decode it?",
@@ -650,33 +590,39 @@
             encrypted:
                 "00110000 01011000 00110001 01000111 01001000 01001111 01010011 01010100 01111011 01100111 00110000 00110000 01100100 01011111 01101010 00110000 00110100 01011111 01110100 01101000 00110011 00110110 01011111 01100001 00110011 00110111 00110010 01111101",
 
-            hint: ""
+            hint:
+                ""
 
         },
 
 
         base64: {
 
-            type: "BASE64",
+            type:
+                "BASE64",
 
-            title: "What is this?",
+            title:
+                "What is this?",
 
             description:
-                "We've found this suspicious encryption. Can you crack it?",
+                "We've found this suspicious encoding. Can you decode it?",
 
             encrypted:
                 "MFgxR0hPU1R7QkE2NDYxOV9JU18xMjBPX24zNH0=",
 
-            hint: ""
+            hint:
+                ""
 
         },
 
 
         vigenere: {
 
-            type: "VIGENERE CIPHER",
+            type:
+                "VIGENERE CIPHER",
 
-            title: "The secret key",
+            title:
+                "The secret key",
 
             description:
                 "A secret message was encrypted with a classical Vigenere cipher. Find the key and recover the flag.",
@@ -692,9 +638,11 @@
 
         "many-layers": {
 
-            type: "MANY LAYERS",
+            type:
+                "MANY LAYERS",
 
-            title: "Many layers of encryption",
+            title:
+                "Many layers of encryption",
 
             description:
                 "I obtained this encryption. Can you decrypt it?",
@@ -710,9 +658,11 @@
 
         substitution: {
 
-            type: "SUBSTITUTION CIPHER",
+            type:
+                "SUBSTITUTION CIPHER",
 
-            title: "Secret encryption",
+            title:
+                "Secret encryption",
 
             description:
                 "A secret message has been encrypted using a substitution cipher. Can you discover the mapping and recover the flag?",
@@ -721,34 +671,38 @@
                 "0W1ABKPQ{IN_IXES_QBCP_HBXFFSJAS}",
 
             hint:
-                "The letters were replaced, but their positions were not changed."
+                "Each letter was replaced by another letter. The same encrypted letter always represents the same original letter."
 
         },
 
 
         xor: {
 
-            type: "REPEATING-KEY XOR",
+            type:
+                "REPEATING KEY XOR",
 
-            title: "XOR Secret",
+            title:
+                "XOR Secret",
 
             description:
-                "A message was encrypted using XOR with a repeating key. The key is already known.",
+                "A secret message was encrypted using XOR with a repeating key.",
 
             encrypted:
-                "00000000000000004b1f7e080c106667016c00181f7b60660314753a",
+                "7f685c24303a3b2b2f2b0b2c1c6a3630316a2c3a6d392c32316a2c2f392c2c",
 
             hint:
-                "Key: 0X1GHOST"
+                "The XOR key is: 0X1GHOST"
 
         },
 
 
         "shuffled-letters": {
 
-            type: "TRANSPOSITION CIPHER",
+            type:
+                "TRANSPOSITION CIPHER",
 
-            title: "Shuffled Letters",
+            title:
+                "Shuffled Letters",
 
             description:
                 `The message was not encrypted by changing the letters themselves...
@@ -758,7 +712,7 @@ Something important is hidden inside this scrambled text.
 Can you restore the original order and recover the flag?`,
 
             encrypted:
-                "OSEE_E2XOTMDK_SCLNY91H{H_ATIHLG_7GAMHAE}",
+                "OX1GHOST{AHMED_MAKE_THIS_CHALLENGE_Y297}",
 
             hint:
                 "transposition-trial"
@@ -766,11 +720,37 @@ Can you restore the original order and recover the flag?`,
         },
 
 
+        "emoji-cipher": {
+
+            type:
+                "EMOJI CIPHER",
+
+            title:
+                "EMOJI CIPHER",
+
+            description:
+                "A secret message has been transformed into a sequence of emojis. Discover the encoding and recover the flag.",
+
+            encrypted:
+                "🐧👏🐨🐾🐿👆👊👋👲👐🐰🐯🐯👖🐺🐸👅🐩🐫👖🐻🐼🐺👉👉👐👇👋👖👋🐿👀👊👖🐩🐪🐫👴",
+
+            hint:
+                ""
+
+        },
+
+
+        /* =====================================
+           MEDIUM
+        ===================================== */
+
         "rsa-small-d": {
 
-            type: "RSA • SMALL d ATTACK",
+            type:
+                "RSA",
 
-            title: "RSA: Small d Attack",
+            title:
+                "RSA: Small d Attack",
 
             description:
                 `RSA is secure... unless the private exponent is too small.
@@ -790,34 +770,46 @@ c =
 648206343342438473254594946905692057571683808242857227357817592020066576535308628446460370512108556834847409648870205175339825868223462724166`,
 
             hint:
-                `Sometimes RSA fails because the private exponent d is too small.
-
-Think about continued fractions.`
+                "Sometimes RSA fails because the private exponent d is too small. Think about continued fractions."
 
         },
 
 
-        "emoji-cipher": {
+        /* =====================================
+           NEW MEDIUM CHALLENGE
+        ===================================== */
 
-            type: "EMOJI CIPHER",
+        "custom-base64": {
 
-            title: "EMOJI CIPHER",
+            type:
+                "CUSTOM BASE64",
+
+            title:
+                "Custom Base64",
 
             description:
-                `A secret message has been encoded using emojis.
+                `We intercepted a message that looks exactly like Base64...
 
-Can you decode the emojis and recover the flag?`,
+But it refuses to decode with normal Base64 tools.
+
+It seems the developer used a different alphabet instead of the standard one.
+
+The standard alphabet is known, but it is not the one used here. Can you discover what changed?`,
 
             encrypted:
-                "🐧👏🐨🐾🐿👆👊👋👲👐🐰🐯🐯👖🐺🐸👅🐩🐫👖🐻🐼🐺👉👉👐👇👋👖👋🐿👀👊👖🐩🐪🐫👴",
+                "dWxCiFyglGiMh0ikikpFoGeZmlqXkVmVwh==",
 
             hint:
-                "Each emoji represents a character. Find the emoji-to-character mapping and decode the message."
+                "Remember that the flag starts with a known format."
 
         }
 
     };
 
+
+    /* =========================================
+       GET CHALLENGE ID
+    ========================================= */
 
     const params =
         new URLSearchParams(
@@ -826,12 +818,20 @@ Can you decode the emojis and recover the flag?`,
 
 
     const challengeId =
-        params.get("id");
+        params.get(
+            "id"
+        );
 
 
     const challenge =
-        challenges[challengeId];
+        challenges[
+            challengeId
+        ];
 
+
+    /* =========================================
+       CHALLENGE NOT FOUND
+    ========================================= */
 
     if (!challenge) {
 
@@ -858,7 +858,14 @@ Can you decode the emojis and recover the flag?`,
 
         `;
 
-    } else {
+    }
+
+
+    /* =========================================
+       SHOW CHALLENGE
+    ========================================= */
+
+    else {
 
         document.title =
             challenge.title +
@@ -869,34 +876,54 @@ Can you decode the emojis and recover the flag?`,
 
             <div class="challenge-box">
 
+
                 <div class="challenge-type">
-                    ${escapeHTML(challenge.type)}
+
+                    ${escapeHTML(
+                        challenge.type
+                    )}
+
                 </div>
 
 
                 <h1 class="challenge-title">
-                    ${escapeHTML(challenge.title)}
+
+                    ${escapeHTML(
+                        challenge.title
+                    )}
+
                 </h1>
 
 
                 <p class="challenge-description">
-                    ${escapeHTML(challenge.description)}
+
+                    ${escapeHTML(
+                        challenge.description
+                    )}
+
                 </p>
 
 
                 <div class="encrypted-header">
 
+
                     <div class="section-title">
+
                         ENCRYPTED MESSAGE
+
                     </div>
+
 
                     <button
                         id="copyButton"
                         class="copy-btn"
                         type="button"
                     >
+
                         COPY
+
                     </button>
+
 
                 </div>
 
@@ -904,7 +931,9 @@ Can you decode the emojis and recover the flag?`,
                 <div
                     id="encryptedMessage"
                     class="encrypted-message"
-                >${escapeHTML(challenge.encrypted)}</div>
+                >${escapeHTML(
+                    challenge.encrypted
+                )}</div>
 
 
                 ${
@@ -912,11 +941,18 @@ Can you decode the emojis and recover the flag?`,
                     ? `
 
                         <div class="section-title">
+
                             HINT
+
                         </div>
 
+
                         <div class="hint-box">
-                            ${escapeHTML(challenge.hint)}
+
+                            ${escapeHTML(
+                                challenge.hint
+                            )}
+
                         </div>
 
                     `
@@ -928,7 +964,9 @@ Can you decode the emojis and recover the flag?`,
                     class="answer-label"
                     for="answer"
                 >
+
                     SUBMIT FLAG
+
                 </label>
 
 
@@ -938,14 +976,18 @@ Can you decode the emojis and recover the flag?`,
                     type="text"
                     placeholder="0X1GHOST{...}"
                     autocomplete="off"
+                    spellcheck="false"
                 >
 
 
                 <button
                     id="submitButton"
                     class="submit-btn"
+                    type="button"
                 >
+
                     SUBMIT ANSWER
+
                 </button>
 
 
@@ -953,6 +995,7 @@ Can you decode the emojis and recover the flag?`,
                     id="message"
                     class="message"
                 ></div>
+
 
             </div>
 
@@ -982,6 +1025,10 @@ Can you decode the emojis and recover the flag?`,
                 "copyButton"
             );
 
+
+        /* =====================================
+           COPY BUTTON
+        ===================================== */
 
         copyButton.addEventListener(
             "click",
@@ -1018,19 +1065,38 @@ Can you decode the emojis and recover the flag?`,
                         2000
                     );
 
-                } catch (error) {
+                }
 
-                    console.error(error);
+                catch (error) {
+
+                    console.error(
+                        error
+                    );
 
 
                     copyButton.textContent =
                         "FAILED";
+
+
+                    setTimeout(
+                        function() {
+
+                            copyButton.textContent =
+                                "COPY";
+
+                        },
+                        2000
+                    );
 
                 }
 
             }
         );
 
+
+        /* =====================================
+           SUBMIT EVENTS
+        ===================================== */
 
         submitButton.addEventListener(
             "click",
@@ -1054,7 +1120,12 @@ Can you decode the emojis and recover the flag?`,
         );
 
 
+        /* =====================================
+           SUBMIT ANSWER
+        ===================================== */
+
         async function submitAnswer() {
+
 
             const answer =
                 answerInput.value.trim();
@@ -1072,13 +1143,16 @@ Can you decode the emojis and recover the flag?`,
             }
 
 
-            submitButton.disabled = true;
+            submitButton.disabled =
+                true;
+
 
             submitButton.textContent =
                 "CHECKING...";
 
 
             try {
+
 
                 const {
                     data: {
@@ -1088,19 +1162,24 @@ Can you decode the emojis and recover the flag?`,
                 } = await supabase.auth.getUser();
 
 
-                if (userError) {
-
-                    throw userError;
-
-                }
-
-
-                if (!user) {
+                if (
+                    userError ||
+                    !user
+                ) {
 
                     showMessage(
                         "You must be logged in.",
                         "error"
                     );
+
+
+                    submitButton.disabled =
+                        false;
+
+
+                    submitButton.textContent =
+                        "SUBMIT ANSWER";
+
 
                     return;
 
@@ -1113,25 +1192,34 @@ Can you decode the emojis and recover the flag?`,
                 } = await supabase.rpc(
                     "submit_challenge_answer",
                     {
+
                         p_challenge_id:
                             challengeId,
 
                         p_answer:
                             answer
+
                     }
                 );
 
 
+                submitButton.disabled =
+                    false;
+
+
+                submitButton.textContent =
+                    "SUBMIT ANSWER";
+
+
                 if (error) {
 
-                    throw error;
+                    console.error(
+                        error
+                    );
 
-                }
-
-
-                if (!data) {
 
                     showMessage(
+                        error.message ||
                         "Something went wrong.",
                         "error"
                     );
@@ -1140,6 +1228,54 @@ Can you decode the emojis and recover the flag?`,
 
                 }
 
+
+                if (!data) {
+
+                    showMessage(
+                        "No response received from the server.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                /* =============================
+                   RATE LIMIT
+                ============================= */
+
+                if (
+                    data.rate_limited
+                ) {
+
+                    const seconds =
+                        data.seconds_remaining ||
+                        10;
+
+
+                    showMessage(
+                        data.message ||
+                        "Too many attempts. Please wait " +
+                        seconds +
+                        " seconds.",
+                        "warning"
+                    );
+
+
+                    startCooldown(
+                        seconds
+                    );
+
+
+                    return;
+
+                }
+
+
+                /* =============================
+                   WRONG ANSWER
+                ============================= */
 
                 if (!data.success) {
 
@@ -1154,49 +1290,129 @@ Can you decode the emojis and recover the flag?`,
                 }
 
 
+                /* =============================
+                   CORRECT ANSWER
+                ============================= */
+
                 showMessage(
                     `✓ Correct answer! You earned ${data.points} points. New score: ${data.new_score}`,
                     "success"
                 );
 
 
-                answerInput.disabled = true;
+                answerInput.disabled =
+                    true;
 
-                submitButton.disabled = true;
 
-            } catch (error) {
+                submitButton.disabled =
+                    true;
+
+
+                submitButton.textContent =
+                    "SOLVED ✓";
+
+
+            }
+
+            catch (error) {
+
 
                 console.error(
-                    "Submit error:",
                     error
                 );
 
 
+                submitButton.disabled =
+                    false;
+
+
+                submitButton.textContent =
+                    "SUBMIT ANSWER";
+
+
                 showMessage(
-                    error.message ||
-                    "Something went wrong.",
+                    "Connection error. Please try again.",
                     "error"
                 );
-
-            } finally {
-
-                if (
-                    !answerInput.disabled
-                ) {
-
-                    submitButton.disabled =
-                        false;
-
-
-                    submitButton.textContent =
-                        "SUBMIT ANSWER";
-
-                }
 
             }
 
         }
 
+
+        /* =====================================
+           COOLDOWN TIMER
+        ===================================== */
+
+        function startCooldown(
+            seconds
+        ) {
+
+            let remaining =
+                Math.max(
+                    1,
+                    Number(seconds) || 10
+                );
+
+
+            answerInput.disabled =
+                true;
+
+
+            submitButton.disabled =
+                true;
+
+
+            submitButton.textContent =
+                `WAIT ${remaining}s`;
+
+
+            const timer =
+                setInterval(
+                    function() {
+
+                        remaining--;
+
+
+                        if (
+                            remaining <= 0
+                        ) {
+
+                            clearInterval(
+                                timer
+                            );
+
+
+                            answerInput.disabled =
+                                false;
+
+
+                            submitButton.disabled =
+                                false;
+
+
+                            submitButton.textContent =
+                                "SUBMIT ANSWER";
+
+
+                            return;
+
+                        }
+
+
+                        submitButton.textContent =
+                            `WAIT ${remaining}s`;
+
+                    },
+                    1000
+                );
+
+        }
+
+
+        /* =====================================
+           SHOW MESSAGE
+        ===================================== */
 
         function showMessage(
             text,
@@ -1208,14 +1424,21 @@ Can you decode the emojis and recover the flag?`,
 
 
             messageElement.className =
-                "message " + type;
+                "message " +
+                type;
 
         }
 
     }
 
 
-    function escapeHTML(value) {
+    /* =========================================
+       ESCAPE HTML
+    ========================================= */
+
+    function escapeHTML(
+        value
+    ) {
 
         return String(value)
 
@@ -1246,10 +1469,7 @@ Can you decode the emojis and recover the flag?`,
 
     }
 
-
 </script>
 
-
 </body>
-
 </html>
