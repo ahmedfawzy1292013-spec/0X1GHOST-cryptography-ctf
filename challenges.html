@@ -501,31 +501,27 @@
         ],
 
 
-        medium: [
+        
 
-            {
-                id: "rsa-small-d",
-                name: "RSA: Small d Attack",
-                description:
-                    "RSA is secure... unless the private exponent is too small. Can you recover the secret message?",
-                points: 200
-            }
+  medium: [
 
-            "custom-base64": {
-    type: "ENCODING",
-    title: "Custom Base64",
+    {
+        id: "rsa-small-d",
+        name: "RSA: Small d Attack",
+        description:
+            "RSA is secure... unless the private exponent is too small. Can you recover the secret message?",
+        points: 200
+    },
 
-    description:
-        "We intercepted a message that looks exactly like Base64... but it cannot be decoded with normal tools. It seems the developer used a different alphabet instead of the standard one. The standard alphabet is known — but this is not the one being used. Can you discover what changed?",
+    {
+        id: "custom-base64",
+        name: "Custom Base64",
+        description:
+            "We intercepted a message that looks exactly like Base64... but it cannot be decoded with normal tools. It seems the developer used a different alphabet instead of the standard one. The standard alphabet is known — but this is not the one being used. Can you discover what changed?",
+        points: 200
+    }
 
-    encrypted:
-        "dWxCiFyglGiMh0ikikpFoGeZmlqXkVmVwh==",
-
-    hint:
-        "Remember that the flag starts with a known format. Try thinking about rotations."
-},
-
-        ],
+],
 
 
         "medium-hard": [
