@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -22,6 +24,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+
             font-family:
                 Arial,
                 Helvetica,
@@ -31,97 +34,134 @@
 
         body {
             min-height: 100vh;
+
             background: #050505;
+
             color: white;
         }
 
 
         .navbar {
+
             min-height: 70px;
+
             border-bottom: 1px solid #222;
+
             background: #090909;
 
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
 
             padding: 12px 35px;
+
             gap: 20px;
+
         }
 
 
         .logo {
+
             display: flex;
+
             align-items: center;
+
         }
 
 
         .logo img {
+
             display: block;
+
             width: 150px;
+
             max-height: 55px;
+
             object-fit: contain;
+
         }
 
 
         .back-btn {
+
             text-decoration: none;
+
             color: #aaa;
+
             border: 1px solid #333;
 
             padding: 9px 15px;
+
             border-radius: 6px;
 
             transition: 0.2s;
+
         }
 
 
         .back-btn:hover {
+
             color: #00ff88;
+
             border-color: #00ff88;
+
         }
 
 
         .container {
+
             width: 100%;
+
             max-width: 950px;
 
             margin: auto;
 
             padding: 50px 25px;
+
         }
 
 
         .challenge-box {
+
             background: #0d0d0d;
 
             border: 1px solid #222;
+
             border-radius: 12px;
 
             padding: 35px;
+
         }
 
 
         .challenge-type {
+
             color: #00ff88;
 
             font-size: 12px;
+
             font-weight: bold;
 
             letter-spacing: 2px;
 
             margin-bottom: 15px;
+
         }
 
 
         .challenge-title {
+
             font-size: 32px;
 
             margin-bottom: 15px;
+
         }
 
 
         .challenge-description {
+
             color: #999;
 
             line-height: 1.7;
@@ -129,10 +169,12 @@
             margin-bottom: 30px;
 
             white-space: pre-line;
+
         }
 
 
         .section-title {
+
             font-size: 14px;
 
             color: #777;
@@ -140,26 +182,34 @@
             margin-bottom: 12px;
 
             font-weight: bold;
+
         }
 
 
         .encrypted-header {
+
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
 
             gap: 15px;
 
             margin-bottom: 12px;
+
         }
 
 
         .encrypted-header .section-title {
+
             margin-bottom: 0;
+
         }
 
 
         .copy-btn {
+
             background: transparent;
 
             color: #00ff88;
@@ -171,27 +221,36 @@
             border-radius: 6px;
 
             font-size: 12px;
+
             font-weight: bold;
 
             cursor: pointer;
 
             transition: 0.2s;
+
         }
 
 
         .copy-btn:hover {
+
             background: #00ff88;
+
             color: #050505;
+
         }
 
 
         .copy-btn.copied {
+
             background: #00ff88;
+
             color: #050505;
+
         }
 
 
         .encrypted-message {
+
             width: 100%;
 
             background: #070707;
@@ -219,10 +278,12 @@
             max-height: 450px;
 
             overflow-y: auto;
+
         }
 
 
         .hint-box {
+
             background: #101010;
 
             border: 1px solid #333;
@@ -240,10 +301,12 @@
             margin-bottom: 30px;
 
             white-space: pre-line;
+
         }
 
 
         .answer-label {
+
             display: block;
 
             color: #777;
@@ -253,10 +316,12 @@
             font-weight: bold;
 
             margin-bottom: 10px;
+
         }
 
 
         .answer-input {
+
             width: 100%;
 
             background: #070707;
@@ -276,15 +341,19 @@
             outline: none;
 
             margin-bottom: 15px;
+
         }
 
 
         .answer-input:focus {
+
             border-color: #00ff88;
+
         }
 
 
         .submit-btn {
+
             background: #00ff88;
 
             color: #050505;
@@ -300,26 +369,34 @@
             cursor: pointer;
 
             transition: 0.2s;
+
         }
 
 
         .submit-btn:hover {
+
             transform: translateY(-2px);
 
             box-shadow:
                 0 0 25px
                 rgba(0, 255, 136, 0.2);
+
         }
 
 
         .submit-btn:disabled {
+
             opacity: 0.6;
+
             cursor: not-allowed;
+
             transform: none;
+
         }
 
 
         .message {
+
             display: none;
 
             margin-top: 20px;
@@ -329,10 +406,12 @@
             border-radius: 7px;
 
             line-height: 1.6;
+
         }
 
 
         .message.success {
+
             display: block;
 
             background:
@@ -342,10 +421,12 @@
                 1px solid #00ff88;
 
             color: #00ff88;
+
         }
 
 
         .message.error {
+
             display: block;
 
             background:
@@ -355,10 +436,12 @@
                 1px solid #ff6b6b;
 
             color: #ff6b6b;
+
         }
 
 
         .not-found {
+
             text-align: center;
 
             padding: 60px 20px;
@@ -368,18 +451,23 @@
             border: 1px solid #222;
 
             border-radius: 12px;
+
         }
 
 
         .not-found h1 {
+
             margin-bottom: 15px;
+
         }
 
 
         .not-found p {
+
             color: #777;
 
             margin-bottom: 25px;
+
         }
 
 
@@ -388,33 +476,52 @@
         ) {
 
             .navbar {
+
                 padding: 15px 18px;
+
             }
+
 
             .container {
+
                 padding: 30px 18px;
+
             }
+
 
             .challenge-box {
+
                 padding: 22px;
+
             }
+
 
             .challenge-title {
+
                 font-size: 26px;
+
             }
+
 
             .logo img {
+
                 width: 125px;
+
             }
 
+
             .encrypted-header {
+
                 align-items: flex-start;
+
             }
 
         }
 
     </style>
+
 </head>
+
 
 <body>
 
@@ -425,10 +532,12 @@
         href="dashboard.html"
         class="logo"
     >
+
         <img
             src="logo.png"
             alt="0X1GHOST Logo"
         >
+
     </a>
 
 
@@ -436,7 +545,9 @@
         href="challenges.html"
         class="back-btn"
     >
+
         ← CHALLENGES
+
     </a>
 
 </nav>
@@ -447,7 +558,9 @@
     <div
         id="challengeContainer"
     >
+
         Loading challenge...
+
     </div>
 
 </main>
@@ -455,9 +568,11 @@
 
 <script type="module">
 
+
     import {
         createClient
-    } from
+    }
+    from
     "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
 
@@ -488,121 +603,180 @@
 
     const challenges = {
 
+
         caesar: {
+
             type: "CAESAR CIPHER",
+
             title: "Caesar's Secret",
+
             description:
                 "Decode a secret message protected by a classical Caesar cipher.",
+
             encrypted:
                 "0X1GHOST{FDHVDU}",
+
             hint: ""
+
         },
 
 
         rot13: {
+
             type: "ROT13",
+
             title: "What type this rot?",
+
             description:
                 "A mysterious message has been encrypted using a famous rotation cipher. Can you identify it and recover the flag?",
+
             encrypted:
                 "0K1TUBFG{V_N9521_C02E90E3Eq_103_fqns}",
+
             hint: ""
+
         },
 
 
         binary: {
+
             type: "BINARY",
+
             title: "Binary Secret",
+
             description:
                 "A secret flag has been converted into binary. Can you decode it?",
+
             encrypted:
                 "00110000 01011000 00110001 01000111 01001000 01001111 01010011 01010100 01111011 01100111 00110000 00110000 01100100 01011111 01101010 00110000 00110100 01011111 01110100 01101000 00110011 00110110 01011111 01100001 00110011 00110111 00110010 01111101",
+
             hint: ""
+
         },
 
 
         base64: {
+
             type: "BASE64",
+
             title: "What is this?",
+
             description:
                 "We've found this suspicious encryption. Can you crack it?",
+
             encrypted:
                 "MFgxR0hPU1R7QkE2NDYxOV9JU18xMjBPX24zNH0=",
+
             hint: ""
+
         },
 
 
         vigenere: {
+
             type: "VIGENERE CIPHER",
+
             title: "The secret key",
+
             description:
                 "A secret message was encrypted with a classical Vigenere cipher. Find the key and recover the flag.",
+
             encrypted:
                 "0X1NTSVT{F9724_MVH_GVAH_ln_2571}",
+
             hint:
                 "The key could be the real name of the platform owner."
+
         },
 
 
         "many-layers": {
+
             type: "MANY LAYERS",
+
             title: "Many layers of encryption",
+
             description:
                 "I obtained this encryption. Can you decrypt it?",
+
             encrypted:
                 manyLayersCiphertext,
+
             hint:
                 "This message has multiple layers. Try decoding the layers in the correct order."
+
         },
 
 
         substitution: {
+
             type: "SUBSTITUTION CIPHER",
+
             title: "Secret encryption",
+
             description:
                 "A secret message has been encrypted using a substitution cipher. Can you discover the mapping and recover the flag?",
+
             encrypted:
                 "0W1ABKPQ{IN_IXES_QBCP_HBXFFSJAS}",
+
             hint:
                 "The letters were replaced, but their positions were not changed."
+
         },
 
 
         xor: {
+
             type: "REPEATING-KEY XOR",
+
             title: "XOR Secret",
+
             description:
                 "A message was encrypted using XOR with a repeating key. The key is already known.",
+
             encrypted:
                 "00000000000000004b1f7e080c106667016c00181f7b60660314753a",
+
             hint:
                 "Key: 0X1GHOST"
+
         },
 
 
         "shuffled-letters": {
+
             type: "TRANSPOSITION CIPHER",
+
             title: "Shuffled Letters",
+
             description:
                 `The message was not encrypted by changing the letters themselves...
 They were only moved around.
 
 Something important is hidden inside this scrambled text.
 Can you restore the original order and recover the flag?`,
+
             encrypted:
                 "OSEE_E2XOTMDK_SCLNY91H{H_ATIHLG_7GAMHAE}",
+
             hint:
                 "transposition-trial"
+
         },
 
 
         "rsa-small-d": {
+
             type: "RSA • SMALL d ATTACK",
+
             title: "RSA: Small d Attack",
+
             description:
                 `RSA is secure... unless the private exponent is too small.
 
 Can you recover the secret message?`,
+
             encrypted:
                 `Public values:
 
@@ -614,29 +788,35 @@ e =
 
 c =
 648206343342438473254594946905692057571683808242857227357817592020066576535308628446460370512108556834847409648870205175339825868223462724166`,
+
             hint:
                 `Sometimes RSA fails because the private exponent d is too small.
 
 Think about continued fractions.`
-        }
 
-    };
+        },
 
-    "emoji-cipher": {
-    type: "EMOJI CIPHER",
-    title: "EMOJI CIPHER",
 
-    description:
-        `A secret message has been encoded using emojis.
+        "emoji-cipher": {
+
+            type: "EMOJI CIPHER",
+
+            title: "EMOJI CIPHER",
+
+            description:
+                `A secret message has been encoded using emojis.
 
 Can you decode the emojis and recover the flag?`,
 
-    encrypted:
-        "🐧👏🐨🐾🐿👆👊👋👲👐🐰🐯🐯👖🐺🐸👅🐩🐫👖🐻🐼🐺👉👉👐👇👋👖👋🐿👀👊👖🐩🐪🐫👴",
+            encrypted:
+                "🐧👏🐨🐾🐿👆👊👋👲👐🐰🐯🐯👖🐺🐸👅🐩🐫👖🐻🐼🐺👉👉👐👇👋👖👋🐿👀👊👖🐩🐪🐫👴",
 
-    hint:
-        "Each emoji represents a character. Find the emoji-to-character mapping and decode the message."
-},
+            hint:
+                "Each emoji represents a character. Find the emoji-to-character mapping and decode the message."
+
+        }
+
+    };
 
 
     const params =
@@ -730,6 +910,7 @@ Can you decode the emojis and recover the flag?`,
                 ${
                     challenge.hint
                     ? `
+
                         <div class="section-title">
                             HINT
                         </div>
@@ -737,6 +918,7 @@ Can you decode the emojis and recover the flag?`,
                         <div class="hint-box">
                             ${escapeHTML(challenge.hint)}
                         </div>
+
                     `
                     : ""
                 }
@@ -778,19 +960,27 @@ Can you decode the emojis and recover the flag?`,
 
 
         const answerInput =
-            document.getElementById("answer");
+            document.getElementById(
+                "answer"
+            );
 
 
         const submitButton =
-            document.getElementById("submitButton");
+            document.getElementById(
+                "submitButton"
+            );
 
 
         const messageElement =
-            document.getElementById("message");
+            document.getElementById(
+                "message"
+            );
 
 
         const copyButton =
-            document.getElementById("copyButton");
+            document.getElementById(
+                "copyButton"
+            );
 
 
         copyButton.addEventListener(
@@ -819,6 +1009,7 @@ Can you decode the emojis and recover the flag?`,
                             copyButton.textContent =
                                 "COPY";
 
+
                             copyButton.classList.remove(
                                 "copied"
                             );
@@ -830,6 +1021,7 @@ Can you decode the emojis and recover the flag?`,
                 } catch (error) {
 
                     console.error(error);
+
 
                     copyButton.textContent =
                         "FAILED";
@@ -853,7 +1045,9 @@ Can you decode the emojis and recover the flag?`,
                 if (
                     event.key === "Enter"
                 ) {
+
                     submitAnswer();
+
                 }
 
             }
@@ -884,54 +1078,99 @@ Can you decode the emojis and recover the flag?`,
                 "CHECKING...";
 
 
-            const {
-                data: {
-                    user
+            try {
+
+                const {
+                    data: {
+                        user
+                    },
+                    error: userError
+                } = await supabase.auth.getUser();
+
+
+                if (userError) {
+
+                    throw userError;
+
                 }
-            } = await supabase.auth.getUser();
 
 
-            if (!user) {
+                if (!user) {
 
-                showMessage(
-                    "You must be logged in.",
-                    "error"
+                    showMessage(
+                        "You must be logged in.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                const {
+                    data,
+                    error
+                } = await supabase.rpc(
+                    "submit_challenge_answer",
+                    {
+                        p_challenge_id:
+                            challengeId,
+
+                        p_answer:
+                            answer
+                    }
                 );
 
-                submitButton.disabled = false;
 
-                submitButton.textContent =
-                    "SUBMIT ANSWER";
+                if (error) {
 
-                return;
+                    throw error;
 
-            }
-
-
-            const {
-                data,
-                error
-            } = await supabase.rpc(
-                "submit_challenge_answer",
-                {
-                    p_challenge_id:
-                        challengeId,
-
-                    p_answer:
-                        answer
                 }
-            );
 
 
-            submitButton.disabled = false;
+                if (!data) {
 
-            submitButton.textContent =
-                "SUBMIT ANSWER";
+                    showMessage(
+                        "Something went wrong.",
+                        "error"
+                    );
+
+                    return;
+
+                }
 
 
-            if (error) {
+                if (!data.success) {
 
-                console.error(error);
+                    showMessage(
+                        data.message ||
+                        "Incorrect answer.",
+                        "error"
+                    );
+
+                    return;
+
+                }
+
+
+                showMessage(
+                    `✓ Correct answer! You earned ${data.points} points. New score: ${data.new_score}`,
+                    "success"
+                );
+
+
+                answerInput.disabled = true;
+
+                submitButton.disabled = true;
+
+            } catch (error) {
+
+                console.error(
+                    "Submit error:",
+                    error
+                );
+
 
                 showMessage(
                     error.message ||
@@ -939,33 +1178,22 @@ Can you decode the emojis and recover the flag?`,
                     "error"
                 );
 
-                return;
+            } finally {
+
+                if (
+                    !answerInput.disabled
+                ) {
+
+                    submitButton.disabled =
+                        false;
+
+
+                    submitButton.textContent =
+                        "SUBMIT ANSWER";
+
+                }
 
             }
-
-
-            if (!data.success) {
-
-                showMessage(
-                    data.message ||
-                    "Incorrect answer.",
-                    "error"
-                );
-
-                return;
-
-            }
-
-
-            showMessage(
-                `✓ Correct answer! You earned ${data.points} points. New score: ${data.new_score}`,
-                "success"
-            );
-
-
-            answerInput.disabled = true;
-
-            submitButton.disabled = true;
 
         }
 
@@ -977,6 +1205,7 @@ Can you decode the emojis and recover the flag?`,
 
             messageElement.textContent =
                 text;
+
 
             messageElement.className =
                 "message " + type;
@@ -990,15 +1219,37 @@ Can you decode the emojis and recover the flag?`,
 
         return String(value)
 
-            .replaceAll("&", "&amp;")
-            .replaceAll("<", "&lt;")
-            .replaceAll(">", "&gt;")
-            .replaceAll('"', "&quot;")
-            .replaceAll("'", "&#039;");
+            .replaceAll(
+                "&",
+                "&amp;"
+            )
+
+            .replaceAll(
+                "<",
+                "&lt;"
+            )
+
+            .replaceAll(
+                ">",
+                "&gt;"
+            )
+
+            .replaceAll(
+                '"',
+                "&quot;"
+            )
+
+            .replaceAll(
+                "'",
+                "&#039;"
+            );
 
     }
 
+
 </script>
 
+
 </body>
+
 </html>
