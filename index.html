@@ -7,6 +7,7 @@
     <title>Login | 0X1GHOST</title>
 
     <style>
+
         * {
             margin: 0;
             padding: 0;
@@ -34,7 +35,8 @@
             border: 1px solid #222;
             border-radius: 12px;
             padding: 40px 35px;
-            box-shadow: 0 0 35px rgba(0, 255, 136, 0.08);
+            box-shadow:
+                0 0 35px rgba(0, 255, 136, 0.08);
         }
 
         .logo {
@@ -84,7 +86,8 @@
 
         .input-group input:focus {
             border-color: #00ff88;
-            box-shadow: 0 0 8px rgba(0, 255, 136, 0.15);
+            box-shadow:
+                0 0 8px rgba(0, 255, 136, 0.15);
         }
 
         .login-btn {
@@ -138,6 +141,7 @@
         }
 
         @media (max-width: 480px) {
+
             .card {
                 padding: 30px 22px;
             }
@@ -145,7 +149,9 @@
             .logo {
                 font-size: 24px;
             }
+
         }
+
     </style>
 </head>
 
@@ -170,19 +176,24 @@
         <form id="loginForm">
 
             <div class="input-group">
-                <label for="username">
+
+                <label for="loginValue">
                     Username or Email
                 </label>
 
                 <input
                     type="text"
-                    id="username"
+                    id="loginValue"
                     placeholder="Enter your username or email"
+                    autocomplete="username"
                     required
                 >
+
             </div>
 
+
             <div class="input-group">
+
                 <label for="password">
                     Password
                 </label>
@@ -191,9 +202,12 @@
                     type="password"
                     id="password"
                     placeholder="Enter your password"
+                    autocomplete="current-password"
                     required
                 >
+
             </div>
+
 
             <button
                 type="submit"
@@ -205,204 +219,362 @@
 
         </form>
 
+
         <div id="message"></div>
 
+
         <div class="register-link">
+
             Don't have an account?
+
             <a href="register.html">
                 Register
             </a>
+
         </div>
 
     </div>
 
 </div>
 
+
 <script type="module">
 
-    import { createClient } from
-        "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+    import {
+        createClient
+    } from
+    "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+
+
+    /* =====================================================
+       SUPABASE
+       ===================================================== */
 
     const SUPABASE_URL =
         "https://borturaxifoxufixewya.supabase.co";
 
+
     const SUPABASE_KEY =
         "sb_publishable__lZmTM96oe10-rurqgrujg__ta_C4wr";
 
-    const supabase = createClient(
-        SUPABASE_URL,
-        SUPABASE_KEY
-    );
+
+    const supabase =
+        createClient(
+            SUPABASE_URL,
+            SUPABASE_KEY
+        );
+
+
+    /* =====================================================
+       ELEMENTS
+       ===================================================== */
 
     const form =
-        document.getElementById("loginForm");
+        document.getElementById(
+            "loginForm"
+        );
+
+
+    const loginValueInput =
+        document.getElementById(
+            "loginValue"
+        );
+
+
+    const passwordInput =
+        document.getElementById(
+            "password"
+        );
+
 
     const message =
-        document.getElementById("message");
+        document.getElementById(
+            "message"
+        );
+
 
     const button =
-        document.getElementById("loginButton");
+        document.getElementById(
+            "loginButton"
+        );
 
 
-    form.addEventListener("submit", async function(event) {
+    /* =====================================================
+       MESSAGE HELPER
+       ===================================================== */
 
-        event.preventDefault();
+    function showMessage(
+        text,
+        color
+    ) {
 
-        const loginValue =
-            document.getElementById("username")
-                .value
-                .trim();
+        message.textContent = text;
+        message.style.color = color;
 
-        const password =
-            document.getElementById("password")
-                .value;
+    }
 
-        message.textContent = "";
 
-        if (!loginValue || !password) {
+    /* =====================================================
+       LOGIN
+       ===================================================== */
 
-            message.style.color = "#ff6b6b";
+    form.addEventListener(
+        "submit",
+        async function(event) {
 
-            message.textContent =
-                "Please enter your username and password.";
+            event.preventDefault();
 
-            return;
-        }
 
-        button.disabled = true;
-        button.textContent = "LOGGING IN...";
+            const loginValue =
+                loginValueInput
+                    .value
+                    .trim();
 
-        try {
 
-            let email = loginValue;
+            const password =
+                passwordInput.value;
 
-            /*
-             * إذا كتب المستخدم Username
-             * نبحث عنه في profiles
-             */
 
-            if (!loginValue.includes("@")) {
+            showMessage(
+                "",
+                "#ff6b6b"
+            );
 
-                const { data: profile, error: profileError } =
-                    await supabase
-                        .from("profiles")
-                        .select("id, username")
-                        .eq("username", loginValue)
-                        .maybeSingle();
 
-                if (profileError) {
-                    throw profileError;
-                }
+            /* =============================================
+               VALIDATION
+               ============================================= */
 
-                if (!profile) {
+            if (
+                loginValue === "" ||
+                password === ""
+            ) {
 
-                    message.style.color = "#ff6b6b";
+                showMessage(
+                    "Please enter your username or email and password.",
+                    "#ff6b6b"
+                );
 
-                    message.textContent =
-                        "Username not found.";
+                return;
+
+            }
+
+
+            /* =============================================
+               DISABLE BUTTON
+               ============================================= */
+
+            button.disabled = true;
+
+            button.textContent =
+                "LOGGING IN...";
+
+
+            try {
+
+                /* =========================================
+                   FIND EMAIL
+                   
+                   Supports:
+                   - Username
+                   - Email
+                   ========================================= */
+
+                const {
+                    data: email,
+                    error: lookupError
+                } = await supabase.rpc(
+                    "get_login_email",
+                    {
+                        p_login: loginValue
+                    }
+                );
+
+
+                if (lookupError) {
+
+                    console.error(
+                        "Login lookup error:",
+                        lookupError
+                    );
+
+                    showMessage(
+                        "Login service unavailable. Please try again.",
+                        "#ff6b6b"
+                    );
 
                     button.disabled = false;
                     button.textContent = "LOGIN";
 
                     return;
+
                 }
 
-                /*
-                 * الحصول على البريد المرتبط بالحساب
-                 *
-                 * مهم:
-                 * Supabase لا يسمح للمتصفح بقراءة
-                 * email من auth.users.
-                 *
-                 * لذلك في النسخة الحالية:
-                 * تسجيل الدخول يكون بالبريد الإلكتروني.
-                 */
 
-                message.style.color = "#ffcc66";
+                /* =========================================
+                   USER NOT FOUND
+                   ========================================= */
 
-                message.textContent =
-                    "Please login using your email address.";
+                if (!email) {
+
+                    showMessage(
+                        "User not found.",
+                        "#ff6b6b"
+                    );
+
+                    button.disabled = false;
+                    button.textContent = "LOGIN";
+
+                    return;
+
+                }
+
+
+                /* =========================================
+                   SIGN IN WITH SUPABASE AUTH
+                   ========================================= */
+
+                const {
+                    data,
+                    error
+                } =
+                await supabase.auth
+                    .signInWithPassword({
+
+                        email: email,
+
+                        password: password
+
+                    });
+
+
+                /* =========================================
+                   INVALID PASSWORD
+                   ========================================= */
+
+                if (error) {
+
+                    console.error(
+                        "Login error:",
+                        error
+                    );
+
+
+                    const errorMessage =
+                        (
+                            error.message ||
+                            ""
+                        ).toLowerCase();
+
+
+                    if (
+                        errorMessage.includes(
+                            "invalid login credentials"
+                        )
+                    ) {
+
+                        showMessage(
+                            "Incorrect password.",
+                            "#ff6b6b"
+                        );
+
+                    } else {
+
+                        showMessage(
+                            error.message ||
+                            "Login failed.",
+                            "#ff6b6b"
+                        );
+
+                    }
+
+
+                    button.disabled = false;
+
+                    button.textContent =
+                        "LOGIN";
+
+                    return;
+
+                }
+
+
+                /* =========================================
+                   CHECK USER
+                   ========================================= */
+
+                if (
+                    !data ||
+                    !data.user
+                ) {
+
+                    showMessage(
+                        "Login failed.",
+                        "#ff6b6b"
+                    );
+
+                    button.disabled = false;
+
+                    button.textContent =
+                        "LOGIN";
+
+                    return;
+
+                }
+
+
+                /* =========================================
+                   SUCCESS
+                   ========================================= */
+
+                showMessage(
+                    "Login successful!",
+                    "#00ff88"
+                );
+
+
+                button.textContent =
+                    "SUCCESS";
+
+
+                /* =========================================
+                   REDIRECT
+                   ========================================= */
+
+                setTimeout(
+                    function() {
+
+                        window.location.href =
+                            "dashboard.html";
+
+                    },
+                    700
+                );
+
+
+            } catch (error) {
+
+                console.error(
+                    "Unexpected login error:",
+                    error
+                );
+
+
+                showMessage(
+                    "Login failed. Please try again.",
+                    "#ff6b6b"
+                );
+
 
                 button.disabled = false;
-                button.textContent = "LOGIN";
 
-                return;
-            }
-
-
-            /*
-             * تسجيل الدخول الحقيقي
-             */
-
-            const { data, error } =
-                await supabase.auth.signInWithPassword({
-
-                    email: email,
-
-                    password: password
-
-                });
-
-
-            if (error) {
-                throw error;
-            }
-
-
-            if (!data.user) {
-                throw new Error("Login failed.");
-            }
-
-
-            message.style.color = "#00ff88";
-
-            message.textContent =
-                "Login successful!";
-
-
-            /*
-             * بعد تسجيل الدخول
-             * ننتقل إلى الصفحة الرئيسية
-             */
-
-            setTimeout(() => {
-
-                window.location.href =
-                    "dashboard.html";
-
-            }, 1000);
-
-
-        } catch (error) {
-
-            console.error(error);
-
-            message.style.color = "#ff6b6b";
-
-            if (
-                error.message &&
-                error.message
-                    .toLowerCase()
-                    .includes("invalid login credentials")
-            ) {
-
-                message.textContent =
-                    "Incorrect email or password.";
-
-            } else {
-
-                message.textContent =
-                    error.message ||
-                    "Login failed.";
+                button.textContent =
+                    "LOGIN";
 
             }
-
-            button.disabled = false;
-            button.textContent = "LOGIN";
 
         }
-
-    });
+    );
 
 </script>
 
