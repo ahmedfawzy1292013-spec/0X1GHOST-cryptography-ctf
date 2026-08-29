@@ -4,20 +4,20 @@
 
 <head>
 
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-    <title>My Profile | 0X1GHOST</title>
+<title>My Profile | 0X1GHOST</title>
 
-    <link
-        rel="icon"
-        type="image/png"
-        href="favicon.png"
-    >
+<link
+    rel="icon"
+    type="image/png"
+    href="favicon.png"
+>
 
 <style>
 
@@ -29,39 +29,61 @@
 }
 
 body {
+
     min-height: 100vh;
+
     background: #050505;
+
     color: white;
+
 }
 
 .navbar {
+
     min-height: 70px;
+
     border-bottom: 1px solid #222;
+
     background: #090909;
 
     display: flex;
+
     align-items: center;
+
     justify-content: space-between;
 
     padding: 12px 35px;
+
     gap: 20px;
+
 }
 
 .logo {
+
     display: flex;
+
     align-items: center;
+
     text-decoration: none;
+
 }
 
 .logo img {
+
     display: block;
+
     width: 150px;
+
     max-height: 55px;
+
     object-fit: contain;
+
 }
 
 .back-btn {
+
     text-decoration: none;
+
     color: #aaa;
 
     border: 1px solid #333;
@@ -71,23 +93,31 @@ body {
     border-radius: 6px;
 
     transition: 0.2s;
+
 }
 
 .back-btn:hover {
+
     color: #00ff88;
+
     border-color: #00ff88;
+
 }
 
 .container {
+
     width: 100%;
-    max-width: 600px;
+
+    max-width: 650px;
 
     margin: auto;
 
     padding: 55px 25px;
+
 }
 
 .profile-box {
+
     background: #0d0d0d;
 
     border: 1px solid #222;
@@ -95,27 +125,35 @@ body {
     border-radius: 12px;
 
     padding: 35px;
+
 }
 
-.profile-title {
+.title {
+
     font-size: 30px;
 
     margin-bottom: 10px;
+
 }
 
-.profile-subtitle {
+.subtitle {
+
     color: #777;
 
     line-height: 1.6;
 
-    margin-bottom: 30px;
+    margin-bottom: 35px;
+
 }
 
 .input-group {
-    margin-bottom: 20px;
+
+    margin-bottom: 22px;
+
 }
 
 .input-group label {
+
     display: block;
 
     color: #aaa;
@@ -124,10 +162,12 @@ body {
 
     font-weight: bold;
 
-    margin-bottom: 8px;
+    margin-bottom: 9px;
+
 }
 
 .input-group input {
+
     width: 100%;
 
     padding: 14px;
@@ -144,43 +184,64 @@ body {
 
     font-size: 15px;
 
-    transition: 0.2s;
 }
 
 .input-group input:focus {
+
     border-color: #00ff88;
 
     box-shadow:
         0 0 8px
-        rgba(0, 255, 136, 0.12);
+        rgba(0, 255, 136, 0.15);
+
 }
 
-.input-group input:disabled {
-    opacity: 0.6;
-}
+.email-note {
 
-.password-note {
     color: #555;
 
     font-size: 12px;
 
     margin-top: 7px;
+
+    line-height: 1.5;
+
+}
+
+.password-title {
+
+    color: #00ff88;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+    margin:
+
+        30px 0
+        18px;
+
+    padding-bottom: 10px;
+
+    border-bottom: 1px solid #222;
+
 }
 
 .save-btn {
+
     width: 100%;
 
     padding: 14px;
 
     margin-top: 8px;
 
-    border: none;
-
-    border-radius: 7px;
-
     background: #00ff88;
 
     color: #050505;
+
+    border: none;
+
+    border-radius: 7px;
 
     font-size: 15px;
 
@@ -189,27 +250,27 @@ body {
     cursor: pointer;
 
     transition: 0.2s;
+
 }
 
 .save-btn:hover:not(:disabled) {
+
     background: #00e67a;
 
     transform: translateY(-1px);
 
-    box-shadow:
-        0 0 25px
-        rgba(0, 255, 136, 0.18);
 }
 
 .save-btn:disabled {
+
     opacity: 0.6;
 
     cursor: not-allowed;
 
-    transform: none;
 }
 
 .message {
+
     display: none;
 
     margin-top: 20px;
@@ -219,64 +280,65 @@ body {
     border-radius: 7px;
 
     line-height: 1.6;
+
 }
 
 .message.success {
+
     display: block;
+
+    color: #00ff88;
 
     background:
         rgba(0, 255, 136, 0.08);
 
-    border:
-        1px solid #00ff88;
+    border: 1px solid #00ff88;
 
-    color: #00ff88;
 }
 
 .message.error {
+
     display: block;
+
+    color: #ff6b6b;
 
     background:
         rgba(255, 107, 107, 0.08);
 
-    border:
-        1px solid #ff6b6b;
+    border: 1px solid #ff6b6b;
 
-    color: #ff6b6b;
-}
-
-.message.warning {
-    display: block;
-
-    background:
-        rgba(255, 209, 102, 0.08);
-
-    border:
-        1px solid #ffd166;
-
-    color: #ffd166;
 }
 
 @media (max-width: 600px) {
 
     .navbar {
+
         padding: 15px 18px;
+
     }
 
     .container {
+
         padding: 35px 18px;
+
     }
 
     .profile-box {
-        padding: 24px;
+
+        padding: 23px;
+
     }
 
-    .profile-title {
+    .title {
+
         font-size: 26px;
+
     }
 
     .logo img {
+
         width: 125px;
+
     }
 
 }
@@ -290,136 +352,146 @@ body {
 
 <nav class="navbar">
 
-    <a
-        href="dashboard.html"
-        class="logo"
-    >
+<a
+    href="dashboard.html"
+    class="logo"
+>
 
-        <img
-            src="logo.png"
-            alt="0X1GHOST Logo"
-        >
+<img
+    src="logo.png"
+    alt="0X1GHOST Logo"
+>
 
-    </a>
+</a>
 
 
-    <a
-        href="dashboard.html"
-        class="back-btn"
-    >
-        ← DASHBOARD
-    </a>
+<a
+    href="dashboard.html"
+    class="back-btn"
+>
+
+← DASHBOARD
+
+</a>
 
 </nav>
 
 
 <main class="container">
 
-    <div class="profile-box">
 
-        <h1 class="profile-title">
-            My Profile
-        </h1>
-
-        <p class="profile-subtitle">
-            Manage your account information.
-            You can change your username, email,
-            or password.
-        </p>
+<div class="profile-box">
 
 
-        <div class="input-group">
-
-            <label for="username">
-                USERNAME
-            </label>
-
-            <input
-                type="text"
-                id="username"
-                placeholder="Your username"
-                minlength="3"
-                maxlength="20"
-                autocomplete="username"
-            >
-
-        </div>
+<h1 class="title">
+    My Profile
+</h1>
 
 
-        <div class="input-group">
-
-            <label for="email">
-                EMAIL
-            </label>
-
-            <input
-                type="email"
-                id="email"
-                placeholder="Your email"
-                autocomplete="email"
-            >
-
-        </div>
+<p class="subtitle">
+    Manage your account information and security settings.
+</p>
 
 
-        <div class="input-group">
+<div class="input-group">
 
-            <label for="password">
-                NEW PASSWORD
-            </label>
+<label for="username">
+    USERNAME
+</label>
 
-            <input
-                type="password"
-                id="password"
-                placeholder="Leave empty to keep current password"
-                minlength="8"
-                autocomplete="new-password"
-            >
+<input
+    type="text"
+    id="username"
+    minlength="3"
+    maxlength="20"
+    autocomplete="username"
+>
 
-            <div class="password-note">
-                Leave this empty if you don't want to change your password.
-            </div>
-
-        </div>
+</div>
 
 
-        <div class="input-group">
+<div class="input-group">
 
-            <label for="confirmPassword">
-                CONFIRM NEW PASSWORD
-            </label>
+<label for="email">
+    EMAIL
+</label>
 
-            <input
-                type="password"
-                id="confirmPassword"
-                placeholder="Confirm your new password"
-                minlength="8"
-                autocomplete="new-password"
-            >
+<input
+    type="email"
+    id="email"
+    autocomplete="email"
+>
 
-        </div>
+<div class="email-note">
+    Changing your email may require confirmation from the new email address.
+</div>
 
-
-        <button
-            id="saveButton"
-            class="save-btn"
-            type="button"
-        >
-            SAVE CHANGES
-        </button>
+</div>
 
 
-        <div
-            id="message"
-            class="message"
-        ></div>
+<div class="password-title">
+    CHANGE PASSWORD
+</div>
 
-    </div>
+
+<div class="input-group">
+
+<label for="newPassword">
+    NEW PASSWORD
+</label>
+
+<input
+    type="password"
+    id="newPassword"
+    minlength="8"
+    placeholder="Leave empty to keep current password"
+    autocomplete="new-password"
+>
+
+</div>
+
+
+<div class="input-group">
+
+<label for="confirmPassword">
+    CONFIRM NEW PASSWORD
+</label>
+
+<input
+    type="password"
+    id="confirmPassword"
+    minlength="8"
+    placeholder="Confirm your new password"
+    autocomplete="new-password"
+>
+
+</div>
+
+
+<button
+    class="save-btn"
+    id="saveButton"
+>
+
+    SAVE CHANGES
+
+</button>
+
+
+<div
+    id="message"
+    class="message"
+></div>
+
+
+</div>
+
 
 </main>
 
 
 <script type="module">
+
 
 import {
     createClient
@@ -455,9 +527,9 @@ const emailInput =
     );
 
 
-const passwordInput =
+const newPasswordInput =
     document.getElementById(
-        "password"
+        "newPassword"
     );
 
 
@@ -481,14 +553,6 @@ const message =
 
 let currentUser = null;
 
-let originalUsername = "";
-
-let originalEmail = "";
-
-
-/* ==========================================
-   SHOW MESSAGE
-========================================== */
 
 function showMessage(
     text,
@@ -503,10 +567,6 @@ function showMessage(
 
 }
 
-
-/* ==========================================
-   LOAD PROFILE
-========================================== */
 
 async function loadProfile() {
 
@@ -536,6 +596,10 @@ async function loadProfile() {
 
         currentUser =
             user;
+
+
+        emailInput.value =
+            user.email || "";
 
 
         const {
@@ -568,42 +632,21 @@ async function loadProfile() {
         }
 
 
-        if (!profile) {
+        if (profile) {
 
-            showMessage(
-                "Your profile was not found.",
-                "error"
-            );
-
-            return;
+            usernameInput.value =
+                profile.username || "";
 
         }
 
+    }
 
-        originalUsername =
-            profile.username ||
-            "";
-
-
-        originalEmail =
-            user.email ||
-            "";
-
-
-        usernameInput.value =
-            originalUsername;
-
-
-        emailInput.value =
-            originalEmail;
-
-
-    } catch (error) {
+    catch (error) {
 
         console.error(error);
 
         showMessage(
-            "Something went wrong while loading your profile.",
+            "Could not load your profile.",
             "error"
         );
 
@@ -611,10 +654,6 @@ async function loadProfile() {
 
 }
 
-
-/* ==========================================
-   SAVE CHANGES
-========================================== */
 
 saveButton.addEventListener(
     "click",
@@ -640,23 +679,13 @@ saveButton.addEventListener(
             emailInput.value.trim();
 
 
-        const password =
-            passwordInput.value;
+        const newPassword =
+            newPasswordInput.value;
 
 
         const confirmPassword =
             confirmPasswordInput.value;
 
-
-        showMessage(
-            "",
-            ""
-        );
-
-
-        /* ==================================
-           VALIDATE USERNAME
-        ================================== */
 
         if (username.length < 3) {
 
@@ -682,10 +711,6 @@ saveButton.addEventListener(
         }
 
 
-        /* ==================================
-           VALIDATE EMAIL
-        ================================== */
-
         if (!email) {
 
             showMessage(
@@ -698,13 +723,14 @@ saveButton.addEventListener(
         }
 
 
-        /* ==================================
-           VALIDATE PASSWORD
-        ================================== */
+        if (
+            newPassword ||
+            confirmPassword
+        ) {
 
-        if (password !== "") {
-
-            if (password.length < 8) {
+            if (
+                newPassword.length < 8
+            ) {
 
                 showMessage(
                     "Password must be at least 8 characters.",
@@ -717,25 +743,12 @@ saveButton.addEventListener(
 
 
             if (
-                password !==
+                newPassword !==
                 confirmPassword
             ) {
 
                 showMessage(
                     "Passwords do not match.",
-                    "error"
-                );
-
-                return;
-
-            }
-
-        } else {
-
-            if (confirmPassword !== "") {
-
-                showMessage(
-                    "Please enter the new password first.",
                     "error"
                 );
 
@@ -755,190 +768,149 @@ saveButton.addEventListener(
 
         try {
 
-            /* ==================================
-               CHECK USERNAME AVAILABILITY
-            ================================== */
 
-            if (
-                username.toLowerCase() !==
-                originalUsername.toLowerCase()
-            ) {
+            /*
+             * =====================================
+             * UPDATE USERNAME
+             * =====================================
+             */
 
-                const {
-                    data: existingProfile,
-                    error: usernameCheckError
-                } =
-                await supabase
-                    .from("profiles")
-                    .select("id")
-                    .ilike(
-                        "username",
+            const {
+                data: usernameResult,
+                error: usernameError
+            } =
+            await supabase.rpc(
+                "update_my_username",
+                {
+                    p_username:
                         username
-                    )
-                    .neq(
-                        "id",
-                        currentUser.id
-                    )
-                    .maybeSingle();
-
-
-                if (usernameCheckError) {
-
-                    throw usernameCheckError;
-
                 }
+            );
 
 
-                if (existingProfile) {
+            if (usernameError) {
 
-                    showMessage(
-                        "This username is already taken.",
-                        "error"
-                    );
-
-                    saveButton.disabled =
-                        false;
-
-                    saveButton.textContent =
-                        "SAVE CHANGES";
-
-                    return;
-
-                }
+                throw usernameError;
 
             }
 
 
-            /* ==================================
-               UPDATE USERNAME
-            ================================== */
+            if (
+                usernameResult &&
+                usernameResult.success === false
+            ) {
+
+                throw new Error(
+                    usernameResult.message ||
+                    "Could not update username."
+                );
+
+            }
+
+
+            /*
+             * =====================================
+             * UPDATE EMAIL
+             * =====================================
+             */
 
             if (
-                username !==
-                originalUsername
+                email !==
+                currentUser.email
             ) {
 
                 const {
-                    error: usernameError
-                } =
-                await supabase
-                    .from("profiles")
-                    .update({
-                        username:
-                            username
-                    })
-                    .eq(
-                        "id",
-                        currentUser.id
-                    );
-
-
-                if (usernameError) {
-
-                    throw usernameError;
-
-                }
-
-            }
-
-
-            /* ==================================
-               UPDATE EMAIL / PASSWORD
-            ================================== */
-
-            const authUpdates = {};
-
-
-            if (
-                email.toLowerCase() !==
-                originalEmail.toLowerCase()
-            ) {
-
-                authUpdates.email =
-                    email;
-
-            }
-
-
-            if (password !== "") {
-
-                authUpdates.password =
-                    password;
-
-            }
-
-
-            if (
-                Object.keys(
-                    authUpdates
-                ).length > 0
-            ) {
-
-                const {
-                    data,
-                    error: authError
+                    error: emailError
                 } =
                 await supabase.auth.updateUser(
-                    authUpdates
+                    {
+                        email: email
+                    }
                 );
 
 
-                if (authError) {
+                if (emailError) {
 
-                    throw authError;
-
-                }
-
-
-                if (
-                    authUpdates.email
-                ) {
-
-                    showMessage(
-                        "Profile saved. Please check your new email to confirm the email change.",
-                        "success"
-                    );
-
-                } else {
-
-                    showMessage(
-                        "Profile updated successfully.",
-                        "success"
-                    );
+                    throw emailError;
 
                 }
-
-            } else {
-
-                showMessage(
-                    "Profile updated successfully.",
-                    "success"
-                );
 
             }
 
 
-            originalUsername =
-                username;
+            /*
+             * =====================================
+             * UPDATE PASSWORD
+             * =====================================
+             */
 
-            originalEmail =
-                email;
+            if (newPassword) {
+
+                const {
+                    error: passwordError
+                } =
+                await supabase.auth.updateUser(
+                    {
+                        password:
+                            newPassword
+                    }
+                );
 
 
-            usernameInput.value =
-                username;
+                if (passwordError) {
 
-            emailInput.value =
-                email;
+                    throw passwordError;
 
-            passwordInput.value =
+                }
+
+            }
+
+
+            /*
+             * =====================================
+             * SUCCESS
+             * =====================================
+             */
+
+            showMessage(
+                "Profile updated successfully!",
+                "success"
+            );
+
+
+            newPasswordInput.value =
                 "";
 
             confirmPasswordInput.value =
                 "";
 
 
-        } catch (error) {
+            /*
+             * Update local user object
+             */
+
+            const {
+                data: {
+                    user
+                }
+            } =
+            await supabase.auth.getUser();
+
+
+            if (user) {
+
+                currentUser =
+                    user;
+
+                emailInput.value =
+                    user.email || "";
+
+            }
+
+
+        }
+
+        catch (error) {
 
             console.error(
                 "Profile update error:",
@@ -954,9 +926,7 @@ saveButton.addEventListener(
             if (
                 errorMessage
                     .toLowerCase()
-                    .includes(
-                        "duplicate"
-                    )
+                    .includes("duplicate")
             ) {
 
                 errorMessage =
@@ -982,10 +952,6 @@ saveButton.addEventListener(
     }
 );
 
-
-/* ==========================================
-   LOAD
-========================================== */
 
 loadProfile();
 
