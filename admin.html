@@ -1,0 +1,1656 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Admin Dashboard | 0X1GHOST</title>
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="favicon.png"
+    >
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+        }
+
+
+        body {
+
+            min-height: 100vh;
+
+            background: #050505;
+
+            color: white;
+
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        .navbar {
+
+            min-height: 70px;
+
+            border-bottom:
+                1px solid #222;
+
+            background: #090909;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content:
+                space-between;
+
+            padding:
+                12px 35px;
+
+            gap: 20px;
+
+        }
+
+
+        .logo {
+
+            display: flex;
+
+            align-items: center;
+
+        }
+
+
+        .logo img {
+
+            width: 150px;
+
+            max-height: 55px;
+
+            object-fit: contain;
+
+        }
+
+
+        .nav-right {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 18px;
+
+        }
+
+
+        .nav-link {
+
+            color: #aaa;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+        }
+
+
+        .nav-link:hover {
+
+            color: #00ff88;
+
+        }
+
+
+        .logout-btn {
+
+            background:
+                transparent;
+
+            border:
+                1px solid #333;
+
+            color: #aaa;
+
+            padding:
+                9px 15px;
+
+            border-radius: 6px;
+
+            cursor: pointer;
+
+        }
+
+
+        .logout-btn:hover {
+
+            border-color:
+                #ff6b6b;
+
+            color:
+                #ff6b6b;
+
+        }
+
+
+        /* =========================
+           CONTAINER
+        ========================= */
+
+        .container {
+
+            width: 100%;
+
+            max-width: 1200px;
+
+            margin: auto;
+
+            padding:
+                45px 25px;
+
+        }
+
+
+        .page-title {
+
+            margin-bottom: 35px;
+
+        }
+
+
+        .page-title h1 {
+
+            font-size: 32px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .page-title h1 span {
+
+            color: #00ff88;
+
+        }
+
+
+        .page-title p {
+
+            color: #777;
+
+        }
+
+
+        /* =========================
+           STATS
+        ========================= */
+
+        .stats {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+
+            margin-bottom: 35px;
+
+        }
+
+
+        .stat-card {
+
+            background:
+                #0d0d0d;
+
+            border:
+                1px solid #222;
+
+            border-radius:
+                10px;
+
+            padding:
+                25px;
+
+        }
+
+
+        .stat-title {
+
+            color: #777;
+
+            font-size: 13px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .stat-value {
+
+            color: #00ff88;
+
+            font-size: 28px;
+
+            font-weight: bold;
+
+        }
+
+
+        /* =========================
+           PANEL
+        ========================= */
+
+        .panel {
+
+            background:
+                #0d0d0d;
+
+            border:
+                1px solid #222;
+
+            border-radius:
+                12px;
+
+            padding:
+                25px;
+
+        }
+
+
+        .panel-header {
+
+            display: flex;
+
+            justify-content:
+                space-between;
+
+            align-items: center;
+
+            gap: 15px;
+
+            margin-bottom:
+                25px;
+
+        }
+
+
+        .panel-header h2 {
+
+            font-size:
+                21px;
+
+        }
+
+
+        .search {
+
+            width: 260px;
+
+            background:
+                #070707;
+
+            border:
+                1px solid #333;
+
+            border-radius:
+                7px;
+
+            padding:
+                11px 13px;
+
+            color: white;
+
+            outline: none;
+
+        }
+
+
+        .search:focus {
+
+            border-color:
+                #00ff88;
+
+        }
+
+
+        /* =========================
+           TABLE
+        ========================= */
+
+        .table-wrapper {
+
+            width: 100%;
+
+            overflow-x: auto;
+
+        }
+
+
+        table {
+
+            width: 100%;
+
+            border-collapse:
+                collapse;
+
+            min-width:
+                750px;
+
+        }
+
+
+        th {
+
+            text-align:
+                left;
+
+            color:
+                #777;
+
+            font-size:
+                12px;
+
+            padding:
+                14px;
+
+            border-bottom:
+                1px solid #222;
+
+        }
+
+
+        td {
+
+            padding:
+                15px 14px;
+
+            border-bottom:
+                1px solid #1c1c1c;
+
+            font-size:
+                14px;
+
+        }
+
+
+        tr:hover {
+
+            background:
+                #111;
+
+        }
+
+
+        .username {
+
+            color:
+                #00ff88;
+
+            font-weight:
+                bold;
+
+        }
+
+
+        .score {
+
+            color:
+                #00ff88;
+
+            font-weight:
+                bold;
+
+        }
+
+
+        .banned {
+
+            color:
+                #ff6b6b;
+
+            font-weight:
+                bold;
+
+        }
+
+
+        .active {
+
+            color:
+                #00ff88;
+
+            font-weight:
+                bold;
+
+        }
+
+
+        /* =========================
+           BAN BUTTON
+        ========================= */
+
+        .ban-btn {
+
+            border:
+                1px solid #ff6b6b;
+
+            background:
+                transparent;
+
+            color:
+                #ff6b6b;
+
+            padding:
+                7px 12px;
+
+            border-radius:
+                6px;
+
+            cursor:
+                pointer;
+
+            font-size:
+                12px;
+
+            font-weight:
+                bold;
+
+        }
+
+
+        .ban-btn:hover {
+
+            background:
+                #ff6b6b;
+
+            color:
+                #050505;
+
+        }
+
+
+        .unban-btn {
+
+            border:
+                1px solid #00ff88;
+
+            background:
+                transparent;
+
+            color:
+                #00ff88;
+
+            padding:
+                7px 12px;
+
+            border-radius:
+                6px;
+
+            cursor:
+                pointer;
+
+            font-size:
+                12px;
+
+            font-weight:
+                bold;
+
+        }
+
+
+        .unban-btn:hover {
+
+            background:
+                #00ff88;
+
+            color:
+                #050505;
+
+        }
+
+
+        /* =========================
+           MESSAGE
+        ========================= */
+
+        .message {
+
+            display:
+                none;
+
+            margin-bottom:
+                20px;
+
+            padding:
+                14px;
+
+            border-radius:
+                7px;
+
+        }
+
+
+        .message.error {
+
+            display:
+                block;
+
+            color:
+                #ff6b6b;
+
+            border:
+                1px solid #ff6b6b;
+
+            background:
+                rgba(
+                    255,
+                    107,
+                    107,
+                    0.08
+                );
+
+        }
+
+
+        .message.success {
+
+            display:
+                block;
+
+            color:
+                #00ff88;
+
+            border:
+                1px solid #00ff88;
+
+            background:
+                rgba(
+                    0,
+                    255,
+                    136,
+                    0.08
+                );
+
+        }
+
+
+        .loading {
+
+            text-align:
+                center;
+
+            color:
+                #777;
+
+            padding:
+                30px;
+
+        }
+
+
+        .empty {
+
+            text-align:
+                center;
+
+            color:
+                #777;
+
+            padding:
+                30px;
+
+        }
+
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (
+            max-width: 800px
+        ) {
+
+            .navbar {
+
+                padding:
+                    15px 18px;
+
+                flex-direction:
+                    column;
+
+                align-items:
+                    flex-start;
+
+            }
+
+
+            .nav-right {
+
+                width: 100%;
+
+                flex-wrap:
+                    wrap;
+
+                justify-content:
+                    flex-start;
+
+            }
+
+
+            .container {
+
+                padding:
+                    35px 18px;
+
+            }
+
+
+            .stats {
+
+                grid-template-columns:
+                    1fr;
+
+            }
+
+
+            .panel-header {
+
+                flex-direction:
+                    column;
+
+                align-items:
+                    flex-start;
+
+            }
+
+
+            .search {
+
+                width: 100%;
+
+            }
+
+
+            .logo img {
+
+                width:
+                    130px;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+
+    <a
+        href="dashboard.html"
+        class="logo"
+    >
+
+        <img
+            src="logo.png"
+            alt="0X1GHOST Logo"
+        >
+
+    </a>
+
+
+    <div class="nav-right">
+
+
+        <a
+            href="dashboard.html"
+            class="nav-link"
+        >
+            DASHBOARD
+        </a>
+
+
+        <a
+            href="challenges.html"
+            class="nav-link"
+        >
+            CHALLENGES
+        </a>
+
+
+        <a
+            href="scoreboard.html"
+            class="nav-link"
+        >
+            SCOREBOARD
+        </a>
+
+
+        <button
+            id="logoutButton"
+            class="logout-btn"
+        >
+            LOGOUT
+        </button>
+
+
+    </div>
+
+
+</nav>
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main class="container">
+
+
+    <div class="page-title">
+
+        <h1>
+            Admin
+            <span>Dashboard</span>
+        </h1>
+
+        <p>
+            Manage players and monitor
+            platform activity.
+        </p>
+
+    </div>
+
+
+    <div
+        id="message"
+        class="message"
+    ></div>
+
+
+    <!-- =========================
+         STATS
+    ========================= -->
+
+    <div class="stats">
+
+
+        <div class="stat-card">
+
+            <div class="stat-title">
+                TOTAL PLAYERS
+            </div>
+
+            <div
+                class="stat-value"
+                id="totalPlayers"
+            >
+                0
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-title">
+                TOTAL SOLVES
+            </div>
+
+            <div
+                class="stat-value"
+                id="totalSolves"
+            >
+                0
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-title">
+                BANNED PLAYERS
+            </div>
+
+            <div
+                class="stat-value"
+                id="bannedPlayers"
+            >
+                0
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =========================
+         PLAYERS
+    ========================= -->
+
+    <div class="panel">
+
+
+        <div class="panel-header">
+
+            <h2>
+                Players
+            </h2>
+
+
+            <input
+                id="searchInput"
+                class="search"
+                type="text"
+                placeholder="Search username or email..."
+                autocomplete="off"
+            >
+
+        </div>
+
+
+        <div class="table-wrapper">
+
+
+            <table>
+
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            USERNAME
+                        </th>
+
+                        <th>
+                            EMAIL
+                        </th>
+
+                        <th>
+                            SCORE
+                        </th>
+
+                        <th>
+                            SOLVED
+                        </th>
+
+                        <th>
+                            STATUS
+                        </th>
+
+                        <th>
+                            ACTION
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody
+                    id="playersTable"
+                >
+
+                    <tr>
+
+                        <td
+                            colspan="6"
+                            class="loading"
+                        >
+                            Loading players...
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+
+            </table>
+
+
+        </div>
+
+
+    </div>
+
+
+</main>
+
+
+<script type="module">
+
+
+import {
+    createClient
+}
+from
+"https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+
+
+/* =========================================================
+   SUPABASE
+========================================================= */
+
+const SUPABASE_URL =
+    "https://borturaxifoxufixewya.supabase.co";
+
+
+const SUPABASE_KEY =
+    "sb_publishable__lZmTM96oe10-rurqgrujg__ta_C4wr";
+
+
+const supabase =
+    createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
+
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const table =
+    document.getElementById(
+        "playersTable"
+    );
+
+
+const searchInput =
+    document.getElementById(
+        "searchInput"
+    );
+
+
+const totalPlayers =
+    document.getElementById(
+        "totalPlayers"
+    );
+
+
+const totalSolves =
+    document.getElementById(
+        "totalSolves"
+    );
+
+
+const bannedPlayers =
+    document.getElementById(
+        "bannedPlayers"
+    );
+
+
+const message =
+    document.getElementById(
+        "message"
+    );
+
+
+const logoutButton =
+    document.getElementById(
+        "logoutButton"
+    );
+
+
+let players = [];
+
+
+/* =========================================================
+   CHECK ADMIN
+========================================================= */
+
+async function checkAdmin() {
+
+
+    const {
+        data: {
+            user
+        },
+        error
+    } =
+    await supabase.auth.getUser();
+
+
+    if (
+        error ||
+        !user
+    ) {
+
+        window.location.href =
+            "index.html";
+
+        return false;
+
+    }
+
+
+    const {
+        data: isAdmin,
+        error: adminError
+    } =
+    await supabase.rpc(
+        "is_current_user_admin"
+    );
+
+
+    if (
+        adminError ||
+        !isAdmin
+    ) {
+
+        window.location.href =
+            "dashboard.html";
+
+        return false;
+
+    }
+
+
+    return true;
+
+}
+
+
+/* =========================================================
+   LOAD PLAYERS
+========================================================= */
+
+async function loadPlayers() {
+
+
+    table.innerHTML = `
+
+        <tr>
+
+            <td
+                colspan="6"
+                class="loading"
+            >
+                Loading players...
+            </td>
+
+        </tr>
+
+    `;
+
+
+    const {
+        data,
+        error
+    } =
+    await supabase.rpc(
+        "admin_get_players"
+    );
+
+
+    if (error) {
+
+        console.error(error);
+
+        showMessage(
+            error.message ||
+            "Could not load players.",
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    players =
+        data || [];
+
+
+    updateStats();
+
+    renderPlayers(
+        players
+    );
+
+}
+
+
+/* =========================================================
+   UPDATE STATS
+========================================================= */
+
+function updateStats() {
+
+
+    totalPlayers.textContent =
+        players.length;
+
+
+    totalSolves.textContent =
+        players.reduce(
+            function(total, player) {
+
+                return total +
+                    Number(
+                        player.solved_count || 0
+                    );
+
+            },
+            0
+        );
+
+
+    bannedPlayers.textContent =
+        players.filter(
+            function(player) {
+
+                return player.is_banned;
+
+            }
+        ).length;
+
+}
+
+
+/* =========================================================
+   RENDER PLAYERS
+========================================================= */
+
+function renderPlayers(
+    list
+) {
+
+
+    if (!list.length) {
+
+        table.innerHTML = `
+
+            <tr>
+
+                <td
+                    colspan="6"
+                    class="empty"
+                >
+                    No players found.
+                </td>
+
+            </tr>
+
+        `;
+
+        return;
+
+    }
+
+
+    table.innerHTML =
+        list.map(
+            function(player) {
+
+
+                const username =
+                    escapeHTML(
+                        player.username ||
+                        "Unknown"
+                    );
+
+
+                const email =
+                    escapeHTML(
+                        player.email ||
+                        "No email"
+                    );
+
+
+                const score =
+                    Number(
+                        player.score || 0
+                    );
+
+
+                const solved =
+                    Number(
+                        player.solved_count || 0
+                    );
+
+
+                const status =
+                    player.is_banned
+                    ? `
+                        <span class="banned">
+                            BANNED
+                        </span>
+                    `
+                    : `
+                        <span class="active">
+                            ACTIVE
+                        </span>
+                    `;
+
+
+                const action =
+                    player.is_banned
+
+                    ? `
+                        <button
+                            class="unban-btn"
+                            data-id="${player.id}"
+                            data-ban="false"
+                        >
+                            UNBAN
+                        </button>
+                    `
+
+                    : `
+                        <button
+                            class="ban-btn"
+                            data-id="${player.id}"
+                            data-ban="true"
+                        >
+                            BAN
+                        </button>
+                    `;
+
+
+                return `
+
+                    <tr>
+
+                        <td>
+
+                            <span
+                                class="username"
+                            >
+                                ${username}
+                            </span>
+
+                        </td>
+
+
+                        <td>
+                            ${email}
+                        </td>
+
+
+                        <td>
+
+                            <span
+                                class="score"
+                            >
+                                ${score}
+                            </span>
+
+                        </td>
+
+
+                        <td>
+                            ${solved}
+                        </td>
+
+
+                        <td>
+                            ${status}
+                        </td>
+
+
+                        <td>
+                            ${action}
+                        </td>
+
+                    </tr>
+
+                `;
+
+            }
+        ).join("");
+
+
+    /* =========================
+       ACTION BUTTONS
+    ========================= */
+
+    document
+        .querySelectorAll(
+            "[data-id]"
+        )
+        .forEach(
+            function(button) {
+
+
+                button.addEventListener(
+                    "click",
+                    function() {
+
+
+                        const id =
+                            button.dataset.id;
+
+
+                        const ban =
+                            button.dataset.ban ===
+                            "true";
+
+
+                        changeBanStatus(
+                            id,
+                            ban
+                        );
+
+                    }
+                );
+
+            }
+        );
+
+}
+
+
+/* =========================================================
+   BAN / UNBAN
+========================================================= */
+
+async function changeBanStatus(
+    userId,
+    banStatus
+) {
+
+
+    const action =
+        banStatus
+        ? "ban"
+        : "unban";
+
+
+    const confirmed =
+        confirm(
+            banStatus
+            ? "Are you sure you want to ban this player?"
+            : "Are you sure you want to unban this player?"
+        );
+
+
+    if (!confirmed) {
+        return;
+    }
+
+
+    const {
+        error
+    } =
+    await supabase.rpc(
+        "admin_ban_player",
+        {
+            target_user_id:
+                userId,
+
+            ban_status:
+                banStatus
+        }
+    );
+
+
+    if (error) {
+
+        console.error(error);
+
+        showMessage(
+            error.message ||
+            `Could not ${action} player.`,
+            "error"
+        );
+
+        return;
+
+    }
+
+
+    showMessage(
+        banStatus
+        ? "Player banned successfully."
+        : "Player unbanned successfully.",
+        "success"
+    );
+
+
+    await loadPlayers();
+
+}
+
+
+/* =========================================================
+   SEARCH
+========================================================= */
+
+searchInput.addEventListener(
+    "input",
+    function() {
+
+
+        const query =
+            searchInput.value
+                .trim()
+                .toLowerCase();
+
+
+        if (!query) {
+
+            renderPlayers(
+                players
+            );
+
+            return;
+
+        }
+
+
+        const filtered =
+            players.filter(
+                function(player) {
+
+
+                    const username =
+                        String(
+                            player.username ||
+                            ""
+                        ).toLowerCase();
+
+
+                    const email =
+                        String(
+                            player.email ||
+                            ""
+                        ).toLowerCase();
+
+
+                    return (
+                        username.includes(query) ||
+                        email.includes(query)
+                    );
+
+                }
+            );
+
+
+        renderPlayers(
+            filtered
+        );
+
+    }
+);
+
+
+/* =========================================================
+   LOGOUT
+========================================================= */
+
+logoutButton.addEventListener(
+    "click",
+    async function() {
+
+
+        logoutButton.disabled =
+            true;
+
+
+        logoutButton.textContent =
+            "LOGGING OUT...";
+
+
+        const {
+            error
+        } =
+        await supabase.auth.signOut();
+
+
+        if (error) {
+
+            console.error(error);
+
+            logoutButton.disabled =
+                false;
+
+            logoutButton.textContent =
+                "LOGOUT";
+
+            return;
+
+        }
+
+
+        window.location.href =
+            "index.html";
+
+    }
+);
+
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+function showMessage(
+    text,
+    type
+) {
+
+
+    message.textContent =
+        text;
+
+
+    message.className =
+        "message " +
+        type;
+
+
+    setTimeout(
+        function() {
+
+            message.style.display =
+                "none";
+
+        },
+        3500
+    );
+
+}
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHTML(
+    value
+) {
+
+    return String(value)
+
+        .replaceAll(
+            "&",
+            "&amp;"
+        )
+
+        .replaceAll(
+            "<",
+            "&lt;"
+        )
+
+        .replaceAll(
+            ">",
+            "&gt;"
+        )
+
+        .replaceAll(
+            '"',
+            "&quot;"
+        )
+
+        .replaceAll(
+            "'",
+            "&#039;"
+        );
+
+}
+
+
+/* =========================================================
+   START
+========================================================= */
+
+async function init() {
+
+
+    const allowed =
+        await checkAdmin();
+
+
+    if (!allowed) {
+        return;
+    }
+
+
+    await loadPlayers();
+
+}
+
+
+init();
+
+
+</script>
+
+
+</body>
+
+</html>
