@@ -242,150 +242,141 @@ body {
 
 <nav class="navbar">
 
-    <a href="dashboard.html" class="logo">
-        <img src="logo.png" alt="0X1GHOST Logo">
+<a href="dashboard.html" class="logo">
+    <img src="logo.png" alt="0X1GHOST Logo">
+</a>
+
+<div class="nav-right">
+
+    <a href="dashboard.html" class="nav-link active">
+        DASHBOARD
     </a>
 
-    <div class="nav-right">
+    <a href="challenges.html" class="nav-link">
+        CHALLENGES
+    </a>
 
-        <a href="dashboard.html" class="nav-link active">
-            DASHBOARD
-        </a>
+    <a href="scoreboard.html" class="nav-link">
+        SCOREBOARD
+    </a>
 
-        <a href="challenges.html" class="nav-link">
-            CHALLENGES
-        </a>
+    <a href="profile.html" class="nav-link">
+        MY PROFILE
+    </a>
 
-        <a href="scoreboard.html" class="nav-link">
-            SCOREBOARD
-        </a>
+    <a href="rules.html" class="nav-link">
+        RULES
+    </a>
 
-        <!-- NEW -->
-        <a href="profile.html" class="nav-link">
-            MY PROFILE
-        </a>
-
-        <a href="rules.html" class="nav-link">
-            RULES
-        </a>
-
-        <div class="user-info">
-            Player:
-            <span id="username">Loading...</span>
-        </div>
-
-        <div>
-            Score:
-            <span class="score" id="score">0</span>
-        </div>
-
-        <button class="logout-btn" id="logoutButton">
-            LOGOUT
-        </button>
-
+    <div class="user-info">
+        Player:
+        <span id="username">Loading...</span>
     </div>
+
+    <div>
+        Score:
+        <span class="score" id="score">0</span>
+    </div>
+
+    <button class="logout-btn" id="logoutButton">
+        LOGOUT
+    </button>
+
+</div>
 
 </nav>
 
-
 <main class="container">
 
-    <div class="welcome">
+<div class="welcome">
 
-        <h1>
-            Welcome,
-            <span id="welcomeUsername">Player</span>
-        </h1>
+    <h1>
+        Welcome,
+        <span id="welcomeUsername">Player</span>
+    </h1>
 
-        <p>
-            Welcome to 0X1GHOST. Choose a challenge,
-            solve it, and climb the leaderboard.
-        </p>
+    <p>
+        Welcome to 0X1GHOST. Choose a challenge,
+        solve it, and climb the leaderboard.
+    </p>
 
-    </div>
+</div>
 
+<div id="errorMessage" class="error-message"></div>
 
-    <div id="errorMessage" class="error-message"></div>
+<div class="stats">
 
+    <div class="stat-card">
 
-    <div class="stats">
-
-        <div class="stat-card">
-
-            <div class="stat-title">
-                SCORE
-            </div>
-
-            <div class="stat-value" id="scoreCard">
-                0
-            </div>
-
+        <div class="stat-title">
+            SCORE
         </div>
 
-
-        <div class="stat-card">
-
-            <div class="stat-title">
-                CHALLENGES SOLVED
-            </div>
-
-            <div class="stat-value">
-                <span id="solved">0</span>
-            </div>
-
-        </div>
-
-
-        <div class="stat-card">
-
-            <div class="stat-title">
-                RANK
-            </div>
-
-            <div class="stat-value">
-                <span id="rank">-</span>
-            </div>
-
+        <div class="stat-value" id="scoreCard">
+            0
         </div>
 
     </div>
 
+    <div class="stat-card">
 
-    <div class="challenge-box">
+        <div class="stat-title">
+            CHALLENGES SOLVED
+        </div>
 
-        <h2>
-            Ready for a challenge?
-        </h2>
-
-        <p>
-            Choose your difficulty level and select
-            the cryptography challenge you want to solve.
-        </p>
-
-        <a href="challenges.html" class="go-btn">
-            GO TO CHALLENGE →
-        </a>
+        <div class="stat-value">
+            <span id="solved">0</span>
+        </div>
 
     </div>
+
+    <div class="stat-card">
+
+        <div class="stat-title">
+            RANK
+        </div>
+
+        <div class="stat-value">
+            <span id="rank">-</span>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="challenge-box">
+
+    <h2>
+        Ready for a challenge?
+    </h2>
+
+    <p>
+        Choose your difficulty level and select
+        the cryptography challenge you want to solve.
+    </p>
+
+    <a href="challenges.html" class="go-btn">
+        GO TO CHALLENGE →
+    </a>
+
+</div>
 
 </main>
-
 
 <script type="module">
 
 import {
     createClient
-} from
+}
+from
 "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
 
 const SUPABASE_URL =
     "https://borturaxifoxufixewya.supabase.co";
 
-
 const SUPABASE_KEY =
     "sb_publishable__lZmTM96oe10-rurqgrujg__ta_C4wr";
-
 
 const supabase =
     createClient(
@@ -582,7 +573,8 @@ async function loadDashboard() {
             if (playerIndex !== -1) {
 
                 rankElement.textContent =
-                    "#" + (playerIndex + 1);
+                    "#" +
+                    (playerIndex + 1);
 
             } else {
 
@@ -593,7 +585,9 @@ async function loadDashboard() {
 
         }
 
-    } catch (error) {
+    }
+
+    catch (error) {
 
         console.error(error);
 
