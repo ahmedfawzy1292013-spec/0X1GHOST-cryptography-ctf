@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>My Profile | 0X1GHOST</title>
+
+    <link
+        rel="icon"
+        type="image/png"
+        href="favicon.png"
+    >
+
+<style>
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: #050505;
+    color: white;
+}
+
+.navbar {
+    min-height: 70px;
+    border-bottom: 1px solid #222;
+    background: #090909;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 12px 35px;
+    gap: 20px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.logo img {
+    display: block;
+    width: 150px;
+    max-height: 55px;
+    object-fit: contain;
+}
+
+.back-btn {
+    text-decoration: none;
+    color: #aaa;
+
+    border: 1px solid #333;
+
+    padding: 9px 15px;
+
+    border-radius: 6px;
+
+    transition: 0.2s;
+}
+
+.back-btn:hover {
+    color: #00ff88;
+    border-color: #00ff88;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px;
+
+    margin: auto;
+
+    padding: 55px 25px;
+}
+
+.profile-box {
+    background: #0d0d0d;
+
+    border: 1px solid #222;
+
+    border-radius: 12px;
+
+    padding: 35px;
+}
+
+.profile-title {
+    font-size: 30px;
+
+    margin-bottom: 10px;
+}
+
+.profile-subtitle {
+    color: #777;
+
+    line-height: 1.6;
+
+    margin-bottom: 30px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+
+    color: #aaa;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    margin-bottom: 8px;
+}
+
+.input-group input {
+    width: 100%;
+
+    padding: 14px;
+
+    background: #070707;
+
+    border: 1px solid #333;
+
+    border-radius: 7px;
+
+    color: white;
+
+    outline: none;
+
+    font-size: 15px;
+
+    transition: 0.2s;
+}
+
+.input-group input:focus {
+    border-color: #00ff88;
+
+    box-shadow:
+        0 0 8px
+        rgba(0, 255, 136, 0.12);
+}
+
+.input-group input:disabled {
+    opacity: 0.6;
+}
+
+.password-note {
+    color: #555;
+
+    font-size: 12px;
+
+    margin-top: 7px;
+}
+
+.save-btn {
+    width: 100%;
+
+    padding: 14px;
+
+    margin-top: 8px;
+
+    border: none;
+
+    border-radius: 7px;
+
+    background: #00ff88;
+
+    color: #050505;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.save-btn:hover:not(:disabled) {
+    background: #00e67a;
+
+    transform: translateY(-1px);
+
+    box-shadow:
+        0 0 25px
+        rgba(0, 255, 136, 0.18);
+}
+
+.save-btn:disabled {
+    opacity: 0.6;
+
+    cursor: not-allowed;
+
+    transform: none;
+}
+
+.message {
+    display: none;
+
+    margin-top: 20px;
+
+    padding: 15px;
+
+    border-radius: 7px;
+
+    line-height: 1.6;
+}
+
+.message.success {
+    display: block;
+
+    background:
+        rgba(0, 255, 136, 0.08);
+
+    border:
+        1px solid #00ff88;
+
+    color: #00ff88;
+}
+
+.message.error {
+    display: block;
+
+    background:
+        rgba(255, 107, 107, 0.08);
+
+    border:
+        1px solid #ff6b6b;
+
+    color: #ff6b6b;
+}
+
+.message.warning {
+    display: block;
+
+    background:
+        rgba(255, 209, 102, 0.08);
+
+    border:
+        1px solid #ffd166;
+
+    color: #ffd166;
+}
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 15px 18px;
+    }
+
+    .container {
+        padding: 35px 18px;
+    }
+
+    .profile-box {
+        padding: 24px;
+    }
+
+    .profile-title {
+        font-size: 26px;
+    }
+
+    .logo img {
+        width: 125px;
+    }
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+
+<nav class="navbar">
+
+    <a
+        href="dashboard.html"
+        class="logo"
+    >
+
+        <img
+            src="logo.png"
+            alt="0X1GHOST Logo"
+        >
+
+    </a>
+
+
+    <a
+        href="dashboard.html"
+        class="back-btn"
+    >
+        ← DASHBOARD
+    </a>
+
+</nav>
+
+
+<main class="container">
+
+    <div class="profile-box">
+
+        <h1 class="profile-title">
+            My Profile
+        </h1>
+
+        <p class="profile-subtitle">
+            Manage your account information.
+            You can change your username, email,
+            or password.
+        </p>
+
+
+        <div class="input-group">
+
+            <label for="username">
+                USERNAME
+            </label>
+
+            <input
+                type="text"
+                id="username"
+                placeholder="Your username"
+                minlength="3"
+                maxlength="20"
+                autocomplete="username"
+            >
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label for="email">
+                EMAIL
+            </label>
+
+            <input
+                type="email"
+                id="email"
+                placeholder="Your email"
+                autocomplete="email"
+            >
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label for="password">
+                NEW PASSWORD
+            </label>
+
+            <input
+                type="password"
+                id="password"
+                placeholder="Leave empty to keep current password"
+                minlength="8"
+                autocomplete="new-password"
+            >
+
+            <div class="password-note">
+                Leave this empty if you don't want to change your password.
+            </div>
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label for="confirmPassword">
+                CONFIRM NEW PASSWORD
+            </label>
+
+            <input
+                type="password"
+                id="confirmPassword"
+                placeholder="Confirm your new password"
+                minlength="8"
+                autocomplete="new-password"
+            >
+
+        </div>
+
+
+        <button
+            id="saveButton"
+            class="save-btn"
+            type="button"
+        >
+            SAVE CHANGES
+        </button>
+
+
+        <div
+            id="message"
+            class="message"
+        ></div>
+
+    </div>
+
+</main>
+
+
+<script type="module">
+
+import {
+    createClient
+}
+from
+"https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+
+
+const SUPABASE_URL =
+    "https://borturaxifoxufixewya.supabase.co";
+
+
+const SUPABASE_KEY =
+    "sb_publishable__lZmTM96oe10-rurqgrujg__ta_C4wr";
+
+
+const supabase =
+    createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
+
+
+const usernameInput =
+    document.getElementById(
+        "username"
+    );
+
+
+const emailInput =
+    document.getElementById(
+        "email"
+    );
+
+
+const passwordInput =
+    document.getElementById(
+        "password"
+    );
+
+
+const confirmPasswordInput =
+    document.getElementById(
+        "confirmPassword"
+    );
+
+
+const saveButton =
+    document.getElementById(
+        "saveButton"
+    );
+
+
+const message =
+    document.getElementById(
+        "message"
+    );
+
+
+let currentUser = null;
+
+let originalUsername = "";
+
+let originalEmail = "";
+
+
+/* ==========================================
+   SHOW MESSAGE
+========================================== */
+
+function showMessage(
+    text,
+    type
+) {
+
+    message.textContent =
+        text;
+
+    message.className =
+        "message " + type;
+
+}
+
+
+/* ==========================================
+   LOAD PROFILE
+========================================== */
+
+async function loadProfile() {
+
+    try {
+
+        const {
+            data: {
+                user
+            },
+            error: userError
+        } =
+        await supabase.auth.getUser();
+
+
+        if (
+            userError ||
+            !user
+        ) {
+
+            window.location.href =
+                "index.html";
+
+            return;
+
+        }
+
+
+        currentUser =
+            user;
+
+
+        const {
+            data: profile,
+            error: profileError
+        } =
+        await supabase
+            .from("profiles")
+            .select("username")
+            .eq(
+                "id",
+                user.id
+            )
+            .maybeSingle();
+
+
+        if (profileError) {
+
+            console.error(
+                profileError
+            );
+
+            showMessage(
+                "Could not load your profile.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        if (!profile) {
+
+            showMessage(
+                "Your profile was not found.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        originalUsername =
+            profile.username ||
+            "";
+
+
+        originalEmail =
+            user.email ||
+            "";
+
+
+        usernameInput.value =
+            originalUsername;
+
+
+        emailInput.value =
+            originalEmail;
+
+
+    } catch (error) {
+
+        console.error(error);
+
+        showMessage(
+            "Something went wrong while loading your profile.",
+            "error"
+        );
+
+    }
+
+}
+
+
+/* ==========================================
+   SAVE CHANGES
+========================================== */
+
+saveButton.addEventListener(
+    "click",
+    async function() {
+
+        if (!currentUser) {
+
+            showMessage(
+                "You must be logged in.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        const username =
+            usernameInput.value.trim();
+
+
+        const email =
+            emailInput.value.trim();
+
+
+        const password =
+            passwordInput.value;
+
+
+        const confirmPassword =
+            confirmPasswordInput.value;
+
+
+        showMessage(
+            "",
+            ""
+        );
+
+
+        /* ==================================
+           VALIDATE USERNAME
+        ================================== */
+
+        if (username.length < 3) {
+
+            showMessage(
+                "Username must be at least 3 characters.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        if (username.length > 20) {
+
+            showMessage(
+                "Username must be 20 characters or less.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        /* ==================================
+           VALIDATE EMAIL
+        ================================== */
+
+        if (!email) {
+
+            showMessage(
+                "Please enter your email.",
+                "error"
+            );
+
+            return;
+
+        }
+
+
+        /* ==================================
+           VALIDATE PASSWORD
+        ================================== */
+
+        if (password !== "") {
+
+            if (password.length < 8) {
+
+                showMessage(
+                    "Password must be at least 8 characters.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+
+            if (
+                password !==
+                confirmPassword
+            ) {
+
+                showMessage(
+                    "Passwords do not match.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+        } else {
+
+            if (confirmPassword !== "") {
+
+                showMessage(
+                    "Please enter the new password first.",
+                    "error"
+                );
+
+                return;
+
+            }
+
+        }
+
+
+        saveButton.disabled =
+            true;
+
+        saveButton.textContent =
+            "SAVING...";
+
+
+        try {
+
+            /* ==================================
+               CHECK USERNAME AVAILABILITY
+            ================================== */
+
+            if (
+                username.toLowerCase() !==
+                originalUsername.toLowerCase()
+            ) {
+
+                const {
+                    data: existingProfile,
+                    error: usernameCheckError
+                } =
+                await supabase
+                    .from("profiles")
+                    .select("id")
+                    .ilike(
+                        "username",
+                        username
+                    )
+                    .neq(
+                        "id",
+                        currentUser.id
+                    )
+                    .maybeSingle();
+
+
+                if (usernameCheckError) {
+
+                    throw usernameCheckError;
+
+                }
+
+
+                if (existingProfile) {
+
+                    showMessage(
+                        "This username is already taken.",
+                        "error"
+                    );
+
+                    saveButton.disabled =
+                        false;
+
+                    saveButton.textContent =
+                        "SAVE CHANGES";
+
+                    return;
+
+                }
+
+            }
+
+
+            /* ==================================
+               UPDATE USERNAME
+            ================================== */
+
+            if (
+                username !==
+                originalUsername
+            ) {
+
+                const {
+                    error: usernameError
+                } =
+                await supabase
+                    .from("profiles")
+                    .update({
+                        username:
+                            username
+                    })
+                    .eq(
+                        "id",
+                        currentUser.id
+                    );
+
+
+                if (usernameError) {
+
+                    throw usernameError;
+
+                }
+
+            }
+
+
+            /* ==================================
+               UPDATE EMAIL / PASSWORD
+            ================================== */
+
+            const authUpdates = {};
+
+
+            if (
+                email.toLowerCase() !==
+                originalEmail.toLowerCase()
+            ) {
+
+                authUpdates.email =
+                    email;
+
+            }
+
+
+            if (password !== "") {
+
+                authUpdates.password =
+                    password;
+
+            }
+
+
+            if (
+                Object.keys(
+                    authUpdates
+                ).length > 0
+            ) {
+
+                const {
+                    data,
+                    error: authError
+                } =
+                await supabase.auth.updateUser(
+                    authUpdates
+                );
+
+
+                if (authError) {
+
+                    throw authError;
+
+                }
+
+
+                if (
+                    authUpdates.email
+                ) {
+
+                    showMessage(
+                        "Profile saved. Please check your new email to confirm the email change.",
+                        "success"
+                    );
+
+                } else {
+
+                    showMessage(
+                        "Profile updated successfully.",
+                        "success"
+                    );
+
+                }
+
+            } else {
+
+                showMessage(
+                    "Profile updated successfully.",
+                    "success"
+                );
+
+            }
+
+
+            originalUsername =
+                username;
+
+            originalEmail =
+                email;
+
+
+            usernameInput.value =
+                username;
+
+            emailInput.value =
+                email;
+
+            passwordInput.value =
+                "";
+
+            confirmPasswordInput.value =
+                "";
+
+
+        } catch (error) {
+
+            console.error(
+                "Profile update error:",
+                error
+            );
+
+
+            let errorMessage =
+                error.message ||
+                "Could not update your profile.";
+
+
+            if (
+                errorMessage
+                    .toLowerCase()
+                    .includes(
+                        "duplicate"
+                    )
+            ) {
+
+                errorMessage =
+                    "This username is already taken.";
+
+            }
+
+
+            showMessage(
+                errorMessage,
+                "error"
+            );
+
+        }
+
+
+        saveButton.disabled =
+            false;
+
+        saveButton.textContent =
+            "SAVE CHANGES";
+
+    }
+);
+
+
+/* ==========================================
+   LOAD
+========================================== */
+
+loadProfile();
+
+</script>
+
+</body>
+
+</html>
