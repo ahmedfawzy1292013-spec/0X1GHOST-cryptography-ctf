@@ -457,7 +457,6 @@ const challenges = {
             points: 100
         },
 
-
         {
             id: "rot13",
             name: "What type this rot?",
@@ -465,7 +464,6 @@ const challenges = {
                 "A mysterious message has been encrypted using a famous rotation cipher. Can you identify it and recover the flag?",
             points: 100
         },
-
 
         {
             id: "binary",
@@ -475,15 +473,13 @@ const challenges = {
             points: 100
         },
 
-
         {
             id: "base64",
             name: "What is this?",
             description:
-                "We've found this suspicious encryption. Can you crack it?",
+                "We've found this suspicious encoding. Can you decode it?",
             points: 100
         },
-
 
         {
             id: "vigenere",
@@ -493,7 +489,6 @@ const challenges = {
             points: 100
         },
 
-
         {
             id: "many-layers",
             name: "Many layers of encryption",
@@ -501,7 +496,6 @@ const challenges = {
                 "I obtained this encryption. Can you decrypt it?",
             points: 100
         },
-
 
         {
             id: "substitution",
@@ -511,15 +505,13 @@ const challenges = {
             points: 100
         },
 
-
         {
             id: "xor",
             name: "XOR Secret",
             description:
-                "A message was encrypted using XOR with a repeating key.",
+                "A secret message was encrypted using XOR with a repeating key.",
             points: 100
         },
-
 
         {
             id: "shuffled-letters",
@@ -529,7 +521,6 @@ const challenges = {
             points: 100
         },
 
-
         {
             id: "emoji-cipher",
             name: "EMOJI CIPHER",
@@ -537,11 +528,6 @@ const challenges = {
                 "A strange message has been encoded using emojis. Can you decode the hidden flag?",
             points: 100
         },
-
-
-        /* =========================================
-           NEW CHALLENGE
-           ========================================= */
 
         {
             id: "what-is-this-2",
@@ -553,7 +539,6 @@ const challenges = {
 
     ],
 
-
     medium: [
 
         {
@@ -564,7 +549,6 @@ const challenges = {
             points: 200
         },
 
-
         {
             id: "custom-base64",
             name: "Custom Base64",
@@ -574,7 +558,6 @@ const challenges = {
         }
 
     ],
-
 
     "medium-hard": [
 
@@ -588,14 +571,13 @@ const challenges = {
 
     ],
 
-
     hard: [
 
         {
             id: "coming-hard",
             name: "Coming Soon",
             description:
-                "The hardest challenges will appear here.",
+                "The hardest cryptography challenges will appear here.",
             points: 500
         }
 
@@ -613,18 +595,15 @@ const cards =
         ".difficulty-card"
     );
 
-
 const list =
     document.getElementById(
         "challengeList"
     );
 
-
 const title =
     document.getElementById(
         "challengeTitle"
     );
-
 
 let solvedChallenges = [];
 
@@ -682,7 +661,9 @@ async function loadSolvedChallenges() {
     solvedChallenges =
         (data || []).map(
             solve =>
-                solve.challenge_id
+                String(
+                    solve.challenge_id
+                )
         );
 
 }
@@ -777,7 +758,7 @@ function showChallenges(level) {
 
             const isSolved =
                 solvedChallenges.includes(
-                    challenge.id
+                    String(challenge.id)
                 );
 
 
@@ -891,4 +872,3 @@ function escapeHTML(value) {
 
 </body>
 </html>
- 
