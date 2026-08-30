@@ -27,330 +27,221 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
-
         body {
             min-height: 100vh;
             background: #050505;
             color: white;
         }
 
-
         .navbar {
             min-height: 70px;
-
             border-bottom: 1px solid #222;
-
             background: #090909;
-
             display: flex;
             align-items: center;
             justify-content: space-between;
-
             padding: 12px 35px;
-
             gap: 20px;
         }
 
-
         .logo img {
             display: block;
-
             width: 150px;
-
             max-height: 55px;
-
             object-fit: contain;
         }
 
-
         .nav-right {
             display: flex;
-
             align-items: center;
-
             gap: 18px;
         }
 
-
         .nav-link {
             color: #aaa;
-
             text-decoration: none;
-
             font-size: 13px;
-
             font-weight: bold;
         }
-
 
         .nav-link:hover,
         .nav-link.active {
             color: #00ff88;
         }
 
-
         .container {
             width: 100%;
-
             max-width: 1100px;
-
             margin: auto;
-
             padding: 50px 25px;
         }
 
-
         .title {
             font-size: 32px;
-
             margin-bottom: 10px;
         }
 
-
         .subtitle {
             color: #777;
-
             margin-bottom: 35px;
         }
 
-
         .difficulty-grid {
             display: grid;
-
             grid-template-columns:
                 repeat(auto-fit, minmax(220px, 1fr));
-
             gap: 18px;
-
             margin-bottom: 40px;
         }
 
-
         .difficulty-card {
             background: #0d0d0d;
-
             border: 1px solid #222;
-
             border-radius: 10px;
-
             padding: 25px;
-
             cursor: pointer;
-
             transition: 0.2s;
         }
-
 
         .difficulty-card:hover {
             transform: translateY(-3px);
         }
 
-
         .difficulty-card.active {
             border-color: #00ff88;
-
             box-shadow:
                 0 0 25px rgba(0, 255, 136, 0.08);
         }
-
 
         .difficulty-card h2 {
             margin-bottom: 10px;
         }
 
-
         .difficulty-card p {
             color: #777;
-
             font-size: 14px;
-
             line-height: 1.5;
         }
 
-
         .points {
             margin-top: 18px;
-
             color: #00ff88;
-
             font-weight: bold;
         }
-
 
         .medium .points {
             color: #ffd166;
         }
 
-
         .medium-hard .points {
             color: #ff9f43;
         }
-
 
         .hard .points {
             color: #ff6b6b;
         }
 
-
         .section-title {
             font-size: 24px;
-
             margin-bottom: 20px;
         }
 
-
         .challenge-grid {
             display: grid;
-
             grid-template-columns:
                 repeat(auto-fit, minmax(280px, 1fr));
-
             gap: 18px;
         }
 
-
         .challenge-card {
             position: relative;
-
             display: block;
-
             background: #0d0d0d;
-
             border: 1px solid #222;
-
             border-radius: 10px;
-
             padding: 25px;
-
             text-decoration: none;
-
             color: white;
-
             transition: 0.2s;
         }
 
-
         .challenge-card:hover {
             border-color: #00ff88;
-
             transform: translateY(-3px);
-
             box-shadow:
                 0 0 25px rgba(0, 255, 136, 0.08);
         }
 
-
         .challenge-card h3 {
             font-size: 19px;
-
             margin-bottom: 12px;
         }
 
-
         .challenge-card p {
             color: #888;
-
             line-height: 1.6;
-
             font-size: 14px;
         }
 
-
         .challenge-points {
             display: inline-block;
-
             margin-top: 20px;
-
             color: #00ff88;
-
             font-size: 13px;
-
             font-weight: bold;
         }
-
 
         .solved-badge {
             position: absolute;
-
             top: 18px;
-
             right: 18px;
-
             background:
                 rgba(0, 255, 136, 0.12);
-
             border: 1px solid #00ff88;
-
             color: #00ff88;
-
             padding: 6px 10px;
-
             border-radius: 20px;
-
             font-size: 11px;
-
             font-weight: bold;
         }
 
-
         .empty {
             grid-column: 1 / -1;
-
             padding: 30px;
-
             text-align: center;
-
             color: #777;
-
             border: 1px solid #222;
-
             border-radius: 10px;
         }
-
 
         .error {
             grid-column: 1 / -1;
-
             padding: 30px;
-
             text-align: center;
-
             color: #ff6b6b;
-
             background: #0d0d0d;
-
             border: 1px solid #3a1d1d;
-
             border-radius: 10px;
-
             line-height: 1.7;
         }
 
-
         .loading {
             grid-column: 1 / -1;
-
             padding: 30px;
-
             text-align: center;
-
             color: #00ff88;
         }
-
 
         @media (max-width: 700px) {
 
             .navbar {
                 flex-direction: column;
-
                 align-items: flex-start;
             }
-
 
             .nav-right {
                 flex-wrap: wrap;
             }
-
 
             .logo img {
                 width: 135px;
@@ -362,9 +253,7 @@
 
 </head>
 
-
 <body>
-
 
 <nav class="navbar">
 
@@ -380,7 +269,6 @@
 
     </a>
 
-
     <div class="nav-right">
 
         <a
@@ -390,7 +278,6 @@
             DASHBOARD
         </a>
 
-
         <a
             href="challenges.html"
             class="nav-link active"
@@ -398,14 +285,12 @@
             CHALLENGES
         </a>
 
-
         <a
             href="scoreboard.html"
             class="nav-link"
         >
             SCOREBOARD
         </a>
-
 
         <a
             href="rules.html"
@@ -418,18 +303,15 @@
 
 </nav>
 
-
 <main class="container">
 
     <h1 class="title">
         Challenges
     </h1>
 
-
     <p class="subtitle">
         Choose a difficulty level to see its challenges.
     </p>
-
 
     <div class="difficulty-grid">
 
@@ -450,7 +332,6 @@
 
         </div>
 
-
         <div
             class="difficulty-card medium"
             data-level="Medium"
@@ -468,7 +349,6 @@
 
         </div>
 
-
         <div
             class="difficulty-card medium-hard"
             data-level="Medium Hard"
@@ -485,7 +365,6 @@
             </div>
 
         </div>
-
 
         <div
             class="difficulty-card hard"
@@ -506,14 +385,12 @@
 
     </div>
 
-
     <h2
         class="section-title"
         id="challengeTitle"
     >
         Select a difficulty
     </h2>
-
 
     <div
         class="challenge-grid"
@@ -528,7 +405,6 @@
 
 </main>
 
-
 <script type="module">
 
 import {
@@ -541,10 +417,8 @@ from
 const SUPABASE_URL =
     "https://borturaxifoxufixewya.supabase.co";
 
-
 const SUPABASE_KEY =
     "sb_publishable__lZmTM96oe10-rurqgrujg__ta_C4wr";
-
 
 const supabase =
     createClient(
@@ -651,10 +525,6 @@ async function loadChallenges() {
 
         }
 
-
-        /*
-         * Automatically show EASY
-         */
 
         showChallenges(
             "Easy"
@@ -868,7 +738,6 @@ function createChallengeCard(
                 ""
             }
 
-
             <h3>
 
                 ${escapeHTML(
@@ -876,7 +745,6 @@ function createChallengeCard(
                 )}
 
             </h3>
-
 
             <p>
 
@@ -886,7 +754,6 @@ function createChallengeCard(
                 )}
 
             </p>
-
 
             <span class="challenge-points">
 
