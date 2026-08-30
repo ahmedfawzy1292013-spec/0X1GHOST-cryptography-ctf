@@ -27,15 +27,19 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
+
         body {
             min-height: 100vh;
             background: #050505;
             color: white;
         }
 
+
         .navbar {
             min-height: 70px;
+
             border-bottom: 1px solid #222;
+
             background: #090909;
 
             display: flex;
@@ -43,64 +47,92 @@
             justify-content: space-between;
 
             padding: 12px 35px;
+
             gap: 20px;
         }
 
+
         .logo img {
             display: block;
+
             width: 150px;
+
             max-height: 55px;
+
             object-fit: contain;
         }
 
+
         .nav-right {
             display: flex;
+
             align-items: center;
+
             gap: 18px;
         }
 
+
         .nav-link {
             color: #aaa;
+
             text-decoration: none;
+
             font-size: 13px;
+
             font-weight: bold;
         }
+
 
         .nav-link:hover,
         .nav-link.active {
             color: #00ff88;
         }
 
+
         .container {
             width: 100%;
+
             max-width: 1100px;
+
             margin: auto;
+
             padding: 50px 25px;
         }
 
+
         .title {
             font-size: 32px;
+
             margin-bottom: 10px;
         }
 
+
         .subtitle {
             color: #777;
+
             margin-bottom: 35px;
         }
 
+
         .difficulty-grid {
             display: grid;
+
             grid-template-columns:
                 repeat(auto-fit, minmax(220px, 1fr));
 
             gap: 18px;
+
             margin-bottom: 40px;
         }
 
+
         .difficulty-card {
             background: #0d0d0d;
+
             border: 1px solid #222;
+
             border-radius: 10px;
+
             padding: 25px;
 
             cursor: pointer;
@@ -108,50 +140,64 @@
             transition: 0.2s;
         }
 
+
         .difficulty-card:hover {
             transform: translateY(-3px);
         }
+
 
         .difficulty-card.active {
             border-color: #00ff88;
 
             box-shadow:
-                0 0 25px
-                rgba(0, 255, 136, 0.08);
+                0 0 25px rgba(0, 255, 136, 0.08);
         }
+
 
         .difficulty-card h2 {
             margin-bottom: 10px;
         }
 
+
         .difficulty-card p {
             color: #777;
+
             font-size: 14px;
+
             line-height: 1.5;
         }
 
+
         .points {
             margin-top: 18px;
+
             color: #00ff88;
+
             font-weight: bold;
         }
+
 
         .medium .points {
             color: #ffd166;
         }
 
+
         .medium-hard .points {
             color: #ff9f43;
         }
+
 
         .hard .points {
             color: #ff6b6b;
         }
 
+
         .section-title {
             font-size: 24px;
+
             margin-bottom: 20px;
         }
+
 
         .challenge-grid {
             display: grid;
@@ -162,8 +208,11 @@
             gap: 18px;
         }
 
+
         .challenge-card {
             position: relative;
+
+            display: block;
 
             background: #0d0d0d;
 
@@ -180,31 +229,32 @@
             transition: 0.2s;
         }
 
+
         .challenge-card:hover {
             border-color: #00ff88;
 
             transform: translateY(-3px);
 
             box-shadow:
-                0 0 25px
-                rgba(0, 255, 136, 0.08);
+                0 0 25px rgba(0, 255, 136, 0.08);
         }
 
-        .challenge-card.solved {
-            border-color: #00ff88;
-        }
 
         .challenge-card h3 {
             font-size: 19px;
+
             margin-bottom: 12px;
-            padding-right: 70px;
         }
+
 
         .challenge-card p {
             color: #888;
+
             line-height: 1.6;
+
             font-size: 14px;
         }
+
 
         .challenge-points {
             display: inline-block;
@@ -218,49 +268,30 @@
             font-weight: bold;
         }
 
-        .medium-card .challenge-points {
-            color: #ffd166;
-        }
-
-        .difficulty-label {
-            position: absolute;
-
-            top: 18px;
-            right: 18px;
-
-            font-size: 10px;
-
-            font-weight: bold;
-
-            color: #00ff88;
-        }
-
-        .medium-card .difficulty-label {
-            color: #ffd166;
-        }
 
         .solved-badge {
             position: absolute;
 
-            top: 42px;
+            top: 18px;
+
             right: 18px;
 
             background:
                 rgba(0, 255, 136, 0.12);
 
-            border:
-                1px solid #00ff88;
+            border: 1px solid #00ff88;
 
             color: #00ff88;
 
-            padding: 5px 9px;
+            padding: 6px 10px;
 
             border-radius: 20px;
 
-            font-size: 10px;
+            font-size: 11px;
 
             font-weight: bold;
         }
+
 
         .empty {
             grid-column: 1 / -1;
@@ -276,6 +307,26 @@
             border-radius: 10px;
         }
 
+
+        .error {
+            grid-column: 1 / -1;
+
+            padding: 30px;
+
+            text-align: center;
+
+            color: #ff6b6b;
+
+            background: #0d0d0d;
+
+            border: 1px solid #3a1d1d;
+
+            border-radius: 10px;
+
+            line-height: 1.7;
+        }
+
+
         .loading {
             grid-column: 1 / -1;
 
@@ -286,16 +337,20 @@
             color: #00ff88;
         }
 
+
         @media (max-width: 700px) {
 
             .navbar {
                 flex-direction: column;
+
                 align-items: flex-start;
             }
+
 
             .nav-right {
                 flex-wrap: wrap;
             }
+
 
             .logo img {
                 width: 135px;
@@ -366,7 +421,6 @@
 
 <main class="container">
 
-
     <h1 class="title">
         Challenges
     </h1>
@@ -379,15 +433,12 @@
 
     <div class="difficulty-grid">
 
-
         <div
             class="difficulty-card easy"
             data-level="Easy"
         >
 
-            <h2>
-                🟢 EASY
-            </h2>
+            <h2>🟢 EASY</h2>
 
             <p>
                 Beginner-friendly cryptography challenges.
@@ -405,9 +456,7 @@
             data-level="Medium"
         >
 
-            <h2>
-                🟡 MEDIUM
-            </h2>
+            <h2>🟡 MEDIUM</h2>
 
             <p>
                 Challenges that require more cryptographic thinking.
@@ -425,9 +474,7 @@
             data-level="Medium Hard"
         >
 
-            <h2>
-                🟠 MEDIUM HARD
-            </h2>
+            <h2>🟠 MEDIUM HARD</h2>
 
             <p>
                 More complex challenges for experienced players.
@@ -445,9 +492,7 @@
             data-level="Hard"
         >
 
-            <h2>
-                🔴 HARD
-            </h2>
+            <h2>🔴 HARD</h2>
 
             <p>
                 The most difficult cryptography challenges.
@@ -480,7 +525,6 @@
         </div>
 
     </div>
-
 
 </main>
 
@@ -529,10 +573,12 @@ const difficultyCards =
 
 let allChallenges = [];
 
+let solvedIds = new Set();
 
-/* =========================================
+
+/* =====================================================
    LOAD CHALLENGES
-   ========================================= */
+   ===================================================== */
 
 async function loadChallenges() {
 
@@ -545,76 +591,116 @@ async function loadChallenges() {
     `;
 
 
-    const {
-        data,
-        error
-    } =
-    await supabase
-        .from("challenges")
-        .select(
-            "id, title, description, category, difficulty, points, slug"
-        )
-        .order(
-            "id",
-            {
-                ascending: true
-            }
+    try {
+
+        const {
+            data,
+            error
+        } = await supabase
+            .from("challenges")
+            .select(
+                "id,title,description,category,difficulty,points,slug"
+            )
+            .order(
+                "id",
+                {
+                    ascending: true
+                }
+            );
+
+
+        if (error) {
+
+            console.error(
+                error
+            );
+
+            throw error;
+
+        }
+
+
+        allChallenges =
+            data || [];
+
+
+        await loadSolvedChallenges();
+
+
+        console.log(
+            "Loaded challenges:",
+            allChallenges
         );
 
 
-    if (error) {
+        if (
+            allChallenges.length === 0
+        ) {
 
-        console.error(error);
+            challengeList.innerHTML = `
+
+                <div class="empty">
+
+                    No challenges available.
+
+                </div>
+
+            `;
+
+            return;
+
+        }
+
+
+        /*
+         * Automatically show EASY
+         */
+
+        showChallenges(
+            "Easy"
+        );
+
+    }
+
+    catch (error) {
+
+        console.error(
+            "Unable to load challenges:",
+            error
+        );
+
 
         challengeList.innerHTML = `
 
-            <div class="empty">
+            <div class="error">
 
                 Unable to load challenges.
 
                 <br><br>
 
                 ${escapeHTML(
-                    error.message
+                    error.message ||
+                    "Unknown error"
                 )}
 
             </div>
 
         `;
 
-        return;
-
     }
 
-
-    allChallenges =
-        (data || [])
-        .filter(
-            challenge =>
-                challenge.slug
-        );
+}
 
 
-    if (
-        allChallenges.length === 0
-    ) {
+/* =====================================================
+   LOAD SOLVED CHALLENGES
+   ===================================================== */
 
-        challengeList.innerHTML = `
+async function loadSolvedChallenges() {
 
-            <div class="empty">
-                No challenges available.
-            </div>
+    solvedIds =
+        new Set();
 
-        `;
-
-        return;
-
-    }
-
-
-    /* ================================
-       LOAD SOLVED CHALLENGES
-       ================================ */
 
     const {
         data: {
@@ -624,70 +710,74 @@ async function loadChallenges() {
     await supabase.auth.getUser();
 
 
-    let solvedSlugs =
-        new Set();
+    if (!user) {
 
-
-    if (user) {
-
-        const {
-            data: solves
-        } =
-        await supabase
-            .from("challenge_solves")
-            .select("challenge_id")
-            .eq(
-                "user_id",
-                user.id
-            );
-
-
-        if (solves) {
-
-            solvedSlugs =
-                new Set(
-                    solves.map(
-                        solve =>
-                            String(
-                                solve.challenge_id
-                            )
-                    )
-                );
-
-        }
+        return;
 
     }
 
 
-    allChallenges =
-        allChallenges.map(
-            challenge => ({
-
-                ...challenge,
-
-                solved:
-                    solvedSlugs.has(
-                        String(
-                            challenge.slug
-                        )
-                    )
-
-            })
+    const {
+        data,
+        error
+    } =
+    await supabase
+        .from("challenge_solves")
+        .select(
+            "challenge_id"
+        )
+        .eq(
+            "user_id",
+            user.id
         );
+
+
+    if (error) {
+
+        console.warn(
+            "Could not load solved challenges:",
+            error
+        );
+
+        return;
+
+    }
+
+
+    (data || []).forEach(
+        solve => {
+
+            solvedIds.add(
+                String(
+                    solve.challenge_id
+                )
+            );
+
+        }
+    );
 
 }
 
 
-/* =========================================
-   SHOW DIFFICULTY
-   ========================================= */
+/* =====================================================
+   SHOW CHALLENGES
+   ===================================================== */
 
-function showDifficulty(level) {
+function showChallenges(
+    difficulty
+) {
 
-    const normalizedLevel =
-        String(level)
-            .trim()
-            .toLowerCase();
+    difficultyCards.forEach(
+        card => {
+
+            card.classList.toggle(
+                "active",
+                card.dataset.level ===
+                difficulty
+            );
+
+        }
+    );
 
 
     const filtered =
@@ -695,16 +785,14 @@ function showDifficulty(level) {
             challenge =>
                 String(
                     challenge.difficulty
-                )
-                .trim()
-                .toLowerCase()
-                === normalizedLevel
+                ).toLowerCase() ===
+                difficulty.toLowerCase()
         );
 
 
     challengeTitle.textContent =
-        level.toUpperCase() +
-        " CHALLENGES";
+        difficulty +
+        " Challenges";
 
 
     if (
@@ -714,7 +802,9 @@ function showDifficulty(level) {
         challengeList.innerHTML = `
 
             <div class="empty">
+
                 No challenges available.
+
             </div>
 
         `;
@@ -727,91 +817,96 @@ function showDifficulty(level) {
     challengeList.innerHTML =
         filtered
             .map(
-                challenge => {
-
-                    const medium =
-                        normalizedLevel ===
-                        "medium";
-
-
-                    return `
-
-                        <a
-                            class="challenge-card ${
-                                medium
-                                ? "medium-card"
-                                : ""
-                            } ${
-                                challenge.solved
-                                ? "solved"
-                                : ""
-                            }"
-                            href="challenge.html?id=${encodeURIComponent(
-                                challenge.slug
-                            )}"
-                        >
-
-                            <div
-                                class="difficulty-label"
-                            >
-                                ${escapeHTML(
-                                    challenge.difficulty
-                                )}
-                            </div>
-
-
-                            ${
-                                challenge.solved
-                                ?
-                                `
-                                    <div
-                                        class="solved-badge"
-                                    >
-                                        SOLVED ✓
-                                    </div>
-                                `
-                                :
-                                ""
-                            }
-
-
-                            <h3>
-                                ${escapeHTML(
-                                    challenge.title
-                                )}
-                            </h3>
-
-
-                            <p>
-                                ${escapeHTML(
-                                    challenge.description ||
-                                    "Challenge"
-                                )}
-                            </p>
-
-
-                            <span
-                                class="challenge-points"
-                            >
-                                ${Number(
-                                    challenge.points
-                                )} POINTS
-                            </span>
-
-                        </a>
-
-                    `;
-
-                }
+                challenge =>
+                    createChallengeCard(
+                        challenge
+                    )
             )
             .join("");
 
 }
 
 
-/* =========================================
-   DIFFICULTY CLICK
-   ========================================= */
+/* =====================================================
+   CREATE CARD
+   ===================================================== */
+
+function createChallengeCard(
+    challenge
+) {
+
+    const slug =
+        challenge.slug;
+
+
+    const solved =
+        solvedIds.has(
+            String(slug)
+        );
+
+
+    return `
+
+        <a
+            href="challenge.html?id=${encodeURIComponent(slug)}"
+            class="challenge-card ${
+                solved
+                ? "solved"
+                : ""
+            }"
+        >
+
+            ${
+                solved
+                ?
+                `
+                    <div class="solved-badge">
+                        SOLVED ✓
+                    </div>
+                `
+                :
+                ""
+            }
+
+
+            <h3>
+
+                ${escapeHTML(
+                    challenge.title
+                )}
+
+            </h3>
+
+
+            <p>
+
+                ${escapeHTML(
+                    challenge.description ||
+                    "Cryptography challenge."
+                )}
+
+            </p>
+
+
+            <span class="challenge-points">
+
+                ${Number(
+                    challenge.points || 0
+                )}
+                POINTS
+
+            </span>
+
+        </a>
+
+    `;
+
+}
+
+
+/* =====================================================
+   DIFFICULTY BUTTONS
+   ===================================================== */
 
 difficultyCards.forEach(
     card => {
@@ -820,20 +915,7 @@ difficultyCards.forEach(
             "click",
             function() {
 
-                difficultyCards.forEach(
-                    item =>
-                        item.classList.remove(
-                            "active"
-                        )
-                );
-
-
-                card.classList.add(
-                    "active"
-                );
-
-
-                showDifficulty(
+                showChallenges(
                     card.dataset.level
                 );
 
@@ -844,13 +926,17 @@ difficultyCards.forEach(
 );
 
 
-/* =========================================
+/* =====================================================
    ESCAPE HTML
-   ========================================= */
+   ===================================================== */
 
-function escapeHTML(value) {
+function escapeHTML(
+    value
+) {
 
-    return String(value)
+    return String(
+        value ?? ""
+    )
 
         .replaceAll(
             "&",
@@ -880,14 +966,13 @@ function escapeHTML(value) {
 }
 
 
-/* =========================================
+/* =====================================================
    START
-   ========================================= */
+   ===================================================== */
 
-await loadChallenges();
+loadChallenges();
 
 </script>
-
 
 </body>
 
