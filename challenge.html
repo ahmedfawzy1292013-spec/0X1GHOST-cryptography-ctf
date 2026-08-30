@@ -780,6 +780,8 @@ const challenges = {
 
     caesar: {
 
+        dbId: 1,
+
         type: "CAESAR CIPHER",
 
         title: "Caesar's Secret",
@@ -958,10 +960,12 @@ Can you restore the original order and recover the flag?`,
 
 
     /* =========================================
-       NEW WHAT IS THIS 2
+       WHAT IS THIS 2
        ========================================= */
 
     "what-is-this-2": {
+
+        dbId: 5,
 
         type: "BACON CIPHER",
 
@@ -1045,9 +1049,37 @@ const params =
     );
 
 
-const challengeId =
+const requestedId =
     params.get("id");
 
+
+/*
+   Allow both:
+
+   challenge.html?id=what-is-this-2
+
+   AND
+
+   challenge.html?id=5
+*/
+
+let challengeId =
+    requestedId;
+
+
+if (
+    requestedId === "5"
+) {
+
+    challengeId =
+        "what-is-this-2";
+
+}
+
+
+/* =========================================
+   GET CHALLENGE
+   ========================================= */
 
 const challenge =
     challenges[challengeId];
@@ -1422,6 +1454,100 @@ else {
             }
 
 
+            /*
+             * IMPORTANT:
+             *
+             * The database uses BIGINT IDs.
+             *
+             * WHAT IS THIS 2 = ID 5
+             *
+             * Other challenges can continue
+             * using their existing system.
+             */
+
+            let rpcChallengeId =
+                challenge.dbId;
+
+
+            /*
+             * If this challenge doesn't have
+             * a hard-coded database ID,
+             * find its real numeric ID by title.
+             */
+
+            if (!rpcChallengeId) {
+
+                const {
+                    data: dbChallenge,
+                    error: dbChallengeError
+                } =
+                await supabase
+                    .from("challenges")
+                    .select("id")
+                    .eq(
+                        "title",
+                        challenge.title
+                    )
+                    .maybeSingle();
+
+
+                if (
+                    dbChallengeError
+                ) {
+
+                    console.error(
+                        dbChallengeError
+                    );
+
+
+                    showMessage(
+                        "Could not find this challenge in the database.",
+                        "error"
+                    );
+
+
+                    submitButton.disabled =
+                        false;
+
+
+                    submitButton.textContent =
+                        "SUBMIT ANSWER";
+
+
+                    return;
+
+                }
+
+
+                if (
+                    !dbChallenge
+                ) {
+
+                    showMessage(
+                        "Challenge Not Found in database.",
+                        "error"
+                    );
+
+
+                    submitButton.disabled =
+                        false;
+
+
+                    submitButton.textContent =
+                        "SUBMIT ANSWER";
+
+
+                    return;
+
+                }
+
+
+                rpcChallengeId =
+                    dbChallenge.id;
+
+            }
+
+
             const {
                 data,
                 error
@@ -1430,7 +1556,7 @@ else {
                 "submit_challenge_answer",
                 {
                     p_challenge_id:
-                        challengeId,
+                        rpcChallengeId,
 
                     p_answer:
                         answer
@@ -1596,7 +1722,7 @@ else {
                 .select("user_id")
                 .eq(
                     "challenge_id",
-                    challengeId
+                    challenge.dbId || 0
                 );
 
 
