@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
 
     <meta
@@ -89,19 +90,26 @@
 
         .difficulty-grid {
             display: grid;
+
             grid-template-columns:
                 repeat(auto-fit, minmax(220px, 1fr));
 
             gap: 18px;
+
             margin-bottom: 40px;
         }
 
         .difficulty-card {
             background: #0d0d0d;
+
             border: 1px solid #222;
+
             border-radius: 10px;
+
             padding: 25px;
+
             cursor: pointer;
+
             transition: 0.2s;
         }
 
@@ -111,8 +119,10 @@
 
         .difficulty-card.active {
             border-color: #00ff88;
+
             box-shadow:
-                0 0 25px rgba(0, 255, 136, 0.08);
+                0 0 25px
+                rgba(0, 255, 136, 0.08);
         }
 
         .difficulty-card h2 {
@@ -121,13 +131,17 @@
 
         .difficulty-card p {
             color: #777;
+
             font-size: 14px;
+
             line-height: 1.5;
         }
 
         .points {
             margin-top: 18px;
+
             color: #00ff88;
+
             font-weight: bold;
         }
 
@@ -145,11 +159,13 @@
 
         .section-title {
             font-size: 24px;
+
             margin-bottom: 20px;
         }
 
         .challenge-grid {
             display: grid;
+
             grid-template-columns:
                 repeat(auto-fit, minmax(280px, 1fr));
 
@@ -159,13 +175,18 @@
         .challenge-card {
             position: relative;
 
+            display: block;
+
             background: #0d0d0d;
+
             border: 1px solid #222;
+
             border-radius: 10px;
 
             padding: 25px;
 
             text-decoration: none;
+
             color: white;
 
             transition: 0.2s;
@@ -177,31 +198,35 @@
             transform: translateY(-3px);
 
             box-shadow:
-                0 0 25px rgba(0, 255, 136, 0.08);
-        }
-
-        .challenge-card.solved {
-            border-color: #00ff88;
+                0 0 25px
+                rgba(0, 255, 136, 0.08);
         }
 
         .challenge-card h3 {
             font-size: 19px;
+
             margin-bottom: 12px;
+
+            padding-right: 80px;
         }
 
         .challenge-card p {
             color: #888;
+
             line-height: 1.6;
+
             font-size: 14px;
         }
 
         .challenge-points {
             display: inline-block;
+
             margin-top: 20px;
 
             color: #00ff88;
 
             font-size: 13px;
+
             font-weight: bold;
         }
 
@@ -209,11 +234,14 @@
             position: absolute;
 
             top: 18px;
+
             right: 18px;
 
-            background: rgba(0, 255, 136, 0.12);
+            background:
+                rgba(0, 255, 136, 0.12);
 
-            border: 1px solid #00ff88;
+            border:
+                1px solid #00ff88;
 
             color: #00ff88;
 
@@ -222,23 +250,43 @@
             border-radius: 20px;
 
             font-size: 11px;
+
             font-weight: bold;
         }
 
         .empty {
             padding: 30px;
+
             text-align: center;
 
             color: #777;
 
             border: 1px solid #222;
+
             border-radius: 10px;
+
+            grid-column: 1 / -1;
+        }
+
+        .loading {
+            padding: 30px;
+
+            text-align: center;
+
+            color: #00ff88;
+
+            border: 1px solid #222;
+
+            border-radius: 10px;
+
+            grid-column: 1 / -1;
         }
 
         @media (max-width: 700px) {
 
             .navbar {
                 flex-direction: column;
+
                 align-items: flex-start;
             }
 
@@ -256,7 +304,9 @@
 
 </head>
 
+
 <body>
+
 
 <nav class="navbar">
 
@@ -282,6 +332,7 @@
             DASHBOARD
         </a>
 
+
         <a
             href="challenges.html"
             class="nav-link active"
@@ -289,12 +340,14 @@
             CHALLENGES
         </a>
 
+
         <a
             href="scoreboard.html"
             class="nav-link"
         >
             SCOREBOARD
         </a>
+
 
         <a
             href="rules.html"
@@ -310,9 +363,11 @@
 
 <main class="container">
 
+
     <h1 class="title">
         Challenges
     </h1>
+
 
     <p class="subtitle">
         Choose a difficulty level to see its challenges.
@@ -321,12 +376,15 @@
 
     <div class="difficulty-grid">
 
+
         <div
             class="difficulty-card easy"
-            data-level="easy"
+            data-level="Easy"
         >
 
-            <h2>🟢 EASY</h2>
+            <h2>
+                🟢 EASY
+            </h2>
 
             <p>
                 Beginner-friendly cryptography challenges.
@@ -341,10 +399,12 @@
 
         <div
             class="difficulty-card medium"
-            data-level="medium"
+            data-level="Medium"
         >
 
-            <h2>🟡 MEDIUM</h2>
+            <h2>
+                🟡 MEDIUM
+            </h2>
 
             <p>
                 Challenges that require more cryptographic thinking.
@@ -359,10 +419,12 @@
 
         <div
             class="difficulty-card medium-hard"
-            data-level="medium-hard"
+            data-level="Medium Hard"
         >
 
-            <h2>🟠 MEDIUM HARD</h2>
+            <h2>
+                🟠 MEDIUM HARD
+            </h2>
 
             <p>
                 More complex challenges for experienced players.
@@ -377,10 +439,12 @@
 
         <div
             class="difficulty-card hard"
-            data-level="hard"
+            data-level="Hard"
         >
 
-            <h2>🔴 HARD</h2>
+            <h2>
+                🔴 HARD
+            </h2>
 
             <p>
                 The most difficult cryptography challenges.
@@ -408,11 +472,12 @@
         id="challengeList"
     >
 
-        <div class="empty">
-            Choose a difficulty above.
+        <div class="loading">
+            Loading challenges...
         </div>
 
     </div>
+
 
 </main>
 
@@ -441,180 +506,40 @@ const supabase =
     );
 
 
-const challenges = {
-
-    easy: [
-
-        {
-            id: "caesar",
-            name: "Caesar's Secret",
-            description:
-                "Decode a secret message protected by a classical Caesar cipher.",
-            points: 100
-        },
-
-        {
-            id: "rot13",
-            name: "What type this rot?",
-            description:
-                "A mysterious message has been encrypted using a famous rotation cipher. Can you identify it and recover the flag?",
-            points: 100
-        },
-
-        {
-            id: "binary",
-            name: "Binary Secret",
-            description:
-                "A secret flag has been converted into binary. Can you decode it?",
-            points: 100
-        },
-
-        {
-            id: "base64",
-            name: "What is this?",
-            description:
-                "We've found this suspicious encoding. Can you decode it?",
-            points: 100
-        },
-
-        {
-            id: "vigenere",
-            name: "The secret key",
-            description:
-                "A secret message was encrypted with a classical Vigenere cipher. Find the key and recover the flag.",
-            points: 100
-        },
-
-        {
-            id: "many-layers",
-            name: "Many layers of encryption",
-            description:
-                "I obtained this encryption. Can you decrypt it?",
-            points: 100
-        },
-
-        {
-            id: "substitution",
-            name: "Secret encryption",
-            description:
-                "A secret message has been encrypted using a substitution cipher. Can you discover the mapping and recover the flag?",
-            points: 100
-        },
-
-        {
-            id: "xor",
-            name: "XOR Secret",
-            description:
-                "A secret message was encrypted using XOR with a repeating key.",
-            points: 100
-        },
-
-        {
-            id: "shuffled-letters",
-            name: "Shuffled Letters",
-            description:
-                "The letters were not changed. They were only moved around.",
-            points: 100
-        },
-
-        {
-            id: "emoji-cipher",
-            name: "EMOJI CIPHER",
-            description:
-                "A strange message has been encoded using emojis. Can you decode the hidden flag?",
-            points: 100
-        }
-
-    ],
-
-
-    medium: [
-
-        {
-            id: "rsa-small-d",
-            name: "RSA: Small d Attack",
-            description:
-                "RSA is secure... unless the private exponent is too small. Can you recover the secret message?",
-            points: 200
-        },
-
-        {
-            id: "custom-base64",
-            name: "Custom Base64",
-            description:
-                "We intercepted a message that looks exactly like Base64... but it cannot be decoded with normal tools. It seems the developer used a different alphabet instead of the standard one. The standard alphabet is known — but this is not the one being used. Can you discover what changed?",
-            points: 200
-        }
-
-    ],
-
-
-    "medium-hard": [
-
-        {
-            id: "coming-medium-hard",
-            name: "Coming Soon",
-            description:
-                "A more challenging cryptography problem is coming soon.",
-            points: 300
-        }
-
-    ],
-
-
-    hard: [
-
-        {
-            id: "coming-hard",
-            name: "Coming Soon",
-            description:
-                "The hardest challenges will appear here.",
-            points: 500
-        }
-
-    ]
-
-};
-
-
-const cards =
-    document.querySelectorAll(
-        ".difficulty-card"
-    );
-
-
-const list =
+const challengeList =
     document.getElementById(
         "challengeList"
     );
 
 
-const title =
+const challengeTitle =
     document.getElementById(
         "challengeTitle"
     );
 
 
-let solvedChallenges = [];
+const difficultyCards =
+    document.querySelectorAll(
+        ".difficulty-card"
+    );
 
 
-async function loadSolvedChallenges() {
-
-    const {
-        data: {
-            user
-        }
-    } =
-    await supabase.auth.getUser();
+let allChallenges = [];
 
 
-    if (!user) {
+/* =========================================
+   LOAD CHALLENGES
+   ========================================= */
 
-        solvedChallenges = [];
+async function loadChallenges() {
 
-        return;
+    challengeList.innerHTML = `
 
-    }
+        <div class="loading">
+            Loading challenges...
+        </div>
+
+    `;
 
 
     const {
@@ -622,95 +547,93 @@ async function loadSolvedChallenges() {
         error
     } =
     await supabase
-        .from("challenge_solves")
-        .select("challenge_id")
-        .eq(
-            "user_id",
-            user.id
+        .from("challenges")
+        .select(
+            "id,title,description,difficulty,points,slug"
+        )
+        .order(
+            "id",
+            {
+                ascending: true
+            }
         );
 
 
     if (error) {
 
-        console.error(
-            "Could not load solved challenges:",
-            error
-        );
+        console.error(error);
 
-        solvedChallenges = [];
+        challengeList.innerHTML = `
+
+            <div class="empty">
+                Unable to load challenges.
+                <br><br>
+                ${escapeHTML(error.message)}
+            </div>
+
+        `;
 
         return;
 
     }
 
 
-    solvedChallenges =
-        (data || []).map(
-            solve =>
-                String(solve.challenge_id)
-        );
+    allChallenges =
+        data || [];
+
+
+    /*
+     * Do not automatically show a level.
+     * User chooses Easy / Medium etc.
+     */
+
+    challengeList.innerHTML = `
+
+        <div class="empty">
+            Choose a difficulty above.
+        </div>
+
+    `;
 
 }
 
 
-cards.forEach(
-    card => {
+/* =========================================
+   SHOW DIFFICULTY
+   ========================================= */
 
-        card.addEventListener(
-            "click",
-            async function() {
+function showDifficulty(level) {
 
-                cards.forEach(
-                    c =>
-                        c.classList.remove(
-                            "active"
-                        )
-                );
+    difficultyCards.forEach(
+        card => {
 
+            card.classList.toggle(
+                "active",
+                card.dataset.level === level
+            );
 
-                card.classList.add(
-                    "active"
-                );
+        }
+    );
 
 
-                const level =
-                    card.dataset.level;
-
-
-                await loadSolvedChallenges();
-
-
-                showChallenges(
-                    level
-                );
-
-            }
+    const filtered =
+        allChallenges.filter(
+            challenge =>
+                String(
+                    challenge.difficulty
+                ).toLowerCase() ===
+                String(level).toLowerCase()
         );
 
-    }
-);
 
-
-function showChallenges(level) {
-
-    const levelChallenges =
-        challenges[level];
-
-
-    title.textContent =
+    challengeTitle.textContent =
         level.toUpperCase() +
         " CHALLENGES";
 
 
-    list.innerHTML = "";
+    if (!filtered.length) {
 
-
-    if (
-        !levelChallenges ||
-        levelChallenges.length === 0
-    ) {
-
-        list.innerHTML = `
+        challengeList.innerHTML = `
 
             <div class="empty">
                 No challenges available.
@@ -723,102 +646,133 @@ function showChallenges(level) {
     }
 
 
-    levelChallenges.forEach(
-        challenge => {
+    challengeList.innerHTML =
+        filtered
+            .map(
+                challenge => {
 
-            const card =
-                document.createElement(
-                    "a"
-                );
+                    /*
+                     * IMPORTANT:
+                     *
+                     * The URL ALWAYS uses slug.
+                     *
+                     * NOT:
+                     * ?id=6
+                     *
+                     * YES:
+                     * ?id=rot13
+                     */
 
-
-            const isSolved =
-                solvedChallenges.includes(
-                    String(challenge.id)
-                );
-
-
-            card.className =
-                "challenge-card";
-
-
-            if (isSolved) {
-
-                card.classList.add(
-                    "solved"
-                );
-
-            }
+                    const url =
+                        "challenge.html?id=" +
+                        encodeURIComponent(
+                            challenge.slug
+                        );
 
 
-            card.href =
-                "challenge.html?id=" +
-                encodeURIComponent(
-                    challenge.id
-                );
+                    return `
+
+                        <a
+                            href="${url}"
+                            class="challenge-card"
+                        >
+
+                            <h3>
+                                ${escapeHTML(
+                                    challenge.title
+                                )}
+                            </h3>
 
 
-            card.innerHTML = `
+                            <p>
+                                ${escapeHTML(
+                                    challenge.description ||
+                                    ""
+                                )}
+                            </p>
 
-                ${
-                    isSolved
-                    ? `
-                        <div class="solved-badge">
-                            ✓ SOLVED
-                        </div>
-                    `
-                    : ""
+
+                            <span class="challenge-points">
+                                ${challenge.points} POINTS
+                            </span>
+
+                        </a>
+
+                    `;
+
                 }
-
-                <h3>
-                    ${escapeHTML(
-                        challenge.name
-                    )}
-                </h3>
-
-                <p>
-                    ${escapeHTML(
-                        challenge.description
-                    )}
-                </p>
-
-                <span class="challenge-points">
-
-                    ${
-                        isSolved
-                        ? "✓ SOLVED"
-                        : challenge.points +
-                          " POINTS →"
-                    }
-
-                </span>
-
-            `;
-
-
-            list.appendChild(
-                card
-            );
-
-        }
-    );
+            )
+            .join("");
 
 }
 
+
+/* =========================================
+   CLICK DIFFICULTY
+   ========================================= */
+
+difficultyCards.forEach(
+    card => {
+
+        card.addEventListener(
+            "click",
+            function() {
+
+                showDifficulty(
+                    card.dataset.level
+                );
+
+            }
+        );
+
+    }
+);
+
+
+/* =========================================
+   ESCAPE HTML
+   ========================================= */
 
 function escapeHTML(value) {
 
     return String(value)
 
-        .replaceAll("&", "&amp;")
-        .replaceAll("<", "&lt;")
-        .replaceAll(">", "&gt;")
-        .replaceAll('"', "&quot;")
-        .replaceAll("'", "&#039;");
+        .replaceAll(
+            "&",
+            "&amp;"
+        )
+
+        .replaceAll(
+            "<",
+            "&lt;"
+        )
+
+        .replaceAll(
+            ">",
+            "&gt;"
+        )
+
+        .replaceAll(
+            '"',
+            "&quot;"
+        )
+
+        .replaceAll(
+            "'",
+            "&#039;"
+        );
 
 }
+
+
+/* =========================================
+   START
+   ========================================= */
+
+loadChallenges();
 
 </script>
 
 </body>
+
 </html>
