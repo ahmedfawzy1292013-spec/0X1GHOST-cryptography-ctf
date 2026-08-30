@@ -441,10 +441,6 @@ const supabase =
     );
 
 
-/* =========================================
-   ALL CHALLENGES
-   ========================================= */
-
 const challenges = {
 
     easy: [
@@ -527,17 +523,10 @@ const challenges = {
             description:
                 "A strange message has been encoded using emojis. Can you decode the hidden flag?",
             points: 100
-        },
-
-        {
-            id: "what-is-this-2",
-            name: "WHAT IS THIS 2",
-            description:
-                "A sequence made only from A and B hides a secret message. Identify the cipher, decode it, and recover the flag. The flag format is 0X1GHOST{....}",
-            points: 100
         }
 
     ],
+
 
     medium: [
 
@@ -559,6 +548,7 @@ const challenges = {
 
     ],
 
+
     "medium-hard": [
 
         {
@@ -571,13 +561,14 @@ const challenges = {
 
     ],
 
+
     hard: [
 
         {
             id: "coming-hard",
             name: "Coming Soon",
             description:
-                "The hardest cryptography challenges will appear here.",
+                "The hardest challenges will appear here.",
             points: 500
         }
 
@@ -586,31 +577,26 @@ const challenges = {
 };
 
 
-/* =========================================
-   ELEMENTS
-   ========================================= */
-
 const cards =
     document.querySelectorAll(
         ".difficulty-card"
     );
+
 
 const list =
     document.getElementById(
         "challengeList"
     );
 
+
 const title =
     document.getElementById(
         "challengeTitle"
     );
 
+
 let solvedChallenges = [];
 
-
-/* =========================================
-   LOAD SOLVED CHALLENGES
-   ========================================= */
 
 async function loadSolvedChallenges() {
 
@@ -661,17 +647,11 @@ async function loadSolvedChallenges() {
     solvedChallenges =
         (data || []).map(
             solve =>
-                String(
-                    solve.challenge_id
-                )
+                String(solve.challenge_id)
         );
 
 }
 
-
-/* =========================================
-   DIFFICULTY CLICK
-   ========================================= */
 
 cards.forEach(
     card => {
@@ -710,10 +690,6 @@ cards.forEach(
     }
 );
 
-
-/* =========================================
-   SHOW CHALLENGES
-   ========================================= */
 
 function showChallenges(level) {
 
@@ -794,20 +770,17 @@ function showChallenges(level) {
                     : ""
                 }
 
-
                 <h3>
                     ${escapeHTML(
                         challenge.name
                     )}
                 </h3>
 
-
                 <p>
                     ${escapeHTML(
                         challenge.description
                     )}
                 </p>
-
 
                 <span class="challenge-points">
 
@@ -833,38 +806,15 @@ function showChallenges(level) {
 }
 
 
-/* =========================================
-   ESCAPE HTML
-   ========================================= */
-
 function escapeHTML(value) {
 
     return String(value)
 
-        .replaceAll(
-            "&",
-            "&amp;"
-        )
-
-        .replaceAll(
-            "<",
-            "&lt;"
-        )
-
-        .replaceAll(
-            ">",
-            "&gt;"
-        )
-
-        .replaceAll(
-            '"',
-            "&quot;"
-        )
-
-        .replaceAll(
-            "'",
-            "&#039;"
-        );
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
 
 }
 
