@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
@@ -38,38 +37,53 @@
 
         .navbar {
             min-height: 70px;
+
             border-bottom: 1px solid #222;
+
             background: #090909;
 
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
 
             padding: 12px 35px;
+
             gap: 20px;
         }
 
 
         .logo img {
             display: block;
+
             width: 150px;
+
             max-height: 55px;
+
             object-fit: contain;
         }
 
 
         .nav-right {
             display: flex;
+
             align-items: center;
+
             gap: 18px;
         }
 
 
         .nav-link {
             color: #aaa;
+
             text-decoration: none;
+
             font-size: 13px;
+
             font-weight: bold;
+
+            transition: 0.2s;
         }
 
 
@@ -81,20 +95,25 @@
 
         .container {
             width: 100%;
+
             max-width: 1100px;
+
             margin: auto;
+
             padding: 50px 25px;
         }
 
 
         .title {
             font-size: 32px;
+
             margin-bottom: 10px;
         }
 
 
         .subtitle {
             color: #777;
+
             margin-bottom: 35px;
         }
 
@@ -128,6 +147,8 @@
 
         .difficulty-card:hover {
             transform: translateY(-3px);
+
+            border-color: #333;
         }
 
 
@@ -234,6 +255,8 @@
             font-size: 19px;
 
             margin-bottom: 12px;
+
+            padding-right: 70px;
         }
 
 
@@ -263,6 +286,7 @@
             position: absolute;
 
             top: 18px;
+
             right: 18px;
 
             background:
@@ -283,22 +307,8 @@
         }
 
 
-        .empty {
-            padding: 30px;
-
-            text-align: center;
-
-            color: #777;
-
-            border:
-                1px solid #222;
-
-            border-radius: 10px;
-        }
-
-
         .loading {
-            padding: 30px;
+            padding: 35px;
 
             text-align: center;
 
@@ -308,6 +318,47 @@
                 1px solid #222;
 
             border-radius: 10px;
+
+            background: #0d0d0d;
+        }
+
+
+        .empty {
+            padding: 35px;
+
+            text-align: center;
+
+            color: #777;
+
+            border:
+                1px solid #222;
+
+            border-radius: 10px;
+
+            background: #0d0d0d;
+
+            grid-column: 1 / -1;
+        }
+
+
+        .error-box {
+            padding: 25px;
+
+            text-align: center;
+
+            color: #ff6b6b;
+
+            border:
+                1px solid #ff6b6b;
+
+            border-radius: 10px;
+
+            background:
+                rgba(255, 107, 107, 0.05);
+
+            grid-column: 1 / -1;
+
+            line-height: 1.7;
         }
 
 
@@ -317,16 +368,32 @@
                 flex-direction: column;
 
                 align-items: flex-start;
+
+                padding:
+                    15px 18px;
             }
 
 
             .nav-right {
                 flex-wrap: wrap;
+
+                gap: 14px;
             }
 
 
             .logo img {
                 width: 135px;
+            }
+
+
+            .container {
+                padding:
+                    30px 18px;
+            }
+
+
+            .title {
+                font-size: 28px;
             }
 
         }
@@ -340,7 +407,6 @@
 
 
 <nav class="navbar">
-
 
     <a
         href="dashboard.html"
@@ -356,7 +422,6 @@
 
 
     <div class="nav-right">
-
 
         <a
             href="dashboard.html"
@@ -389,11 +454,10 @@
             RULES
         </a>
 
-
     </div>
 
-
 </nav>
+
 
 
 <main class="container">
@@ -407,6 +471,7 @@
     <p class="subtitle">
         Choose a difficulty level to see its challenges.
     </p>
+
 
 
     <div class="difficulty-grid">
@@ -432,6 +497,7 @@
         </div>
 
 
+
         <div
             class="difficulty-card medium"
             data-level="medium"
@@ -450,6 +516,7 @@
             </div>
 
         </div>
+
 
 
         <div
@@ -472,6 +539,7 @@
         </div>
 
 
+
         <div
             class="difficulty-card hard"
             data-level="hard"
@@ -491,8 +559,8 @@
 
         </div>
 
-
     </div>
+
 
 
     <h2
@@ -503,13 +571,14 @@
     </h2>
 
 
+
     <div
         class="challenge-grid"
         id="challengeList"
     >
 
-        <div class="empty">
-            Choose a difficulty above.
+        <div class="loading">
+            Loading challenges...
         </div>
 
     </div>
@@ -518,496 +587,286 @@
 </main>
 
 
+
 <script type="module">
 
 
-    import {
-        createClient
-    }
-
-    from
-    "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
-
-
-    /* =========================================
-       SUPABASE
-    ========================================= */
-
-    const SUPABASE_URL =
-        "https://borturaxifoxufixewya.supabase.co";
+import {
+    createClient
+}
+from
+"https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
 
-    const SUPABASE_KEY =
-        "sb_publishable__lZmTM96oe10-rurqgrujg__ta_C4wr";
+
+/* =========================================
+   SUPABASE
+========================================= */
+
+const SUPABASE_URL =
+    "https://borturaxifoxufixewya.supabase.co";
 
 
-    const supabase =
-        createClient(
-            SUPABASE_URL,
-            SUPABASE_KEY
+const SUPABASE_KEY =
+    "sb_publishable__lZmTM96oe10-rurqgrujg__ta_C4wr";
+
+
+const supabase =
+    createClient(
+        SUPABASE_URL,
+        SUPABASE_KEY
+    );
+
+
+
+/* =========================================
+   ELEMENTS
+========================================= */
+
+const cards =
+    document.querySelectorAll(
+        ".difficulty-card"
+    );
+
+
+const list =
+    document.getElementById(
+        "challengeList"
+    );
+
+
+const title =
+    document.getElementById(
+        "challengeTitle"
+    );
+
+
+
+/* =========================================
+   DATA
+========================================= */
+
+let allChallenges = [];
+
+let solvedChallenges = [];
+
+
+
+/* =========================================
+   LOAD CHALLENGES FROM DATABASE
+========================================= */
+
+async function loadChallenges() {
+
+
+    list.innerHTML = `
+
+        <div class="loading">
+            Loading challenges...
+        </div>
+
+    `;
+
+
+    const {
+        data,
+        error
+    } = await supabase
+
+        .from("challenges")
+
+        .select(
+            "id, title, description, category, difficulty, points"
+        )
+
+        .order(
+            "id",
+            {
+                ascending: true
+            }
         );
 
 
-    /* =========================================
-       ELEMENTS
-    ========================================= */
 
-    const cards =
-        document.querySelectorAll(
-            ".difficulty-card"
-        );
+    if (error) {
 
-
-    const list =
-        document.getElementById(
-            "challengeList"
-        );
-
-
-    const title =
-        document.getElementById(
-            "challengeTitle"
-        );
-
-
-    let solvedChallenges = [];
-
-
-    /* =========================================
-       CHALLENGES
-    ========================================= */
-
-    const challenges = {
-
-        easy: [
-
-            {
-                title:
-                    "Caesar's Secret",
-
-                description:
-                    "Decode a secret message protected by a classical Caesar cipher.",
-
-                points:
-                    100
-            },
-
-
-            {
-                title:
-                    "What type this rot?",
-
-                description:
-                    "A mysterious message has been encrypted using a famous rotation cipher. Can you identify it and recover the flag?",
-
-                points:
-                    100
-            },
-
-
-            {
-                title:
-                    "Binary Secret",
-
-                description:
-                    "A secret flag has been converted into binary. Can you decode it?",
-
-                points:
-                    100
-            },
-
-
-            {
-                title:
-                    "What is this?",
-
-                description:
-                    "We've found this suspicious encryption. Can you decode it?",
-
-                points:
-                    100
-            },
-
-
-            {
-                title:
-                    "The secret key",
-
-                description:
-                    "A secret message was encrypted with a classical Vigenere cipher. Find the key and recover the flag.",
-
-                points:
-                    100
-            },
-
-
-            {
-                title:
-                    "Many layers of encryption",
-
-                description:
-                    "I obtained this encryption. Can you decrypt it?",
-
-                points:
-                    100
-            },
-
-
-            {
-                title:
-                    "Secret encryption",
-
-                description:
-                    "A secret message has been encrypted using a substitution cipher. Can you discover the mapping and recover the flag?",
-
-                points:
-                    100
-            },
-
-
-            {
-                title:
-                    "XOR Secret",
-
-                description:
-                    "A message was encrypted using XOR with a repeating key.",
-
-                points:
-                    100
-            },
-
-
-            {
-                title:
-                    "Shuffled Letters",
-
-                description:
-                    "The letters were not changed. They were only moved around.",
-
-                points:
-                    100
-            },
-
-
-            {
-                title:
-                    "EMOJI CIPHER",
-
-                description:
-                    "A strange message has been encoded using emojis. Can you decode the hidden flag?",
-
-                points:
-                    100
-            },
-
-
-            /* =====================================
-               NEW CHALLENGE
-            ===================================== */
-
-            {
-                title:
-                    "WHAT IS THIS 2",
-
-                description:
-                    "A strange sequence has been intercepted. Decode the sequence and recover the hidden message.",
-
-                points:
-                    100
-            }
-
-        ],
-
-
-        medium: [
-
-            {
-                title:
-                    "RSA: Small d Attack",
-
-                description:
-                    "RSA is secure... unless the private exponent is too small. Can you recover the secret message?",
-
-                points:
-                    200
-            },
-
-
-            {
-                title:
-                    "Custom Base64",
-
-                description:
-                    "We intercepted a message that looks exactly like Base64, but it cannot be decoded with normal tools.",
-
-                points:
-                    200
-            }
-
-        ],
-
-
-        "medium-hard": [
-
-            {
-                title:
-                    "Coming Soon",
-
-                description:
-                    "A more challenging cryptography problem is coming soon.",
-
-                points:
-                    300
-            }
-
-        ],
-
-
-        hard: [
-
-            {
-                title:
-                    "Coming Soon",
-
-                description:
-                    "The hardest challenges will appear here.",
-
-                points:
-                    500
-            }
-
-        ]
-
-    };
-
-
-    /* =========================================
-       LOAD SOLVED CHALLENGES
-    ========================================= */
-
-    async function loadSolvedChallenges() {
-
-        try {
-
-            const {
-                data: {
-                    user
-                }
-            } =
-            await supabase.auth.getUser();
-
-
-            if (!user) {
-
-                solvedChallenges = [];
-
-                return;
-
-            }
-
-
-            const {
-                data,
-                error
-            } =
-            await supabase
-                .from("challenge_solves")
-                .select("challenge_id")
-                .eq(
-                    "user_id",
-                    user.id
-                );
-
-
-            if (error) {
-
-                console.error(
-                    "Could not load solved challenges:",
-                    error
-                );
-
-                solvedChallenges = [];
-
-                return;
-
-            }
-
-
-            solvedChallenges =
-                (data || []).map(
-                    solve =>
-                        String(
-                            solve.challenge_id
-                        )
-                );
-
-        }
-
-        catch (error) {
-
-            console.error(error);
-
-            solvedChallenges = [];
-
-        }
-
-    }
-
-
-    /* =========================================
-       FIND DATABASE CHALLENGE
-    ========================================= */
-
-    async function getDatabaseChallenge(
-        title
-    ) {
-
-        const {
-            data,
+        console.error(
+            "Challenges error:",
             error
-        } =
-        await supabase
-            .from("challenges")
-            .select(
-                "id, title, description, category, difficulty, points"
-            )
-            .eq(
-                "title",
-                title
-            )
-            .maybeSingle();
+        );
 
-
-        if (error) {
-
-            console.error(
-                "Challenge lookup error:",
-                error
-            );
-
-            return null;
-
-        }
-
-
-        return data || null;
-
-    }
-
-
-    /* =========================================
-       SHOW CHALLENGES
-    ========================================= */
-
-    async function showChallenges(
-        level
-    ) {
 
         list.innerHTML = `
 
-            <div class="loading">
-                Loading challenges...
+            <div class="error-box">
+
+                Unable to load challenges.
+
+                <br><br>
+
+                ${escapeHTML(
+                    error.message
+                )}
+
             </div>
 
         `;
 
+        return;
 
-        const levelChallenges =
-            challenges[level];
-
-
-        title.textContent =
-            level.toUpperCase() +
-            " CHALLENGES";
+    }
 
 
-        list.innerHTML = "";
+
+    allChallenges =
+        data || [];
 
 
-        for (
-            const challenge
-            of levelChallenges
-        ) {
+
+    console.log(
+        "Loaded challenges:",
+        allChallenges
+    );
 
 
-            const databaseChallenge =
-                await getDatabaseChallenge(
-                    challenge.title
-                );
+}
 
 
-            /*
-             * Coming Soon cards do not exist
-             * in the database.
-             */
 
-            if (
-                !databaseChallenge
-                &&
-                challenge.title ===
-                "Coming Soon"
-            ) {
+ /* =========================================
+    LOAD SOLVED CHALLENGES
+ ========================================= */
 
-                const card =
-                    document.createElement(
-                        "div"
-                    );
+async function loadSolvedChallenges() {
 
 
-                card.className =
-                    "challenge-card";
+    solvedChallenges = [];
 
 
-                card.style.cursor =
-                    "default";
+    const {
+        data: {
+            user
+        }
+    } =
+        await supabase.auth.getUser();
 
 
-                card.innerHTML = `
 
-                    <h3>
-                        ${escapeHTML(
-                            challenge.title
-                        )}
-                    </h3>
+    if (!user) {
 
-                    <p>
-                        ${escapeHTML(
-                            challenge.description
-                        )}
-                    </p>
+        return;
 
-                    <span class="challenge-points">
-                        ${challenge.points} POINTS
-                    </span>
-
-                `;
+    }
 
 
-                list.appendChild(
-                    card
-                );
+
+    const {
+        data,
+        error
+    } =
+        await supabase
+
+            .from("challenge_solves")
+
+            .select(
+                "challenge_id"
+            )
+
+            .eq(
+                "user_id",
+                user.id
+            );
 
 
-                continue;
 
-            }
+    if (error) {
+
+        console.error(
+            "Solved challenges error:",
+            error
+        );
+
+        return;
+
+    }
 
 
-            /*
-             * If a challenge is not in DB,
-             * do not create a broken link.
-             */
 
-            if (!databaseChallenge) {
+    solvedChallenges =
+        (data || []).map(
+            solve =>
+                Number(
+                    solve.challenge_id
+                )
+        );
 
-                console.warn(
-                    "Challenge not found in database:",
-                    challenge.title
-                );
+}
 
-                continue;
 
-            }
+
+/* =========================================
+   SHOW CHALLENGES
+========================================= */
+
+function showChallenges(
+    level
+) {
+
+
+    const normalizedLevel =
+        String(level)
+            .trim()
+            .toLowerCase();
+
+
+
+    const levelChallenges =
+        allChallenges.filter(
+            challenge =>
+                String(
+                    challenge.difficulty
+                )
+                .trim()
+                .toLowerCase()
+                ===
+                normalizedLevel
+        );
+
+
+
+    title.textContent =
+        normalizedLevel.toUpperCase() +
+        " CHALLENGES";
+
+
+
+    list.innerHTML = "";
+
+
+
+    if (
+        levelChallenges.length === 0
+    ) {
+
+        list.innerHTML = `
+
+            <div class="empty">
+
+                No challenges available
+                for this difficulty yet.
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+
+    levelChallenges.forEach(
+        challenge => {
 
 
             const card =
@@ -1016,20 +875,24 @@
                 );
 
 
-            const databaseId =
-                String(
-                    databaseChallenge.id
+
+            const challengeId =
+                Number(
+                    challenge.id
                 );
+
 
 
             const isSolved =
                 solvedChallenges.includes(
-                    databaseId
+                    challengeId
                 );
+
 
 
             card.className =
                 "challenge-card";
+
 
 
             if (isSolved) {
@@ -1041,61 +904,87 @@
             }
 
 
+
             /*
              * IMPORTANT:
-             * Use the REAL numeric Supabase ID.
+             * Database ID is numeric.
              */
 
             card.href =
                 "challenge.html?id=" +
                 encodeURIComponent(
-                    databaseId
+                    challengeId
                 );
+
 
 
             card.innerHTML = `
 
+
                 ${
                     isSolved
                     ?
+
                     `
+
                         <div class="solved-badge">
+
                             ✓ SOLVED
+
                         </div>
+
                     `
+
                     :
+
                     ""
                 }
 
 
+
                 <h3>
+
                     ${escapeHTML(
-                        databaseChallenge.title
+                        challenge.title
                     )}
+
                 </h3>
 
 
+
                 <p>
+
                     ${escapeHTML(
-                        databaseChallenge.description
+                        challenge.description
                     )}
+
                 </p>
+
 
 
                 <span class="challenge-points">
 
                     ${
                         isSolved
+
                         ?
+
                         "✓ SOLVED"
+
                         :
-                        databaseChallenge.points +
+
+                        Number(
+                            challenge.points
+                        ) +
                         " POINTS →"
+
                     }
 
                 </span>
 
+
             `;
+
 
 
             list.appendChild(
@@ -1103,105 +992,133 @@
             );
 
         }
-
-
-        if (
-            list.children.length === 0
-        ) {
-
-            list.innerHTML = `
-
-                <div class="empty">
-
-                    No challenges available.
-
-                </div>
-
-            `;
-
-        }
-
-    }
-
-
-    /* =========================================
-       DIFFICULTY BUTTONS
-    ========================================= */
-
-    cards.forEach(
-        card => {
-
-            card.addEventListener(
-                "click",
-                async function() {
-
-                    cards.forEach(
-                        c =>
-                            c.classList.remove(
-                                "active"
-                            )
-                    );
-
-
-                    card.classList.add(
-                        "active"
-                    );
-
-
-                    const level =
-                        card.dataset.level;
-
-
-                    await loadSolvedChallenges();
-
-
-                    await showChallenges(
-                        level
-                    );
-
-                }
-            );
-
-        }
     );
 
+}
 
-    /* =========================================
-       HTML ESCAPE
-    ========================================= */
 
-    function escapeHTML(
-        value
-    ) {
 
-        return String(value)
+/* =========================================
+   DIFFICULTY BUTTONS
+========================================= */
 
-            .replaceAll(
-                "&",
-                "&amp;"
-            )
+cards.forEach(
+    card => {
 
-            .replaceAll(
-                "<",
-                "&lt;"
-            )
 
-            .replaceAll(
-                ">",
-                "&gt;"
-            )
+        card.addEventListener(
+            "click",
+            function() {
 
-            .replaceAll(
-                '"',
-                "&quot;"
-            )
 
-            .replaceAll(
-                "'",
-                "&#039;"
-            );
+                cards.forEach(
+                    c =>
+                        c.classList.remove(
+                            "active"
+                        )
+                );
+
+
+                card.classList.add(
+                    "active"
+                );
+
+
+                showChallenges(
+                    card.dataset.level
+                );
+
+            }
+        );
 
     }
+);
+
+
+
+/* =========================================
+   INITIALIZE
+========================================= */
+
+async function initialize() {
+
+
+    await loadChallenges();
+
+
+    await loadSolvedChallenges();
+
+
+
+    /*
+     * Automatically open EASY.
+     */
+
+    const easyCard =
+        document.querySelector(
+            '.difficulty-card[data-level="easy"]'
+        );
+
+
+
+    if (easyCard) {
+
+        easyCard.classList.add(
+            "active"
+        );
+
+
+        showChallenges(
+            "easy"
+        );
+
+    }
+
+}
+
+
+
+initialize();
+
+
+
+/* =========================================
+   ESCAPE HTML
+========================================= */
+
+function escapeHTML(
+    value
+) {
+
+    return String(value)
+
+        .replaceAll(
+            "&",
+            "&amp;"
+        )
+
+        .replaceAll(
+            "<",
+            "&lt;"
+        )
+
+        .replaceAll(
+            ">",
+            "&gt;"
+        )
+
+        .replaceAll(
+            '"',
+            "&quot;"
+        )
+
+        .replaceAll(
+            "'",
+            "&#039;"
+        );
+
+}
+
 
 </script>
 
