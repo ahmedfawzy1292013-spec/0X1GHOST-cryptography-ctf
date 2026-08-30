@@ -90,22 +90,17 @@
 
         .difficulty-grid {
             display: grid;
-
             grid-template-columns:
                 repeat(auto-fit, minmax(220px, 1fr));
 
             gap: 18px;
-
             margin-bottom: 40px;
         }
 
         .difficulty-card {
             background: #0d0d0d;
-
             border: 1px solid #222;
-
             border-radius: 10px;
-
             padding: 25px;
 
             cursor: pointer;
@@ -131,17 +126,13 @@
 
         .difficulty-card p {
             color: #777;
-
             font-size: 14px;
-
             line-height: 1.5;
         }
 
         .points {
             margin-top: 18px;
-
             color: #00ff88;
-
             font-weight: bold;
         }
 
@@ -159,7 +150,6 @@
 
         .section-title {
             font-size: 24px;
-
             margin-bottom: 20px;
         }
 
@@ -174,8 +164,6 @@
 
         .challenge-card {
             position: relative;
-
-            display: block;
 
             background: #0d0d0d;
 
@@ -202,19 +190,19 @@
                 rgba(0, 255, 136, 0.08);
         }
 
+        .challenge-card.solved {
+            border-color: #00ff88;
+        }
+
         .challenge-card h3 {
             font-size: 19px;
-
             margin-bottom: 12px;
-
-            padding-right: 80px;
+            padding-right: 70px;
         }
 
         .challenge-card p {
             color: #888;
-
             line-height: 1.6;
-
             font-size: 14px;
         }
 
@@ -230,11 +218,31 @@
             font-weight: bold;
         }
 
-        .solved-badge {
+        .medium-card .challenge-points {
+            color: #ffd166;
+        }
+
+        .difficulty-label {
             position: absolute;
 
             top: 18px;
+            right: 18px;
 
+            font-size: 10px;
+
+            font-weight: bold;
+
+            color: #00ff88;
+        }
+
+        .medium-card .difficulty-label {
+            color: #ffd166;
+        }
+
+        .solved-badge {
+            position: absolute;
+
+            top: 42px;
             right: 18px;
 
             background:
@@ -245,16 +253,18 @@
 
             color: #00ff88;
 
-            padding: 6px 10px;
+            padding: 5px 9px;
 
             border-radius: 20px;
 
-            font-size: 11px;
+            font-size: 10px;
 
             font-weight: bold;
         }
 
         .empty {
+            grid-column: 1 / -1;
+
             padding: 30px;
 
             text-align: center;
@@ -264,29 +274,22 @@
             border: 1px solid #222;
 
             border-radius: 10px;
-
-            grid-column: 1 / -1;
         }
 
         .loading {
+            grid-column: 1 / -1;
+
             padding: 30px;
 
             text-align: center;
 
             color: #00ff88;
-
-            border: 1px solid #222;
-
-            border-radius: 10px;
-
-            grid-column: 1 / -1;
         }
 
         @media (max-width: 700px) {
 
             .navbar {
                 flex-direction: column;
-
                 align-items: flex-start;
             }
 
@@ -472,8 +475,8 @@
         id="challengeList"
     >
 
-        <div class="loading">
-            Loading challenges...
+        <div class="empty">
+            Choose a difficulty above.
         </div>
 
     </div>
@@ -549,7 +552,7 @@ async function loadChallenges() {
     await supabase
         .from("challenges")
         .select(
-            "id,title,description,difficulty,points,slug"
+            "id, title, description, category, difficulty, points, slug"
         )
         .order(
             "id",
@@ -566,9 +569,15 @@ async function loadChallenges() {
         challengeList.innerHTML = `
 
             <div class="empty">
+
                 Unable to load challenges.
+
                 <br><br>
-                ${escapeHTML(error.message)}
+
+                ${escapeHTML(
+                    error.message
+                )}
+
             </div>
 
         `;
@@ -579,21 +588,92 @@ async function loadChallenges() {
 
 
     allChallenges =
-        data || [];
+        (data || [])
+        .filter(
+            challenge =>
+                challenge.slug
+        );
 
 
-    /*
-     * Do not automatically show a level.
-     * User chooses Easy / Medium etc.
-     */
+    if (
+        allChallenges.length === 0
+    ) {
 
-    challengeList.innerHTML = `
+        challengeList.innerHTML = `
 
-        <div class="empty">
-            Choose a difficulty above.
-        </div>
+            <div class="empty">
+                No challenges available.
+            </div>
 
-    `;
+        `;
+
+        return;
+
+    }
+
+
+    /* ================================
+       LOAD SOLVED CHALLENGES
+       ================================ */
+
+    const {
+        data: {
+            user
+        }
+    } =
+    await supabase.auth.getUser();
+
+
+    let solvedSlugs =
+        new Set();
+
+
+    if (user) {
+
+        const {
+            data: solves
+        } =
+        await supabase
+            .from("challenge_solves")
+            .select("challenge_id")
+            .eq(
+                "user_id",
+                user.id
+            );
+
+
+        if (solves) {
+
+            solvedSlugs =
+                new Set(
+                    solves.map(
+                        solve =>
+                            String(
+                                solve.challenge_id
+                            )
+                    )
+                );
+
+        }
+
+    }
+
+
+    allChallenges =
+        allChallenges.map(
+            challenge => ({
+
+                ...challenge,
+
+                solved:
+                    solvedSlugs.has(
+                        String(
+                            challenge.slug
+                        )
+                    )
+
+            })
+        );
 
 }
 
@@ -604,16 +684,10 @@ async function loadChallenges() {
 
 function showDifficulty(level) {
 
-    difficultyCards.forEach(
-        card => {
-
-            card.classList.toggle(
-                "active",
-                card.dataset.level === level
-            );
-
-        }
-    );
+    const normalizedLevel =
+        String(level)
+            .trim()
+            .toLowerCase();
 
 
     const filtered =
@@ -621,8 +695,10 @@ function showDifficulty(level) {
             challenge =>
                 String(
                     challenge.difficulty
-                ).toLowerCase() ===
-                String(level).toLowerCase()
+                )
+                .trim()
+                .toLowerCase()
+                === normalizedLevel
         );
 
 
@@ -631,7 +707,9 @@ function showDifficulty(level) {
         " CHALLENGES";
 
 
-    if (!filtered.length) {
+    if (
+        filtered.length === 0
+    ) {
 
         challengeList.innerHTML = `
 
@@ -651,31 +729,51 @@ function showDifficulty(level) {
             .map(
                 challenge => {
 
-                    /*
-                     * IMPORTANT:
-                     *
-                     * The URL ALWAYS uses slug.
-                     *
-                     * NOT:
-                     * ?id=6
-                     *
-                     * YES:
-                     * ?id=rot13
-                     */
-
-                    const url =
-                        "challenge.html?id=" +
-                        encodeURIComponent(
-                            challenge.slug
-                        );
+                    const medium =
+                        normalizedLevel ===
+                        "medium";
 
 
                     return `
 
                         <a
-                            href="${url}"
-                            class="challenge-card"
+                            class="challenge-card ${
+                                medium
+                                ? "medium-card"
+                                : ""
+                            } ${
+                                challenge.solved
+                                ? "solved"
+                                : ""
+                            }"
+                            href="challenge.html?id=${encodeURIComponent(
+                                challenge.slug
+                            )}"
                         >
+
+                            <div
+                                class="difficulty-label"
+                            >
+                                ${escapeHTML(
+                                    challenge.difficulty
+                                )}
+                            </div>
+
+
+                            ${
+                                challenge.solved
+                                ?
+                                `
+                                    <div
+                                        class="solved-badge"
+                                    >
+                                        SOLVED ✓
+                                    </div>
+                                `
+                                :
+                                ""
+                            }
+
 
                             <h3>
                                 ${escapeHTML(
@@ -687,13 +785,17 @@ function showDifficulty(level) {
                             <p>
                                 ${escapeHTML(
                                     challenge.description ||
-                                    ""
+                                    "Challenge"
                                 )}
                             </p>
 
 
-                            <span class="challenge-points">
-                                ${challenge.points} POINTS
+                            <span
+                                class="challenge-points"
+                            >
+                                ${Number(
+                                    challenge.points
+                                )} POINTS
                             </span>
 
                         </a>
@@ -708,7 +810,7 @@ function showDifficulty(level) {
 
 
 /* =========================================
-   CLICK DIFFICULTY
+   DIFFICULTY CLICK
    ========================================= */
 
 difficultyCards.forEach(
@@ -717,6 +819,19 @@ difficultyCards.forEach(
         card.addEventListener(
             "click",
             function() {
+
+                difficultyCards.forEach(
+                    item =>
+                        item.classList.remove(
+                            "active"
+                        )
+                );
+
+
+                card.classList.add(
+                    "active"
+                );
+
 
                 showDifficulty(
                     card.dataset.level
@@ -769,9 +884,10 @@ function escapeHTML(value) {
    START
    ========================================= */
 
-loadChallenges();
+await loadChallenges();
 
 </script>
+
 
 </body>
 
