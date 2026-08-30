@@ -18,7 +18,6 @@
         href="favicon.png"
     >
 
-
     <style>
 
         * {
@@ -28,377 +27,225 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
-
         body {
             min-height: 100vh;
-
             background: #050505;
-
             color: white;
         }
 
-
         .navbar {
             min-height: 70px;
-
             border-bottom: 1px solid #222;
-
             background: #090909;
-
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
-
             padding: 12px 35px;
-
             gap: 20px;
         }
 
-
         .logo img {
             display: block;
-
             width: 150px;
-
             max-height: 55px;
-
             object-fit: contain;
         }
 
-
         .back-btn {
             color: #aaa;
-
             text-decoration: none;
-
             font-size: 13px;
-
             font-weight: bold;
         }
-
 
         .back-btn:hover {
             color: #00ff88;
         }
 
-
         .container {
             width: 100%;
-
             max-width: 900px;
-
             margin: auto;
-
             padding: 50px 25px;
         }
 
-
         .challenge-box {
             position: relative;
-
             background: #0d0d0d;
-
             border: 1px solid #222;
-
             border-radius: 12px;
-
             padding: 35px;
         }
 
-
         .challenge-type {
             color: #00ff88;
-
             font-size: 12px;
-
             font-weight: bold;
-
             letter-spacing: 1px;
-
             margin-bottom: 12px;
         }
-
 
         .challenge-title {
             font-size: 32px;
-
             margin-bottom: 18px;
-
             padding-right: 100px;
         }
 
-
         .challenge-description {
             color: #999;
-
             line-height: 1.7;
-
             white-space: pre-line;
-
             margin-bottom: 35px;
         }
 
-
         .solve-btn {
             position: absolute;
-
             top: 30px;
-
             right: 30px;
-
             background: transparent;
-
             border: 1px solid #00ff88;
-
             color: #00ff88;
-
             padding: 8px 14px;
-
             border-radius: 6px;
-
             font-size: 12px;
-
             font-weight: bold;
-
             cursor: pointer;
         }
 
-
         .solve-btn:hover {
-            background: rgba(
-                0,
-                255,
-                136,
-                0.08
-            );
+            background: rgba(0, 255, 136, 0.08);
         }
-
 
         .solve-btn:disabled {
             opacity: 0.5;
-
             cursor: not-allowed;
         }
 
-
         .section-title {
             font-size: 15px;
-
             font-weight: bold;
-
             margin-bottom: 12px;
-
             color: #ddd;
         }
 
-
         .encrypted-header {
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
-
             gap: 15px;
-
             margin-bottom: 12px;
         }
-
 
         .encrypted-header .section-title {
             margin-bottom: 0;
         }
 
-
         .copy-btn {
             background: transparent;
-
             border: 1px solid #333;
-
             color: #aaa;
-
             padding: 7px 12px;
-
             border-radius: 6px;
-
             font-size: 11px;
-
             font-weight: bold;
-
             cursor: pointer;
         }
 
-
         .copy-btn:hover {
             border-color: #00ff88;
-
             color: #00ff88;
         }
-
 
         .copy-btn.copied {
             border-color: #00ff88;
-
             color: #00ff88;
         }
-
 
         .encrypted-message {
             background: #070707;
-
             border: 1px solid #222;
-
             border-radius: 8px;
-
             padding: 18px;
-
             color: #00ff88;
-
-            font-family:
-                Consolas,
-                Monaco,
-                monospace;
-
+            font-family: Consolas, Monaco, monospace;
             font-size: 13px;
-
             line-height: 1.7;
-
             white-space: pre-wrap;
-
             overflow-wrap: anywhere;
-
             margin-bottom: 30px;
         }
-
 
         .hint-box {
             background: #111;
-
             border: 1px solid #292929;
-
             border-left: 3px solid #ffd166;
-
             border-radius: 7px;
-
             padding: 15px;
-
             color: #aaa;
-
             line-height: 1.6;
-
             font-size: 13px;
-
             margin-bottom: 30px;
         }
 
-
         .answer-label {
             display: block;
-
             color: #ddd;
-
             font-size: 13px;
-
             font-weight: bold;
-
             margin-bottom: 10px;
         }
 
-
         .answer-input {
             width: 100%;
-
             background: #070707;
-
             border: 1px solid #292929;
-
             border-radius: 7px;
-
             padding: 14px;
-
             color: white;
-
             outline: none;
-
-            font-family:
-                Consolas,
-                Monaco,
-                monospace;
-
+            font-family: Consolas, Monaco, monospace;
             font-size: 14px;
-
             margin-bottom: 12px;
         }
 
-
         .answer-input:focus {
             border-color: #00ff88;
-
-            box-shadow:
-                0 0 15px
-                rgba(
-                    0,
-                    255,
-                    136,
-                    0.05
-                );
+            box-shadow: 0 0 15px rgba(0, 255, 136, 0.05);
         }
-
 
         .answer-input:disabled {
             opacity: 0.6;
         }
 
-
         .submit-btn {
             width: 100%;
-
             background: #00ff88;
-
             border: none;
-
             color: #050505;
-
             padding: 14px;
-
             border-radius: 7px;
-
             font-weight: bold;
-
             cursor: pointer;
-
             font-size: 13px;
         }
-
 
         .submit-btn:hover {
             opacity: 0.9;
         }
 
-
         .submit-btn:disabled {
             opacity: 0.5;
-
             cursor: not-allowed;
         }
 
-
         .message {
             margin-top: 15px;
-
             padding: 13px;
-
             border-radius: 7px;
-
             font-size: 13px;
-
             line-height: 1.5;
-
             display: none;
         }
-
 
         .message.error,
         .message.success,
@@ -406,286 +253,154 @@
             display: block;
         }
 
-
         .message.error {
-            background: rgba(
-                255,
-                107,
-                107,
-                0.08
-            );
-
-            border: 1px solid
-                rgba(
-                    255,
-                    107,
-                    107,
-                    0.25
-                );
-
+            background: rgba(255, 107, 107, 0.08);
+            border: 1px solid rgba(255, 107, 107, 0.25);
             color: #ff6b6b;
         }
 
-
         .message.success {
-            background: rgba(
-                0,
-                255,
-                136,
-                0.08
-            );
-
-            border: 1px solid
-                rgba(
-                    0,
-                    255,
-                    136,
-                    0.25
-                );
-
+            background: rgba(0, 255, 136, 0.08);
+            border: 1px solid rgba(0, 255, 136, 0.25);
             color: #00ff88;
         }
 
-
         .message.warning {
-            background: rgba(
-                255,
-                209,
-                102,
-                0.08
-            );
-
-            border: 1px solid
-                rgba(
-                    255,
-                    209,
-                    102,
-                    0.25
-                );
-
+            background: rgba(255, 209, 102, 0.08);
+            border: 1px solid rgba(255, 209, 102, 0.25);
             color: #ffd166;
         }
 
-
         .solvers-overlay {
             position: fixed;
-
             inset: 0;
-
             display: none;
-
             align-items: center;
-
             justify-content: center;
-
             padding: 20px;
-
-            background: rgba(
-                0,
-                0,
-                0,
-                0.75
-            );
-
+            background: rgba(0, 0, 0, 0.75);
             z-index: 1000;
         }
-
 
         .solvers-overlay.active {
             display: flex;
         }
 
-
         .solvers-modal {
             width: 100%;
-
             max-width: 500px;
-
             max-height: 80vh;
-
             overflow: hidden;
-
             background: #0d0d0d;
-
             border: 1px solid #292929;
-
             border-radius: 12px;
-
-            box-shadow:
-                0 0 40px
-                rgba(
-                    0,
-                    255,
-                    136,
-                    0.08
-                );
+            box-shadow: 0 0 40px rgba(0, 255, 136, 0.08);
         }
-
 
         .solvers-header {
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
-
             padding: 20px;
-
             border-bottom: 1px solid #222;
         }
 
-
         .solvers-header h2 {
             color: #00ff88;
-
             font-size: 18px;
         }
 
-
         .close-solvers {
             background: transparent;
-
             border: none;
-
             color: #777;
-
             font-size: 25px;
-
             cursor: pointer;
-
             line-height: 1;
         }
-
 
         .close-solvers:hover {
             color: #00ff88;
         }
 
-
         .solvers-content {
             padding: 20px;
-
             max-height: 60vh;
-
             overflow-y: auto;
         }
 
-
         .solver-count {
             color: #777;
-
             font-size: 13px;
-
             margin-bottom: 15px;
         }
 
-
         .solver-list {
             display: flex;
-
             flex-direction: column;
-
             gap: 10px;
         }
 
-
         .solver-item {
             display: flex;
-
             align-items: center;
-
             gap: 12px;
-
             background: #080808;
-
             border: 1px solid #222;
-
             border-radius: 7px;
-
             padding: 12px 14px;
         }
 
-
         .solver-number {
             width: 28px;
-
             height: 28px;
-
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
             border-radius: 50%;
-
             background: #101010;
-
             border: 1px solid #333;
-
             color: #00ff88;
-
             font-size: 12px;
-
             font-weight: bold;
-
             flex-shrink: 0;
         }
 
-
         .solver-name {
             color: white;
-
             font-size: 14px;
-
             word-break: break-word;
         }
 
-
         .no-solvers {
             text-align: center;
-
             color: #777;
-
             padding: 30px 10px;
-
             line-height: 1.6;
         }
 
-
         .loading-solvers {
             text-align: center;
-
             color: #00ff88;
-
             padding: 30px 10px;
         }
 
-
         .not-found {
             text-align: center;
-
             padding: 60px 20px;
-
             background: #0d0d0d;
-
             border: 1px solid #222;
-
             border-radius: 12px;
         }
-
 
         .not-found h1 {
             margin-bottom: 15px;
         }
 
-
         .not-found p {
             color: #777;
-
             margin-bottom: 25px;
         }
-
 
         @media (max-width: 600px) {
 
@@ -693,60 +408,47 @@
                 padding: 15px 18px;
             }
 
-
             .container {
                 padding: 30px 18px;
             }
-
 
             .challenge-box {
                 padding: 22px;
             }
 
-
             .challenge-title {
                 font-size: 26px;
             }
-
 
             .logo img {
                 width: 125px;
             }
 
-
             .encrypted-header {
                 align-items: flex-start;
             }
 
-
             .solve-btn {
                 top: 18px;
-
                 right: 18px;
-
                 padding: 7px 12px;
             }
-
 
             .challenge-type,
             .challenge-title {
                 padding-right: 85px;
             }
 
-
             .solvers-modal {
                 max-height: 85vh;
             }
-
         }
 
     </style>
 
 </head>
 
-
 <body>
-
 
 <nav class="navbar">
 
@@ -762,7 +464,6 @@
 
     </a>
 
-
     <a
         href="challenges.html"
         class="back-btn"
@@ -772,17 +473,13 @@
 
 </nav>
 
-
 <main class="container">
 
     <div id="challengeContainer">
-
         Loading challenge...
-
     </div>
 
 </main>
-
 
 <div
     id="solversOverlay"
@@ -797,7 +494,6 @@
                 SOLVED BY
             </h2>
 
-
             <button
                 id="closeSolvers"
                 class="close-solvers"
@@ -807,7 +503,6 @@
             </button>
 
         </div>
-
 
         <div
             id="solversContent"
@@ -824,7 +519,6 @@
 
 </div>
 
-
 <script type="module">
 
 import {
@@ -837,10 +531,8 @@ from
 const SUPABASE_URL =
     "https://borturaxifoxufixewya.supabase.co";
 
-
 const SUPABASE_KEY =
     "sb_publishable__lZmTM96oe10-rurqgrujg__ta_C4wr";
-
 
 const supabase =
     createClient(
@@ -941,6 +633,23 @@ const challenges = {
 
         encrypted:
             "MFgxR0hPU1R7QkE2NDYxOV9JU18xMjBPX24zNH0=",
+
+        hint: ""
+
+    },
+
+
+    "what-is-this-2": {
+
+        type: "CUSTOM CIPHER",
+
+        title: "What is this 2",
+
+        description:
+            "FLAG FORMAT: 0X1GHOST{...}",
+
+        encrypted:
+            "AABBABAAABAABAAAAAAABAABBBABBAABBBABAAABABABA",
 
         hint: ""
 
@@ -1119,10 +828,8 @@ const params =
         window.location.search
     );
 
-
 const challengeId =
     params.get("id");
-
 
 const challenge =
     challenges[challengeId];
@@ -1145,7 +852,6 @@ if (!challenge) {
             <p>
                 The requested challenge does not exist.
             </p>
-
 
             <a
                 href="challenges.html"
@@ -1171,11 +877,9 @@ else {
         challenge.title +
         " | 0X1GHOST";
 
-
     challengeContainer.innerHTML = `
 
         <div class="challenge-box">
-
 
             <button
                 id="solveButton"
@@ -1185,7 +889,6 @@ else {
                 SOLVE
             </button>
 
-
             <div class="challenge-type">
 
                 ${escapeHTML(
@@ -1193,7 +896,6 @@ else {
                 )}
 
             </div>
-
 
             <h1 class="challenge-title">
 
@@ -1203,7 +905,6 @@ else {
 
             </h1>
 
-
             <p class="challenge-description">
 
                 ${escapeHTML(
@@ -1212,13 +913,11 @@ else {
 
             </p>
 
-
             <div class="encrypted-header">
 
                 <div class="section-title">
                     ENCRYPTED MESSAGE
                 </div>
-
 
                 <button
                     id="copyButton"
@@ -1230,14 +929,12 @@ else {
 
             </div>
 
-
             <div
                 id="encryptedMessage"
                 class="encrypted-message"
             >${escapeHTML(
                 challenge.encrypted
             )}</div>
-
 
             ${
                 challenge.hint
@@ -1247,7 +944,6 @@ else {
                     <div class="section-title">
                         HINT
                     </div>
-
 
                     <div class="hint-box">
 
@@ -1262,14 +958,12 @@ else {
                 ""
             }
 
-
             <label
                 class="answer-label"
                 for="answer"
             >
                 SUBMIT FLAG
             </label>
-
 
             <input
                 id="answer"
@@ -1280,7 +974,6 @@ else {
                 spellcheck="false"
             >
 
-
             <button
                 id="submitButton"
                 class="submit-btn"
@@ -1288,7 +981,6 @@ else {
             >
                 SUBMIT ANSWER
             </button>
-
 
             <div
                 id="message"
@@ -1344,22 +1036,18 @@ else {
                     challenge.encrypted
                 );
 
-
                 copyButton.textContent =
                     "COPIED! ✓";
-
 
                 copyButton.classList.add(
                     "copied"
                 );
-
 
                 setTimeout(
                     function() {
 
                         copyButton.textContent =
                             "COPY";
-
 
                         copyButton.classList.remove(
                             "copied"
@@ -1377,10 +1065,8 @@ else {
                     error
                 );
 
-
                 copyButton.textContent =
                     "FAILED";
-
 
                 setTimeout(
                     function() {
@@ -1459,7 +1145,6 @@ else {
         submitButton.disabled =
             true;
 
-
         submitButton.textContent =
             "CHECKING...";
 
@@ -1489,10 +1174,8 @@ else {
                 submitButton.disabled =
                     false;
 
-
                 submitButton.textContent =
                     "SUBMIT ANSWER";
-
 
                 return;
 
@@ -1503,6 +1186,7 @@ else {
                 data,
                 error
             } =
+
             await supabase.rpc(
                 "submit_challenge_answer",
                 {
@@ -1518,7 +1202,6 @@ else {
             submitButton.disabled =
                 false;
 
-
             submitButton.textContent =
                 "SUBMIT ANSWER";
 
@@ -1528,7 +1211,6 @@ else {
                 console.error(
                     error
                 );
-
 
                 showMessage(
                     error.message ||
@@ -1575,7 +1257,6 @@ else {
                     seconds
                 );
 
-
                 return;
 
             }
@@ -1603,10 +1284,8 @@ else {
             answerInput.disabled =
                 true;
 
-
             submitButton.disabled =
                 true;
-
 
             submitButton.textContent =
                 "SOLVED ✓";
@@ -1619,14 +1298,11 @@ else {
                 error
             );
 
-
             submitButton.disabled =
                 false;
 
-
             submitButton.textContent =
                 "SUBMIT ANSWER";
-
 
             showMessage(
                 "Connection error. Please try again.",
@@ -1787,7 +1463,6 @@ else {
 
                 </div>
 
-
                 <div class="solver-list">
 
             `;
@@ -1815,7 +1490,6 @@ else {
                                 ${index + 1}
 
                             </div>
-
 
                             <div class="solver-name">
 
@@ -1982,7 +1656,6 @@ else {
 
                         submitButton.textContent =
                             "SUBMIT ANSWER";
-
 
                         return;
 
