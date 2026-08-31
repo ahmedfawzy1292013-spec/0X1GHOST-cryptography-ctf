@@ -37,9 +37,11 @@
             min-height: 70px;
             border-bottom: 1px solid #222;
             background: #090909;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
+
             padding: 12px 35px;
             gap: 20px;
         }
@@ -77,14 +79,6 @@
             padding: 35px;
         }
 
-        .challenge-type {
-            color: #00ff88;
-            font-size: 12px;
-            font-weight: bold;
-            letter-spacing: 1px;
-            margin-bottom: 12px;
-        }
-
         .challenge-title {
             font-size: 32px;
             margin-bottom: 18px;
@@ -102,13 +96,17 @@
             position: absolute;
             top: 30px;
             right: 30px;
+
             background: transparent;
             border: 1px solid #00ff88;
             color: #00ff88;
+
             padding: 8px 14px;
             border-radius: 6px;
+
             font-size: 12px;
             font-weight: bold;
+
             cursor: pointer;
         }
 
@@ -132,6 +130,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+
             gap: 15px;
             margin-bottom: 12px;
         }
@@ -144,10 +143,13 @@
             background: transparent;
             border: 1px solid #333;
             color: #aaa;
+
             padding: 7px 12px;
             border-radius: 6px;
+
             font-size: 11px;
             font-weight: bold;
+
             cursor: pointer;
         }
 
@@ -165,13 +167,18 @@
             background: #070707;
             border: 1px solid #222;
             border-radius: 8px;
+
             padding: 18px;
+
             color: #00ff88;
+
             font-family: Consolas, Monaco, monospace;
             font-size: 13px;
             line-height: 1.7;
+
             white-space: pre-wrap;
             overflow-wrap: anywhere;
+
             margin-bottom: 30px;
         }
 
@@ -179,38 +186,53 @@
             background: #111;
             border: 1px solid #292929;
             border-left: 3px solid #ffd166;
+
             border-radius: 7px;
+
             padding: 15px;
+
             color: #aaa;
             line-height: 1.6;
             font-size: 13px;
+
             margin-bottom: 30px;
         }
 
         .answer-label {
             display: block;
+
             color: #ddd;
             font-size: 13px;
             font-weight: bold;
+
             margin-bottom: 10px;
         }
 
         .answer-input {
             width: 100%;
+
             background: #070707;
             border: 1px solid #292929;
             border-radius: 7px;
+
             padding: 14px;
+
             color: white;
+
             outline: none;
+
             font-family: Consolas, Monaco, monospace;
             font-size: 14px;
+
             margin-bottom: 12px;
         }
 
         .answer-input:focus {
             border-color: #00ff88;
-            box-shadow: 0 0 15px rgba(0, 255, 136, 0.05);
+
+            box-shadow:
+                0 0 15px
+                rgba(0, 255, 136, 0.05);
         }
 
         .answer-input:disabled {
@@ -219,13 +241,19 @@
 
         .submit-btn {
             width: 100%;
+
             background: #00ff88;
             border: none;
+
             color: #050505;
+
             padding: 14px;
+
             border-radius: 7px;
+
             font-weight: bold;
             cursor: pointer;
+
             font-size: 13px;
         }
 
@@ -240,10 +268,14 @@
 
         .message {
             margin-top: 15px;
+
             padding: 13px;
+
             border-radius: 7px;
+
             font-size: 13px;
             line-height: 1.5;
+
             display: none;
         }
 
@@ -254,31 +286,88 @@
         }
 
         .message.error {
-            background: rgba(255, 107, 107, 0.08);
-            border: 1px solid rgba(255, 107, 107, 0.25);
+            background:
+                rgba(
+                    255,
+                    107,
+                    107,
+                    0.08
+                );
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    107,
+                    107,
+                    0.25
+                );
+
             color: #ff6b6b;
         }
 
         .message.success {
-            background: rgba(0, 255, 136, 0.08);
-            border: 1px solid rgba(0, 255, 136, 0.25);
+            background:
+                rgba(
+                    0,
+                    255,
+                    136,
+                    0.08
+                );
+
+            border:
+                1px solid
+                rgba(
+                    0,
+                    255,
+                    136,
+                    0.25
+                );
+
             color: #00ff88;
         }
 
         .message.warning {
-            background: rgba(255, 209, 102, 0.08);
-            border: 1px solid rgba(255, 209, 102, 0.25);
+            background:
+                rgba(
+                    255,
+                    209,
+                    102,
+                    0.08
+                );
+
+            border:
+                1px solid
+                rgba(
+                    255,
+                    209,
+                    102,
+                    0.25
+                );
+
             color: #ffd166;
         }
 
         .solvers-overlay {
             position: fixed;
+
             inset: 0;
+
             display: none;
+
             align-items: center;
             justify-content: center;
+
             padding: 20px;
-            background: rgba(0, 0, 0, 0.75);
+
+            background:
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.75
+                );
+
             z-index: 1000;
         }
 
@@ -289,19 +378,34 @@
         .solvers-modal {
             width: 100%;
             max-width: 500px;
+
             max-height: 80vh;
+
             overflow: hidden;
+
             background: #0d0d0d;
+
             border: 1px solid #292929;
             border-radius: 12px;
-            box-shadow: 0 0 40px rgba(0, 255, 136, 0.08);
+
+            box-shadow:
+                0 0 40px
+                rgba(
+                    0,
+                    255,
+                    136,
+                    0.08
+                );
         }
 
         .solvers-header {
             display: flex;
+
             align-items: center;
             justify-content: space-between;
+
             padding: 20px;
+
             border-bottom: 1px solid #222;
         }
 
@@ -313,9 +417,13 @@
         .close-solvers {
             background: transparent;
             border: none;
+
             color: #777;
+
             font-size: 25px;
+
             cursor: pointer;
+
             line-height: 1;
         }
 
@@ -325,71 +433,102 @@
 
         .solvers-content {
             padding: 20px;
+
             max-height: 60vh;
+
             overflow-y: auto;
         }
 
         .solver-count {
             color: #777;
+
             font-size: 13px;
+
             margin-bottom: 15px;
         }
 
         .solver-list {
             display: flex;
+
             flex-direction: column;
+
             gap: 10px;
         }
 
         .solver-item {
             display: flex;
+
             align-items: center;
+
             gap: 12px;
+
             background: #080808;
+
             border: 1px solid #222;
+
             border-radius: 7px;
+
             padding: 12px 14px;
         }
 
         .solver-number {
             width: 28px;
             height: 28px;
+
             display: flex;
+
             align-items: center;
             justify-content: center;
+
             border-radius: 50%;
+
             background: #101010;
+
             border: 1px solid #333;
+
             color: #00ff88;
+
             font-size: 12px;
             font-weight: bold;
+
             flex-shrink: 0;
         }
 
         .solver-name {
             color: white;
+
             font-size: 14px;
+
             word-break: break-word;
         }
 
         .no-solvers {
             text-align: center;
+
             color: #777;
+
             padding: 30px 10px;
+
             line-height: 1.6;
         }
 
         .loading-solvers {
             text-align: center;
+
             color: #00ff88;
+
             padding: 30px 10px;
         }
 
         .not-found {
             text-align: center;
+
             padding: 60px 20px;
+
             background: #0d0d0d;
+
             border: 1px solid #222;
+
             border-radius: 12px;
         }
 
@@ -399,6 +538,7 @@
 
         .not-found p {
             color: #777;
+
             margin-bottom: 25px;
         }
 
@@ -418,6 +558,7 @@
 
             .challenge-title {
                 font-size: 26px;
+                padding-right: 85px;
             }
 
             .logo img {
@@ -431,12 +572,8 @@
             .solve-btn {
                 top: 18px;
                 right: 18px;
-                padding: 7px 12px;
-            }
 
-            .challenge-type,
-            .challenge-title {
-                padding-right: 85px;
+                padding: 7px 12px;
             }
 
             .solvers-modal {
@@ -450,6 +587,7 @@
 </head>
 
 <body>
+
 
 <nav class="navbar">
 
@@ -465,6 +603,7 @@
 
     </a>
 
+
     <a
         href="challenges.html"
         class="back-btn"
@@ -474,13 +613,17 @@
 
 </nav>
 
+
 <main class="container">
 
     <div id="challengeContainer">
+
         Loading challenge...
+
     </div>
 
 </main>
+
 
 <div
     id="solversOverlay"
@@ -505,6 +648,7 @@
 
         </div>
 
+
         <div
             id="solversContent"
             class="solvers-content"
@@ -520,6 +664,7 @@
 
 </div>
 
+
 <script type="module">
 
 import {
@@ -532,8 +677,10 @@ from
 const SUPABASE_URL =
     "https://borturaxifoxufixewya.supabase.co";
 
+
 const SUPABASE_KEY =
     "sb_publishable__lZmTM96oe10-rurqgrujg__ta_C4wr";
+
 
 const supabase =
     createClient(
@@ -547,15 +694,18 @@ const challengeContainer =
         "challengeContainer"
     );
 
+
 const solversOverlay =
     document.getElementById(
         "solversOverlay"
     );
 
+
 const solversContent =
     document.getElementById(
         "solversContent"
     );
+
 
 const closeSolvers =
     document.getElementById(
@@ -844,8 +994,10 @@ const params =
         window.location.search
     );
 
+
 const challengeId =
     params.get("id");
+
 
 const challenge =
     challenges[challengeId];
@@ -893,6 +1045,7 @@ else {
         challenge.title +
         " | 0X1GHOST";
 
+
     challengeContainer.innerHTML = `
 
         <div class="challenge-box">
@@ -905,29 +1058,31 @@ else {
                 SOLVE
             </button>
 
-            <div class="challenge-type">
-                ${escapeHTML(
-                    challenge.type
-                )}
-            </div>
 
             <h1 class="challenge-title">
+
                 ${escapeHTML(
                     challenge.title
                 )}
+
             </h1>
 
+
             <p class="challenge-description">
+
                 ${escapeHTML(
                     challenge.description
                 )}
+
             </p>
+
 
             <div class="encrypted-header">
 
                 <div class="section-title">
                     ENCRYPTED MESSAGE
                 </div>
+
 
                 <button
                     id="copyButton"
@@ -939,12 +1094,14 @@ else {
 
             </div>
 
+
             <div
                 id="encryptedMessage"
                 class="encrypted-message"
             >${escapeHTML(
                 challenge.encrypted
             )}</div>
+
 
             ${
                 challenge.hint
@@ -955,10 +1112,13 @@ else {
                         HINT
                     </div>
 
+
                     <div class="hint-box">
+
                         ${escapeHTML(
                             challenge.hint
                         )}
+
                     </div>
 
                 `
@@ -966,12 +1126,14 @@ else {
                 ""
             }
 
+
             <label
                 class="answer-label"
                 for="answer"
             >
                 SUBMIT FLAG
             </label>
+
 
             <input
                 id="answer"
@@ -982,6 +1144,7 @@ else {
                 spellcheck="false"
             >
 
+
             <button
                 id="submitButton"
                 class="submit-btn"
@@ -989,6 +1152,7 @@ else {
             >
                 SUBMIT ANSWER
             </button>
+
 
             <div
                 id="message"
@@ -1005,20 +1169,24 @@ else {
             "answer"
         );
 
+
     const submitButton =
         document.getElementById(
             "submitButton"
         );
+
 
     const messageElement =
         document.getElementById(
             "message"
         );
 
+
     const copyButton =
         document.getElementById(
             "copyButton"
         );
+
 
     const solveButton =
         document.getElementById(
@@ -1040,18 +1208,22 @@ else {
                     challenge.encrypted
                 );
 
+
                 copyButton.textContent =
                     "COPIED! ✓";
+
 
                 copyButton.classList.add(
                     "copied"
                 );
+
 
                 setTimeout(
                     function() {
 
                         copyButton.textContent =
                             "COPY";
+
 
                         copyButton.classList.remove(
                             "copied"
@@ -1069,8 +1241,10 @@ else {
                     error
                 );
 
+
                 copyButton.textContent =
                     "FAILED";
+
 
                 setTimeout(
                     function() {
@@ -1149,6 +1323,7 @@ else {
         submitButton.disabled =
             true;
 
+
         submitButton.textContent =
             "CHECKING...";
 
@@ -1174,11 +1349,14 @@ else {
                     "error"
                 );
 
+
                 submitButton.disabled =
                     false;
 
+
                 submitButton.textContent =
                     "SUBMIT ANSWER";
+
 
                 return;
 
@@ -1192,17 +1370,20 @@ else {
             await supabase.rpc(
                 "submit_challenge_answer",
                 {
+
                     p_challenge_id:
                         challengeId,
 
                     p_answer:
                         answer
+
                 }
             );
 
 
             submitButton.disabled =
                 false;
+
 
             submitButton.textContent =
                 "SUBMIT ANSWER";
@@ -1213,6 +1394,7 @@ else {
                 console.error(
                     error
                 );
+
 
                 showMessage(
                     error.message ||
@@ -1245,6 +1427,7 @@ else {
                     data.seconds_remaining ||
                     10;
 
+
                 showMessage(
                     data.message ||
                     "Too many attempts. Please wait " +
@@ -1253,9 +1436,11 @@ else {
                     "warning"
                 );
 
+
                 startCooldown(
                     seconds
                 );
+
 
                 return;
 
@@ -1284,8 +1469,10 @@ else {
             answerInput.disabled =
                 true;
 
+
             submitButton.disabled =
                 true;
+
 
             submitButton.textContent =
                 "SOLVED ✓";
@@ -1298,11 +1485,14 @@ else {
                 error
             );
 
+
             submitButton.disabled =
                 false;
 
+
             submitButton.textContent =
                 "SUBMIT ANSWER";
+
 
             showMessage(
                 "Connection error. Please try again.",
@@ -1324,6 +1514,7 @@ else {
             "active"
         );
 
+
         solversContent.innerHTML = `
 
             <div class="loading-solvers">
@@ -1331,6 +1522,7 @@ else {
             </div>
 
         `;
+
 
         solveButton.disabled =
             true;
@@ -1366,7 +1558,9 @@ else {
                 solversContent.innerHTML = `
 
                     <div class="no-solvers">
+
                         No one has solved this challenge yet.
+
                     </div>
 
                 `;
@@ -1377,14 +1571,18 @@ else {
 
 
             const userIds = [
+
                 ...new Set(
+
                     solves
                         .map(
                             solve =>
                                 solve.user_id
                         )
                         .filter(Boolean)
+
                 )
+
             ];
 
 
@@ -1395,7 +1593,9 @@ else {
                 solversContent.innerHTML = `
 
                     <div class="no-solvers">
+
                         No solvers found.
+
                     </div>
 
                 `;
@@ -1459,6 +1659,7 @@ else {
 
                 </div>
 
+
                 <div class="solver-list">
 
             `;
@@ -1482,13 +1683,18 @@ else {
                         <div class="solver-item">
 
                             <div class="solver-number">
+
                                 ${index + 1}
+
                             </div>
 
+
                             <div class="solver-name">
+
                                 ${escapeHTML(
                                     username
                                 )}
+
                             </div>
 
                         </div>
@@ -1500,7 +1706,9 @@ else {
 
 
             html += `
+
                 </div>
+
             `;
 
 
@@ -1514,6 +1722,7 @@ else {
             console.error(
                 error
             );
+
 
             solversContent.innerHTML = `
 
@@ -1612,8 +1821,10 @@ else {
         answerInput.disabled =
             true;
 
+
         submitButton.disabled =
             true;
+
 
         submitButton.textContent =
             `WAIT ${remaining}s`;
@@ -1634,14 +1845,18 @@ else {
                             timer
                         );
 
+
                         answerInput.disabled =
                             false;
+
 
                         submitButton.disabled =
                             false;
 
+
                         submitButton.textContent =
                             "SUBMIT ANSWER";
+
 
                         return;
 
@@ -1669,6 +1884,7 @@ else {
 
         messageElement.textContent =
             text;
+
 
         messageElement.className =
             "message " +
