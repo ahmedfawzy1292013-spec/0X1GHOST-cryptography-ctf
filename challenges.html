@@ -420,6 +420,7 @@ const SUPABASE_URL =
 const SUPABASE_KEY =
     "sb_publishable__lZmTM96oe10-rurqgrujg__ta_C4wr";
 
+
 const supabase =
     createClient(
         SUPABASE_URL,
@@ -514,9 +515,7 @@ async function loadChallenges() {
             challengeList.innerHTML = `
 
                 <div class="empty">
-
                     No challenges available.
-
                 </div>
 
             `;
