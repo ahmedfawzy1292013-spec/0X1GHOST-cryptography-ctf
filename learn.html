@@ -86,6 +86,8 @@
             align-items: center;
 
             gap: 15px;
+
+            flex-wrap: wrap;
         }
 
 
@@ -192,6 +194,11 @@
            LESSONS LIST
         ========================================= */
 
+        .lessons-list.hidden {
+            display: none;
+        }
+
+
         .lessons-grid {
             display: grid;
 
@@ -203,7 +210,7 @@
 
 
         /* =========================================
-           LESSON NOTE
+           LESSON CARD
         ========================================= */
 
         .lesson-card {
@@ -213,7 +220,7 @@
 
             width: 100%;
 
-            min-height: 190px;
+            min-height: 205px;
 
             padding: 25px;
 
@@ -363,11 +370,6 @@
         }
 
 
-        .lessons-list.hidden {
-            display: none;
-        }
-
-
         .lesson-header {
             margin-bottom: 30px;
         }
@@ -498,7 +500,7 @@
 
 
         /* =========================================
-           CODE / EXAMPLE
+           EXAMPLE BOX
         ========================================= */
 
         .example-box {
@@ -762,6 +764,25 @@
 
         }
 
+
+        @media (max-width: 500px) {
+
+            .nav-right {
+                gap: 10px;
+            }
+
+
+            .nav-link {
+                font-size: 11px;
+            }
+
+
+            .language-btn {
+                padding: 7px 10px;
+            }
+
+        }
+
     </style>
 
 </head>
@@ -914,6 +935,56 @@
             </article>
 
 
+
+            <!-- =================================
+                 ROT13 CARD
+            ================================== -->
+
+            <article
+                class="lesson-card"
+                data-lesson="rot13"
+                tabindex="0"
+                role="button"
+            >
+
+
+                <div class="card-icon">
+                    🔄
+                </div>
+
+
+                <div
+                    class="card-label"
+                    id="rot13CardLabel"
+                >
+                    CRYPTOGRAPHY
+                </div>
+
+
+                <h2
+                    class="card-title"
+                    id="rot13CardTitle"
+                >
+                    تعلم ROT13
+                </h2>
+
+
+                <p
+                    class="card-description"
+                    id="rot13CardDescription"
+                >
+                    تعلم كيف تعمل ROT13 ولماذا يمكن استخدام نفس العملية للتشفير وفك التشفير.
+                </p>
+
+
+                <div class="card-arrow">
+                    ←
+                </div>
+
+
+            </article>
+
+
         </div>
 
 
@@ -945,7 +1016,7 @@
             <a
                 href="#"
                 class="back-lessons"
-                id="backLessons"
+                data-back
             >
                 → العودة إلى الدروس
             </a>
@@ -953,7 +1024,7 @@
 
             <div
                 class="lesson-type"
-                id="lessonType"
+                id="caesarLessonType"
             >
                 CRYPTOGRAPHY
             </div>
@@ -961,7 +1032,7 @@
 
             <h1
                 class="lesson-main-title"
-                id="lessonMainTitle"
+                id="caesarLessonMainTitle"
             >
                 Caesar Cipher
             </h1>
@@ -969,7 +1040,7 @@
 
             <p
                 class="lesson-subtitle"
-                id="lessonSubtitle"
+                id="caesarLessonSubtitle"
             >
                 تعلم واحدة من أبسط وأشهر شفرات الاستبدال.
             </p>
@@ -982,14 +1053,12 @@
         <article class="lesson-content">
 
 
-            <!-- DEFINITION -->
-
-            <h2 id="definitionTitle">
+            <h2 id="caesarDefinitionTitle">
                 ما هي Caesar Cipher؟
             </h2>
 
 
-            <p id="definitionText">
+            <p id="caesarDefinitionText">
 
                 Caesar Cipher هي واحدة من أقدم وأبسط طرق
                 التشفير المعروفة. تعتمد على تحريك كل حرف
@@ -1003,7 +1072,7 @@
             <div class="info-box">
 
 
-                <strong id="ideaTitle">
+                <strong id="caesarIdeaTitle">
                     الفكرة الأساسية
                 </strong>
 
@@ -1011,7 +1080,7 @@
                 <br><br>
 
 
-                <span id="ideaText">
+                <span id="caesarIdeaText">
 
                     بدلًا من كتابة الحرف الأصلي، نكتب حرفًا
                     آخر يقع على مسافة محددة منه في الأبجدية.
@@ -1023,14 +1092,12 @@
 
 
 
-            <!-- HOW IT WORKS -->
-
-            <h2 id="howTitle">
+            <h2 id="caesarHowTitle">
                 كيف تعمل؟
             </h2>
 
 
-            <p id="howText">
+            <p id="caesarHowText">
 
                 لنفترض أننا اخترنا قيمة إزاحة مقدارها 3.
                 هذا يعني أن كل حرف سيتحرك ثلاثة أماكن إلى الأمام.
@@ -1044,7 +1111,7 @@
 
                 <div
                     class="example-label"
-                    id="shiftExampleLabel"
+                    id="caesarShiftExampleLabel"
                 >
                     SHIFT = 3
                 </div>
@@ -1064,14 +1131,12 @@
 
 
 
-            <!-- MESSAGE EXAMPLE -->
-
-            <h2 id="messageTitle">
+            <h2 id="caesarMessageTitle">
                 مثال على رسالة
             </h2>
 
 
-            <p id="messageText">
+            <p id="caesarMessageText">
 
                 إذا كانت الرسالة الأصلية:
 
@@ -1089,7 +1154,7 @@
             </div>
 
 
-            <p id="encryptedText">
+            <p id="caesarEncryptedText">
 
                 باستخدام إزاحة مقدارها 3 تصبح:
 
@@ -1108,9 +1173,7 @@
 
 
 
-            <!-- STEPS -->
-
-            <h2 id="stepsTitle">
+            <h2 id="caesarStepsTitle">
                 خطوات التشفير
             </h2>
 
@@ -1120,59 +1183,50 @@
 
                 <div class="step">
 
-
                     <div class="step-number">
                         1
                     </div>
 
-
                     <div
                         class="step-text"
-                        id="step1"
+                        id="caesarStep1"
                     >
                         اختر قيمة الإزاحة.
                     </div>
-
 
                 </div>
 
 
 
                 <div class="step">
-
 
                     <div class="step-number">
                         2
                     </div>
 
-
                     <div
                         class="step-text"
-                        id="step2"
+                        id="caesarStep2"
                     >
                         خذ كل حرف من الرسالة الأصلية.
                     </div>
-
 
                 </div>
 
 
 
                 <div class="step">
-
 
                     <div class="step-number">
                         3
                     </div>
 
-
                     <div
                         class="step-text"
-                        id="step3"
+                        id="caesarStep3"
                     >
                         حرّك الحرف إلى الأمام بعدد المواقع المحدد.
                     </div>
-
 
                 </div>
 
@@ -1180,19 +1234,16 @@
 
                 <div class="step">
 
-
                     <div class="step-number">
                         4
                     </div>
 
-
                     <div
                         class="step-text"
-                        id="step4"
+                        id="caesarStep4"
                     >
                         إذا وصلت إلى نهاية الأبجدية، ارجع إلى بدايتها.
                     </div>
-
 
                 </div>
 
@@ -1201,9 +1252,7 @@
 
 
 
-            <!-- ALPHABET -->
-
-            <h2 id="alphabetTitle">
+            <h2 id="caesarAlphabetTitle">
                 مثال على الأبجدية
             </h2>
 
@@ -1218,11 +1267,11 @@
 
                         <tr>
 
-                            <th id="originalHeader">
+                            <th id="caesarOriginalHeader">
                                 الأصلية
                             </th>
 
-                            <th id="encryptedHeader">
+                            <th id="caesarEncryptedHeader">
                                 بعد الإزاحة +3
                             </th>
 
@@ -1255,14 +1304,12 @@
 
 
 
-            <!-- DECRYPT -->
-
-            <h2 id="decryptTitle">
+            <h2 id="caesarDecryptTitle">
                 كيف نفك التشفير؟
             </h2>
 
 
-            <p id="decryptText">
+            <p id="caesarDecryptText">
 
                 لفك تشفير Caesar Cipher نستخدم العملية
                 العكسية. بدلًا من تحريك الحروف إلى الأمام،
@@ -1277,7 +1324,7 @@
 
                 <div
                     class="example-label"
-                    id="decryptExampleLabel"
+                    id="caesarDecryptExampleLabel"
                 >
                     DECRYPT
                 </div>
@@ -1292,12 +1339,10 @@
 
 
 
-            <!-- IMPORTANT -->
-
             <div class="warning-box">
 
 
-                <strong id="importantTitle">
+                <strong id="caesarImportantTitle">
                     ملاحظة مهمة
                 </strong>
 
@@ -1305,7 +1350,7 @@
                 <br><br>
 
 
-                <span id="importantText">
+                <span id="caesarImportantText">
 
                     Caesar Cipher ليست طريقة تشفير قوية
                     للاستخدام الحقيقي، لأنها تحتوي على عدد
@@ -1321,11 +1366,477 @@
         </article>
 
 
+        <div class="footer">
+            0X1GHOST — LEARN CRYPTOGRAPHY
+        </div>
 
-        <div
-            class="footer"
-            id="lessonFooter"
-        >
+
+    </section>
+
+
+
+    <!-- =====================================
+         ROT13 LESSON
+    ====================================== -->
+
+    <section
+        id="rot13Lesson"
+        class="lesson-view"
+    >
+
+
+        <header class="lesson-header">
+
+
+            <a
+                href="#"
+                class="back-lessons"
+                data-back
+            >
+                → العودة إلى الدروس
+            </a>
+
+
+            <div
+                class="lesson-type"
+                id="rot13LessonType"
+            >
+                CRYPTOGRAPHY
+            </div>
+
+
+            <h1
+                class="lesson-main-title"
+                id="rot13LessonMainTitle"
+            >
+                ROT13
+            </h1>
+
+
+            <p
+                class="lesson-subtitle"
+                id="rot13LessonSubtitle"
+            >
+                تعرف على ROT13، وهي طريقة تعتمد على تدوير حروف الأبجدية بمقدار 13 مكانًا.
+            </p>
+
+
+        </header>
+
+
+
+        <article class="lesson-content">
+
+
+            <h2 id="rot13DefinitionTitle">
+                ما هي ROT13؟
+            </h2>
+
+
+            <p id="rot13DefinitionText">
+
+                ROT13 هي طريقة بسيطة لتحويل النص تعتمد على
+                تدوير كل حرف إنجليزي بمقدار 13 مكانًا داخل
+                الأبجدية. اسم ROT13 يعني Rotation 13، أي
+                تدوير بمقدار 13.
+
+            </p>
+
+
+
+            <div class="info-box">
+
+
+                <strong id="rot13IdeaTitle">
+                    الفكرة الأساسية
+                </strong>
+
+
+                <br><br>
+
+
+                <span id="rot13IdeaText">
+
+                    الأبجدية الإنجليزية تحتوي على 26 حرفًا.
+                    عند تحريك كل حرف 13 مكانًا، تحصل على الحرف
+                    المقابل له في النصف الآخر من الأبجدية.
+
+                </span>
+
+
+            </div>
+
+
+
+            <h2 id="rot13HowTitle">
+                كيف تعمل؟
+            </h2>
+
+
+            <p id="rot13HowText">
+
+                نقسم الأبجدية إلى مجموعتين، كل مجموعة تحتوي
+                على 13 حرفًا. ثم نطابق كل حرف من المجموعة
+                الأولى مع الحرف المقابل له في المجموعة الثانية.
+
+            </p>
+
+
+
+            <div class="example-box">
+
+
+                <div
+                    class="example-label"
+                    id="rot13AlphabetLabel"
+                >
+                    ROT13 ALPHABET
+                </div>
+
+
+                <div class="example-code">
+
+                    ABCDEFGHIJKLM<br>
+                    NOPQRSTUVWXYZ
+
+                </div>
+
+
+            </div>
+
+
+
+            <h2 id="rot13ExampleTitle">
+                مثال بسيط
+            </h2>
+
+
+            <p id="rot13ExampleText">
+
+                إذا كانت الرسالة الأصلية:
+
+            </p>
+
+
+
+            <div class="example-box">
+
+
+                <div class="example-code">
+                    HELLO
+                </div>
+
+
+            </div>
+
+
+
+            <p id="rot13EncryptedText">
+
+                بعد تطبيق ROT13 تصبح:
+
+            </p>
+
+
+
+            <div class="example-box">
+
+
+                <div class="example-code">
+                    URYYB
+                </div>
+
+
+            </div>
+
+
+
+            <h2 id="rot13StepsTitle">
+                خطوات ROT13
+            </h2>
+
+
+            <div class="steps">
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        1
+                    </div>
+
+                    <div
+                        class="step-text"
+                        id="rot13Step1"
+                    >
+                        خذ الحرف من الرسالة.
+                    </div>
+
+                </div>
+
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        2
+                    </div>
+
+                    <div
+                        class="step-text"
+                        id="rot13Step2"
+                    >
+                        حرّك الحرف 13 مكانًا إلى الأمام.
+                    </div>
+
+                </div>
+
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        3
+                    </div>
+
+                    <div
+                        class="step-text"
+                        id="rot13Step3"
+                    >
+                        إذا تجاوزت نهاية الأبجدية، أكمل من بدايتها.
+                    </div>
+
+                </div>
+
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        4
+                    </div>
+
+                    <div
+                        class="step-text"
+                        id="rot13Step4"
+                    >
+                        كرر العملية مع جميع الحروف.
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+
+            <h2 id="rot13MappingTitle">
+                أمثلة على تحويل الحروف
+            </h2>
+
+
+
+            <div class="table-wrapper">
+
+
+                <table>
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th id="rot13OriginalHeader">
+                                الحرف الأصلي
+                            </th>
+
+                            <th id="rot13ResultHeader">
+                                ROT13
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                A
+                            </td>
+
+                            <td>
+                                N
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                B
+                            </td>
+
+                            <td>
+                                O
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                C
+                            </td>
+
+                            <td>
+                                P
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                H
+                            </td>
+
+                            <td>
+                                U
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                N
+                            </td>
+
+                            <td>
+                                A
+                            </td>
+
+                        </tr>
+
+
+                        <tr>
+
+                            <td>
+                                Z
+                            </td>
+
+                            <td>
+                                M
+                            </td>
+
+                        </tr>
+
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+
+            <h2 id="rot13DecryptTitle">
+                كيف نفك ROT13؟
+            </h2>
+
+
+            <p id="rot13DecryptText">
+
+                المميز في ROT13 هو أن نفس العملية تستخدم
+                للتشفير وفك التشفير. إذا طبقت ROT13 مرة ثانية
+                على النص المشفر، تحصل على النص الأصلي.
+
+            </p>
+
+
+
+            <div class="example-box">
+
+
+                <div
+                    class="example-label"
+                    id="rot13DecryptExampleLabel"
+                >
+                    DECRYPT
+                </div>
+
+
+                <div class="example-code">
+                    URYYB → HELLO
+                </div>
+
+
+            </div>
+
+
+
+            <div class="info-box">
+
+
+                <strong id="rot13DoubleTitle">
+                    ROT13 مرتين
+                </strong>
+
+
+                <br><br>
+
+
+                <span id="rot13DoubleText">
+
+                    تطبيق ROT13 مرتين يعيد النص إلى حالته
+                    الأصلية، لأن 13 + 13 = 26، وعدد حروف
+                    الأبجدية الإنجليزية هو 26.
+
+                </span>
+
+
+            </div>
+
+
+
+            <div class="warning-box">
+
+
+                <strong id="rot13ImportantTitle">
+                    ملاحظة مهمة
+                </strong>
+
+
+                <br><br>
+
+
+                <span id="rot13ImportantText">
+
+                    ROT13 ليست تشفيرًا آمنًا لحماية المعلومات
+                    الحساسة. هي طريقة تحويل بسيطة ومعروفة،
+                    ويمكن لأي شخص يعرف ROT13 فك النص بسهولة.
+                    لذلك تستخدم أساسًا للتعلم أو لإخفاء نص
+                    بشكل بسيط وليس للحماية الأمنية الحقيقية.
+
+                </span>
+
+
+            </div>
+
+
+        </article>
+
+
+        <div class="footer">
             0X1GHOST — LEARN CRYPTOGRAPHY
         </div>
 
@@ -1356,11 +1867,16 @@ const languageButton =
 const translations = {
 
 
+    /* =====================================
+       ARABIC
+    ===================================== */
+
     ar: {
 
         direction: "rtl",
 
-        languageButton: "ENGLISH",
+        languageButton:
+            "ENGLISH",
 
         dashboard:
             "← DASHBOARD",
@@ -1374,6 +1890,9 @@ const translations = {
         pageDescription:
             "اختر درسًا لقراءة الشرح وتعلم أساسيات التشفير.",
 
+
+        /* CAESAR CARD */
+
         caesarCardLabel:
             "CRYPTOGRAPHY",
 
@@ -1383,89 +1902,199 @@ const translations = {
         caesarCardDescription:
             "تعرف على فكرة Caesar Cipher وكيفية التشفير وفك التشفير باستخدام الإزاحة.",
 
+
+        /* ROT13 CARD */
+
+        rot13CardLabel:
+            "CRYPTOGRAPHY",
+
+        rot13CardTitle:
+            "تعلم ROT13",
+
+        rot13CardDescription:
+            "تعلم كيف تعمل ROT13 ولماذا يمكن استخدام نفس العملية للتشفير وفك التشفير.",
+
+
+        /* GENERAL */
+
         backLessons:
             "→ العودة إلى الدروس",
 
-        lessonType:
+
+        /* CAESAR */
+
+        caesarLessonType:
             "CRYPTOGRAPHY",
 
-        lessonMainTitle:
+        caesarLessonMainTitle:
             "Caesar Cipher",
 
-        lessonSubtitle:
+        caesarLessonSubtitle:
             "تعلم واحدة من أبسط وأشهر شفرات الاستبدال.",
 
-        definitionTitle:
+        caesarDefinitionTitle:
             "ما هي Caesar Cipher؟",
 
-        definitionText:
+        caesarDefinitionText:
             "Caesar Cipher هي واحدة من أقدم وأبسط طرق التشفير المعروفة. تعتمد على تحريك كل حرف في الرسالة عددًا ثابتًا من المواقع داخل الأبجدية.",
 
-        ideaTitle:
+        caesarIdeaTitle:
             "الفكرة الأساسية",
 
-        ideaText:
+        caesarIdeaText:
             "بدلًا من كتابة الحرف الأصلي، نكتب حرفًا آخر يقع على مسافة محددة منه في الأبجدية.",
 
-        howTitle:
+        caesarHowTitle:
             "كيف تعمل؟",
 
-        howText:
+        caesarHowText:
             "لنفترض أننا اخترنا قيمة إزاحة مقدارها 3. هذا يعني أن كل حرف سيتحرك ثلاثة أماكن إلى الأمام.",
 
-        messageTitle:
+        caesarMessageTitle:
             "مثال على رسالة",
 
-        messageText:
+        caesarMessageText:
             "إذا كانت الرسالة الأصلية:",
 
-        encryptedText:
+        caesarEncryptedText:
             "باستخدام إزاحة مقدارها 3 تصبح:",
 
-        stepsTitle:
+        caesarStepsTitle:
             "خطوات التشفير",
 
-        step1:
+        caesarStep1:
             "اختر قيمة الإزاحة.",
 
-        step2:
+        caesarStep2:
             "خذ كل حرف من الرسالة الأصلية.",
 
-        step3:
+        caesarStep3:
             "حرّك الحرف إلى الأمام بعدد المواقع المحدد.",
 
-        step4:
+        caesarStep4:
             "إذا وصلت إلى نهاية الأبجدية، ارجع إلى بدايتها.",
 
-        alphabetTitle:
+        caesarAlphabetTitle:
             "مثال على الأبجدية",
 
-        originalHeader:
+        caesarOriginalHeader:
             "الأصلية",
 
-        encryptedHeader:
+        caesarEncryptedHeader:
             "بعد الإزاحة +3",
 
-        decryptTitle:
+        caesarDecryptTitle:
             "كيف نفك التشفير؟",
 
-        decryptText:
+        caesarDecryptText:
             "لفك تشفير Caesar Cipher نستخدم العملية العكسية. بدلًا من تحريك الحروف إلى الأمام، نحركها إلى الخلف بنفس قيمة الإزاحة.",
 
-        decryptExampleLabel:
+        caesarDecryptExampleLabel:
             "DECRYPT",
 
-        importantTitle:
+        caesarImportantTitle:
             "ملاحظة مهمة",
 
-        importantText:
+        caesarImportantText:
             "Caesar Cipher ليست طريقة تشفير قوية للاستخدام الحقيقي، لأنها تحتوي على عدد محدود من الإزاحات ويمكن تجربة الاحتمالات بسهولة. لكنها ممتازة لتعلم أساسيات التشفير.",
+
+
+        /* ROT13 */
+
+        rot13LessonType:
+            "CRYPTOGRAPHY",
+
+        rot13LessonMainTitle:
+            "ROT13",
+
+        rot13LessonSubtitle:
+            "تعرف على ROT13، وهي طريقة تعتمد على تدوير حروف الأبجدية بمقدار 13 مكانًا.",
+
+        rot13DefinitionTitle:
+            "ما هي ROT13؟",
+
+        rot13DefinitionText:
+            "ROT13 هي طريقة بسيطة لتحويل النص تعتمد على تدوير كل حرف إنجليزي بمقدار 13 مكانًا داخل الأبجدية. اسم ROT13 يعني Rotation 13، أي تدوير بمقدار 13.",
+
+        rot13IdeaTitle:
+            "الفكرة الأساسية",
+
+        rot13IdeaText:
+            "الأبجدية الإنجليزية تحتوي على 26 حرفًا. عند تحريك كل حرف 13 مكانًا، تحصل على الحرف المقابل له في النصف الآخر من الأبجدية.",
+
+        rot13HowTitle:
+            "كيف تعمل؟",
+
+        rot13HowText:
+            "نقسم الأبجدية إلى مجموعتين، كل مجموعة تحتوي على 13 حرفًا. ثم نطابق كل حرف من المجموعة الأولى مع الحرف المقابل له في المجموعة الثانية.",
+
+        rot13AlphabetLabel:
+            "ROT13 ALPHABET",
+
+        rot13ExampleTitle:
+            "مثال بسيط",
+
+        rot13ExampleText:
+            "إذا كانت الرسالة الأصلية:",
+
+        rot13EncryptedText:
+            "بعد تطبيق ROT13 تصبح:",
+
+        rot13StepsTitle:
+            "خطوات ROT13",
+
+        rot13Step1:
+            "خذ الحرف من الرسالة.",
+
+        rot13Step2:
+            "حرّك الحرف 13 مكانًا إلى الأمام.",
+
+        rot13Step3:
+            "إذا تجاوزت نهاية الأبجدية، أكمل من بدايتها.",
+
+        rot13Step4:
+            "كرر العملية مع جميع الحروف.",
+
+        rot13MappingTitle:
+            "أمثلة على تحويل الحروف",
+
+        rot13OriginalHeader:
+            "الحرف الأصلي",
+
+        rot13ResultHeader:
+            "ROT13",
+
+        rot13DecryptTitle:
+            "كيف نفك ROT13؟",
+
+        rot13DecryptText:
+            "المميز في ROT13 هو أن نفس العملية تستخدم للتشفير وفك التشفير. إذا طبقت ROT13 مرة ثانية على النص المشفر، تحصل على النص الأصلي.",
+
+        rot13DecryptExampleLabel:
+            "DECRYPT",
+
+        rot13DoubleTitle:
+            "ROT13 مرتين",
+
+        rot13DoubleText:
+            "تطبيق ROT13 مرتين يعيد النص إلى حالته الأصلية، لأن 13 + 13 = 26، وعدد حروف الأبجدية الإنجليزية هو 26.",
+
+        rot13ImportantTitle:
+            "ملاحظة مهمة",
+
+        rot13ImportantText:
+            "ROT13 ليست تشفيرًا آمنًا لحماية المعلومات الحساسة. هي طريقة تحويل بسيطة ومعروفة، ويمكن لأي شخص يعرف ROT13 فك النص بسهولة. لذلك تستخدم أساسًا للتعلم أو لإخفاء نص بشكل بسيط وليس للحماية الأمنية الحقيقية.",
+
 
         footer:
             "0X1GHOST — LEARN CRYPTOGRAPHY"
 
     },
 
+
+    /* =====================================
+       ENGLISH
+    ===================================== */
 
     en: {
 
@@ -1486,6 +2115,9 @@ const translations = {
         pageDescription:
             "Choose a lesson to read the explanation and learn cryptography fundamentals.",
 
+
+        /* CAESAR CARD */
+
         caesarCardLabel:
             "CRYPTOGRAPHY",
 
@@ -1495,83 +2127,189 @@ const translations = {
         caesarCardDescription:
             "Learn how Caesar Cipher works and how to encrypt and decrypt messages using a shift.",
 
+
+        /* ROT13 CARD */
+
+        rot13CardLabel:
+            "CRYPTOGRAPHY",
+
+        rot13CardTitle:
+            "Learn ROT13",
+
+        rot13CardDescription:
+            "Learn how ROT13 works and why the same operation can be used for both encryption and decryption.",
+
+
+        /* GENERAL */
+
         backLessons:
             "← BACK TO LESSONS",
 
-        lessonType:
+
+        /* CAESAR */
+
+        caesarLessonType:
             "CRYPTOGRAPHY",
 
-        lessonMainTitle:
+        caesarLessonMainTitle:
             "Caesar Cipher",
 
-        lessonSubtitle:
+        caesarLessonSubtitle:
             "Learn one of the simplest and most famous substitution ciphers.",
 
-        definitionTitle:
+        caesarDefinitionTitle:
             "What is Caesar Cipher?",
 
-        definitionText:
+        caesarDefinitionText:
             "Caesar Cipher is one of the oldest and simplest known encryption methods. It works by shifting every letter in a message by a fixed number of positions through the alphabet.",
 
-        ideaTitle:
+        caesarIdeaTitle:
             "The Basic Idea",
 
-        ideaText:
+        caesarIdeaText:
             "Instead of writing the original letter, we replace it with another letter located a fixed distance away in the alphabet.",
 
-        howTitle:
+        caesarHowTitle:
             "How Does It Work?",
 
-        howText:
+        caesarHowText:
             "Let's say we choose a shift value of 3. This means every letter moves three positions forward.",
 
-        messageTitle:
+        caesarMessageTitle:
             "Message Example",
 
-        messageText:
+        caesarMessageText:
             "If the original message is:",
 
-        encryptedText:
+        caesarEncryptedText:
             "Using a shift of 3, it becomes:",
 
-        stepsTitle:
+        caesarStepsTitle:
             "Encryption Steps",
 
-        step1:
+        caesarStep1:
             "Choose a shift value.",
 
-        step2:
+        caesarStep2:
             "Take each letter from the original message.",
 
-        step3:
+        caesarStep3:
             "Move the letter forward by the selected number of positions.",
 
-        step4:
+        caesarStep4:
             "If you reach the end of the alphabet, continue again from the beginning.",
 
-        alphabetTitle:
+        caesarAlphabetTitle:
             "Alphabet Example",
 
-        originalHeader:
+        caesarOriginalHeader:
             "Original",
 
-        encryptedHeader:
+        caesarEncryptedHeader:
             "After Shift +3",
 
-        decryptTitle:
+        caesarDecryptTitle:
             "How Do We Decrypt It?",
 
-        decryptText:
+        caesarDecryptText:
             "To decrypt a Caesar Cipher, we perform the opposite operation. Instead of shifting the letters forward, we shift them backward by the same amount.",
 
-        decryptExampleLabel:
+        caesarDecryptExampleLabel:
             "DECRYPT",
 
-        importantTitle:
+        caesarImportantTitle:
             "Important Note",
 
-        importantText:
+        caesarImportantText:
             "Caesar Cipher is not a strong encryption method for real-world security because it has a limited number of possible shifts, making it easy to try every possibility. However, it is excellent for learning the basics of cryptography.",
+
+
+        /* ROT13 */
+
+        rot13LessonType:
+            "CRYPTOGRAPHY",
+
+        rot13LessonMainTitle:
+            "ROT13",
+
+        rot13LessonSubtitle:
+            "Learn ROT13, a simple method that rotates letters through the alphabet by 13 positions.",
+
+        rot13DefinitionTitle:
+            "What is ROT13?",
+
+        rot13DefinitionText:
+            "ROT13 is a simple text transformation method that rotates every English letter by 13 positions through the alphabet. The name ROT13 means Rotation 13.",
+
+        rot13IdeaTitle:
+            "The Basic Idea",
+
+        rot13IdeaText:
+            "The English alphabet contains 26 letters. When every letter is shifted by 13 positions, it becomes the corresponding letter in the other half of the alphabet.",
+
+        rot13HowTitle:
+            "How Does It Work?",
+
+        rot13HowText:
+            "We divide the alphabet into two groups of 13 letters and match each letter in the first group with the corresponding letter in the second group.",
+
+        rot13AlphabetLabel:
+            "ROT13 ALPHABET",
+
+        rot13ExampleTitle:
+            "Simple Example",
+
+        rot13ExampleText:
+            "If the original message is:",
+
+        rot13EncryptedText:
+            "After applying ROT13, it becomes:",
+
+        rot13StepsTitle:
+            "ROT13 Steps",
+
+        rot13Step1:
+            "Take a letter from the message.",
+
+        rot13Step2:
+            "Move the letter 13 positions forward.",
+
+        rot13Step3:
+            "If you pass the end of the alphabet, continue from the beginning.",
+
+        rot13Step4:
+            "Repeat the process for every letter.",
+
+        rot13MappingTitle:
+            "Letter Conversion Examples",
+
+        rot13OriginalHeader:
+            "Original Letter",
+
+        rot13ResultHeader:
+            "ROT13",
+
+        rot13DecryptTitle:
+            "How Do We Decrypt ROT13?",
+
+        rot13DecryptText:
+            "The interesting thing about ROT13 is that the same operation is used for both encryption and decryption. If you apply ROT13 a second time to the encrypted text, you get the original text back.",
+
+        rot13DecryptExampleLabel:
+            "DECRYPT",
+
+        rot13DoubleTitle:
+            "ROT13 Twice",
+
+        rot13DoubleText:
+            "Applying ROT13 twice returns the text to its original form because 13 + 13 = 26, and the English alphabet contains 26 letters.",
+
+        rot13ImportantTitle:
+            "Important Note",
+
+        rot13ImportantText:
+            "ROT13 is not secure encryption for protecting sensitive information. It is a simple and well-known transformation that can be easily reversed by anyone who knows ROT13. It is mainly useful for learning or lightly obscuring text, not for real security.",
+
 
         footer:
             "0X1GHOST — LEARN CRYPTOGRAPHY"
@@ -1597,15 +2335,27 @@ const caesarLesson =
     );
 
 
+const rot13Lesson =
+    document.getElementById(
+        "rot13Lesson"
+    );
+
+
 const caesarCard =
     document.querySelector(
         '[data-lesson="caesar"]'
     );
 
 
-const backLessons =
-    document.getElementById(
-        "backLessons"
+const rot13Card =
+    document.querySelector(
+        '[data-lesson="rot13"]'
+    );
+
+
+const backButtons =
+    document.querySelectorAll(
+        "[data-back]"
     );
 
 
@@ -1613,25 +2363,51 @@ const backLessons =
    OPEN LESSON
 ========================================= */
 
-function openLesson() {
+function openLesson(lesson) {
 
     lessonsList.classList.add(
         "hidden"
     );
 
-    caesarLesson.classList.add(
+
+    caesarLesson.classList.remove(
         "active"
     );
+
+
+    rot13Lesson.classList.remove(
+        "active"
+    );
+
+
+    if (lesson === "caesar") {
+
+        caesarLesson.classList.add(
+            "active"
+        );
+
+    }
+
+
+    if (lesson === "rot13") {
+
+        rot13Lesson.classList.add(
+            "active"
+        );
+
+    }
+
 
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
 
+
     history.replaceState(
         null,
         "",
-        "#caesar"
+        "#" + lesson
     );
 
 }
@@ -1647,14 +2423,22 @@ function closeLesson() {
         "active"
     );
 
+
+    rot13Lesson.classList.remove(
+        "active"
+    );
+
+
     lessonsList.classList.remove(
         "hidden"
     );
+
 
     window.scrollTo({
         top: 0,
         behavior: "smooth"
     });
+
 
     history.replaceState(
         null,
@@ -1671,7 +2455,21 @@ function closeLesson() {
 
 caesarCard.addEventListener(
     "click",
-    openLesson
+    function() {
+
+        openLesson("caesar");
+
+    }
+);
+
+
+rot13Card.addEventListener(
+    "click",
+    function() {
+
+        openLesson("rot13");
+
+    }
 );
 
 
@@ -1690,7 +2488,26 @@ caesarCard.addEventListener(
 
             event.preventDefault();
 
-            openLesson();
+            openLesson("caesar");
+
+        }
+
+    }
+);
+
+
+rot13Card.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Enter" ||
+            event.key === " "
+        ) {
+
+            event.preventDefault();
+
+            openLesson("rot13");
 
         }
 
@@ -1699,16 +2516,22 @@ caesarCard.addEventListener(
 
 
 /* =========================================
-   BACK
+   BACK BUTTONS
 ========================================= */
 
-backLessons.addEventListener(
-    "click",
-    function(event) {
+backButtons.forEach(
+    function(button) {
 
-        event.preventDefault();
+        button.addEventListener(
+            "click",
+            function(event) {
 
-        closeLesson();
+                event.preventDefault();
+
+                closeLesson();
+
+            }
+        );
 
     }
 );
@@ -1720,24 +2543,41 @@ backLessons.addEventListener(
 
 function checkHash() {
 
-    if (
-        window.location.hash ===
-        "#caesar"
-    ) {
+    const hash =
+        window.location.hash.toLowerCase();
 
-        openLesson();
 
-    } else {
+    if (hash === "#caesar") {
 
-        caesarLesson.classList.remove(
-            "active"
-        );
+        openLesson("caesar");
 
-        lessonsList.classList.remove(
-            "hidden"
-        );
+        return;
 
     }
+
+
+    if (hash === "#rot13") {
+
+        openLesson("rot13");
+
+        return;
+
+    }
+
+
+    caesarLesson.classList.remove(
+        "active"
+    );
+
+
+    rot13Lesson.classList.remove(
+        "active"
+    );
+
+
+    lessonsList.classList.remove(
+        "hidden"
+    );
 
 }
 
@@ -1772,6 +2612,8 @@ function updateLanguage() {
         t.languageButton;
 
 
+    /* GENERAL */
+
     document.getElementById(
         "dashboardLink"
     ).textContent =
@@ -1797,6 +2639,14 @@ function updateLanguage() {
 
 
     document.getElementById(
+        "listFooter"
+    ).textContent =
+        t.footer;
+
+
+    /* CAESAR CARD */
+
+    document.getElementById(
         "caesarCardLabel"
     ).textContent =
         t.caesarCardLabel;
@@ -1814,172 +2664,358 @@ function updateLanguage() {
         t.caesarCardDescription;
 
 
-    document.getElementById(
-        "backLessons"
-    ).textContent =
-        t.backLessons;
-
+    /* ROT13 CARD */
 
     document.getElementById(
-        "lessonType"
+        "rot13CardLabel"
     ).textContent =
-        t.lessonType;
+        t.rot13CardLabel;
 
 
     document.getElementById(
-        "lessonMainTitle"
+        "rot13CardTitle"
     ).textContent =
-        t.lessonMainTitle;
+        t.rot13CardTitle;
 
 
     document.getElementById(
-        "lessonSubtitle"
+        "rot13CardDescription"
     ).textContent =
-        t.lessonSubtitle;
+        t.rot13CardDescription;
+
+
+    /* BACK BUTTONS */
+
+    backButtons.forEach(
+        function(button) {
+
+            button.textContent =
+                t.backLessons;
+
+        }
+    );
+
+
+    /* CAESAR LESSON */
+
+    document.getElementById(
+        "caesarLessonType"
+    ).textContent =
+        t.caesarLessonType;
 
 
     document.getElementById(
-        "definitionTitle"
+        "caesarLessonMainTitle"
     ).textContent =
-        t.definitionTitle;
+        t.caesarLessonMainTitle;
 
 
     document.getElementById(
-        "definitionText"
+        "caesarLessonSubtitle"
     ).textContent =
-        t.definitionText;
+        t.caesarLessonSubtitle;
 
 
     document.getElementById(
-        "ideaTitle"
+        "caesarDefinitionTitle"
     ).textContent =
-        t.ideaTitle;
+        t.caesarDefinitionTitle;
 
 
     document.getElementById(
-        "ideaText"
+        "caesarDefinitionText"
     ).textContent =
-        t.ideaText;
+        t.caesarDefinitionText;
 
 
     document.getElementById(
-        "howTitle"
+        "caesarIdeaTitle"
     ).textContent =
-        t.howTitle;
+        t.caesarIdeaTitle;
 
 
     document.getElementById(
-        "howText"
+        "caesarIdeaText"
     ).textContent =
-        t.howText;
+        t.caesarIdeaText;
 
 
     document.getElementById(
-        "messageTitle"
+        "caesarHowTitle"
     ).textContent =
-        t.messageTitle;
+        t.caesarHowTitle;
 
 
     document.getElementById(
-        "messageText"
+        "caesarHowText"
     ).textContent =
-        t.messageText;
+        t.caesarHowText;
 
 
     document.getElementById(
-        "encryptedText"
+        "caesarMessageTitle"
     ).textContent =
-        t.encryptedText;
+        t.caesarMessageTitle;
 
 
     document.getElementById(
-        "stepsTitle"
+        "caesarMessageText"
     ).textContent =
-        t.stepsTitle;
+        t.caesarMessageText;
 
 
     document.getElementById(
-        "step1"
+        "caesarEncryptedText"
     ).textContent =
-        t.step1;
+        t.caesarEncryptedText;
 
 
     document.getElementById(
-        "step2"
+        "caesarStepsTitle"
     ).textContent =
-        t.step2;
+        t.caesarStepsTitle;
 
 
     document.getElementById(
-        "step3"
+        "caesarStep1"
     ).textContent =
-        t.step3;
+        t.caesarStep1;
 
 
     document.getElementById(
-        "step4"
+        "caesarStep2"
     ).textContent =
-        t.step4;
+        t.caesarStep2;
 
 
     document.getElementById(
-        "alphabetTitle"
+        "caesarStep3"
     ).textContent =
-        t.alphabetTitle;
+        t.caesarStep3;
 
 
     document.getElementById(
-        "originalHeader"
+        "caesarStep4"
     ).textContent =
-        t.originalHeader;
+        t.caesarStep4;
 
 
     document.getElementById(
-        "encryptedHeader"
+        "caesarAlphabetTitle"
     ).textContent =
-        t.encryptedHeader;
+        t.caesarAlphabetTitle;
 
 
     document.getElementById(
-        "decryptTitle"
+        "caesarOriginalHeader"
     ).textContent =
-        t.decryptTitle;
+        t.caesarOriginalHeader;
 
 
     document.getElementById(
-        "decryptText"
+        "caesarEncryptedHeader"
     ).textContent =
-        t.decryptText;
+        t.caesarEncryptedHeader;
 
 
     document.getElementById(
-        "decryptExampleLabel"
+        "caesarDecryptTitle"
     ).textContent =
-        t.decryptExampleLabel;
+        t.caesarDecryptTitle;
 
 
     document.getElementById(
-        "importantTitle"
+        "caesarDecryptText"
     ).textContent =
-        t.importantTitle;
+        t.caesarDecryptText;
 
 
     document.getElementById(
-        "importantText"
+        "caesarDecryptExampleLabel"
     ).textContent =
-        t.importantText;
+        t.caesarDecryptExampleLabel;
 
 
     document.getElementById(
-        "listFooter"
+        "caesarImportantTitle"
     ).textContent =
-        t.footer;
+        t.caesarImportantTitle;
 
 
     document.getElementById(
-        "lessonFooter"
+        "caesarImportantText"
     ).textContent =
-        t.footer;
+        t.caesarImportantText;
+
+
+    /* ROT13 LESSON */
+
+    document.getElementById(
+        "rot13LessonType"
+    ).textContent =
+        t.rot13LessonType;
+
+
+    document.getElementById(
+        "rot13LessonMainTitle"
+    ).textContent =
+        t.rot13LessonMainTitle;
+
+
+    document.getElementById(
+        "rot13LessonSubtitle"
+    ).textContent =
+        t.rot13LessonSubtitle;
+
+
+    document.getElementById(
+        "rot13DefinitionTitle"
+    ).textContent =
+        t.rot13DefinitionTitle;
+
+
+    document.getElementById(
+        "rot13DefinitionText"
+    ).textContent =
+        t.rot13DefinitionText;
+
+
+    document.getElementById(
+        "rot13IdeaTitle"
+    ).textContent =
+        t.rot13IdeaTitle;
+
+
+    document.getElementById(
+        "rot13IdeaText"
+    ).textContent =
+        t.rot13IdeaText;
+
+
+    document.getElementById(
+        "rot13HowTitle"
+    ).textContent =
+        t.rot13HowTitle;
+
+
+    document.getElementById(
+        "rot13HowText"
+    ).textContent =
+        t.rot13HowText;
+
+
+    document.getElementById(
+        "rot13AlphabetLabel"
+    ).textContent =
+        t.rot13AlphabetLabel;
+
+
+    document.getElementById(
+        "rot13ExampleTitle"
+    ).textContent =
+        t.rot13ExampleTitle;
+
+
+    document.getElementById(
+        "rot13ExampleText"
+    ).textContent =
+        t.rot13ExampleText;
+
+
+    document.getElementById(
+        "rot13EncryptedText"
+    ).textContent =
+        t.rot13EncryptedText;
+
+
+    document.getElementById(
+        "rot13StepsTitle"
+    ).textContent =
+        t.rot13StepsTitle;
+
+
+    document.getElementById(
+        "rot13Step1"
+    ).textContent =
+        t.rot13Step1;
+
+
+    document.getElementById(
+        "rot13Step2"
+    ).textContent =
+        t.rot13Step2;
+
+
+    document.getElementById(
+        "rot13Step3"
+    ).textContent =
+        t.rot13Step3;
+
+
+    document.getElementById(
+        "rot13Step4"
+    ).textContent =
+        t.rot13Step4;
+
+
+    document.getElementById(
+        "rot13MappingTitle"
+    ).textContent =
+        t.rot13MappingTitle;
+
+
+    document.getElementById(
+        "rot13OriginalHeader"
+    ).textContent =
+        t.rot13OriginalHeader;
+
+
+    document.getElementById(
+        "rot13ResultHeader"
+    ).textContent =
+        t.rot13ResultHeader;
+
+
+    document.getElementById(
+        "rot13DecryptTitle"
+    ).textContent =
+        t.rot13DecryptTitle;
+
+
+    document.getElementById(
+        "rot13DecryptText"
+    ).textContent =
+        t.rot13DecryptText;
+
+
+    document.getElementById(
+        "rot13DecryptExampleLabel"
+    ).textContent =
+        t.rot13DecryptExampleLabel;
+
+
+    document.getElementById(
+        "rot13DoubleTitle"
+    ).textContent =
+        t.rot13DoubleTitle;
+
+
+    document.getElementById(
+        "rot13DoubleText"
+    ).textContent =
+        t.rot13DoubleText;
+
+
+    document.getElementById(
+        "rot13ImportantTitle"
+    ).textContent =
+        t.rot13ImportantTitle;
+
+
+    document.getElementById(
+        "rot13ImportantText"
+    ).textContent =
+        t.rot13ImportantText;
 
 }
 
@@ -2003,6 +3039,7 @@ languageButton.addEventListener(
             currentLanguage = "ar";
 
         }
+
 
         updateLanguage();
 
