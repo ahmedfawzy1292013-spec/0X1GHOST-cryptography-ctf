@@ -1,240 +1,250 @@
 <!DOCTYPE html>
-
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Dashboard | 0X1GHOST</title>
 
-    <link rel="icon" type="image/png" href="favicon.png">
+    <link
+        rel="icon"
+        type="image/png"
+        href="favicon.png"
+    >
 
-<style>
+    <style>
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
 
-body {
-    min-height: 100vh;
-    background: #050505;
-    color: white;
-}
+        body {
+            min-height: 100vh;
+            background: #050505;
+            color: white;
+        }
 
-.navbar {
-    min-height: 70px;
-    border-bottom: 1px solid #222;
-    background: #090909;
+        .navbar {
+            min-height: 70px;
+            border-bottom: 1px solid #222;
+            background: #090909;
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
 
-    padding: 12px 35px;
-    gap: 20px;
-}
+            padding: 12px 35px;
+            gap: 20px;
+        }
 
-.logo {
-    display: flex;
-    align-items: center;
-    text-decoration: none;
-}
+        .logo {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+        }
 
-.logo img {
-    display: block;
-    width: 150px;
-    height: auto;
-    max-height: 55px;
-    object-fit: contain;
-}
+        .logo img {
+            display: block;
+            width: 150px;
+            height: auto;
+            max-height: 55px;
+            object-fit: contain;
+        }
 
-.nav-right {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    flex-wrap: wrap;
-    justify-content: flex-end;
-}
+        .nav-right {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
 
-.nav-link {
-    color: #aaa;
-    text-decoration: none;
-    font-size: 13px;
-    font-weight: bold;
-    transition: 0.2s;
-}
+        .nav-link {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: bold;
+            transition: 0.2s;
+        }
 
-.nav-link:hover,
-.nav-link.active {
-    color: #00ff88;
-}
+        .nav-link:hover,
+        .nav-link.active {
+            color: #00ff88;
+        }
 
-.user-info {
-    color: #aaa;
-    font-size: 14px;
-}
+        .user-info {
+            color: #aaa;
+            font-size: 14px;
+        }
 
-.score {
-    color: #00ff88;
-    font-weight: bold;
-}
+        .score {
+            color: #00ff88;
+            font-weight: bold;
+        }
 
-.logout-btn {
-    background: transparent;
-    border: 1px solid #333;
-    color: #aaa;
-    padding: 9px 15px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: 0.2s;
-}
+        .logout-btn {
+            background: transparent;
+            border: 1px solid #333;
+            color: #aaa;
+            padding: 9px 15px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: 0.2s;
+        }
 
-.logout-btn:hover {
-    border-color: #ff6b6b;
-    color: #ff6b6b;
-}
+        .logout-btn:hover {
+            border-color: #ff6b6b;
+            color: #ff6b6b;
+        }
 
-.container {
-    width: 100%;
-    max-width: 1100px;
-    margin: auto;
-    padding: 55px 25px;
-}
+        .container {
+            width: 100%;
+            max-width: 1100px;
+            margin: auto;
+            padding: 55px 25px;
+        }
 
-.welcome {
-    margin-bottom: 35px;
-}
+        .welcome {
+            margin-bottom: 35px;
+        }
 
-.welcome h1 {
-    font-size: 32px;
-    margin-bottom: 10px;
-}
+        .welcome h1 {
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
 
-.welcome h1 span {
-    color: #00ff88;
-}
+        .welcome h1 span {
+            color: #00ff88;
+        }
 
-.welcome p {
-    color: #777;
-    line-height: 1.6;
-}
+        .welcome p {
+            color: #777;
+            line-height: 1.6;
+        }
 
-.stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 18px;
-    margin-bottom: 45px;
-}
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin-bottom: 45px;
+        }
 
-.stat-card {
-    background: #0d0d0d;
-    border: 1px solid #222;
-    border-radius: 10px;
-    padding: 25px;
-}
+        .stat-card {
+            background: #0d0d0d;
+            border: 1px solid #222;
+            border-radius: 10px;
+            padding: 25px;
+        }
 
-.stat-title {
-    color: #777;
-    font-size: 13px;
-    margin-bottom: 10px;
-}
+        .stat-title {
+            color: #777;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
 
-.stat-value {
-    font-size: 25px;
-    font-weight: bold;
-    color: #00ff88;
-}
+        .stat-value {
+            font-size: 25px;
+            font-weight: bold;
+            color: #00ff88;
+        }
 
-.challenge-box {
-    background: #0d0d0d;
-    border: 1px solid #222;
-    border-radius: 12px;
-    padding: 35px;
-    text-align: center;
-}
+        .challenge-box {
+            background: #0d0d0d;
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 35px;
+            text-align: center;
+        }
 
-.challenge-box h2 {
-    font-size: 26px;
-    margin-bottom: 12px;
-}
+        .challenge-box h2 {
+            font-size: 26px;
+            margin-bottom: 12px;
+        }
 
-.challenge-box p {
-    color: #777;
-    line-height: 1.6;
-    margin-bottom: 25px;
-}
+        .challenge-box p {
+            color: #777;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
 
-.go-btn {
-    display: inline-block;
-    background: #00ff88;
-    color: #050505;
-    text-decoration: none;
-    font-weight: bold;
-    padding: 13px 24px;
-    border-radius: 7px;
-    transition: 0.2s;
-}
+        .go-btn {
+            display: inline-block;
+            background: #00ff88;
+            color: #050505;
+            text-decoration: none;
+            font-weight: bold;
+            padding: 13px 24px;
+            border-radius: 7px;
+            transition: 0.2s;
+        }
 
-.go-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 0 25px rgba(0, 255, 136, 0.2);
-}
+        .go-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(0, 255, 136, 0.2);
+        }
 
-.error-message {
-    display: none;
-    margin-bottom: 25px;
-    padding: 15px;
-    border: 1px solid #ff6b6b;
-    border-radius: 7px;
-    color: #ff6b6b;
-    background: rgba(255, 107, 107, 0.08);
-}
+        .error-message {
+            display: none;
+            margin-bottom: 25px;
+            padding: 15px;
+            border: 1px solid #ff6b6b;
+            border-radius: 7px;
+            color: #ff6b6b;
+            background: rgba(255, 107, 107, 0.08);
+        }
 
-@media (max-width: 800px) {
+        @media (max-width: 800px) {
 
-    .navbar {
-        padding: 15px 18px;
-        flex-direction: column;
-        align-items: flex-start;
-    }
+            .navbar {
+                padding: 15px 18px;
+                flex-direction: column;
+                align-items: flex-start;
+            }
 
-    .nav-right {
-        width: 100%;
-        justify-content: flex-start;
-    }
+            .nav-right {
+                width: 100%;
+                justify-content: flex-start;
+            }
 
-    .stats {
-        grid-template-columns: 1fr;
-    }
+            .stats {
+                grid-template-columns: 1fr;
+            }
 
-    .logo img {
-        width: 135px;
-    }
-}
+            .logo img {
+                width: 135px;
+            }
 
-@media (max-width: 500px) {
+        }
 
-    .container {
-        padding: 35px 18px;
-    }
+        @media (max-width: 500px) {
 
-    .welcome h1 {
-        font-size: 26px;
-    }
+            .container {
+                padding: 35px 18px;
+            }
 
-    .user-info {
-        display: none;
-    }
+            .welcome h1 {
+                font-size: 26px;
+            }
 
-    .logo img {
-        width: 125px;
-    }
-}
+            .user-info {
+                display: none;
+            }
 
-</style>
+            .logo img {
+                width: 125px;
+            }
+
+        }
+
+    </style>
 
 </head>
 
@@ -242,126 +252,221 @@ body {
 
 <nav class="navbar">
 
-<a href="dashboard.html" class="logo">
-    <img src="logo.png" alt="0X1GHOST Logo">
-</a>
+    <a
+        href="dashboard.html"
+        class="logo"
+    >
 
-<div class="nav-right">
+        <img
+            src="logo.png"
+            alt="0X1GHOST Logo"
+        >
 
-    <a href="dashboard.html" class="nav-link active">
-        DASHBOARD
     </a>
 
-    <a href="challenges.html" class="nav-link">
-        CHALLENGES
-    </a>
 
-    <a href="scoreboard.html" class="nav-link">
-        SCOREBOARD
-    </a>
+    <div class="nav-right">
 
-    <a href="profile.html" class="nav-link">
-        MY PROFILE
-    </a>
+        <a
+            href="dashboard.html"
+            class="nav-link active"
+        >
+            DASHBOARD
+        </a>
 
-    <a href="rules.html" class="nav-link">
-        RULES
-    </a>
 
-    <div class="user-info">
-        Player:
-        <span id="username">Loading...</span>
+        <a
+            href="challenges.html"
+            class="nav-link"
+        >
+            CHALLENGES
+        </a>
+
+
+        <a
+            href="scoreboard.html"
+            class="nav-link"
+        >
+            SCOREBOARD
+        </a>
+
+
+        <!-- LEARN -->
+
+        <a
+            href="learn.html"
+            class="nav-link"
+        >
+            LEARN
+        </a>
+
+
+        <a
+            href="profile.html"
+            class="nav-link"
+        >
+            MY PROFILE
+        </a>
+
+
+        <a
+            href="rules.html"
+            class="nav-link"
+        >
+            RULES
+        </a>
+
+
+        <div class="user-info">
+
+            Player:
+
+            <span id="username">
+                Loading...
+            </span>
+
+        </div>
+
+
+        <div>
+
+            Score:
+
+            <span
+                class="score"
+                id="score"
+            >
+                0
+            </span>
+
+        </div>
+
+
+        <button
+            class="logout-btn"
+            id="logoutButton"
+            type="button"
+        >
+            LOGOUT
+        </button>
+
     </div>
-
-    <div>
-        Score:
-        <span class="score" id="score">0</span>
-    </div>
-
-    <button class="logout-btn" id="logoutButton">
-        LOGOUT
-    </button>
-
-</div>
 
 </nav>
 
+
 <main class="container">
 
-<div class="welcome">
+    <div class="welcome">
 
-    <h1>
-        Welcome,
-        <span id="welcomeUsername">Player</span>
-    </h1>
+        <h1>
 
-    <p>
-        Welcome to 0X1GHOST. Choose a challenge,
-        solve it, and climb the leaderboard.
-    </p>
+            Welcome,
 
-</div>
+            <span id="welcomeUsername">
+                Player
+            </span>
 
-<div id="errorMessage" class="error-message"></div>
+        </h1>
 
-<div class="stats">
 
-    <div class="stat-card">
+        <p>
 
-        <div class="stat-title">
-            SCORE
+            Welcome to 0X1GHOST.
+            Choose a challenge,
+            solve it, and climb the leaderboard.
+
+        </p>
+
+    </div>
+
+
+    <div
+        id="errorMessage"
+        class="error-message"
+    ></div>
+
+
+    <div class="stats">
+
+        <div class="stat-card">
+
+            <div class="stat-title">
+                SCORE
+            </div>
+
+            <div
+                class="stat-value"
+                id="scoreCard"
+            >
+                0
+            </div>
+
         </div>
 
-        <div class="stat-value" id="scoreCard">
-            0
+
+        <div class="stat-card">
+
+            <div class="stat-title">
+                CHALLENGES SOLVED
+            </div>
+
+            <div class="stat-value">
+
+                <span id="solved">
+                    0
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <div class="stat-card">
+
+            <div class="stat-title">
+                RANK
+            </div>
+
+            <div class="stat-value">
+
+                <span id="rank">
+                    -
+                </span>
+
+            </div>
+
         </div>
 
     </div>
 
-    <div class="stat-card">
 
-        <div class="stat-title">
-            CHALLENGES SOLVED
-        </div>
+    <div class="challenge-box">
 
-        <div class="stat-value">
-            <span id="solved">0</span>
-        </div>
+        <h2>
+            Ready for a challenge?
+        </h2>
+
+
+        <p>
+
+            Choose your difficulty level and select
+            the cryptography challenge you want to solve.
+
+        </p>
+
+
+        <a
+            href="challenges.html"
+            class="go-btn"
+        >
+            GO TO CHALLENGE →
+        </a>
 
     </div>
-
-    <div class="stat-card">
-
-        <div class="stat-title">
-            RANK
-        </div>
-
-        <div class="stat-value">
-            <span id="rank">-</span>
-        </div>
-
-    </div>
-
-</div>
-
-<div class="challenge-box">
-
-    <h2>
-        Ready for a challenge?
-    </h2>
-
-    <p>
-        Choose your difficulty level and select
-        the cryptography challenge you want to solve.
-    </p>
-
-    <a href="challenges.html" class="go-btn">
-        GO TO CHALLENGE →
-    </a>
-
-</div>
 
 </main>
+
 
 <script type="module">
 
@@ -375,8 +480,10 @@ from
 const SUPABASE_URL =
     "https://borturaxifoxufixewya.supabase.co";
 
+
 const SUPABASE_KEY =
     "sb_publishable__lZmTM96oe10-rurqgrujg__ta_C4wr";
+
 
 const supabase =
     createClient(
@@ -386,28 +493,51 @@ const supabase =
 
 
 const usernameElement =
-    document.getElementById("username");
+    document.getElementById(
+        "username"
+    );
+
 
 const welcomeUsername =
-    document.getElementById("welcomeUsername");
+    document.getElementById(
+        "welcomeUsername"
+    );
+
 
 const scoreElement =
-    document.getElementById("score");
+    document.getElementById(
+        "score"
+    );
+
 
 const scoreCard =
-    document.getElementById("scoreCard");
+    document.getElementById(
+        "scoreCard"
+    );
+
 
 const solvedElement =
-    document.getElementById("solved");
+    document.getElementById(
+        "solved"
+    );
+
 
 const rankElement =
-    document.getElementById("rank");
+    document.getElementById(
+        "rank"
+    );
+
 
 const logoutButton =
-    document.getElementById("logoutButton");
+    document.getElementById(
+        "logoutButton"
+    );
+
 
 const errorElement =
-    document.getElementById("errorMessage");
+    document.getElementById(
+        "errorMessage"
+    );
 
 
 async function loadDashboard() {
@@ -423,7 +553,10 @@ async function loadDashboard() {
         await supabase.auth.getUser();
 
 
-        if (userError || !user) {
+        if (
+            userError ||
+            !user
+        ) {
 
             window.location.href =
                 "index.html";
@@ -439,8 +572,13 @@ async function loadDashboard() {
         } =
         await supabase
             .from("profiles")
-            .select("username, score")
-            .eq("id", user.id)
+            .select(
+                "username, score"
+            )
+            .eq(
+                "id",
+                user.id
+            )
             .maybeSingle();
 
 
@@ -479,16 +617,20 @@ async function loadDashboard() {
         usernameElement.textContent =
             username;
 
+
         welcomeUsername.textContent =
             username;
 
 
         const score =
-            Number(profile.score) || 0;
+            Number(
+                profile.score
+            ) || 0;
 
 
         scoreElement.textContent =
             score;
+
 
         scoreCard.textContent =
             score;
@@ -537,7 +679,9 @@ async function loadDashboard() {
         } =
         await supabase
             .from("profiles")
-            .select("id, score")
+            .select(
+                "id, score"
+            )
             .order(
                 "score",
                 {
@@ -563,18 +707,24 @@ async function loadDashboard() {
                     function(player) {
 
                         return (
-                            player.id === user.id
+                            player.id ===
+                            user.id
                         );
 
                     }
                 );
 
 
-            if (playerIndex !== -1) {
+            if (
+                playerIndex !== -1
+            ) {
 
                 rankElement.textContent =
                     "#" +
-                    (playerIndex + 1);
+                    (
+                        playerIndex +
+                        1
+                    );
 
             } else {
 
@@ -589,7 +739,9 @@ async function loadDashboard() {
 
     catch (error) {
 
-        console.error(error);
+        console.error(
+            error
+        );
 
         showError(
             "Something went wrong while loading the dashboard."
@@ -600,7 +752,9 @@ async function loadDashboard() {
 }
 
 
-function showError(message) {
+function showError(
+    message
+) {
 
     errorElement.textContent =
         message;
@@ -630,7 +784,9 @@ logoutButton.addEventListener(
 
         if (error) {
 
-            console.error(error);
+            console.error(
+                error
+            );
 
             logoutButton.disabled =
                 false;
@@ -655,8 +811,8 @@ loadDashboard();
 </script>
 
 </body>
-</html>
 
+</html>
  
 
 
