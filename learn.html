@@ -35,9 +35,9 @@
         }
 
 
-        /* =========================
+        /* =========================================
            NAVBAR
-        ========================= */
+        ========================================= */
 
         .navbar {
             min-height: 70px;
@@ -89,7 +89,7 @@
         }
 
 
-        .back-btn {
+        .nav-link {
             color: #aaa;
 
             text-decoration: none;
@@ -102,7 +102,7 @@
         }
 
 
-        .back-btn:hover {
+        .nav-link:hover {
             color: #00ff88;
         }
 
@@ -135,9 +135,9 @@
         }
 
 
-        /* =========================
-           MAIN
-        ========================= */
+        /* =========================================
+           CONTAINER
+        ========================================= */
 
         .container {
             width: 100%;
@@ -149,6 +149,10 @@
             padding: 55px 25px;
         }
 
+
+        /* =========================================
+           PAGE HEADER
+        ========================================= */
 
         .page-header {
             margin-bottom: 40px;
@@ -184,11 +188,245 @@
         }
 
 
-        /* =========================
-           LESSON
-        ========================= */
+        /* =========================================
+           LESSONS LIST
+        ========================================= */
 
-        .lesson {
+        .lessons-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 18px;
+        }
+
+
+        /* =========================================
+           LESSON NOTE
+        ========================================= */
+
+        .lesson-card {
+            position: relative;
+
+            display: block;
+
+            width: 100%;
+
+            min-height: 190px;
+
+            padding: 25px;
+
+            background: #0d0d0d;
+
+            border: 1px solid #222;
+
+            border-radius: 12px;
+
+            text-decoration: none;
+
+            color: white;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.2s,
+                border-color 0.2s,
+                box-shadow 0.2s;
+        }
+
+
+        .lesson-card:hover {
+            transform: translateY(-4px);
+
+            border-color: #00ff88;
+
+            box-shadow:
+                0 0 25px
+                rgba(0, 255, 136, 0.08);
+        }
+
+
+        .lesson-card::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+
+            right: 0;
+
+            width: 4px;
+
+            height: 100%;
+
+            background: #00ff88;
+
+            border-radius:
+                0 12px 12px 0;
+        }
+
+
+        html[dir="ltr"] .lesson-card::before {
+            right: auto;
+
+            left: 0;
+
+            border-radius:
+                12px 0 0 12px;
+        }
+
+
+        .card-icon {
+            font-size: 28px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .card-label {
+            color: #00ff88;
+
+            font-size: 11px;
+
+            font-weight: bold;
+
+            letter-spacing: 1.5px;
+
+            margin-bottom: 9px;
+        }
+
+
+        .card-title {
+            font-size: 21px;
+
+            margin-bottom: 10px;
+        }
+
+
+        .card-description {
+            color: #777;
+
+            font-size: 13px;
+
+            line-height: 1.6;
+        }
+
+
+        .card-arrow {
+            position: absolute;
+
+            bottom: 22px;
+
+            left: 25px;
+
+            color: #555;
+
+            font-size: 18px;
+
+            transition: 0.2s;
+        }
+
+
+        html[dir="ltr"] .card-arrow {
+            left: auto;
+
+            right: 25px;
+        }
+
+
+        .lesson-card:hover .card-arrow {
+            color: #00ff88;
+
+            transform: translateX(-3px);
+        }
+
+
+        html[dir="ltr"]
+        .lesson-card:hover
+        .card-arrow {
+            transform: translateX(3px);
+        }
+
+
+        /* =========================================
+           LESSON VIEW
+        ========================================= */
+
+        .lesson-view {
+            display: none;
+        }
+
+
+        .lesson-view.active {
+            display: block;
+        }
+
+
+        .lessons-list.hidden {
+            display: none;
+        }
+
+
+        .lesson-header {
+            margin-bottom: 30px;
+        }
+
+
+        .back-lessons {
+            display: inline-block;
+
+            color: #aaa;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            margin-bottom: 25px;
+
+            transition: 0.2s;
+        }
+
+
+        .back-lessons:hover {
+            color: #00ff88;
+        }
+
+
+        .lesson-type {
+            color: #00ff88;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .lesson-main-title {
+            font-size: 34px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .lesson-subtitle {
+            color: #777;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================================
+           LESSON CONTENT
+        ========================================= */
+
+        .lesson-content {
             background: #0d0d0d;
 
             border: 1px solid #222;
@@ -196,33 +434,13 @@
             border-radius: 12px;
 
             padding: 35px;
-
-            margin-bottom: 25px;
         }
 
 
-        .lesson-title {
-            font-size: 28px;
-
-            color: #00ff88;
-
-            margin-bottom: 20px;
-        }
-
-
-        .lesson p {
-            color: #aaa;
-
-            line-height: 1.8;
-
-            margin-bottom: 18px;
-        }
-
-
-        .lesson h2 {
-            font-size: 19px;
-
+        .lesson-content h2 {
             color: white;
+
+            font-size: 20px;
 
             margin-top: 30px;
 
@@ -230,20 +448,23 @@
         }
 
 
-        .lesson h3 {
-            font-size: 16px;
-
-            color: #00ff88;
-
-            margin-top: 25px;
-
-            margin-bottom: 12px;
+        .lesson-content h2:first-child {
+            margin-top: 0;
         }
 
 
-        /* =========================
+        .lesson-content p {
+            color: #aaa;
+
+            line-height: 1.9;
+
+            margin-bottom: 18px;
+        }
+
+
+        /* =========================================
            INFO BOX
-        ========================= */
+        ========================================= */
 
         .info-box {
             background: #080808;
@@ -256,11 +477,11 @@
 
             padding: 18px;
 
-            margin: 20px 0;
-
             color: #aaa;
 
             line-height: 1.8;
+
+            margin: 20px 0;
         }
 
 
@@ -271,11 +492,16 @@
         }
 
 
-        /* =========================
-           EXAMPLE
-        ========================= */
+        .info-box strong {
+            color: #00ff88;
+        }
 
-        .example {
+
+        /* =========================================
+           CODE / EXAMPLE
+        ========================================= */
+
+        .example-box {
             background: #070707;
 
             border: 1px solid #292929;
@@ -288,27 +514,30 @@
         }
 
 
-        .example-title {
-            color: #777;
+        .example-label {
+            color: #666;
 
-            font-size: 12px;
+            font-size: 11px;
 
             font-weight: bold;
 
             letter-spacing: 1px;
 
-            margin-bottom: 15px;
+            margin-bottom: 12px;
         }
 
 
         .example-code {
-            font-family: Consolas, Monaco, monospace;
-
             color: #00ff88;
+
+            font-family:
+                Consolas,
+                Monaco,
+                monospace;
 
             font-size: 16px;
 
-            line-height: 1.8;
+            line-height: 1.9;
 
             direction: ltr;
 
@@ -318,59 +547,9 @@
         }
 
 
-        /* =========================
-           TABLE
-        ========================= */
-
-        .table-wrapper {
-            width: 100%;
-
-            overflow-x: auto;
-
-            margin: 20px 0;
-        }
-
-
-        table {
-            width: 100%;
-
-            border-collapse: collapse;
-
-            min-width: 500px;
-        }
-
-
-        th,
-        td {
-            border: 1px solid #292929;
-
-            padding: 12px;
-
-            text-align: center;
-        }
-
-
-        th {
-            background: #111;
-
-            color: #00ff88;
-
-            font-size: 13px;
-        }
-
-
-        td {
-            background: #080808;
-
-            color: #aaa;
-
-            font-family: Consolas, Monaco, monospace;
-        }
-
-
-        /* =========================
+        /* =========================================
            STEPS
-        ========================= */
+        ========================================= */
 
         .steps {
             display: flex;
@@ -401,17 +580,17 @@
 
 
         .step-number {
-            min-width: 28px;
+            min-width: 29px;
 
-            height: 28px;
-
-            border-radius: 50%;
+            height: 29px;
 
             display: flex;
 
             align-items: center;
 
             justify-content: center;
+
+            border-radius: 50%;
 
             background: #101010;
 
@@ -432,14 +611,71 @@
         }
 
 
-        /* =========================
+        /* =========================================
+           ALPHABET TABLE
+        ========================================= */
+
+        .table-wrapper {
+            width: 100%;
+
+            overflow-x: auto;
+
+            margin: 20px 0;
+        }
+
+
+        table {
+            width: 100%;
+
+            min-width: 500px;
+
+            border-collapse: collapse;
+        }
+
+
+        th,
+        td {
+            border: 1px solid #292929;
+
+            padding: 13px;
+
+            text-align: center;
+        }
+
+
+        th {
+            background: #111;
+
+            color: #00ff88;
+
+            font-size: 13px;
+        }
+
+
+        td {
+            background: #080808;
+
+            color: #aaa;
+
+            font-family:
+                Consolas,
+                Monaco,
+                monospace;
+
+            direction: ltr;
+        }
+
+
+        /* =========================================
            WARNING
-        ========================= */
+        ========================================= */
 
         .warning-box {
-            background: rgba(255, 209, 102, 0.05);
+            background:
+                rgba(255, 209, 102, 0.05);
 
-            border: 1px solid rgba(255, 209, 102, 0.2);
+            border: 1px solid
+                rgba(255, 209, 102, 0.2);
 
             border-right: 3px solid #ffd166;
 
@@ -449,39 +685,46 @@
 
             color: #aaa;
 
-            line-height: 1.7;
+            line-height: 1.8;
 
             margin-top: 25px;
         }
 
 
         html[dir="ltr"] .warning-box {
-            border-right: 1px solid rgba(255, 209, 102, 0.2);
+            border-right:
+                1px solid
+                rgba(255, 209, 102, 0.2);
 
             border-left: 3px solid #ffd166;
         }
 
 
-        /* =========================
-           FOOTER
-        ========================= */
-
-        .lesson-footer {
-            text-align: center;
-
-            color: #555;
-
-            font-size: 12px;
-
-            padding: 20px 0 10px;
+        .warning-box strong {
+            color: #ffd166;
         }
 
 
-        /* =========================
-           MOBILE
-        ========================= */
+        /* =========================================
+           FOOTER
+        ========================================= */
 
-        @media (max-width: 600px) {
+        .footer {
+            text-align: center;
+
+            color: #444;
+
+            font-size: 11px;
+
+            margin-top: 35px;
+        }
+
+
+        /* =========================================
+           MOBILE
+        ========================================= */
+
+        @media (max-width: 700px) {
 
             .navbar {
                 padding: 15px 18px;
@@ -493,28 +736,28 @@
             }
 
 
-            .lesson {
-                padding: 22px;
+            .lessons-grid {
+                grid-template-columns: 1fr;
             }
 
 
             .page-title {
+                font-size: 29px;
+            }
+
+
+            .lesson-main-title {
                 font-size: 28px;
             }
 
 
-            .lesson-title {
-                font-size: 24px;
+            .lesson-content {
+                padding: 22px;
             }
 
 
             .logo img {
                 width: 125px;
-            }
-
-
-            .nav-right {
-                gap: 10px;
             }
 
         }
@@ -527,9 +770,9 @@
 <body>
 
 
-<!-- =========================
+<!-- =========================================
      NAVBAR
-========================= -->
+========================================= -->
 
 <nav class="navbar">
 
@@ -552,17 +795,17 @@
 
         <a
             href="dashboard.html"
-            class="back-btn"
-            id="backButton"
+            class="nav-link"
+            id="dashboardLink"
         >
             ← DASHBOARD
         </a>
 
 
         <button
-            id="languageButton"
-            class="language-btn"
             type="button"
+            class="language-btn"
+            id="languageButton"
         >
             ENGLISH
         </button>
@@ -570,367 +813,115 @@
 
     </div>
 
+
 </nav>
 
 
 
-<!-- =========================
-     MAIN
-========================= -->
-
 <main class="container">
 
 
-    <header class="page-header">
+    <!-- =====================================
+         LESSONS LIST
+    ====================================== -->
+
+    <section
+        id="lessonsList"
+        class="lessons-list"
+    >
+
+
+        <header class="page-header">
+
+
+            <div
+                class="page-label"
+                id="pageLabel"
+            >
+                التعلم
+            </div>
+
+
+            <h1
+                class="page-title"
+                id="pageTitle"
+            >
+                تعلم التشفير
+            </h1>
+
+
+            <p
+                class="page-description"
+                id="pageDescription"
+            >
+                اختر درسًا لقراءة الشرح وتعلم أساسيات التشفير.
+            </p>
+
+
+        </header>
+
+
+
+        <div class="lessons-grid">
+
+
+            <!-- =================================
+                 CAESAR CARD
+            ================================== -->
+
+            <article
+                class="lesson-card"
+                data-lesson="caesar"
+                tabindex="0"
+                role="button"
+            >
+
+
+                <div class="card-icon">
+                    🔐
+                </div>
+
+
+                <div
+                    class="card-label"
+                    id="caesarCardLabel"
+                >
+                    CRYPTOGRAPHY
+                </div>
+
+
+                <h2
+                    class="card-title"
+                    id="caesarCardTitle"
+                >
+                    تعلم Caesar Cipher
+                </h2>
+
+
+                <p
+                    class="card-description"
+                    id="caesarCardDescription"
+                >
+                    تعرف على فكرة Caesar Cipher وكيفية التشفير وفك التشفير باستخدام الإزاحة.
+                </p>
+
+
+                <div class="card-arrow">
+                    ←
+                </div>
+
+
+            </article>
+
+
+        </div>
 
 
         <div
-            class="page-label"
-            id="pageLabel"
+            class="footer"
+            id="listFooter"
         >
-            التعلم
-        </div>
-
-
-        <h1
-            class="page-title"
-            id="pageTitle"
-        >
-            تعلم التشفير
-        </h1>
-
-
-        <p
-            class="page-description"
-            id="pageDescription"
-        >
-            تعلم أساسيات التشفير خطوة بخطوة، ثم استخدم ما تعلمته لحل التحديات.
-        </p>
-
-
-    </header>
-
-
-
-    <!-- =========================
-         CAESAR LESSON
-    ========================= -->
-
-    <section class="lesson">
-
-
-        <h2
-            class="lesson-title"
-            id="lessonTitle"
-        >
-            Caesar Cipher
-        </h2>
-
-
-        <p id="introText">
-
-            شفرة Caesar Cipher هي واحدة من أقدم وأبسط طرق
-            التشفير المعروفة. تعتمد على تحريك كل حرف في
-            الرسالة عددًا معينًا من المرات داخل الأبجدية.
-
-        </p>
-
-
-
-        <div class="info-box">
-
-            <strong id="definitionTitle">
-                ما هي Caesar Cipher؟
-            </strong>
-
-            <br><br>
-
-            <span id="definitionText">
-
-                هي شفرة استبدال بسيطة يتم فيها استبدال كل حرف
-                بحرف آخر يبعد عنه عددًا ثابتًا من المواقع في الأبجدية.
-
-            </span>
-
-        </div>
-
-
-
-        <h2 id="howTitle">
-            كيف تعمل؟
-        </h2>
-
-
-
-        <p id="howText">
-
-            لنفترض أننا اخترنا إزاحة مقدارها 3.
-            هذا يعني أن كل حرف سيتحرك ثلاثة أماكن إلى الأمام.
-
-        </p>
-
-
-
-        <!-- EXAMPLE -->
-
-        <div class="example">
-
-
-            <div
-                class="example-title"
-                id="exampleTitle"
-            >
-                EXAMPLE
-            </div>
-
-
-            <div class="example-code">
-
-                A → D<br>
-
-                B → E<br>
-
-                C → F<br>
-
-                D → G
-
-            </div>
-
-        </div>
-
-
-
-        <p id="exampleExplanation">
-
-            لذلك إذا كانت الرسالة الأصلية:
-
-        </p>
-
-
-
-        <div class="example">
-
-
-            <div class="example-code">
-                HELLO
-            </div>
-
-        </div>
-
-
-
-        <p id="encryptedExplanation">
-
-            وبعد استخدام إزاحة مقدارها 3 تصبح:
-
-        </p>
-
-
-
-        <div class="example">
-
-
-            <div class="example-code">
-                KHOOR
-            </div>
-
-        </div>
-
-
-
-        <h2 id="stepsTitle">
-            خطوات التشفير
-        </h2>
-
-
-
-        <div class="steps">
-
-
-            <div class="step">
-
-
-                <div class="step-number">
-                    1
-                </div>
-
-
-                <div
-                    class="step-text"
-                    id="step1"
-                >
-                    اختر قيمة الإزاحة التي تريد استخدامها.
-                </div>
-
-
-            </div>
-
-
-
-            <div class="step">
-
-
-                <div class="step-number">
-                    2
-                </div>
-
-
-                <div
-                    class="step-text"
-                    id="step2"
-                >
-                    خذ كل حرف من الرسالة الأصلية.
-                </div>
-
-
-            </div>
-
-
-
-            <div class="step">
-
-
-                <div class="step-number">
-                    3
-                </div>
-
-
-                <div
-                    class="step-text"
-                    id="step3"
-                >
-                    حرّك الحرف بعدد المواقع الذي حددته.
-                </div>
-
-
-            </div>
-
-
-
-            <div class="step">
-
-
-                <div class="step-number">
-                    4
-                </div>
-
-
-                <div
-                    class="step-text"
-                    id="step4"
-                >
-                    إذا تجاوزت الحروف نهاية الأبجدية، ابدأ من البداية مرة أخرى.
-                </div>
-
-
-            </div>
-
-
-        </div>
-
-
-
-        <h2 id="tableTitle">
-            مثال على الأبجدية
-        </h2>
-
-
-
-        <div class="table-wrapper">
-
-
-            <table>
-
-
-                <thead>
-
-                    <tr>
-
-                        <th id="originalHeader">
-                            الأصلية
-                        </th>
-
-                        <th id="shiftHeader">
-                            +3
-                        </th>
-
-                    </tr>
-
-                </thead>
-
-
-                <tbody>
-
-                    <tr>
-                        <td>ABCDEFGHIJKLMNOPQRSTUVWXYZ</td>
-                        <td>DEFGHIJKLMNOPQRSTUVWXYZABC</td>
-                    </tr>
-
-                </tbody>
-
-
-            </table>
-
-
-        </div>
-
-
-
-        <h2 id="decryptTitle">
-            كيف نفك التشفير؟
-        </h2>
-
-
-
-        <p id="decryptText">
-
-            لفك تشفير Caesar Cipher نستخدم العملية العكسية.
-            بدلًا من تحريك الحروف إلى الأمام، نحركها إلى الخلف
-            بنفس قيمة الإزاحة.
-
-        </p>
-
-
-
-        <div class="example">
-
-
-            <div
-                class="example-title"
-                id="decryptExampleTitle"
-            >
-                DECRYPT EXAMPLE
-            </div>
-
-
-            <div class="example-code">
-
-                KHOOR → HELLO
-
-            </div>
-
-
-        </div>
-
-
-
-        <div class="warning-box">
-
-            <strong id="importantTitle">
-                ملاحظة مهمة
-            </strong>
-
-            <br><br>
-
-            <span id="importantText">
-
-                Caesar Cipher ليست طريقة تشفير قوية للاستخدام
-                الحقيقي؛ لأنها تحتوي على عدد محدود جدًا من الإزاحات
-                ويمكن تجربة جميع الاحتمالات بسهولة. لكنها ممتازة
-                لتعلم أساسيات التشفير.
-
-            </span>
-
+            0X1GHOST — LEARN CRYPTOGRAPHY
         </div>
 
 
@@ -938,12 +929,408 @@
 
 
 
-    <div
-        class="lesson-footer"
-        id="footerText"
+    <!-- =====================================
+         CAESAR LESSON
+    ====================================== -->
+
+    <section
+        id="caesarLesson"
+        class="lesson-view"
     >
-        0X1GHOST — LEARN CRYPTOGRAPHY
-    </div>
+
+
+        <header class="lesson-header">
+
+
+            <a
+                href="#"
+                class="back-lessons"
+                id="backLessons"
+            >
+                → العودة إلى الدروس
+            </a>
+
+
+            <div
+                class="lesson-type"
+                id="lessonType"
+            >
+                CRYPTOGRAPHY
+            </div>
+
+
+            <h1
+                class="lesson-main-title"
+                id="lessonMainTitle"
+            >
+                Caesar Cipher
+            </h1>
+
+
+            <p
+                class="lesson-subtitle"
+                id="lessonSubtitle"
+            >
+                تعلم واحدة من أبسط وأشهر شفرات الاستبدال.
+            </p>
+
+
+        </header>
+
+
+
+        <article class="lesson-content">
+
+
+            <!-- DEFINITION -->
+
+            <h2 id="definitionTitle">
+                ما هي Caesar Cipher؟
+            </h2>
+
+
+            <p id="definitionText">
+
+                Caesar Cipher هي واحدة من أقدم وأبسط طرق
+                التشفير المعروفة. تعتمد على تحريك كل حرف
+                في الرسالة عددًا ثابتًا من المواقع داخل
+                الأبجدية.
+
+            </p>
+
+
+
+            <div class="info-box">
+
+
+                <strong id="ideaTitle">
+                    الفكرة الأساسية
+                </strong>
+
+
+                <br><br>
+
+
+                <span id="ideaText">
+
+                    بدلًا من كتابة الحرف الأصلي، نكتب حرفًا
+                    آخر يقع على مسافة محددة منه في الأبجدية.
+
+                </span>
+
+
+            </div>
+
+
+
+            <!-- HOW IT WORKS -->
+
+            <h2 id="howTitle">
+                كيف تعمل؟
+            </h2>
+
+
+            <p id="howText">
+
+                لنفترض أننا اخترنا قيمة إزاحة مقدارها 3.
+                هذا يعني أن كل حرف سيتحرك ثلاثة أماكن إلى الأمام.
+
+            </p>
+
+
+
+            <div class="example-box">
+
+
+                <div
+                    class="example-label"
+                    id="shiftExampleLabel"
+                >
+                    SHIFT = 3
+                </div>
+
+
+                <div class="example-code">
+
+                    A → D<br>
+                    B → E<br>
+                    C → F<br>
+                    D → G
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- MESSAGE EXAMPLE -->
+
+            <h2 id="messageTitle">
+                مثال على رسالة
+            </h2>
+
+
+            <p id="messageText">
+
+                إذا كانت الرسالة الأصلية:
+
+            </p>
+
+
+            <div class="example-box">
+
+
+                <div class="example-code">
+                    HELLO
+                </div>
+
+
+            </div>
+
+
+            <p id="encryptedText">
+
+                باستخدام إزاحة مقدارها 3 تصبح:
+
+            </p>
+
+
+            <div class="example-box">
+
+
+                <div class="example-code">
+                    KHOOR
+                </div>
+
+
+            </div>
+
+
+
+            <!-- STEPS -->
+
+            <h2 id="stepsTitle">
+                خطوات التشفير
+            </h2>
+
+
+            <div class="steps">
+
+
+                <div class="step">
+
+
+                    <div class="step-number">
+                        1
+                    </div>
+
+
+                    <div
+                        class="step-text"
+                        id="step1"
+                    >
+                        اختر قيمة الإزاحة.
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="step">
+
+
+                    <div class="step-number">
+                        2
+                    </div>
+
+
+                    <div
+                        class="step-text"
+                        id="step2"
+                    >
+                        خذ كل حرف من الرسالة الأصلية.
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="step">
+
+
+                    <div class="step-number">
+                        3
+                    </div>
+
+
+                    <div
+                        class="step-text"
+                        id="step3"
+                    >
+                        حرّك الحرف إلى الأمام بعدد المواقع المحدد.
+                    </div>
+
+
+                </div>
+
+
+
+                <div class="step">
+
+
+                    <div class="step-number">
+                        4
+                    </div>
+
+
+                    <div
+                        class="step-text"
+                        id="step4"
+                    >
+                        إذا وصلت إلى نهاية الأبجدية، ارجع إلى بدايتها.
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- ALPHABET -->
+
+            <h2 id="alphabetTitle">
+                مثال على الأبجدية
+            </h2>
+
+
+            <div class="table-wrapper">
+
+
+                <table>
+
+
+                    <thead>
+
+                        <tr>
+
+                            <th id="originalHeader">
+                                الأصلية
+                            </th>
+
+                            <th id="encryptedHeader">
+                                بعد الإزاحة +3
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                ABCDEFGHIJKLMNOPQRSTUVWXYZ
+                            </td>
+
+                            <td>
+                                DEFGHIJKLMNOPQRSTUVWXYZABC
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+
+                </table>
+
+
+            </div>
+
+
+
+            <!-- DECRYPT -->
+
+            <h2 id="decryptTitle">
+                كيف نفك التشفير؟
+            </h2>
+
+
+            <p id="decryptText">
+
+                لفك تشفير Caesar Cipher نستخدم العملية
+                العكسية. بدلًا من تحريك الحروف إلى الأمام،
+                نحركها إلى الخلف بنفس قيمة الإزاحة.
+
+            </p>
+
+
+
+            <div class="example-box">
+
+
+                <div
+                    class="example-label"
+                    id="decryptExampleLabel"
+                >
+                    DECRYPT
+                </div>
+
+
+                <div class="example-code">
+                    KHOOR → HELLO
+                </div>
+
+
+            </div>
+
+
+
+            <!-- IMPORTANT -->
+
+            <div class="warning-box">
+
+
+                <strong id="importantTitle">
+                    ملاحظة مهمة
+                </strong>
+
+
+                <br><br>
+
+
+                <span id="importantText">
+
+                    Caesar Cipher ليست طريقة تشفير قوية
+                    للاستخدام الحقيقي، لأنها تحتوي على عدد
+                    محدود من الإزاحات ويمكن تجربة الاحتمالات
+                    بسهولة. لكنها ممتازة لتعلم أساسيات التشفير.
+
+                </span>
+
+
+            </div>
+
+
+        </article>
+
+
+
+        <div
+            class="footer"
+            id="lessonFooter"
+        >
+            0X1GHOST — LEARN CRYPTOGRAPHY
+        </div>
+
+
+    </section>
 
 
 </main>
@@ -954,9 +1341,8 @@
 
 
 /* =========================================
-   LANGUAGE
+   LANGUAGE SYSTEM
 ========================================= */
-
 
 let currentLanguage = "ar";
 
@@ -976,65 +1362,89 @@ const translations = {
 
         languageButton: "ENGLISH",
 
-        back: "← DASHBOARD",
+        dashboard:
+            "← DASHBOARD",
 
-        pageLabel: "التعلم",
+        pageLabel:
+            "التعلم",
 
-        pageTitle: "تعلم التشفير",
+        pageTitle:
+            "تعلم التشفير",
 
         pageDescription:
-            "تعلم أساسيات التشفير خطوة بخطوة، ثم استخدم ما تعلمته لحل التحديات.",
+            "اختر درسًا لقراءة الشرح وتعلم أساسيات التشفير.",
 
-        lessonTitle:
+        caesarCardLabel:
+            "CRYPTOGRAPHY",
+
+        caesarCardTitle:
+            "تعلم Caesar Cipher",
+
+        caesarCardDescription:
+            "تعرف على فكرة Caesar Cipher وكيفية التشفير وفك التشفير باستخدام الإزاحة.",
+
+        backLessons:
+            "→ العودة إلى الدروس",
+
+        lessonType:
+            "CRYPTOGRAPHY",
+
+        lessonMainTitle:
             "Caesar Cipher",
 
-        intro:
-            "شفرة Caesar Cipher هي واحدة من أقدم وأبسط طرق التشفير المعروفة. تعتمد على تحريك كل حرف في الرسالة عددًا معينًا من المرات داخل الأبجدية.",
+        lessonSubtitle:
+            "تعلم واحدة من أبسط وأشهر شفرات الاستبدال.",
 
         definitionTitle:
             "ما هي Caesar Cipher؟",
 
-        definition:
-            "هي شفرة استبدال بسيطة يتم فيها استبدال كل حرف بحرف آخر يبعد عنه عددًا ثابتًا من المواقع في الأبجدية.",
+        definitionText:
+            "Caesar Cipher هي واحدة من أقدم وأبسط طرق التشفير المعروفة. تعتمد على تحريك كل حرف في الرسالة عددًا ثابتًا من المواقع داخل الأبجدية.",
+
+        ideaTitle:
+            "الفكرة الأساسية",
+
+        ideaText:
+            "بدلًا من كتابة الحرف الأصلي، نكتب حرفًا آخر يقع على مسافة محددة منه في الأبجدية.",
 
         howTitle:
             "كيف تعمل؟",
 
-        how:
-            "لنفترض أننا اخترنا إزاحة مقدارها 3. هذا يعني أن كل حرف سيتحرك ثلاثة أماكن إلى الأمام.",
+        howText:
+            "لنفترض أننا اخترنا قيمة إزاحة مقدارها 3. هذا يعني أن كل حرف سيتحرك ثلاثة أماكن إلى الأمام.",
 
-        exampleTitle:
-            "EXAMPLE",
+        messageTitle:
+            "مثال على رسالة",
 
-        exampleExplanation:
-            "لذلك إذا كانت الرسالة الأصلية:",
+        messageText:
+            "إذا كانت الرسالة الأصلية:",
 
-        encryptedExplanation:
-            "وبعد استخدام إزاحة مقدارها 3 تصبح:",
+        encryptedText:
+            "باستخدام إزاحة مقدارها 3 تصبح:",
 
         stepsTitle:
             "خطوات التشفير",
 
         step1:
-            "اختر قيمة الإزاحة التي تريد استخدامها.",
+            "اختر قيمة الإزاحة.",
 
         step2:
             "خذ كل حرف من الرسالة الأصلية.",
 
         step3:
-            "حرّك الحرف بعدد المواقع الذي حددته.",
+            "حرّك الحرف إلى الأمام بعدد المواقع المحدد.",
 
         step4:
-            "إذا تجاوزت الحروف نهاية الأبجدية، ابدأ من البداية مرة أخرى.",
+            "إذا وصلت إلى نهاية الأبجدية، ارجع إلى بدايتها.",
 
-        tableTitle:
+        alphabetTitle:
             "مثال على الأبجدية",
 
         originalHeader:
             "الأصلية",
 
-        shiftHeader:
-            "+3",
+        encryptedHeader:
+            "بعد الإزاحة +3",
 
         decryptTitle:
             "كيف نفك التشفير؟",
@@ -1042,14 +1452,14 @@ const translations = {
         decryptText:
             "لفك تشفير Caesar Cipher نستخدم العملية العكسية. بدلًا من تحريك الحروف إلى الأمام، نحركها إلى الخلف بنفس قيمة الإزاحة.",
 
-        decryptExampleTitle:
-            "DECRYPT EXAMPLE",
+        decryptExampleLabel:
+            "DECRYPT",
 
         importantTitle:
             "ملاحظة مهمة",
 
         importantText:
-            "Caesar Cipher ليست طريقة تشفير قوية للاستخدام الحقيقي؛ لأنها تحتوي على عدد محدود جدًا من الإزاحات ويمكن تجربة جميع الاحتمالات بسهولة. لكنها ممتازة لتعلم أساسيات التشفير.",
+            "Caesar Cipher ليست طريقة تشفير قوية للاستخدام الحقيقي، لأنها تحتوي على عدد محدود من الإزاحات ويمكن تجربة الاحتمالات بسهولة. لكنها ممتازة لتعلم أساسيات التشفير.",
 
         footer:
             "0X1GHOST — LEARN CRYPTOGRAPHY"
@@ -1061,50 +1471,74 @@ const translations = {
 
         direction: "ltr",
 
-        languageButton: "العربية",
+        languageButton:
+            "العربية",
 
-        back: "← DASHBOARD",
+        dashboard:
+            "← DASHBOARD",
 
-        pageLabel: "LEARN",
+        pageLabel:
+            "LEARN",
 
         pageTitle:
             "Learn Cryptography",
 
         pageDescription:
-            "Learn cryptography fundamentals step by step, then use what you learn to solve challenges.",
+            "Choose a lesson to read the explanation and learn cryptography fundamentals.",
 
-        lessonTitle:
+        caesarCardLabel:
+            "CRYPTOGRAPHY",
+
+        caesarCardTitle:
+            "Learn Caesar Cipher",
+
+        caesarCardDescription:
+            "Learn how Caesar Cipher works and how to encrypt and decrypt messages using a shift.",
+
+        backLessons:
+            "← BACK TO LESSONS",
+
+        lessonType:
+            "CRYPTOGRAPHY",
+
+        lessonMainTitle:
             "Caesar Cipher",
 
-        intro:
-            "The Caesar Cipher is one of the oldest and simplest known encryption methods. It works by shifting each letter in a message a fixed number of positions through the alphabet.",
+        lessonSubtitle:
+            "Learn one of the simplest and most famous substitution ciphers.",
 
         definitionTitle:
             "What is Caesar Cipher?",
 
-        definition:
-            "It is a simple substitution cipher where each letter is replaced by another letter a fixed number of positions away in the alphabet.",
+        definitionText:
+            "Caesar Cipher is one of the oldest and simplest known encryption methods. It works by shifting every letter in a message by a fixed number of positions through the alphabet.",
+
+        ideaTitle:
+            "The Basic Idea",
+
+        ideaText:
+            "Instead of writing the original letter, we replace it with another letter located a fixed distance away in the alphabet.",
 
         howTitle:
-            "How does it work?",
+            "How Does It Work?",
 
-        how:
-            "Let's say we choose a shift of 3. This means every letter will move three positions forward.",
+        howText:
+            "Let's say we choose a shift value of 3. This means every letter moves three positions forward.",
 
-        exampleTitle:
-            "EXAMPLE",
+        messageTitle:
+            "Message Example",
 
-        exampleExplanation:
-            "So if the original message is:",
+        messageText:
+            "If the original message is:",
 
-        encryptedExplanation:
-            "After applying a shift of 3, it becomes:",
+        encryptedText:
+            "Using a shift of 3, it becomes:",
 
         stepsTitle:
             "Encryption Steps",
 
         step1:
-            "Choose the shift value you want to use.",
+            "Choose a shift value.",
 
         step2:
             "Take each letter from the original message.",
@@ -1115,29 +1549,29 @@ const translations = {
         step4:
             "If you reach the end of the alphabet, continue again from the beginning.",
 
-        tableTitle:
+        alphabetTitle:
             "Alphabet Example",
 
         originalHeader:
             "Original",
 
-        shiftHeader:
-            "+3",
+        encryptedHeader:
+            "After Shift +3",
 
         decryptTitle:
-            "How do we decrypt it?",
+            "How Do We Decrypt It?",
 
         decryptText:
             "To decrypt a Caesar Cipher, we perform the opposite operation. Instead of shifting the letters forward, we shift them backward by the same amount.",
 
-        decryptExampleTitle:
-            "DECRYPT EXAMPLE",
+        decryptExampleLabel:
+            "DECRYPT",
 
         importantTitle:
             "Important Note",
 
         importantText:
-            "Caesar Cipher is not a strong encryption method for real-world security because it has very few possible shifts, making it easy to try every possibility. However, it is excellent for learning the basics of cryptography.",
+            "Caesar Cipher is not a strong encryption method for real-world security because it has a limited number of possible shifts, making it easy to try every possibility. However, it is excellent for learning the basics of cryptography.",
 
         footer:
             "0X1GHOST — LEARN CRYPTOGRAPHY"
@@ -1147,9 +1581,178 @@ const translations = {
 };
 
 
+/* =========================================
+   ELEMENTS
+========================================= */
+
+const lessonsList =
+    document.getElementById(
+        "lessonsList"
+    );
+
+
+const caesarLesson =
+    document.getElementById(
+        "caesarLesson"
+    );
+
+
+const caesarCard =
+    document.querySelector(
+        '[data-lesson="caesar"]'
+    );
+
+
+const backLessons =
+    document.getElementById(
+        "backLessons"
+    );
+
+
+/* =========================================
+   OPEN LESSON
+========================================= */
+
+function openLesson() {
+
+    lessonsList.classList.add(
+        "hidden"
+    );
+
+    caesarLesson.classList.add(
+        "active"
+    );
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+    history.replaceState(
+        null,
+        "",
+        "#caesar"
+    );
+
+}
+
+
+/* =========================================
+   CLOSE LESSON
+========================================= */
+
+function closeLesson() {
+
+    caesarLesson.classList.remove(
+        "active"
+    );
+
+    lessonsList.classList.remove(
+        "hidden"
+    );
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+    history.replaceState(
+        null,
+        "",
+        "#learn"
+    );
+
+}
+
+
+/* =========================================
+   CARD CLICK
+========================================= */
+
+caesarCard.addEventListener(
+    "click",
+    openLesson
+);
+
+
+/* =========================================
+   KEYBOARD ACCESS
+========================================= */
+
+caesarCard.addEventListener(
+    "keydown",
+    function(event) {
+
+        if (
+            event.key === "Enter" ||
+            event.key === " "
+        ) {
+
+            event.preventDefault();
+
+            openLesson();
+
+        }
+
+    }
+);
+
+
+/* =========================================
+   BACK
+========================================= */
+
+backLessons.addEventListener(
+    "click",
+    function(event) {
+
+        event.preventDefault();
+
+        closeLesson();
+
+    }
+);
+
+
+/* =========================================
+   HASH SUPPORT
+========================================= */
+
+function checkHash() {
+
+    if (
+        window.location.hash ===
+        "#caesar"
+    ) {
+
+        openLesson();
+
+    } else {
+
+        caesarLesson.classList.remove(
+            "active"
+        );
+
+        lessonsList.classList.remove(
+            "hidden"
+        );
+
+    }
+
+}
+
+
+window.addEventListener(
+    "hashchange",
+    checkHash
+);
+
+
+/* =========================================
+   LANGUAGE UPDATE
+========================================= */
 
 function updateLanguage() {
-
 
     const t =
         translations[
@@ -1165,16 +1768,14 @@ function updateLanguage() {
         t.direction;
 
 
-    document.getElementById(
-        "languageButton"
-    ).textContent =
+    languageButton.textContent =
         t.languageButton;
 
 
     document.getElementById(
-        "backButton"
+        "dashboardLink"
     ).textContent =
-        t.back;
+        t.dashboard;
 
 
     document.getElementById(
@@ -1196,15 +1797,45 @@ function updateLanguage() {
 
 
     document.getElementById(
-        "lessonTitle"
+        "caesarCardLabel"
     ).textContent =
-        t.lessonTitle;
+        t.caesarCardLabel;
 
 
     document.getElementById(
-        "introText"
+        "caesarCardTitle"
     ).textContent =
-        t.intro;
+        t.caesarCardTitle;
+
+
+    document.getElementById(
+        "caesarCardDescription"
+    ).textContent =
+        t.caesarCardDescription;
+
+
+    document.getElementById(
+        "backLessons"
+    ).textContent =
+        t.backLessons;
+
+
+    document.getElementById(
+        "lessonType"
+    ).textContent =
+        t.lessonType;
+
+
+    document.getElementById(
+        "lessonMainTitle"
+    ).textContent =
+        t.lessonMainTitle;
+
+
+    document.getElementById(
+        "lessonSubtitle"
+    ).textContent =
+        t.lessonSubtitle;
 
 
     document.getElementById(
@@ -1216,7 +1847,19 @@ function updateLanguage() {
     document.getElementById(
         "definitionText"
     ).textContent =
-        t.definition;
+        t.definitionText;
+
+
+    document.getElementById(
+        "ideaTitle"
+    ).textContent =
+        t.ideaTitle;
+
+
+    document.getElementById(
+        "ideaText"
+    ).textContent =
+        t.ideaText;
 
 
     document.getElementById(
@@ -1228,25 +1871,25 @@ function updateLanguage() {
     document.getElementById(
         "howText"
     ).textContent =
-        t.how;
+        t.howText;
 
 
     document.getElementById(
-        "exampleTitle"
+        "messageTitle"
     ).textContent =
-        t.exampleTitle;
+        t.messageTitle;
 
 
     document.getElementById(
-        "exampleExplanation"
+        "messageText"
     ).textContent =
-        t.exampleExplanation;
+        t.messageText;
 
 
     document.getElementById(
-        "encryptedExplanation"
+        "encryptedText"
     ).textContent =
-        t.encryptedExplanation;
+        t.encryptedText;
 
 
     document.getElementById(
@@ -1280,9 +1923,9 @@ function updateLanguage() {
 
 
     document.getElementById(
-        "tableTitle"
+        "alphabetTitle"
     ).textContent =
-        t.tableTitle;
+        t.alphabetTitle;
 
 
     document.getElementById(
@@ -1292,9 +1935,9 @@ function updateLanguage() {
 
 
     document.getElementById(
-        "shiftHeader"
+        "encryptedHeader"
     ).textContent =
-        t.shiftHeader;
+        t.encryptedHeader;
 
 
     document.getElementById(
@@ -1310,9 +1953,9 @@ function updateLanguage() {
 
 
     document.getElementById(
-        "decryptExampleTitle"
+        "decryptExampleLabel"
     ).textContent =
-        t.decryptExampleTitle;
+        t.decryptExampleLabel;
 
 
     document.getElementById(
@@ -1328,18 +1971,26 @@ function updateLanguage() {
 
 
     document.getElementById(
-        "footerText"
+        "listFooter"
+    ).textContent =
+        t.footer;
+
+
+    document.getElementById(
+        "lessonFooter"
     ).textContent =
         t.footer;
 
 }
 
 
+/* =========================================
+   LANGUAGE BUTTON
+========================================= */
 
 languageButton.addEventListener(
     "click",
     function() {
-
 
         if (
             currentLanguage === "ar"
@@ -1353,14 +2004,20 @@ languageButton.addEventListener(
 
         }
 
-
         updateLanguage();
 
     }
 );
 
 
+/* =========================================
+   INITIALIZE
+========================================= */
+
 updateLanguage();
+
+checkHash();
+
 
 </script>
 
