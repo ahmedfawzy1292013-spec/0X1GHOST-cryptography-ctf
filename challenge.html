@@ -442,6 +442,7 @@
             .solvers-modal {
                 max-height: 85vh;
             }
+
         }
 
     </style>
@@ -546,18 +547,15 @@ const challengeContainer =
         "challengeContainer"
     );
 
-
 const solversOverlay =
     document.getElementById(
         "solversOverlay"
     );
 
-
 const solversContent =
     document.getElementById(
         "solversContent"
     );
-
 
 const closeSolvers =
     document.getElementById(
@@ -652,6 +650,24 @@ const challenges = {
             "AABBABAAABAABAAAAAAABAABBBABBAABBBABAAABABABA",
 
         hint: ""
+
+    },
+
+
+    "what-is-this-3": {
+
+        type: "BASE32",
+
+        title: "WHAT IS THIS 3",
+
+        description:
+            "A message encoded with Base32 hides a secret flag. Decode the message twice to recover the flag.\n\nFLAG FORMAT: 0X1GHOST{...}",
+
+        encrypted:
+            "I5BE2RCDKIZESSRVJJLESNRSJFEUMR2FINMDEVKKIJCVMR2YGJFEWTSQKU2FES2YJQ2UERKDKUZEMTBVIVCUGU2DIJFEEQKVKFIUYNI=",
+
+        hint:
+            "This message is encrypted with two layers."
 
     },
 
@@ -890,27 +906,21 @@ else {
             </button>
 
             <div class="challenge-type">
-
                 ${escapeHTML(
                     challenge.type
                 )}
-
             </div>
 
             <h1 class="challenge-title">
-
                 ${escapeHTML(
                     challenge.title
                 )}
-
             </h1>
 
             <p class="challenge-description">
-
                 ${escapeHTML(
                     challenge.description
                 )}
-
             </p>
 
             <div class="encrypted-header">
@@ -946,11 +956,9 @@ else {
                     </div>
 
                     <div class="hint-box">
-
                         ${escapeHTML(
                             challenge.hint
                         )}
-
                     </div>
 
                 `
@@ -997,24 +1005,20 @@ else {
             "answer"
         );
 
-
     const submitButton =
         document.getElementById(
             "submitButton"
         );
-
 
     const messageElement =
         document.getElementById(
             "message"
         );
 
-
     const copyButton =
         document.getElementById(
             "copyButton"
         );
-
 
     const solveButton =
         document.getElementById(
@@ -1170,7 +1174,6 @@ else {
                     "error"
                 );
 
-
                 submitButton.disabled =
                     false;
 
@@ -1186,7 +1189,6 @@ else {
                 data,
                 error
             } =
-
             await supabase.rpc(
                 "submit_challenge_answer",
                 {
@@ -1243,7 +1245,6 @@ else {
                     data.seconds_remaining ||
                     10;
 
-
                 showMessage(
                     data.message ||
                     "Too many attempts. Please wait " +
@@ -1251,7 +1252,6 @@ else {
                     " seconds.",
                     "warning"
                 );
-
 
                 startCooldown(
                     seconds
@@ -1324,7 +1324,6 @@ else {
             "active"
         );
 
-
         solversContent.innerHTML = `
 
             <div class="loading-solvers">
@@ -1332,7 +1331,6 @@ else {
             </div>
 
         `;
-
 
         solveButton.disabled =
             true;
@@ -1368,9 +1366,7 @@ else {
                 solversContent.innerHTML = `
 
                     <div class="no-solvers">
-
                         No one has solved this challenge yet.
-
                     </div>
 
                 `;
@@ -1486,17 +1482,13 @@ else {
                         <div class="solver-item">
 
                             <div class="solver-number">
-
                                 ${index + 1}
-
                             </div>
 
                             <div class="solver-name">
-
                                 ${escapeHTML(
                                     username
                                 )}
-
                             </div>
 
                         </div>
@@ -1522,7 +1514,6 @@ else {
             console.error(
                 error
             );
-
 
             solversContent.innerHTML = `
 
@@ -1621,10 +1612,8 @@ else {
         answerInput.disabled =
             true;
 
-
         submitButton.disabled =
             true;
-
 
         submitButton.textContent =
             `WAIT ${remaining}s`;
@@ -1645,14 +1634,11 @@ else {
                             timer
                         );
 
-
                         answerInput.disabled =
                             false;
 
-
                         submitButton.disabled =
                             false;
-
 
                         submitButton.textContent =
                             "SUBMIT ANSWER";
@@ -1683,7 +1669,6 @@ else {
 
         messageElement.textContent =
             text;
-
 
         messageElement.className =
             "message " +
