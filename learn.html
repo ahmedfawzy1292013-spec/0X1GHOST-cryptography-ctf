@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
@@ -27,93 +28,61 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
-
         body {
             min-height: 100vh;
             background: #050505;
             color: white;
         }
 
-
-        /* =========================================
-           NAVBAR
-        ========================================= */
-
         .navbar {
             min-height: 70px;
-
             border-bottom: 1px solid #222;
-
             background: #090909;
 
             display: flex;
-
             align-items: center;
-
             justify-content: space-between;
 
             padding: 12px 35px;
-
             gap: 20px;
         }
 
-
         .logo {
             display: flex;
-
             align-items: center;
-
             text-decoration: none;
         }
-
 
         .logo img {
             display: block;
-
             width: 150px;
-
             height: auto;
-
             max-height: 55px;
-
             object-fit: contain;
         }
 
-
         .nav-right {
             display: flex;
-
             align-items: center;
-
             gap: 15px;
-
             flex-wrap: wrap;
         }
 
-
         .nav-link {
             color: #aaa;
-
             text-decoration: none;
-
             font-size: 13px;
-
             font-weight: bold;
-
             transition: 0.2s;
         }
-
 
         .nav-link:hover {
             color: #00ff88;
         }
 
-
         .language-btn {
             background: transparent;
-
             border: 1px solid #333;
-
             color: #aaa;
 
             padding: 8px 13px;
@@ -121,7 +90,6 @@
             border-radius: 6px;
 
             font-size: 12px;
-
             font-weight: bold;
 
             cursor: pointer;
@@ -129,21 +97,13 @@
             transition: 0.2s;
         }
 
-
         .language-btn:hover {
             border-color: #00ff88;
-
             color: #00ff88;
         }
 
-
-        /* =========================================
-           CONTAINER
-        ========================================= */
-
         .container {
             width: 100%;
-
             max-width: 1000px;
 
             margin: auto;
@@ -151,21 +111,14 @@
             padding: 55px 25px;
         }
 
-
-        /* =========================================
-           PAGE HEADER
-        ========================================= */
-
         .page-header {
             margin-bottom: 40px;
         }
-
 
         .page-label {
             color: #00ff88;
 
             font-size: 12px;
-
             font-weight: bold;
 
             letter-spacing: 2px;
@@ -173,31 +126,20 @@
             margin-bottom: 12px;
         }
 
-
         .page-title {
             font-size: 36px;
-
             margin-bottom: 12px;
         }
 
-
         .page-description {
             color: #777;
-
             line-height: 1.7;
-
             max-width: 750px;
         }
-
-
-        /* =========================================
-           LESSONS LIST
-        ========================================= */
 
         .lessons-list.hidden {
             display: none;
         }
-
 
         .lessons-grid {
             display: grid;
@@ -208,18 +150,12 @@
             gap: 18px;
         }
 
-
-        /* =========================================
-           LESSON CARD
-        ========================================= */
-
         .lesson-card {
             position: relative;
 
             display: block;
 
             width: 100%;
-
             min-height: 205px;
 
             padding: 25px;
@@ -231,7 +167,6 @@
             border-radius: 12px;
 
             text-decoration: none;
-
             color: white;
 
             cursor: pointer;
@@ -241,7 +176,6 @@
                 border-color 0.2s,
                 box-shadow 0.2s;
         }
-
 
         .lesson-card:hover {
             transform: translateY(-4px);
@@ -253,18 +187,15 @@
                 rgba(0, 255, 136, 0.08);
         }
 
-
         .lesson-card::before {
             content: "";
 
             position: absolute;
 
             top: 0;
-
             right: 0;
 
             width: 4px;
-
             height: 100%;
 
             background: #00ff88;
@@ -273,29 +204,23 @@
                 0 12px 12px 0;
         }
 
-
         html[dir="ltr"] .lesson-card::before {
             right: auto;
-
             left: 0;
 
             border-radius:
                 12px 0 0 12px;
         }
 
-
         .card-icon {
             font-size: 28px;
-
             margin-bottom: 18px;
         }
-
 
         .card-label {
             color: #00ff88;
 
             font-size: 11px;
-
             font-weight: bold;
 
             letter-spacing: 1.5px;
@@ -303,13 +228,10 @@
             margin-bottom: 9px;
         }
 
-
         .card-title {
             font-size: 21px;
-
             margin-bottom: 10px;
         }
-
 
         .card-description {
             color: #777;
@@ -319,12 +241,10 @@
             line-height: 1.6;
         }
 
-
         .card-arrow {
             position: absolute;
 
             bottom: 22px;
-
             left: 25px;
 
             color: #555;
@@ -334,46 +254,36 @@
             transition: 0.2s;
         }
 
-
         html[dir="ltr"] .card-arrow {
             left: auto;
-
             right: 25px;
         }
-
 
         .lesson-card:hover .card-arrow {
             color: #00ff88;
 
-            transform: translateX(-3px);
+            transform:
+                translateX(-3px);
         }
-
 
         html[dir="ltr"]
         .lesson-card:hover
         .card-arrow {
-            transform: translateX(3px);
+            transform:
+                translateX(3px);
         }
-
-
-        /* =========================================
-           LESSON VIEW
-        ========================================= */
 
         .lesson-view {
             display: none;
         }
 
-
         .lesson-view.active {
             display: block;
         }
 
-
         .lesson-header {
             margin-bottom: 30px;
         }
-
 
         .back-lessons {
             display: inline-block;
@@ -383,7 +293,6 @@
             text-decoration: none;
 
             font-size: 13px;
-
             font-weight: bold;
 
             margin-bottom: 25px;
@@ -391,17 +300,14 @@
             transition: 0.2s;
         }
 
-
         .back-lessons:hover {
             color: #00ff88;
         }
-
 
         .lesson-type {
             color: #00ff88;
 
             font-size: 12px;
-
             font-weight: bold;
 
             letter-spacing: 2px;
@@ -409,24 +315,15 @@
             margin-bottom: 12px;
         }
 
-
         .lesson-main-title {
             font-size: 34px;
-
             margin-bottom: 12px;
         }
 
-
         .lesson-subtitle {
             color: #777;
-
             line-height: 1.7;
         }
-
-
-        /* =========================================
-           LESSON CONTENT
-        ========================================= */
 
         .lesson-content {
             background: #0d0d0d;
@@ -438,22 +335,18 @@
             padding: 35px;
         }
 
-
         .lesson-content h2 {
             color: white;
 
             font-size: 20px;
 
             margin-top: 30px;
-
             margin-bottom: 15px;
         }
-
 
         .lesson-content h2:first-child {
             margin-top: 0;
         }
-
 
         .lesson-content p {
             color: #aaa;
@@ -462,11 +355,6 @@
 
             margin-bottom: 18px;
         }
-
-
-        /* =========================================
-           INFO BOX
-        ========================================= */
 
         .info-box {
             background: #080808;
@@ -486,22 +374,14 @@
             margin: 20px 0;
         }
 
-
         html[dir="ltr"] .info-box {
             border-right: 1px solid #292929;
-
             border-left: 3px solid #00ff88;
         }
-
 
         .info-box strong {
             color: #00ff88;
         }
-
-
-        /* =========================================
-           EXAMPLE BOX
-        ========================================= */
 
         .example-box {
             background: #070707;
@@ -515,7 +395,6 @@
             margin: 20px 0;
         }
 
-
         .example-label {
             color: #666;
 
@@ -527,7 +406,6 @@
 
             margin-bottom: 12px;
         }
-
 
         .example-code {
             color: #00ff88;
@@ -548,11 +426,6 @@
             overflow-wrap: anywhere;
         }
 
-
-        /* =========================================
-           STEPS
-        ========================================= */
-
         .steps {
             display: flex;
 
@@ -562,7 +435,6 @@
 
             margin: 20px 0;
         }
-
 
         .step {
             display: flex;
@@ -580,16 +452,13 @@
             padding: 15px;
         }
 
-
         .step-number {
             min-width: 29px;
-
             height: 29px;
 
             display: flex;
 
             align-items: center;
-
             justify-content: center;
 
             border-radius: 50%;
@@ -601,21 +470,13 @@
             color: #00ff88;
 
             font-size: 12px;
-
             font-weight: bold;
         }
 
-
         .step-text {
             color: #aaa;
-
             line-height: 1.7;
         }
-
-
-        /* =========================================
-           ALPHABET TABLE
-        ========================================= */
 
         .table-wrapper {
             width: 100%;
@@ -625,7 +486,6 @@
             margin: 20px 0;
         }
 
-
         table {
             width: 100%;
 
@@ -633,7 +493,6 @@
 
             border-collapse: collapse;
         }
-
 
         th,
         td {
@@ -644,7 +503,6 @@
             text-align: center;
         }
 
-
         th {
             background: #111;
 
@@ -652,7 +510,6 @@
 
             font-size: 13px;
         }
-
 
         td {
             background: #080808;
@@ -666,11 +523,6 @@
 
             direction: ltr;
         }
-
-
-        /* =========================================
-           WARNING
-        ========================================= */
 
         .warning-box {
             background:
@@ -692,7 +544,6 @@
             margin-top: 25px;
         }
 
-
         html[dir="ltr"] .warning-box {
             border-right:
                 1px solid
@@ -701,15 +552,43 @@
             border-left: 3px solid #ffd166;
         }
 
-
         .warning-box strong {
             color: #ffd166;
         }
 
+        .history-box {
+            background: #080808;
 
-        /* =========================================
-           FOOTER
-        ========================================= */
+            border: 1px solid #292929;
+
+            border-right: 3px solid #00ff88;
+
+            border-radius: 8px;
+
+            padding: 20px;
+
+            margin: 20px 0;
+
+            color: #aaa;
+
+            line-height: 1.9;
+        }
+
+        html[dir="ltr"] .history-box {
+            border-right: 1px solid #292929;
+            border-left: 3px solid #00ff88;
+        }
+
+        .history-year {
+            color: #00ff88;
+
+            font-family:
+                Consolas,
+                Monaco,
+                monospace;
+
+            font-weight: bold;
+        }
 
         .footer {
             text-align: center;
@@ -721,49 +600,36 @@
             margin-top: 35px;
         }
 
-
-        /* =========================================
-           MOBILE
-        ========================================= */
-
         @media (max-width: 700px) {
 
             .navbar {
                 padding: 15px 18px;
             }
 
-
             .container {
                 padding: 35px 18px;
             }
-
 
             .lessons-grid {
                 grid-template-columns: 1fr;
             }
 
-
             .page-title {
                 font-size: 29px;
             }
-
 
             .lesson-main-title {
                 font-size: 28px;
             }
 
-
             .lesson-content {
                 padding: 22px;
             }
 
-
             .logo img {
                 width: 125px;
             }
-
         }
-
 
         @media (max-width: 500px) {
 
@@ -771,16 +637,13 @@
                 gap: 10px;
             }
 
-
             .nav-link {
                 font-size: 11px;
             }
 
-
             .language-btn {
                 padding: 7px 10px;
             }
-
         }
 
     </style>
@@ -791,12 +654,7 @@
 <body>
 
 
-<!-- =========================================
-     NAVBAR
-========================================= -->
-
 <nav class="navbar">
-
 
     <a
         href="dashboard.html"
@@ -812,7 +670,6 @@
 
 
     <div class="nav-right">
-
 
         <a
             href="dashboard.html"
@@ -831,12 +688,9 @@
             ENGLISH
         </button>
 
-
     </div>
 
-
 </nav>
-
 
 
 <main class="container">
@@ -851,9 +705,7 @@
         class="lessons-list"
     >
 
-
         <header class="page-header">
-
 
             <div
                 class="page-label"
@@ -878,17 +730,13 @@
                 اختر درسًا لقراءة الشرح وتعلم أساسيات التشفير.
             </p>
 
-
         </header>
-
 
 
         <div class="lessons-grid">
 
 
-            <!-- =================================
-                 CAESAR CARD
-            ================================== -->
+            <!-- CAESAR -->
 
             <article
                 class="lesson-card"
@@ -897,11 +745,9 @@
                 role="button"
             >
 
-
                 <div class="card-icon">
                     🔐
                 </div>
-
 
                 <div
                     class="card-label"
@@ -910,14 +756,12 @@
                     CRYPTOGRAPHY
                 </div>
 
-
                 <h2
                     class="card-title"
                     id="caesarCardTitle"
                 >
                     تعلم Caesar Cipher
                 </h2>
-
 
                 <p
                     class="card-description"
@@ -926,19 +770,14 @@
                     تعرف على فكرة Caesar Cipher وكيفية التشفير وفك التشفير باستخدام الإزاحة.
                 </p>
 
-
                 <div class="card-arrow">
                     ←
                 </div>
 
-
             </article>
 
 
-
-            <!-- =================================
-                 ROT13 CARD
-            ================================== -->
+            <!-- ROT13 -->
 
             <article
                 class="lesson-card"
@@ -947,11 +786,9 @@
                 role="button"
             >
 
-
                 <div class="card-icon">
                     🔄
                 </div>
-
 
                 <div
                     class="card-label"
@@ -960,14 +797,12 @@
                     CRYPTOGRAPHY
                 </div>
 
-
                 <h2
                     class="card-title"
                     id="rot13CardTitle"
                 >
                     تعلم ROT13
                 </h2>
-
 
                 <p
                     class="card-description"
@@ -976,11 +811,50 @@
                     تعلم كيف تعمل ROT13 ولماذا يمكن استخدام نفس العملية للتشفير وفك التشفير.
                 </p>
 
-
                 <div class="card-arrow">
                     ←
                 </div>
 
+            </article>
+
+
+            <!-- BINARY -->
+
+            <article
+                class="lesson-card"
+                data-lesson="binary"
+                tabindex="0"
+                role="button"
+            >
+
+                <div class="card-icon">
+                    01
+                </div>
+
+                <div
+                    class="card-label"
+                    id="binaryCardLabel"
+                >
+                    FUNDAMENTALS
+                </div>
+
+                <h2
+                    class="card-title"
+                    id="binaryCardTitle"
+                >
+                    تعلم Binary
+                </h2>
+
+                <p
+                    class="card-description"
+                    id="binaryCardDescription"
+                >
+                    تعلم كيف يعمل النظام الثنائي، وكيف تستخدم أجهزة الكمبيوتر الصفر والواحد لتمثيل المعلومات.
+                </p>
+
+                <div class="card-arrow">
+                    ←
+                </div>
 
             </article>
 
@@ -995,9 +869,7 @@
             0X1GHOST — LEARN CRYPTOGRAPHY
         </div>
 
-
     </section>
-
 
 
     <!-- =====================================
@@ -1009,9 +881,7 @@
         class="lesson-view"
     >
 
-
         <header class="lesson-header">
-
 
             <a
                 href="#"
@@ -1021,14 +891,12 @@
                 → العودة إلى الدروس
             </a>
 
-
             <div
                 class="lesson-type"
                 id="caesarLessonType"
             >
                 CRYPTOGRAPHY
             </div>
-
 
             <h1
                 class="lesson-main-title"
@@ -1037,7 +905,6 @@
                 Caesar Cipher
             </h1>
 
-
             <p
                 class="lesson-subtitle"
                 id="caesarLessonSubtitle"
@@ -1045,69 +912,43 @@
                 تعلم واحدة من أبسط وأشهر شفرات الاستبدال.
             </p>
 
-
         </header>
 
 
-
         <article class="lesson-content">
-
 
             <h2 id="caesarDefinitionTitle">
                 ما هي Caesar Cipher؟
             </h2>
 
-
             <p id="caesarDefinitionText">
-
-                Caesar Cipher هي واحدة من أقدم وأبسط طرق
-                التشفير المعروفة. تعتمد على تحريك كل حرف
-                في الرسالة عددًا ثابتًا من المواقع داخل
-                الأبجدية.
-
+                Caesar Cipher هي واحدة من أقدم وأبسط طرق التشفير المعروفة. تعتمد على تحريك كل حرف في الرسالة عددًا ثابتًا من المواقع داخل الأبجدية.
             </p>
 
-
-
             <div class="info-box">
-
 
                 <strong id="caesarIdeaTitle">
                     الفكرة الأساسية
                 </strong>
 
-
                 <br><br>
 
-
                 <span id="caesarIdeaText">
-
-                    بدلًا من كتابة الحرف الأصلي، نكتب حرفًا
-                    آخر يقع على مسافة محددة منه في الأبجدية.
-
+                    بدلًا من كتابة الحرف الأصلي، نكتب حرفًا آخر يقع على مسافة محددة منه في الأبجدية.
                 </span>
 
-
             </div>
-
 
 
             <h2 id="caesarHowTitle">
                 كيف تعمل؟
             </h2>
 
-
             <p id="caesarHowText">
-
-                لنفترض أننا اخترنا قيمة إزاحة مقدارها 3.
-                هذا يعني أن كل حرف سيتحرك ثلاثة أماكن إلى الأمام.
-
+                لنفترض أننا اخترنا قيمة إزاحة مقدارها 3. هذا يعني أن كل حرف سيتحرك ثلاثة أماكن إلى الأمام.
             </p>
 
-
-
             <div class="example-box">
-
 
                 <div
                     class="example-label"
@@ -1116,76 +957,53 @@
                     SHIFT = 3
                 </div>
 
-
                 <div class="example-code">
-
                     A → D<br>
                     B → E<br>
                     C → F<br>
                     D → G
-
                 </div>
 
-
             </div>
-
 
 
             <h2 id="caesarMessageTitle">
                 مثال على رسالة
             </h2>
 
-
             <p id="caesarMessageText">
-
                 إذا كانت الرسالة الأصلية:
-
             </p>
 
-
             <div class="example-box">
-
 
                 <div class="example-code">
                     HELLO
                 </div>
 
-
             </div>
 
-
             <p id="caesarEncryptedText">
-
                 باستخدام إزاحة مقدارها 3 تصبح:
-
             </p>
 
-
             <div class="example-box">
-
 
                 <div class="example-code">
                     KHOOR
                 </div>
 
-
             </div>
-
 
 
             <h2 id="caesarStepsTitle">
                 خطوات التشفير
             </h2>
 
-
             <div class="steps">
 
-
                 <div class="step">
-
-                    <div class="step-number">
-                        1
-                    </div>
+                    <div class="step-number">1</div>
 
                     <div
                         class="step-text"
@@ -1193,16 +1011,10 @@
                     >
                         اختر قيمة الإزاحة.
                     </div>
-
                 </div>
 
-
-
                 <div class="step">
-
-                    <div class="step-number">
-                        2
-                    </div>
+                    <div class="step-number">2</div>
 
                     <div
                         class="step-text"
@@ -1210,16 +1022,10 @@
                     >
                         خذ كل حرف من الرسالة الأصلية.
                     </div>
-
                 </div>
 
-
-
                 <div class="step">
-
-                    <div class="step-number">
-                        3
-                    </div>
+                    <div class="step-number">3</div>
 
                     <div
                         class="step-text"
@@ -1227,16 +1033,10 @@
                     >
                         حرّك الحرف إلى الأمام بعدد المواقع المحدد.
                     </div>
-
                 </div>
 
-
-
                 <div class="step">
-
-                    <div class="step-number">
-                        4
-                    </div>
+                    <div class="step-number">4</div>
 
                     <div
                         class="step-text"
@@ -1244,24 +1044,18 @@
                     >
                         إذا وصلت إلى نهاية الأبجدية، ارجع إلى بدايتها.
                     </div>
-
                 </div>
 
-
             </div>
-
 
 
             <h2 id="caesarAlphabetTitle">
                 مثال على الأبجدية
             </h2>
 
-
             <div class="table-wrapper">
 
-
                 <table>
-
 
                     <thead>
 
@@ -1279,7 +1073,6 @@
 
                     </thead>
 
-
                     <tbody>
 
                         <tr>
@@ -1296,31 +1089,20 @@
 
                     </tbody>
 
-
                 </table>
 
-
             </div>
-
 
 
             <h2 id="caesarDecryptTitle">
                 كيف نفك التشفير؟
             </h2>
 
-
             <p id="caesarDecryptText">
-
-                لفك تشفير Caesar Cipher نستخدم العملية
-                العكسية. بدلًا من تحريك الحروف إلى الأمام،
-                نحركها إلى الخلف بنفس قيمة الإزاحة.
-
+                لفك تشفير Caesar Cipher نستخدم العملية العكسية. بدلًا من تحريك الحروف إلى الأمام، نحركها إلى الخلف بنفس قيمة الإزاحة.
             </p>
 
-
-
             <div class="example-box">
-
 
                 <div
                     class="example-label"
@@ -1329,50 +1111,33 @@
                     DECRYPT
                 </div>
 
-
                 <div class="example-code">
                     KHOOR → HELLO
                 </div>
 
-
             </div>
 
-
-
             <div class="warning-box">
-
 
                 <strong id="caesarImportantTitle">
                     ملاحظة مهمة
                 </strong>
 
-
                 <br><br>
 
-
                 <span id="caesarImportantText">
-
-                    Caesar Cipher ليست طريقة تشفير قوية
-                    للاستخدام الحقيقي، لأنها تحتوي على عدد
-                    محدود من الإزاحات ويمكن تجربة الاحتمالات
-                    بسهولة. لكنها ممتازة لتعلم أساسيات التشفير.
-
+                    Caesar Cipher ليست طريقة تشفير قوية للاستخدام الحقيقي، لأنها تحتوي على عدد محدود من الإزاحات ويمكن تجربة الاحتمالات بسهولة. لكنها ممتازة لتعلم أساسيات التشفير.
                 </span>
-
 
             </div>
 
-
         </article>
-
 
         <div class="footer">
             0X1GHOST — LEARN CRYPTOGRAPHY
         </div>
 
-
     </section>
-
 
 
     <!-- =====================================
@@ -1384,9 +1149,7 @@
         class="lesson-view"
     >
 
-
         <header class="lesson-header">
-
 
             <a
                 href="#"
@@ -1396,14 +1159,12 @@
                 → العودة إلى الدروس
             </a>
 
-
             <div
                 class="lesson-type"
                 id="rot13LessonType"
             >
                 CRYPTOGRAPHY
             </div>
-
 
             <h1
                 class="lesson-main-title"
@@ -1412,7 +1173,6 @@
                 ROT13
             </h1>
 
-
             <p
                 class="lesson-subtitle"
                 id="rot13LessonSubtitle"
@@ -1420,71 +1180,43 @@
                 تعرف على ROT13، وهي طريقة تعتمد على تدوير حروف الأبجدية بمقدار 13 مكانًا.
             </p>
 
-
         </header>
 
 
-
         <article class="lesson-content">
-
 
             <h2 id="rot13DefinitionTitle">
                 ما هي ROT13؟
             </h2>
 
-
             <p id="rot13DefinitionText">
-
-                ROT13 هي طريقة بسيطة لتحويل النص تعتمد على
-                تدوير كل حرف إنجليزي بمقدار 13 مكانًا داخل
-                الأبجدية. اسم ROT13 يعني Rotation 13، أي
-                تدوير بمقدار 13.
-
+                ROT13 هي طريقة بسيطة لتحويل النص تعتمد على تدوير كل حرف إنجليزي بمقدار 13 مكانًا داخل الأبجدية. اسم ROT13 يعني Rotation 13.
             </p>
 
-
-
             <div class="info-box">
-
 
                 <strong id="rot13IdeaTitle">
                     الفكرة الأساسية
                 </strong>
 
-
                 <br><br>
 
-
                 <span id="rot13IdeaText">
-
-                    الأبجدية الإنجليزية تحتوي على 26 حرفًا.
-                    عند تحريك كل حرف 13 مكانًا، تحصل على الحرف
-                    المقابل له في النصف الآخر من الأبجدية.
-
+                    الأبجدية الإنجليزية تحتوي على 26 حرفًا. عند تحريك كل حرف 13 مكانًا، تحصل على الحرف المقابل له في النصف الآخر من الأبجدية.
                 </span>
 
-
             </div>
-
 
 
             <h2 id="rot13HowTitle">
                 كيف تعمل؟
             </h2>
 
-
             <p id="rot13HowText">
-
-                نقسم الأبجدية إلى مجموعتين، كل مجموعة تحتوي
-                على 13 حرفًا. ثم نطابق كل حرف من المجموعة
-                الأولى مع الحرف المقابل له في المجموعة الثانية.
-
+                نقسم الأبجدية إلى مجموعتين، كل مجموعة تحتوي على 13 حرفًا، ثم نطابق كل حرف من المجموعة الأولى مع الحرف المقابل له في المجموعة الثانية.
             </p>
 
-
-
             <div class="example-box">
-
 
                 <div
                     class="example-label"
@@ -1493,77 +1225,51 @@
                     ROT13 ALPHABET
                 </div>
 
-
                 <div class="example-code">
-
                     ABCDEFGHIJKLM<br>
                     NOPQRSTUVWXYZ
-
                 </div>
 
-
             </div>
-
 
 
             <h2 id="rot13ExampleTitle">
                 مثال بسيط
             </h2>
 
-
             <p id="rot13ExampleText">
-
                 إذا كانت الرسالة الأصلية:
-
             </p>
 
-
-
             <div class="example-box">
-
 
                 <div class="example-code">
                     HELLO
                 </div>
 
-
             </div>
 
-
-
             <p id="rot13EncryptedText">
-
                 بعد تطبيق ROT13 تصبح:
-
             </p>
 
-
-
             <div class="example-box">
-
 
                 <div class="example-code">
                     URYYB
                 </div>
 
-
             </div>
-
 
 
             <h2 id="rot13StepsTitle">
                 خطوات ROT13
             </h2>
 
-
             <div class="steps">
 
-
                 <div class="step">
-
-                    <div class="step-number">
-                        1
-                    </div>
+                    <div class="step-number">1</div>
 
                     <div
                         class="step-text"
@@ -1571,16 +1277,10 @@
                     >
                         خذ الحرف من الرسالة.
                     </div>
-
                 </div>
 
-
-
                 <div class="step">
-
-                    <div class="step-number">
-                        2
-                    </div>
+                    <div class="step-number">2</div>
 
                     <div
                         class="step-text"
@@ -1588,16 +1288,10 @@
                     >
                         حرّك الحرف 13 مكانًا إلى الأمام.
                     </div>
-
                 </div>
 
-
-
                 <div class="step">
-
-                    <div class="step-number">
-                        3
-                    </div>
+                    <div class="step-number">3</div>
 
                     <div
                         class="step-text"
@@ -1605,16 +1299,10 @@
                     >
                         إذا تجاوزت نهاية الأبجدية، أكمل من بدايتها.
                     </div>
-
                 </div>
 
-
-
                 <div class="step">
-
-                    <div class="step-number">
-                        4
-                    </div>
+                    <div class="step-number">4</div>
 
                     <div
                         class="step-text"
@@ -1622,25 +1310,18 @@
                     >
                         كرر العملية مع جميع الحروف.
                     </div>
-
                 </div>
 
-
             </div>
-
 
 
             <h2 id="rot13MappingTitle">
                 أمثلة على تحويل الحروف
             </h2>
 
-
-
             <div class="table-wrapper">
 
-
                 <table>
-
 
                     <thead>
 
@@ -1658,114 +1339,54 @@
 
                     </thead>
 
-
                     <tbody>
 
                         <tr>
-
-                            <td>
-                                A
-                            </td>
-
-                            <td>
-                                N
-                            </td>
-
+                            <td>A</td>
+                            <td>N</td>
                         </tr>
-
 
                         <tr>
-
-                            <td>
-                                B
-                            </td>
-
-                            <td>
-                                O
-                            </td>
-
+                            <td>B</td>
+                            <td>O</td>
                         </tr>
-
 
                         <tr>
-
-                            <td>
-                                C
-                            </td>
-
-                            <td>
-                                P
-                            </td>
-
+                            <td>C</td>
+                            <td>P</td>
                         </tr>
-
 
                         <tr>
-
-                            <td>
-                                H
-                            </td>
-
-                            <td>
-                                U
-                            </td>
-
+                            <td>H</td>
+                            <td>U</td>
                         </tr>
-
 
                         <tr>
-
-                            <td>
-                                N
-                            </td>
-
-                            <td>
-                                A
-                            </td>
-
+                            <td>N</td>
+                            <td>A</td>
                         </tr>
-
 
                         <tr>
-
-                            <td>
-                                Z
-                            </td>
-
-                            <td>
-                                M
-                            </td>
-
+                            <td>Z</td>
+                            <td>M</td>
                         </tr>
-
 
                     </tbody>
 
-
                 </table>
 
-
             </div>
-
 
 
             <h2 id="rot13DecryptTitle">
                 كيف نفك ROT13؟
             </h2>
 
-
             <p id="rot13DecryptText">
-
-                المميز في ROT13 هو أن نفس العملية تستخدم
-                للتشفير وفك التشفير. إذا طبقت ROT13 مرة ثانية
-                على النص المشفر، تحصل على النص الأصلي.
-
+                المميز في ROT13 هو أن نفس العملية تستخدم للتشفير وفك التشفير. إذا طبقت ROT13 مرة ثانية على النص المشفر، تحصل على النص الأصلي.
             </p>
 
-
-
             <div class="example-box">
-
 
                 <div
                     class="example-label"
@@ -1774,61 +1395,490 @@
                     DECRYPT
                 </div>
 
-
                 <div class="example-code">
                     URYYB → HELLO
                 </div>
 
-
             </div>
 
-
-
             <div class="info-box">
-
 
                 <strong id="rot13DoubleTitle">
                     ROT13 مرتين
                 </strong>
 
-
                 <br><br>
 
-
                 <span id="rot13DoubleText">
-
-                    تطبيق ROT13 مرتين يعيد النص إلى حالته
-                    الأصلية، لأن 13 + 13 = 26، وعدد حروف
-                    الأبجدية الإنجليزية هو 26.
-
+                    تطبيق ROT13 مرتين يعيد النص إلى حالته الأصلية، لأن 13 + 13 = 26.
                 </span>
-
 
             </div>
 
-
-
             <div class="warning-box">
-
 
                 <strong id="rot13ImportantTitle">
                     ملاحظة مهمة
                 </strong>
 
+                <br><br>
+
+                <span id="rot13ImportantText">
+                    ROT13 ليست تشفيرًا آمنًا لحماية المعلومات الحساسة. هي طريقة تحويل بسيطة ومعروفة ويمكن عكسها بسهولة.
+                </span>
+
+            </div>
+
+        </article>
+
+        <div class="footer">
+            0X1GHOST — LEARN CRYPTOGRAPHY
+        </div>
+
+    </section>
+
+
+    <!-- =====================================
+         BINARY LESSON
+    ====================================== -->
+
+    <section
+        id="binaryLesson"
+        class="lesson-view"
+    >
+
+        <header class="lesson-header">
+
+            <a
+                href="#"
+                class="back-lessons"
+                data-back
+            >
+                → العودة إلى الدروس
+            </a>
+
+            <div
+                class="lesson-type"
+                id="binaryLessonType"
+            >
+                FUNDAMENTALS
+            </div>
+
+            <h1
+                class="lesson-main-title"
+                id="binaryLessonMainTitle"
+            >
+                Binary
+            </h1>
+
+            <p
+                class="lesson-subtitle"
+                id="binaryLessonSubtitle"
+            >
+                تعلم النظام الثنائي، اللغة الرقمية التي تعتمد على الصفر والواحد.
+            </p>
+
+        </header>
+
+
+        <article class="lesson-content">
+
+
+            <!-- DEFINITION -->
+
+            <h2 id="binaryDefinitionTitle">
+                ما هو Binary؟
+            </h2>
+
+            <p id="binaryDefinitionText">
+                النظام الثنائي أو Binary هو نظام عددي يعتمد على رقمين فقط: 0 و1. بينما النظام العشري الذي نستخدمه يوميًا يعتمد على عشرة أرقام من 0 إلى 9، يعتمد Binary على رقمين فقط.
+            </p>
+
+
+            <div class="info-box">
+
+                <strong id="binaryIdeaTitle">
+                    الفكرة الأساسية
+                </strong>
 
                 <br><br>
 
-
-                <span id="rot13ImportantText">
-
-                    ROT13 ليست تشفيرًا آمنًا لحماية المعلومات
-                    الحساسة. هي طريقة تحويل بسيطة ومعروفة،
-                    ويمكن لأي شخص يعرف ROT13 فك النص بسهولة.
-                    لذلك تستخدم أساسًا للتعلم أو لإخفاء نص
-                    بشكل بسيط وليس للحماية الأمنية الحقيقية.
-
+                <span id="binaryIdeaText">
+                    كل خانة في الرقم الثنائي تمثل قوة من قوى الرقم 2. لذلك تسمى كل خانة Binary Digit أو Bit.
                 </span>
 
+            </div>
+
+
+            <!-- HISTORY -->
+
+            <h2 id="binaryHistoryTitle">
+                تاريخ النظام الثنائي
+            </h2>
+
+            <p id="binaryHistoryText">
+                تاريخ Binary أقدم من أجهزة الكمبيوتر الحديثة. توجد أعمال رياضية أقدم تعاملت مع أنظمة عددية تعتمد على أساسات مختلفة، لكن غوتفريد فيلهلم لايبنتز يُنسب إليه تطوير نظام الحساب الثنائي الحديث بصورته الرياضية المعروفة.
+            </p>
+
+
+            <div class="history-box">
+
+                <strong id="binaryLeibnizTitle">
+                    غوتفريد فيلهلم لايبنتز
+                </strong>
+
+                <br><br>
+
+                <span id="binaryLeibnizText">
+                    طوّر لايبنتز نظام الحساب بالأساس 2 في القرن السابع عشر، وكان قد أتقن نظامه بحلول عام 1679. ثم نُشرت أفكاره عن الحساب الثنائي في أوائل القرن الثامن عشر. لذلك يُعد من أهم الشخصيات المرتبطة بتطوير Binary الحديث.
+                </span>
+
+                <br><br>
+
+                <span class="history-year">
+                    1679
+                </span>
+
+                —
+                
+                <span id="binaryYearText">
+                    تطوير نظام الحساب الثنائي لدى لايبنتز.
+                </span>
+
+            </div>
+
+
+            <div class="info-box">
+
+                <strong id="binaryBeforeTitle">
+                    هل كان لايبنتز أول شخص فكر في Binary؟
+                </strong>
+
+                <br><br>
+
+                <span id="binaryBeforeText">
+                    ليس بالضرورة. توجد أدلة على أن علماء قبل لايبنتز تعاملوا مع أنظمة عددية أخرى، وهناك أعمال منسوبة إلى Thomas Harriot تحتوي على حسابات باستخدام النظام الثنائي قبل لايبنتز. لذلك الأدق أن نقول إن لايبنتز طوّر ونسّق الحساب الثنائي الحديث، وليس أنه أول إنسان عرف فكرة استخدام أساس 2.
+                </span>
+
+            </div>
+
+
+            <!-- HOW BINARY WORKS -->
+
+            <h2 id="binaryHowTitle">
+                كيف يعمل Binary؟
+            </h2>
+
+            <p id="binaryHowText">
+                في النظام العشري، قيمة الخانات تعتمد على قوى الرقم 10. أما في Binary، فقيمة الخانات تعتمد على قوى الرقم 2.
+            </p>
+
+
+            <div class="example-box">
+
+                <div
+                    class="example-label"
+                    id="binaryPowersLabel"
+                >
+                    POWERS OF 2
+                </div>
+
+                <div class="example-code">
+                    2⁴ = 16<br>
+                    2³ = 8<br>
+                    2² = 4<br>
+                    2¹ = 2<br>
+                    2⁰ = 1
+                </div>
+
+            </div>
+
+
+            <!-- EXAMPLE -->
+
+            <h2 id="binaryExampleTitle">
+                مثال: تحويل Binary إلى Decimal
+            </h2>
+
+            <p id="binaryExampleText">
+                لنأخذ الرقم الثنائي 1011. نكتب قيمة كل خانة حسب قوة الرقم 2.
+            </p>
+
+
+            <div class="example-box">
+
+                <div class="example-code">
+                    1  0  1  1<br>
+                    ↓  ↓  ↓  ↓<br>
+                    8  4  2  1
+                </div>
+
+            </div>
+
+
+            <p id="binaryCalculationText">
+                الآن نجمع الخانات التي تحتوي على 1: 8 + 2 + 1 = 11.
+            </p>
+
+
+            <div class="example-box">
+
+                <div class="example-code">
+                    1011₂ = 11₁₀
+                </div>
+
+            </div>
+
+
+            <!-- STEPS -->
+
+            <h2 id="binaryStepsTitle">
+                خطوات التحويل
+            </h2>
+
+
+            <div class="steps">
+
+                <div class="step">
+
+                    <div class="step-number">
+                        1
+                    </div>
+
+                    <div
+                        class="step-text"
+                        id="binaryStep1"
+                    >
+                        اكتب الرقم الثنائي من اليمين إلى اليسار.
+                    </div>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        2
+                    </div>
+
+                    <div
+                        class="step-text"
+                        id="binaryStep2"
+                    >
+                        أعطِ أول خانة من اليمين القوة 2⁰، ثم 2¹، ثم 2² وهكذا.
+                    </div>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        3
+                    </div>
+
+                    <div
+                        class="step-text"
+                        id="binaryStep3"
+                    >
+                        اضرب كل Bit في قيمة الخانة المقابلة له.
+                    </div>
+
+                </div>
+
+
+                <div class="step">
+
+                    <div class="step-number">
+                        4
+                    </div>
+
+                    <div
+                        class="step-text"
+                        id="binaryStep4"
+                    >
+                        اجمع النتائج للحصول على الرقم العشري.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- TABLE -->
+
+            <h2 id="binaryTableTitle">
+                أمثلة سريعة
+            </h2>
+
+
+            <div class="table-wrapper">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th id="binaryHeader">
+                                Binary
+                            </th>
+
+                            <th id="decimalHeader">
+                                Decimal
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>0</td>
+                            <td>0</td>
+                        </tr>
+
+                        <tr>
+                            <td>1</td>
+                            <td>1</td>
+                        </tr>
+
+                        <tr>
+                            <td>10</td>
+                            <td>2</td>
+                        </tr>
+
+                        <tr>
+                            <td>11</td>
+                            <td>3</td>
+                        </tr>
+
+                        <tr>
+                            <td>100</td>
+                            <td>4</td>
+                        </tr>
+
+                        <tr>
+                            <td>101</td>
+                            <td>5</td>
+                        </tr>
+
+                        <tr>
+                            <td>110</td>
+                            <td>6</td>
+                        </tr>
+
+                        <tr>
+                            <td>111</td>
+                            <td>7</td>
+                        </tr>
+
+                        <tr>
+                            <td>1000</td>
+                            <td>8</td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            <!-- BITS -->
+
+            <h2 id="binaryBitsTitle">
+                ما هو الـ Bit؟
+            </h2>
+
+            <p id="binaryBitsText">
+                كلمة Bit هي اختصار لـ Binary Digit، أي خانة ثنائية. يمكن للـ Bit أن يحمل قيمة واحدة من قيمتين فقط: 0 أو 1.
+            </p>
+
+
+            <div class="example-box">
+
+                <div
+                    class="example-label"
+                    id="binaryBitsLabel"
+                >
+                    ONE BYTE
+                </div>
+
+                <div class="example-code">
+                    01001000
+                </div>
+
+            </div>
+
+
+            <p id="binaryByteText">
+                عندما نجمع 8 Bits نحصل على Byte. والـ Byte يمكنه تمثيل 256 قيمة مختلفة، من 0 إلى 255 عند استخدام تمثيل غير موقّع.
+            </p>
+
+
+            <!-- COMPUTERS -->
+
+            <h2 id="binaryComputersTitle">
+                لماذا تستخدم أجهزة الكمبيوتر Binary؟
+            </h2>
+
+            <p id="binaryComputersText">
+                الأجهزة الإلكترونية الرقمية تعمل بسهولة أكبر مع حالتين مميزتين، مثل وجود إشارة كهربائية أو عدم وجودها. يمكن تمثيل هاتين الحالتين منطقيًا بالرقمين 1 و0، ولهذا أصبح النظام الثنائي أساسًا مهمًا للحوسبة الرقمية.
+            </p>
+
+
+            <div class="info-box">
+
+                <strong id="binaryComputerIdeaTitle">
+                    من Binary إلى المعلومات
+                </strong>
+
+                <br><br>
+
+                <span id="binaryComputerIdeaText">
+                    الكمبيوتر لا يرى الحروف والصور والأصوات بالطريقة التي نراها نحن. في النهاية يتم تمثيل هذه البيانات داخليًا باستخدام Bits، ثم تُفسر هذه الـBits وفق قواعد وأنظمة مختلفة.
+                </span>
+
+            </div>
+
+
+            <!-- ASCII -->
+
+            <h2 id="binaryAsciiTitle">
+                Binary و ASCII
+            </h2>
+
+            <p id="binaryAsciiText">
+                يمكن استخدام Binary لتمثيل الحروف أيضًا. مثلًا، الحرف H في ASCII له القيمة العشرية 72، وتمثيله الثنائي هو 01001000.
+            </p>
+
+
+            <div class="example-box">
+
+                <div class="example-code">
+                    H<br>
+                    72<br>
+                    01001000
+                </div>
+
+            </div>
+
+
+            <!-- WARNING -->
+
+            <div class="warning-box">
+
+                <strong id="binaryImportantTitle">
+                    ملاحظة مهمة
+                </strong>
+
+                <br><br>
+
+                <span id="binaryImportantText">
+                    Binary ليس نوعًا من التشفير بحد ذاته. هو نظام عددي وتمثيل للبيانات. قد يظهر في تحديات CTF مع التشفير أو الترميز، لكن تحويل Binary إلى نص لا يعني أنك كسرت تشفيرًا قويًا.
+                </span>
 
             </div>
 
@@ -1840,12 +1890,10 @@
             0X1GHOST — LEARN CRYPTOGRAPHY
         </div>
 
-
     </section>
 
 
 </main>
-
 
 
 <script>
@@ -1915,13 +1963,27 @@ const translations = {
             "تعلم كيف تعمل ROT13 ولماذا يمكن استخدام نفس العملية للتشفير وفك التشفير.",
 
 
+        /* BINARY CARD */
+
+        binaryCardLabel:
+            "FUNDAMENTALS",
+
+        binaryCardTitle:
+            "تعلم Binary",
+
+        binaryCardDescription:
+            "تعلم كيف يعمل النظام الثنائي، وكيف تستخدم أجهزة الكمبيوتر الصفر والواحد لتمثيل المعلومات.",
+
+
         /* GENERAL */
 
         backLessons:
             "→ العودة إلى الدروس",
 
 
-        /* CAESAR */
+        /* =================================
+           CAESAR
+        ================================= */
 
         caesarLessonType:
             "CRYPTOGRAPHY",
@@ -1948,7 +2010,10 @@ const translations = {
             "كيف تعمل؟",
 
         caesarHowText:
-            "لنفترض أننا اخترنا قيمة إزاحة مقدارها 3. هذا يعني أن كل حرف سيتحرك ثلاثة أماكن إلى الأمام.",
+            "لنفرض أننا اخترنا قيمة إزاحة مقدارها 3. هذا يعني أن كل حرف سيتحرك ثلاثة أماكن إلى الأمام.",
+
+        caesarShiftExampleLabel:
+            "SHIFT = 3",
 
         caesarMessageTitle:
             "مثال على رسالة",
@@ -1999,7 +2064,9 @@ const translations = {
             "Caesar Cipher ليست طريقة تشفير قوية للاستخدام الحقيقي، لأنها تحتوي على عدد محدود من الإزاحات ويمكن تجربة الاحتمالات بسهولة. لكنها ممتازة لتعلم أساسيات التشفير.",
 
 
-        /* ROT13 */
+        /* =================================
+           ROT13
+        ================================= */
 
         rot13LessonType:
             "CRYPTOGRAPHY",
@@ -2014,7 +2081,7 @@ const translations = {
             "ما هي ROT13؟",
 
         rot13DefinitionText:
-            "ROT13 هي طريقة بسيطة لتحويل النص تعتمد على تدوير كل حرف إنجليزي بمقدار 13 مكانًا داخل الأبجدية. اسم ROT13 يعني Rotation 13، أي تدوير بمقدار 13.",
+            "ROT13 هي طريقة بسيطة لتحويل النص تعتمد على تدوير كل حرف إنجليزي بمقدار 13 مكانًا داخل الأبجدية. اسم ROT13 يعني Rotation 13.",
 
         rot13IdeaTitle:
             "الفكرة الأساسية",
@@ -2026,7 +2093,7 @@ const translations = {
             "كيف تعمل؟",
 
         rot13HowText:
-            "نقسم الأبجدية إلى مجموعتين، كل مجموعة تحتوي على 13 حرفًا. ثم نطابق كل حرف من المجموعة الأولى مع الحرف المقابل له في المجموعة الثانية.",
+            "نقسم الأبجدية إلى مجموعتين، كل مجموعة تحتوي على 13 حرفًا، ثم نطابق كل حرف من المجموعة الأولى مع الحرف المقابل له في المجموعة الثانية.",
 
         rot13AlphabetLabel:
             "ROT13 ALPHABET",
@@ -2083,7 +2150,132 @@ const translations = {
             "ملاحظة مهمة",
 
         rot13ImportantText:
-            "ROT13 ليست تشفيرًا آمنًا لحماية المعلومات الحساسة. هي طريقة تحويل بسيطة ومعروفة، ويمكن لأي شخص يعرف ROT13 فك النص بسهولة. لذلك تستخدم أساسًا للتعلم أو لإخفاء نص بشكل بسيط وليس للحماية الأمنية الحقيقية.",
+            "ROT13 ليست تشفيرًا آمنًا لحماية المعلومات الحساسة. هي طريقة تحويل بسيطة ومعروفة ويمكن عكسها بسهولة.",
+
+
+        /* =================================
+           BINARY
+        ================================= */
+
+        binaryLessonType:
+            "FUNDAMENTALS",
+
+        binaryLessonMainTitle:
+            "Binary",
+
+        binaryLessonSubtitle:
+            "تعلم النظام الثنائي، اللغة الرقمية التي تعتمد على الصفر والواحد.",
+
+        binaryDefinitionTitle:
+            "ما هو Binary؟",
+
+        binaryDefinitionText:
+            "النظام الثنائي أو Binary هو نظام عددي يعتمد على رقمين فقط: 0 و1. بينما النظام العشري الذي نستخدمه يوميًا يعتمد على عشرة أرقام من 0 إلى 9، يعتمد Binary على رقمين فقط.",
+
+        binaryIdeaTitle:
+            "الفكرة الأساسية",
+
+        binaryIdeaText:
+            "كل خانة في الرقم الثنائي تمثل قوة من قوى الرقم 2. لذلك تسمى كل خانة Binary Digit أو Bit.",
+
+        binaryHistoryTitle:
+            "تاريخ النظام الثنائي",
+
+        binaryHistoryText:
+            "تاريخ Binary أقدم من أجهزة الكمبيوتر الحديثة. توجد أعمال رياضية أقدم تعاملت مع أنظمة عددية تعتمد على أساسات مختلفة، لكن غوتفريد فيلهلم لايبنتز يُنسب إليه تطوير نظام الحساب الثنائي الحديث بصورته الرياضية المعروفة.",
+
+        binaryLeibnizTitle:
+            "غوتفريد فيلهلم لايبنتز",
+
+        binaryLeibnizText:
+            "طوّر لايبنتز نظام الحساب بالأساس 2 في القرن السابع عشر، وكان قد أتقن نظامه بحلول عام 1679. ثم نُشرت أفكاره عن الحساب الثنائي في أوائل القرن الثامن عشر. لذلك يُعد من أهم الشخصيات المرتبطة بتطوير Binary الحديث.",
+
+        binaryYearText:
+            "تطوير نظام الحساب الثنائي لدى لايبنتز.",
+
+        binaryBeforeTitle:
+            "هل كان لايبنتز أول شخص فكر في Binary؟",
+
+        binaryBeforeText:
+            "ليس بالضرورة. توجد أدلة على أن علماء قبل لايبنتز تعاملوا مع أنظمة عددية أخرى، وهناك أعمال منسوبة إلى Thomas Harriot تحتوي على حسابات باستخدام النظام الثنائي قبل لايبنتز. لذلك الأدق أن نقول إن لايبنتز طوّر ونسّق الحساب الثنائي الحديث، وليس أنه أول إنسان عرف فكرة استخدام أساس 2.",
+
+        binaryHowTitle:
+            "كيف يعمل Binary؟",
+
+        binaryHowText:
+            "في النظام العشري، قيمة الخانات تعتمد على قوى الرقم 10. أما في Binary، فقيمة الخانات تعتمد على قوى الرقم 2.",
+
+        binaryPowersLabel:
+            "POWERS OF 2",
+
+        binaryExampleTitle:
+            "مثال: تحويل Binary إلى Decimal",
+
+        binaryExampleText:
+            "لنأخذ الرقم الثنائي 1011. نكتب قيمة كل خانة حسب قوة الرقم 2.",
+
+        binaryCalculationText:
+            "الآن نجمع الخانات التي تحتوي على 1: 8 + 2 + 1 = 11.",
+
+        binaryStepsTitle:
+            "خطوات التحويل",
+
+        binaryStep1:
+            "اكتب الرقم الثنائي من اليمين إلى اليسار.",
+
+        binaryStep2:
+            "أعطِ أول خانة من اليمين القوة 2⁰، ثم 2¹، ثم 2² وهكذا.",
+
+        binaryStep3:
+            "اضرب كل Bit في قيمة الخانة المقابلة له.",
+
+        binaryStep4:
+            "اجمع النتائج للحصول على الرقم العشري.",
+
+        binaryTableTitle:
+            "أمثلة سريعة",
+
+        binaryHeader:
+            "Binary",
+
+        decimalHeader:
+            "Decimal",
+
+        binaryBitsTitle:
+            "ما هو الـ Bit؟",
+
+        binaryBitsText:
+            "كلمة Bit هي اختصار لـ Binary Digit، أي خانة ثنائية. يمكن للـ Bit أن يحمل قيمة واحدة من قيمتين فقط: 0 أو 1.",
+
+        binaryBitsLabel:
+            "ONE BYTE",
+
+        binaryByteText:
+            "عندما نجمع 8 Bits نحصل على Byte. والـ Byte يمكنه تمثيل 256 قيمة مختلفة، من 0 إلى 255 عند استخدام تمثيل غير موقّع.",
+
+        binaryComputersTitle:
+            "لماذا تستخدم أجهزة الكمبيوتر Binary؟",
+
+        binaryComputersText:
+            "الأجهزة الإلكترونية الرقمية تعمل بسهولة أكبر مع حالتين مميزتين، مثل وجود إشارة كهربائية أو عدم وجودها. يمكن تمثيل هاتين الحالتين منطقيًا بالرقمين 1 و0، ولهذا أصبح النظام الثنائي أساسًا مهمًا للحوسبة الرقمية.",
+
+        binaryComputerIdeaTitle:
+            "من Binary إلى المعلومات",
+
+        binaryComputerIdeaText:
+            "الكمبيوتر لا يرى الحروف والصور والأصوات بالطريقة التي نراها نحن. في النهاية يتم تمثيل هذه البيانات داخليًا باستخدام Bits، ثم تُفسر هذه الـBits وفق قواعد وأنظمة مختلفة.",
+
+        binaryAsciiTitle:
+            "Binary و ASCII",
+
+        binaryAsciiText:
+            "يمكن استخدام Binary لتمثيل الحروف أيضًا. مثلًا، الحرف H في ASCII له القيمة العشرية 72، وتمثيله الثنائي هو 01001000.",
+
+        binaryImportantTitle:
+            "ملاحظة مهمة",
+
+        binaryImportantText:
+            "Binary ليس نوعًا من التشفير بحد ذاته. هو نظام عددي وتمثيل للبيانات. قد يظهر في تحديات CTF مع التشفير أو الترميز، لكن تحويل Binary إلى نص لا يعني أنك كسرت تشفيرًا قويًا.",
 
 
         footer:
@@ -2140,7 +2332,17 @@ const translations = {
             "Learn how ROT13 works and why the same operation can be used for both encryption and decryption.",
 
 
-        /* GENERAL */
+        /* BINARY CARD */
+
+        binaryCardLabel:
+            "FUNDAMENTALS",
+
+        binaryCardTitle:
+            "Learn Binary",
+
+        binaryCardDescription:
+            "Learn how the binary system works and how computers use zeros and ones to represent information.",
+
 
         backLessons:
             "← BACK TO LESSONS",
@@ -2174,6 +2376,9 @@ const translations = {
 
         caesarHowText:
             "Let's say we choose a shift value of 3. This means every letter moves three positions forward.",
+
+        caesarShiftExampleLabel:
+            "SHIFT = 3",
 
         caesarMessageTitle:
             "Message Example",
@@ -2308,7 +2513,132 @@ const translations = {
             "Important Note",
 
         rot13ImportantText:
-            "ROT13 is not secure encryption for protecting sensitive information. It is a simple and well-known transformation that can be easily reversed by anyone who knows ROT13. It is mainly useful for learning or lightly obscuring text, not for real security.",
+            "ROT13 is not secure encryption for protecting sensitive information. It is a simple and well-known transformation that can be easily reversed.",
+
+
+        /* =================================
+           BINARY
+        ================================= */
+
+        binaryLessonType:
+            "FUNDAMENTALS",
+
+        binaryLessonMainTitle:
+            "Binary",
+
+        binaryLessonSubtitle:
+            "Learn the binary system, the digital system based on zeros and ones.",
+
+        binaryDefinitionTitle:
+            "What is Binary?",
+
+        binaryDefinitionText:
+            "Binary is a number system that uses only two digits: 0 and 1. While the decimal system we use every day has ten digits from 0 to 9, binary uses only two.",
+
+        binaryIdeaTitle:
+            "The Basic Idea",
+
+        binaryIdeaText:
+            "Each position in a binary number represents a power of 2. Each individual binary digit is called a Bit.",
+
+        binaryHistoryTitle:
+            "The History of Binary",
+
+        binaryHistoryText:
+            "The history of binary is older than modern computers. Earlier mathematicians explored different number bases, but Gottfried Wilhelm Leibniz is credited with developing the modern mathematical system of binary arithmetic.",
+
+        binaryLeibnizTitle:
+            "Gottfried Wilhelm Leibniz",
+
+        binaryLeibnizText:
+            "Leibniz developed his base-2 arithmetic in the 17th century and had perfected his system by 1679. His work on binary arithmetic was published in the early 18th century, making him one of the most important figures in the development of modern binary arithmetic.",
+
+        binaryYearText:
+            "Leibniz had developed his binary arithmetic.",
+
+        binaryBeforeTitle:
+            "Was Leibniz the first person to think about Binary?",
+
+        binaryBeforeText:
+            "Not necessarily. Earlier mathematicians explored other number systems, and surviving papers associated with Thomas Harriot contain calculations using binary before Leibniz. The more accurate statement is that Leibniz developed and formalized modern binary arithmetic rather than being the first human to ever use the idea of base 2.",
+
+        binaryHowTitle:
+            "How Does Binary Work?",
+
+        binaryHowText:
+            "In decimal, the value of each position is based on powers of 10. In binary, the value of each position is based on powers of 2.",
+
+        binaryPowersLabel:
+            "POWERS OF 2",
+
+        binaryExampleTitle:
+            "Example: Binary to Decimal",
+
+        binaryExampleText:
+            "Let's take the binary number 1011. We assign each position a value based on a power of 2.",
+
+        binaryCalculationText:
+            "Now add the positions containing 1: 8 + 2 + 1 = 11.",
+
+        binaryStepsTitle:
+            "Conversion Steps",
+
+        binaryStep1:
+            "Write the binary number from right to left.",
+
+        binaryStep2:
+            "Give the rightmost position 2⁰, then 2¹, then 2², and so on.",
+
+        binaryStep3:
+            "Multiply each Bit by the value of its position.",
+
+        binaryStep4:
+            "Add the results to get the decimal number.",
+
+        binaryTableTitle:
+            "Quick Examples",
+
+        binaryHeader:
+            "Binary",
+
+        decimalHeader:
+            "Decimal",
+
+        binaryBitsTitle:
+            "What is a Bit?",
+
+        binaryBitsText:
+            "Bit is short for Binary Digit. A Bit can hold only one of two values: 0 or 1.",
+
+        binaryBitsLabel:
+            "ONE BYTE",
+
+        binaryByteText:
+            "When 8 Bits are grouped together, they form a Byte. A Byte can represent 256 different values, from 0 to 255 when using unsigned representation.",
+
+        binaryComputersTitle:
+            "Why Do Computers Use Binary?",
+
+        binaryComputersText:
+            "Digital electronics can work naturally with two distinct states, such as the presence or absence of an electrical signal. These two states can be represented logically as 1 and 0, which is why binary became fundamental to digital computing.",
+
+        binaryComputerIdeaTitle:
+            "From Binary to Information",
+
+        binaryComputerIdeaText:
+            "A computer does not see letters, images, or sounds the way humans do. Ultimately, these types of data can be represented internally using Bits and interpreted according to different encoding and data formats.",
+
+        binaryAsciiTitle:
+            "Binary and ASCII",
+
+        binaryAsciiText:
+            "Binary can also represent characters. For example, the character H has the decimal ASCII value 72, which is represented in binary as 01001000.",
+
+        binaryImportantTitle:
+            "Important Note",
+
+        binaryImportantText:
+            "Binary is not encryption by itself. It is a number system and a way of representing data. It can appear in CTF challenges together with encoding or cryptography, but converting binary to text does not mean that strong encryption has been broken.",
 
 
         footer:
@@ -2328,30 +2658,15 @@ const lessonsList =
         "lessonsList"
     );
 
-
-const caesarLesson =
-    document.getElementById(
-        "caesarLesson"
+const lessonViews =
+    document.querySelectorAll(
+        ".lesson-view"
     );
 
-
-const rot13Lesson =
-    document.getElementById(
-        "rot13Lesson"
+const lessonCards =
+    document.querySelectorAll(
+        "[data-lesson]"
     );
-
-
-const caesarCard =
-    document.querySelector(
-        '[data-lesson="caesar"]'
-    );
-
-
-const rot13Card =
-    document.querySelector(
-        '[data-lesson="rot13"]'
-    );
-
 
 const backButtons =
     document.querySelectorAll(
@@ -2363,39 +2678,44 @@ const backButtons =
    OPEN LESSON
 ========================================= */
 
-function openLesson(lesson) {
+function openLesson(
+    lesson
+) {
 
     lessonsList.classList.add(
         "hidden"
     );
 
 
-    caesarLesson.classList.remove(
-        "active"
+    lessonViews.forEach(
+        function(view) {
+
+            view.classList.remove(
+                "active"
+            );
+
+        }
     );
 
 
-    rot13Lesson.classList.remove(
-        "active"
-    );
-
-
-    if (lesson === "caesar") {
-
-        caesarLesson.classList.add(
-            "active"
+    const selectedLesson =
+        document.getElementById(
+            lesson + "Lesson"
         );
+
+
+    if (!selectedLesson) {
+
+        closeLesson();
+
+        return;
 
     }
 
 
-    if (lesson === "rot13") {
-
-        rot13Lesson.classList.add(
-            "active"
-        );
-
-    }
+    selectedLesson.classList.add(
+        "active"
+    );
 
 
     window.scrollTo({
@@ -2419,13 +2739,14 @@ function openLesson(lesson) {
 
 function closeLesson() {
 
-    caesarLesson.classList.remove(
-        "active"
-    );
+    lessonViews.forEach(
+        function(view) {
 
+            view.classList.remove(
+                "active"
+            );
 
-    rot13Lesson.classList.remove(
-        "active"
+        }
     );
 
 
@@ -2453,63 +2774,40 @@ function closeLesson() {
    CARD CLICK
 ========================================= */
 
-caesarCard.addEventListener(
-    "click",
-    function() {
+lessonCards.forEach(
+    function(card) {
 
-        openLesson("caesar");
+        card.addEventListener(
+            "click",
+            function() {
 
-    }
-);
+                openLesson(
+                    card.dataset.lesson
+                );
 
-
-rot13Card.addEventListener(
-    "click",
-    function() {
-
-        openLesson("rot13");
-
-    }
-);
+            }
+        );
 
 
-/* =========================================
-   KEYBOARD ACCESS
-========================================= */
+        card.addEventListener(
+            "keydown",
+            function(event) {
 
-caesarCard.addEventListener(
-    "keydown",
-    function(event) {
+                if (
+                    event.key === "Enter" ||
+                    event.key === " "
+                ) {
 
-        if (
-            event.key === "Enter" ||
-            event.key === " "
-        ) {
+                    event.preventDefault();
 
-            event.preventDefault();
+                    openLesson(
+                        card.dataset.lesson
+                    );
 
-            openLesson("caesar");
+                }
 
-        }
-
-    }
-);
-
-
-rot13Card.addEventListener(
-    "keydown",
-    function(event) {
-
-        if (
-            event.key === "Enter" ||
-            event.key === " "
-        ) {
-
-            event.preventDefault();
-
-            openLesson("rot13");
-
-        }
+            }
+        );
 
     }
 );
@@ -2544,40 +2842,27 @@ backButtons.forEach(
 function checkHash() {
 
     const hash =
-        window.location.hash.toLowerCase();
+        window.location.hash
+            .replace("#", "")
+            .toLowerCase();
 
 
-    if (hash === "#caesar") {
+    if (
+        hash === "caesar" ||
+        hash === "rot13" ||
+        hash === "binary"
+    ) {
 
-        openLesson("caesar");
+        openLesson(
+            hash
+        );
 
         return;
 
     }
 
 
-    if (hash === "#rot13") {
-
-        openLesson("rot13");
-
-        return;
-
-    }
-
-
-    caesarLesson.classList.remove(
-        "active"
-    );
-
-
-    rot13Lesson.classList.remove(
-        "active"
-    );
-
-
-    lessonsList.classList.remove(
-        "hidden"
-    );
+    closeLesson();
 
 }
 
@@ -2586,6 +2871,31 @@ window.addEventListener(
     "hashchange",
     checkHash
 );
+
+
+/* =========================================
+   SAFE TEXT UPDATE
+========================================= */
+
+function setText(
+    id,
+    value
+) {
+
+    const element =
+        document.getElementById(
+            id
+        );
+
+
+    if (element) {
+
+        element.textContent =
+            value;
+
+    }
+
+}
 
 
 /* =========================================
@@ -2612,79 +2922,91 @@ function updateLanguage() {
         t.languageButton;
 
 
-    /* GENERAL */
-
-    document.getElementById(
-        "dashboardLink"
-    ).textContent =
-        t.dashboard;
+    setText(
+        "dashboardLink",
+        t.dashboard
+    );
 
 
-    document.getElementById(
-        "pageLabel"
-    ).textContent =
-        t.pageLabel;
+    setText(
+        "pageLabel",
+        t.pageLabel
+    );
 
 
-    document.getElementById(
-        "pageTitle"
-    ).textContent =
-        t.pageTitle;
+    setText(
+        "pageTitle",
+        t.pageTitle
+    );
 
 
-    document.getElementById(
-        "pageDescription"
-    ).textContent =
-        t.pageDescription;
+    setText(
+        "pageDescription",
+        t.pageDescription
+    );
 
 
-    document.getElementById(
-        "listFooter"
-    ).textContent =
-        t.footer;
+    setText(
+        "listFooter",
+        t.footer
+    );
 
 
     /* CAESAR CARD */
 
-    document.getElementById(
-        "caesarCardLabel"
-    ).textContent =
-        t.caesarCardLabel;
+    setText(
+        "caesarCardLabel",
+        t.caesarCardLabel
+    );
 
+    setText(
+        "caesarCardTitle",
+        t.caesarCardTitle
+    );
 
-    document.getElementById(
-        "caesarCardTitle"
-    ).textContent =
-        t.caesarCardTitle;
-
-
-    document.getElementById(
-        "caesarCardDescription"
-    ).textContent =
-        t.caesarCardDescription;
+    setText(
+        "caesarCardDescription",
+        t.caesarCardDescription
+    );
 
 
     /* ROT13 CARD */
 
-    document.getElementById(
-        "rot13CardLabel"
-    ).textContent =
-        t.rot13CardLabel;
+    setText(
+        "rot13CardLabel",
+        t.rot13CardLabel
+    );
+
+    setText(
+        "rot13CardTitle",
+        t.rot13CardTitle
+    );
+
+    setText(
+        "rot13CardDescription",
+        t.rot13CardDescription
+    );
 
 
-    document.getElementById(
-        "rot13CardTitle"
-    ).textContent =
-        t.rot13CardTitle;
+    /* BINARY CARD */
+
+    setText(
+        "binaryCardLabel",
+        t.binaryCardLabel
+    );
+
+    setText(
+        "binaryCardTitle",
+        t.binaryCardTitle
+    );
+
+    setText(
+        "binaryCardDescription",
+        t.binaryCardDescription
+    );
 
 
-    document.getElementById(
-        "rot13CardDescription"
-    ).textContent =
-        t.rot13CardDescription;
-
-
-    /* BACK BUTTONS */
+    /* BACK */
 
     backButtons.forEach(
         function(button) {
@@ -2696,326 +3018,489 @@ function updateLanguage() {
     );
 
 
-    /* CAESAR LESSON */
-
-    document.getElementById(
-        "caesarLessonType"
-    ).textContent =
-        t.caesarLessonType;
-
-
-    document.getElementById(
-        "caesarLessonMainTitle"
-    ).textContent =
-        t.caesarLessonMainTitle;
-
-
-    document.getElementById(
-        "caesarLessonSubtitle"
-    ).textContent =
-        t.caesarLessonSubtitle;
-
-
-    document.getElementById(
-        "caesarDefinitionTitle"
-    ).textContent =
-        t.caesarDefinitionTitle;
-
-
-    document.getElementById(
-        "caesarDefinitionText"
-    ).textContent =
-        t.caesarDefinitionText;
-
-
-    document.getElementById(
-        "caesarIdeaTitle"
-    ).textContent =
-        t.caesarIdeaTitle;
-
-
-    document.getElementById(
-        "caesarIdeaText"
-    ).textContent =
-        t.caesarIdeaText;
-
-
-    document.getElementById(
-        "caesarHowTitle"
-    ).textContent =
-        t.caesarHowTitle;
-
-
-    document.getElementById(
-        "caesarHowText"
-    ).textContent =
-        t.caesarHowText;
-
-
-    document.getElementById(
-        "caesarMessageTitle"
-    ).textContent =
-        t.caesarMessageTitle;
-
-
-    document.getElementById(
-        "caesarMessageText"
-    ).textContent =
-        t.caesarMessageText;
-
-
-    document.getElementById(
-        "caesarEncryptedText"
-    ).textContent =
-        t.caesarEncryptedText;
-
-
-    document.getElementById(
-        "caesarStepsTitle"
-    ).textContent =
-        t.caesarStepsTitle;
-
-
-    document.getElementById(
-        "caesarStep1"
-    ).textContent =
-        t.caesarStep1;
-
-
-    document.getElementById(
-        "caesarStep2"
-    ).textContent =
-        t.caesarStep2;
-
-
-    document.getElementById(
-        "caesarStep3"
-    ).textContent =
-        t.caesarStep3;
-
-
-    document.getElementById(
-        "caesarStep4"
-    ).textContent =
-        t.caesarStep4;
-
-
-    document.getElementById(
-        "caesarAlphabetTitle"
-    ).textContent =
-        t.caesarAlphabetTitle;
-
-
-    document.getElementById(
-        "caesarOriginalHeader"
-    ).textContent =
-        t.caesarOriginalHeader;
-
-
-    document.getElementById(
-        "caesarEncryptedHeader"
-    ).textContent =
-        t.caesarEncryptedHeader;
-
-
-    document.getElementById(
-        "caesarDecryptTitle"
-    ).textContent =
-        t.caesarDecryptTitle;
-
-
-    document.getElementById(
-        "caesarDecryptText"
-    ).textContent =
-        t.caesarDecryptText;
-
-
-    document.getElementById(
-        "caesarDecryptExampleLabel"
-    ).textContent =
-        t.caesarDecryptExampleLabel;
-
-
-    document.getElementById(
-        "caesarImportantTitle"
-    ).textContent =
-        t.caesarImportantTitle;
-
-
-    document.getElementById(
-        "caesarImportantText"
-    ).textContent =
-        t.caesarImportantText;
-
-
-    /* ROT13 LESSON */
-
-    document.getElementById(
-        "rot13LessonType"
-    ).textContent =
-        t.rot13LessonType;
-
-
-    document.getElementById(
-        "rot13LessonMainTitle"
-    ).textContent =
-        t.rot13LessonMainTitle;
-
-
-    document.getElementById(
-        "rot13LessonSubtitle"
-    ).textContent =
-        t.rot13LessonSubtitle;
-
-
-    document.getElementById(
-        "rot13DefinitionTitle"
-    ).textContent =
-        t.rot13DefinitionTitle;
-
-
-    document.getElementById(
-        "rot13DefinitionText"
-    ).textContent =
-        t.rot13DefinitionText;
-
-
-    document.getElementById(
-        "rot13IdeaTitle"
-    ).textContent =
-        t.rot13IdeaTitle;
-
-
-    document.getElementById(
-        "rot13IdeaText"
-    ).textContent =
-        t.rot13IdeaText;
-
-
-    document.getElementById(
-        "rot13HowTitle"
-    ).textContent =
-        t.rot13HowTitle;
-
-
-    document.getElementById(
-        "rot13HowText"
-    ).textContent =
-        t.rot13HowText;
-
-
-    document.getElementById(
-        "rot13AlphabetLabel"
-    ).textContent =
-        t.rot13AlphabetLabel;
-
-
-    document.getElementById(
-        "rot13ExampleTitle"
-    ).textContent =
-        t.rot13ExampleTitle;
-
-
-    document.getElementById(
-        "rot13ExampleText"
-    ).textContent =
-        t.rot13ExampleText;
-
-
-    document.getElementById(
-        "rot13EncryptedText"
-    ).textContent =
-        t.rot13EncryptedText;
-
-
-    document.getElementById(
-        "rot13StepsTitle"
-    ).textContent =
-        t.rot13StepsTitle;
-
-
-    document.getElementById(
-        "rot13Step1"
-    ).textContent =
-        t.rot13Step1;
-
-
-    document.getElementById(
-        "rot13Step2"
-    ).textContent =
-        t.rot13Step2;
-
-
-    document.getElementById(
-        "rot13Step3"
-    ).textContent =
-        t.rot13Step3;
-
-
-    document.getElementById(
-        "rot13Step4"
-    ).textContent =
-        t.rot13Step4;
-
-
-    document.getElementById(
-        "rot13MappingTitle"
-    ).textContent =
-        t.rot13MappingTitle;
-
-
-    document.getElementById(
-        "rot13OriginalHeader"
-    ).textContent =
-        t.rot13OriginalHeader;
-
-
-    document.getElementById(
-        "rot13ResultHeader"
-    ).textContent =
-        t.rot13ResultHeader;
-
-
-    document.getElementById(
-        "rot13DecryptTitle"
-    ).textContent =
-        t.rot13DecryptTitle;
-
-
-    document.getElementById(
-        "rot13DecryptText"
-    ).textContent =
-        t.rot13DecryptText;
-
-
-    document.getElementById(
-        "rot13DecryptExampleLabel"
-    ).textContent =
-        t.rot13DecryptExampleLabel;
-
-
-    document.getElementById(
-        "rot13DoubleTitle"
-    ).textContent =
-        t.rot13DoubleTitle;
-
-
-    document.getElementById(
-        "rot13DoubleText"
-    ).textContent =
-        t.rot13DoubleText;
-
-
-    document.getElementById(
-        "rot13ImportantTitle"
-    ).textContent =
-        t.rot13ImportantTitle;
-
-
-    document.getElementById(
-        "rot13ImportantText"
-    ).textContent =
-        t.rot13ImportantText;
+    /* =================================
+       CAESAR
+    ================================= */
+
+    setText(
+        "caesarLessonType",
+        t.caesarLessonType
+    );
+
+    setText(
+        "caesarLessonMainTitle",
+        t.caesarLessonMainTitle
+    );
+
+    setText(
+        "caesarLessonSubtitle",
+        t.caesarLessonSubtitle
+    );
+
+    setText(
+        "caesarDefinitionTitle",
+        t.caesarDefinitionTitle
+    );
+
+    setText(
+        "caesarDefinitionText",
+        t.caesarDefinitionText
+    );
+
+    setText(
+        "caesarIdeaTitle",
+        t.caesarIdeaTitle
+    );
+
+    setText(
+        "caesarIdeaText",
+        t.caesarIdeaText
+    );
+
+    setText(
+        "caesarHowTitle",
+        t.caesarHowTitle
+    );
+
+    setText(
+        "caesarHowText",
+        t.caesarHowText
+    );
+
+    setText(
+        "caesarShiftExampleLabel",
+        t.caesarShiftExampleLabel
+    );
+
+    setText(
+        "caesarMessageTitle",
+        t.caesarMessageTitle
+    );
+
+    setText(
+        "caesarMessageText",
+        t.caesarMessageText
+    );
+
+    setText(
+        "caesarEncryptedText",
+        t.caesarEncryptedText
+    );
+
+    setText(
+        "caesarStepsTitle",
+        t.caesarStepsTitle
+    );
+
+    setText(
+        "caesarStep1",
+        t.caesarStep1
+    );
+
+    setText(
+        "caesarStep2",
+        t.caesarStep2
+    );
+
+    setText(
+        "caesarStep3",
+        t.caesarStep3
+    );
+
+    setText(
+        "caesarStep4",
+        t.caesarStep4
+    );
+
+    setText(
+        "caesarAlphabetTitle",
+        t.caesarAlphabetTitle
+    );
+
+    setText(
+        "caesarOriginalHeader",
+        t.caesarOriginalHeader
+    );
+
+    setText(
+        "caesarEncryptedHeader",
+        t.caesarEncryptedHeader
+    );
+
+    setText(
+        "caesarDecryptTitle",
+        t.caesarDecryptTitle
+    );
+
+    setText(
+        "caesarDecryptText",
+        t.caesarDecryptText
+    );
+
+    setText(
+        "caesarDecryptExampleLabel",
+        t.caesarDecryptExampleLabel
+    );
+
+    setText(
+        "caesarImportantTitle",
+        t.caesarImportantTitle
+    );
+
+    setText(
+        "caesarImportantText",
+        t.caesarImportantText
+    );
+
+
+    /* =================================
+       ROT13
+    ================================= */
+
+    setText(
+        "rot13LessonType",
+        t.rot13LessonType
+    );
+
+    setText(
+        "rot13LessonMainTitle",
+        t.rot13LessonMainTitle
+    );
+
+    setText(
+        "rot13LessonSubtitle",
+        t.rot13LessonSubtitle
+    );
+
+    setText(
+        "rot13DefinitionTitle",
+        t.rot13DefinitionTitle
+    );
+
+    setText(
+        "rot13DefinitionText",
+        t.rot13DefinitionText
+    );
+
+    setText(
+        "rot13IdeaTitle",
+        t.rot13IdeaTitle
+    );
+
+    setText(
+        "rot13IdeaText",
+        t.rot13IdeaText
+    );
+
+    setText(
+        "rot13HowTitle",
+        t.rot13HowTitle
+    );
+
+    setText(
+        "rot13HowText",
+        t.rot13HowText
+    );
+
+    setText(
+        "rot13AlphabetLabel",
+        t.rot13AlphabetLabel
+    );
+
+    setText(
+        "rot13ExampleTitle",
+        t.rot13ExampleTitle
+    );
+
+    setText(
+        "rot13ExampleText",
+        t.rot13ExampleText
+    );
+
+    setText(
+        "rot13EncryptedText",
+        t.rot13EncryptedText
+    );
+
+    setText(
+        "rot13StepsTitle",
+        t.rot13StepsTitle
+    );
+
+    setText(
+        "rot13Step1",
+        t.rot13Step1
+    );
+
+    setText(
+        "rot13Step2",
+        t.rot13Step2
+    );
+
+    setText(
+        "rot13Step3",
+        t.rot13Step3
+    );
+
+    setText(
+        "rot13Step4",
+        t.rot13Step4
+    );
+
+    setText(
+        "rot13MappingTitle",
+        t.rot13MappingTitle
+    );
+
+    setText(
+        "rot13OriginalHeader",
+        t.rot13OriginalHeader
+    );
+
+    setText(
+        "rot13ResultHeader",
+        t.rot13ResultHeader
+    );
+
+    setText(
+        "rot13DecryptTitle",
+        t.rot13DecryptTitle
+    );
+
+    setText(
+        "rot13DecryptText",
+        t.rot13DecryptText
+    );
+
+    setText(
+        "rot13DecryptExampleLabel",
+        t.rot13DecryptExampleLabel
+    );
+
+    setText(
+        "rot13DoubleTitle",
+        t.rot13DoubleTitle
+    );
+
+    setText(
+        "rot13DoubleText",
+        t.rot13DoubleText
+    );
+
+    setText(
+        "rot13ImportantTitle",
+        t.rot13ImportantTitle
+    );
+
+    setText(
+        "rot13ImportantText",
+        t.rot13ImportantText
+    );
+
+
+    /* =================================
+       BINARY
+    ================================= */
+
+    setText(
+        "binaryLessonType",
+        t.binaryLessonType
+    );
+
+    setText(
+        "binaryLessonMainTitle",
+        t.binaryLessonMainTitle
+    );
+
+    setText(
+        "binaryLessonSubtitle",
+        t.binaryLessonSubtitle
+    );
+
+    setText(
+        "binaryDefinitionTitle",
+        t.binaryDefinitionTitle
+    );
+
+    setText(
+        "binaryDefinitionText",
+        t.binaryDefinitionText
+    );
+
+    setText(
+        "binaryIdeaTitle",
+        t.binaryIdeaTitle
+    );
+
+    setText(
+        "binaryIdeaText",
+        t.binaryIdeaText
+    );
+
+    setText(
+        "binaryHistoryTitle",
+        t.binaryHistoryTitle
+    );
+
+    setText(
+        "binaryHistoryText",
+        t.binaryHistoryText
+    );
+
+    setText(
+        "binaryLeibnizTitle",
+        t.binaryLeibnizTitle
+    );
+
+    setText(
+        "binaryLeibnizText",
+        t.binaryLeibnizText
+    );
+
+    setText(
+        "binaryYearText",
+        t.binaryYearText
+    );
+
+    setText(
+        "binaryBeforeTitle",
+        t.binaryBeforeTitle
+    );
+
+    setText(
+        "binaryBeforeText",
+        t.binaryBeforeText
+    );
+
+    setText(
+        "binaryHowTitle",
+        t.binaryHowTitle
+    );
+
+    setText(
+        "binaryHowText",
+        t.binaryHowText
+    );
+
+    setText(
+        "binaryPowersLabel",
+        t.binaryPowersLabel
+    );
+
+    setText(
+        "binaryExampleTitle",
+        t.binaryExampleTitle
+    );
+
+    setText(
+        "binaryExampleText",
+        t.binaryExampleText
+    );
+
+    setText(
+        "binaryCalculationText",
+        t.binaryCalculationText
+    );
+
+    setText(
+        "binaryStepsTitle",
+        t.binaryStepsTitle
+    );
+
+    setText(
+        "binaryStep1",
+        t.binaryStep1
+    );
+
+    setText(
+        "binaryStep2",
+        t.binaryStep2
+    );
+
+    setText(
+        "binaryStep3",
+        t.binaryStep3
+    );
+
+    setText(
+        "binaryStep4",
+        t.binaryStep4
+    );
+
+    setText(
+        "binaryTableTitle",
+        t.binaryTableTitle
+    );
+
+    setText(
+        "binaryHeader",
+        t.binaryHeader
+    );
+
+    setText(
+        "decimalHeader",
+        t.decimalHeader
+    );
+
+    setText(
+        "binaryBitsTitle",
+        t.binaryBitsTitle
+    );
+
+    setText(
+        "binaryBitsText",
+        t.binaryBitsText
+    );
+
+    setText(
+        "binaryBitsLabel",
+        t.binaryBitsLabel
+    );
+
+    setText(
+        "binaryByteText",
+        t.binaryByteText
+    );
+
+    setText(
+        "binaryComputersTitle",
+        t.binaryComputersTitle
+    );
+
+    setText(
+        "binaryComputersText",
+        t.binaryComputersText
+    );
+
+    setText(
+        "binaryComputerIdeaTitle",
+        t.binaryComputerIdeaTitle
+    );
+
+    setText(
+        "binaryComputerIdeaText",
+        t.binaryComputerIdeaText
+    );
+
+    setText(
+        "binaryAsciiTitle",
+        t.binaryAsciiTitle
+    );
+
+    setText(
+        "binaryAsciiText",
+        t.binaryAsciiText
+    );
+
+    setText(
+        "binaryImportantTitle",
+        t.binaryImportantTitle
+    );
+
+    setText(
+        "binaryImportantText",
+        t.binaryImportantText
+    );
 
 }
 
@@ -3040,7 +3525,6 @@ languageButton.addEventListener(
 
         }
 
-
         updateLanguage();
 
     }
@@ -3062,3 +3546,4 @@ checkHash();
 </body>
 
 </html>
+
