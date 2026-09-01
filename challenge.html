@@ -24,501 +24,440 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
         }
+
 
         body {
             min-height: 100vh;
+
             background: #050505;
+
             color: white;
         }
 
+
         .navbar {
             min-height: 70px;
+
             border-bottom: 1px solid #222;
+
             background: #090909;
 
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
 
             padding: 12px 35px;
+
             gap: 20px;
         }
 
+
+        .logo {
+            display: flex;
+
+            align-items: center;
+        }
+
+
         .logo img {
             display: block;
+
             width: 150px;
+
             max-height: 55px;
+
             object-fit: contain;
         }
 
+
         .back-btn {
-            color: #aaa;
             text-decoration: none;
-            font-size: 13px;
-            font-weight: bold;
+
+            color: #aaa;
+
+            border: 1px solid #333;
+
+            padding: 9px 15px;
+
+            border-radius: 6px;
+
+            transition: 0.2s;
         }
+
 
         .back-btn:hover {
             color: #00ff88;
+
+            border-color: #00ff88;
         }
+
 
         .container {
             width: 100%;
-            max-width: 900px;
+
+            max-width: 950px;
+
             margin: auto;
+
             padding: 50px 25px;
         }
 
+
         .challenge-box {
             position: relative;
+
             background: #0d0d0d;
+
             border: 1px solid #222;
+
             border-radius: 12px;
+
             padding: 35px;
         }
 
-        .challenge-title {
-            font-size: 32px;
-            margin-bottom: 18px;
+
+        .challenge-type {
+            color: #00ff88;
+
+            font-size: 12px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            margin-bottom: 15px;
+
             padding-right: 100px;
         }
 
+
+        .challenge-title {
+            font-size: 32px;
+
+            margin-bottom: 15px;
+
+            padding-right: 100px;
+        }
+
+
         .challenge-description {
             color: #999;
+
             line-height: 1.7;
+
+            margin-bottom: 30px;
+
             white-space: pre-line;
-            margin-bottom: 35px;
         }
+
+
+        .section-title {
+            font-size: 14px;
+
+            color: #777;
+
+            margin-bottom: 12px;
+
+            font-weight: bold;
+        }
+
 
         .solve-btn {
             position: absolute;
-            top: 30px;
-            right: 30px;
+
+            top: 22px;
+
+            right: 22px;
 
             background: transparent;
-            border: 1px solid #00ff88;
+
             color: #00ff88;
 
-            padding: 8px 14px;
+            border: 1px solid #00ff88;
+
+            padding: 8px 15px;
+
             border-radius: 6px;
 
             font-size: 12px;
+
             font-weight: bold;
 
             cursor: pointer;
+
+            transition: 0.2s;
         }
+
 
         .solve-btn:hover {
-            background: rgba(0, 255, 136, 0.08);
+            background: #00ff88;
+
+            color: #050505;
+
+            transform: translateY(-1px);
         }
 
+
         .solve-btn:disabled {
-            opacity: 0.5;
+            opacity: 0.6;
+
             cursor: not-allowed;
         }
 
-        .section-title {
-            font-size: 15px;
-            font-weight: bold;
-            margin-bottom: 12px;
-            color: #ddd;
-        }
 
         .encrypted-header {
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
 
             gap: 15px;
+
             margin-bottom: 12px;
         }
+
 
         .encrypted-header .section-title {
             margin-bottom: 0;
         }
 
+
         .copy-btn {
             background: transparent;
-            border: 1px solid #333;
-            color: #aaa;
 
-            padding: 7px 12px;
+            color: #00ff88;
+
+            border: 1px solid #00ff88;
+
+            padding: 8px 14px;
+
             border-radius: 6px;
 
-            font-size: 11px;
+            font-size: 12px;
+
             font-weight: bold;
 
             cursor: pointer;
+
+            transition: 0.2s;
         }
 
-        .copy-btn:hover {
-            border-color: #00ff88;
-            color: #00ff88;
-        }
 
+        .copy-btn:hover,
         .copy-btn.copied {
-            border-color: #00ff88;
-            color: #00ff88;
+            background: #00ff88;
+
+            color: #050505;
         }
+
 
         .encrypted-message {
+            width: 100%;
+
             background: #070707;
-            border: 1px solid #222;
+
+            border: 1px solid #292929;
+
             border-radius: 8px;
+
+            padding: 20px;
+
+            color: #00ff88;
+
+            font-family: monospace;
+
+            font-size: 14px;
+
+            line-height: 1.7;
+
+            word-break: break-all;
+
+            white-space: pre-wrap;
+
+            margin-bottom: 30px;
+
+            max-height: 350px;
+
+            overflow-y: auto;
+        }
+
+
+        .hint-box {
+            background: #101010;
+
+            border: 1px solid #333;
+
+            border-left: 3px solid #00ff88;
 
             padding: 18px;
 
-            color: #00ff88;
-
-            font-family: Consolas, Monaco, monospace;
-            font-size: 13px;
-            line-height: 1.7;
-
-            white-space: pre-wrap;
-            overflow-wrap: anywhere;
-
-            margin-bottom: 30px;
-        }
-
-        .hint-box {
-            background: #111;
-            border: 1px solid #292929;
-            border-left: 3px solid #ffd166;
-
             border-radius: 7px;
 
-            padding: 15px;
-
             color: #aaa;
-            line-height: 1.6;
-            font-size: 13px;
+
+            line-height: 1.7;
 
             margin-bottom: 30px;
+
+            white-space: pre-line;
         }
+
 
         .answer-label {
             display: block;
 
-            color: #ddd;
+            color: #777;
+
             font-size: 13px;
+
             font-weight: bold;
 
             margin-bottom: 10px;
         }
 
+
         .answer-input {
             width: 100%;
 
             background: #070707;
-            border: 1px solid #292929;
+
+            border: 1px solid #333;
+
             border-radius: 7px;
 
-            padding: 14px;
+            padding: 15px;
 
             color: white;
 
+            font-family: monospace;
+
+            font-size: 15px;
+
             outline: none;
-
-            font-family: Consolas, Monaco, monospace;
-            font-size: 14px;
-
-            margin-bottom: 12px;
-        }
-
-        .answer-input:focus {
-            border-color: #00ff88;
-
-            box-shadow:
-                0 0 15px
-                rgba(0, 255, 136, 0.05);
-        }
-
-        .answer-input:disabled {
-            opacity: 0.6;
-        }
-
-        .submit-btn {
-            width: 100%;
-
-            background: #00ff88;
-            border: none;
-
-            color: #050505;
-
-            padding: 14px;
-
-            border-radius: 7px;
-
-            font-weight: bold;
-            cursor: pointer;
-
-            font-size: 13px;
-        }
-
-        .submit-btn:hover {
-            opacity: 0.9;
-        }
-
-        .submit-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .message {
-            margin-top: 15px;
-
-            padding: 13px;
-
-            border-radius: 7px;
-
-            font-size: 13px;
-            line-height: 1.5;
-
-            display: none;
-        }
-
-        .message.error,
-        .message.success,
-        .message.warning {
-            display: block;
-        }
-
-        .message.error {
-            background:
-                rgba(
-                    255,
-                    107,
-                    107,
-                    0.08
-                );
-
-            border:
-                1px solid
-                rgba(
-                    255,
-                    107,
-                    107,
-                    0.25
-                );
-
-            color: #ff6b6b;
-        }
-
-        .message.success {
-            background:
-                rgba(
-                    0,
-                    255,
-                    136,
-                    0.08
-                );
-
-            border:
-                1px solid
-                rgba(
-                    0,
-                    255,
-                    136,
-                    0.25
-                );
-
-            color: #00ff88;
-        }
-
-        .message.warning {
-            background:
-                rgba(
-                    255,
-                    209,
-                    102,
-                    0.08
-                );
-
-            border:
-                1px solid
-                rgba(
-                    255,
-                    209,
-                    102,
-                    0.25
-                );
-
-            color: #ffd166;
-        }
-
-        .solvers-overlay {
-            position: fixed;
-
-            inset: 0;
-
-            display: none;
-
-            align-items: center;
-            justify-content: center;
-
-            padding: 20px;
-
-            background:
-                rgba(
-                    0,
-                    0,
-                    0,
-                    0.75
-                );
-
-            z-index: 1000;
-        }
-
-        .solvers-overlay.active {
-            display: flex;
-        }
-
-        .solvers-modal {
-            width: 100%;
-            max-width: 500px;
-
-            max-height: 80vh;
-
-            overflow: hidden;
-
-            background: #0d0d0d;
-
-            border: 1px solid #292929;
-            border-radius: 12px;
-
-            box-shadow:
-                0 0 40px
-                rgba(
-                    0,
-                    255,
-                    136,
-                    0.08
-                );
-        }
-
-        .solvers-header {
-            display: flex;
-
-            align-items: center;
-            justify-content: space-between;
-
-            padding: 20px;
-
-            border-bottom: 1px solid #222;
-        }
-
-        .solvers-header h2 {
-            color: #00ff88;
-            font-size: 18px;
-        }
-
-        .close-solvers {
-            background: transparent;
-            border: none;
-
-            color: #777;
-
-            font-size: 25px;
-
-            cursor: pointer;
-
-            line-height: 1;
-        }
-
-        .close-solvers:hover {
-            color: #00ff88;
-        }
-
-        .solvers-content {
-            padding: 20px;
-
-            max-height: 60vh;
-
-            overflow-y: auto;
-        }
-
-        .solver-count {
-            color: #777;
-
-            font-size: 13px;
 
             margin-bottom: 15px;
         }
 
-        .solver-list {
-            display: flex;
 
-            flex-direction: column;
-
-            gap: 10px;
+        .answer-input:focus {
+            border-color: #00ff88;
         }
 
-        .solver-item {
-            display: flex;
 
-            align-items: center;
+        .submit-btn {
+            background: #00ff88;
 
-            gap: 12px;
+            color: #050505;
 
-            background: #080808;
+            border: none;
 
-            border: 1px solid #222;
+            padding: 13px 24px;
 
             border-radius: 7px;
 
-            padding: 12px 14px;
-        }
-
-        .solver-number {
-            width: 28px;
-            height: 28px;
-
-            display: flex;
-
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 50%;
-
-            background: #101010;
-
-            border: 1px solid #333;
-
-            color: #00ff88;
-
-            font-size: 12px;
             font-weight: bold;
 
-            flex-shrink: 0;
+            cursor: pointer;
+
+            transition: 0.2s;
         }
 
-        .solver-name {
-            color: white;
 
-            font-size: 14px;
+        .submit-btn:hover:not(:disabled) {
+            transform: translateY(-2px);
 
-            word-break: break-word;
+            box-shadow:
+                0 0 25px
+                rgba(
+                    0,
+                    255,
+                    136,
+                    0.2
+                );
         }
 
-        .no-solvers {
-            text-align: center;
 
-            color: #777;
+        .submit-btn:disabled {
+            opacity: 0.6;
 
-            padding: 30px 10px;
+            cursor: not-allowed;
+        }
+
+
+        .message {
+            display: none;
+
+            margin-top: 20px;
+
+            padding: 15px;
+
+            border-radius: 7px;
 
             line-height: 1.6;
         }
 
-        .loading-solvers {
-            text-align: center;
+
+        .message.success {
+            display: block;
+
+            background:
+                rgba(
+                    0,
+                    255,
+                    136,
+                    0.08
+                );
+
+            border:
+                1px solid #00ff88;
 
             color: #00ff88;
-
-            padding: 30px 10px;
         }
+
+
+        .message.error {
+            display: block;
+
+            background:
+                rgba(
+                    255,
+                    107,
+                    107,
+                    0.08
+                );
+
+            border:
+                1px solid #ff6b6b;
+
+            color: #ff6b6b;
+        }
+
+
+        .message.warning {
+            display: block;
+
+            background:
+                rgba(
+                    255,
+                    209,
+                    102,
+                    0.08
+                );
+
+            border:
+                1px solid #ffd166;
+
+            color: #ffd166;
+        }
+
 
         .not-found {
             text-align: center;
@@ -532,9 +471,11 @@
             border-radius: 12px;
         }
 
+
         .not-found h1 {
             margin-bottom: 15px;
         }
+
 
         .not-found p {
             color: #777;
@@ -542,42 +483,58 @@
             margin-bottom: 25px;
         }
 
+
+        .footer {
+            text-align: center;
+
+            color: #444;
+
+            font-size: 11px;
+
+            margin-top: 35px;
+        }
+
+
         @media (max-width: 600px) {
 
             .navbar {
                 padding: 15px 18px;
             }
 
+
             .container {
                 padding: 30px 18px;
             }
+
 
             .challenge-box {
                 padding: 22px;
             }
 
+
             .challenge-title {
                 font-size: 26px;
+
                 padding-right: 85px;
             }
+
+
+            .challenge-type {
+                padding-right: 85px;
+            }
+
 
             .logo img {
                 width: 125px;
             }
 
-            .encrypted-header {
-                align-items: flex-start;
-            }
 
             .solve-btn {
                 top: 18px;
+
                 right: 18px;
 
                 padding: 7px 12px;
-            }
-
-            .solvers-modal {
-                max-height: 85vh;
             }
 
         }
@@ -586,10 +543,12 @@
 
 </head>
 
+
 <body>
 
 
 <nav class="navbar">
+
 
     <a
         href="dashboard.html"
@@ -611,10 +570,13 @@
         ← CHALLENGES
     </a>
 
+
 </nav>
 
 
+
 <main class="container">
+
 
     <div id="challengeContainer">
 
@@ -622,56 +584,20 @@
 
     </div>
 
+
 </main>
 
 
-<div
-    id="solversOverlay"
-    class="solvers-overlay"
->
-
-    <div class="solvers-modal">
-
-        <div class="solvers-header">
-
-            <h2>
-                SOLVED BY
-            </h2>
-
-            <button
-                id="closeSolvers"
-                class="close-solvers"
-                type="button"
-            >
-                ×
-            </button>
-
-        </div>
-
-
-        <div
-            id="solversContent"
-            class="solvers-content"
-        >
-
-            <div class="loading-solvers">
-                Loading...
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
 
 <script type="module">
+
 
 import {
     createClient
 }
 from
 "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+
 
 
 const SUPABASE_URL =
@@ -689,41 +615,37 @@ const supabase =
     );
 
 
+
 const challengeContainer =
     document.getElementById(
         "challengeContainer"
     );
 
 
-const solversOverlay =
-    document.getElementById(
-        "solversOverlay"
-    );
 
+/*
+=========================================================
+CHALLENGE DATA
+=========================================================
 
-const solversContent =
-    document.getElementById(
-        "solversContent"
-    );
+The flag is intentionally NOT stored here.
 
+Only public challenge information is included.
+The answer is verified server-side through Supabase.
+=========================================================
+*/
 
-const closeSolvers =
-    document.getElementById(
-        "closeSolvers"
-    );
-
-
-/* =====================================================
-   CHALLENGE DATA
-   ===================================================== */
 
 const challenges = {
 
+
     "caesar": {
 
-        type: "CAESAR CIPHER",
+        type:
+            "CAESAR CIPHER",
 
-        title: "Caesar's Secret",
+        title:
+            "Caesar's Secret",
 
         description:
             "Decode a secret message protected by a classical Caesar cipher.",
@@ -731,16 +653,19 @@ const challenges = {
         encrypted:
             "0X1GHOST{FDHVDU}",
 
-        hint: ""
+        hint:
+            ""
 
     },
 
 
     "rot13": {
 
-        type: "ROT13",
+        type:
+            "ROT13",
 
-        title: "What type this rot?",
+        title:
+            "What type this rot?",
 
         description:
             "A mysterious message has been encrypted using a famous rotation cipher. Can you identify it and recover the flag?",
@@ -748,33 +673,39 @@ const challenges = {
         encrypted:
             "0K1TUBFG{V_N9521_C02E90E3Eq_103_fqns}",
 
-        hint: ""
+        hint:
+            ""
 
     },
 
 
     "binary": {
 
-        type: "BINARY",
+        type:
+            "BINARY",
 
-        title: "Binary Secret",
+        title:
+            "Binary Secret",
 
         description:
             "A secret flag has been converted into binary. Can you decode it?",
 
         encrypted:
-            "00110000 01011000 00110001 01000111 01001000 01001111 01010011 01010100 01111011 01100111 00110000 00110000 01100100 01011111 01101010 00110000 00110100 01011111 01110100 01101000 00110011 00110110 01011111 01100001 00110011 00110111 00110010 01111101",
+            "00110000 01011000 00110001 01000111 01001000 01001111 01010011 01010100 01111011 01100111 00110000 00110000 01100100 01011111 01101010 00110000 00110100 01011111 01110100 01101000 00110011 00110110 01011111 01100001 00110011 01100111 00110010 01111101",
 
-        hint: ""
+        hint:
+            ""
 
     },
 
 
     "base64": {
 
-        type: "BASE64",
+        type:
+            "BASE64",
 
-        title: "What is this?",
+        title:
+            "What is this?",
 
         description:
             "We've found this suspicious encoding. Can you decode it?",
@@ -782,16 +713,19 @@ const challenges = {
         encrypted:
             "MFgxR0hPU1R7QkE2NDYxOV9JU18xMjBPX24zNH0=",
 
-        hint: ""
+        hint:
+            ""
 
     },
 
 
     "what-is-this-2": {
 
-        type: "CUSTOM CIPHER",
+        type:
+            "CUSTOM CIPHER",
 
-        title: "What is this 2",
+        title:
+            "What is this 2",
 
         description:
             "FLAG FORMAT: 0X1GHOST{...}",
@@ -799,16 +733,19 @@ const challenges = {
         encrypted:
             "AABBABAAABAABAAAAAAABAABBBABBAABBBABAAABABABA",
 
-        hint: ""
+        hint:
+            ""
 
     },
 
 
     "what-is-this-3": {
 
-        type: "BASE32",
+        type:
+            "BASE32",
 
-        title: "WHAT IS THIS 3",
+        title:
+            "WHAT IS THIS 3",
 
         description:
             "A mysterious message hides a secret flag. Decode the message twice to recover the flag.\n\nFLAG FORMAT: 0X1GHOST{...}",
@@ -824,9 +761,11 @@ const challenges = {
 
     "vigenere": {
 
-        type: "VIGENERE CIPHER",
+        type:
+            "VIGENERE CIPHER",
 
-        title: "The secret key",
+        title:
+            "The secret key",
 
         description:
             "A secret message was encrypted with a classical Vigenere cipher. Find the key and recover the flag.",
@@ -842,15 +781,17 @@ const challenges = {
 
     "many-layers": {
 
-        type: "MANY LAYERS",
+        type:
+            "MANY LAYERS",
 
-        title: "Many layers of encryption",
+        title:
+            "Many layers of encryption",
 
         description:
             "I obtained this encryption. Can you decrypt it?",
 
         encrypted:
-`30 31 30 30 31 31 30 31 20 30 31 30 30 30 31 31 30 20 30 31 31 30 30 31 31 31 20 30 31 31 31 31 30 30 30 20 30 31 30 31 30 30 31 30 20 30 30 31 31 30 30 30 30 20 30 31 31 30 31 30 30 30 20 30 31 30 31 30 30 30 30 20 30 31 30 31 30 31 30 31 20 30 30 31 31 30 30 30 31 20 30 31 30 31 30 30 31 30 20 30 30 31 31 30 31 31 31 20 30 31 31 30 30 30 31 30 20 30 31 31 30 31 31 30 31 20 30 30 31 31 31 30 30 31 20 30 30 31 31 30 30 30 30 20 30 31 30 31 31 30 30 30 20 30 30 31 31 30 30 31 31 20 30 31 31 30 31 30 31 31 20 30 31 31 31 31 30 30 31 20 30 31 30 30 31 31 31 31 20 30 31 30 31 30 31 30 30 20 30 31 31 30 30 31 30 30 20 30 31 31 30 30 31 31 30 20 30 31 30 31 31 30 30 31 20 30 31 30 31 30 31 31 31 20 30 30 31 31 30 31 30 31 20 30 31 31 30 31 30 31 31 20 30 31 30 30 31 31 31 31 20 30 31 30 30 30 31 30 30 20 30 31 31 30 31 30 31 31 20 30 30 31 31 30 31 30 31 20 30 31 30 30 31 31 30 31 20 30 31 31 30 31 30 31 30 20 30 31 30 30 31 31 31 30 20 30 31 31 30 30 31 31 30 20 30 31 30 30 31 31 30 31 20 30 31 30 30 30 31 30 30 20 30 31 30 31 30 30 30 31 20 30 30 31 31 30 30 30 31 20 30 31 30 31 31 30 30 30 20 30 30 31 31 30 30 31 30 20 30 31 30 30 31 31 31 30 20 30 31 31 30 31 30 31 31 20 30 31 31 30 30 31 31 30 20 30 31 30 31 30 30 30 31 20 30 30 31 31 31 31 30 31 20 30 30 31 31 31 31 30 31`,
+            `30 31 30 30 31 31 30 31 20 30 31 30 30 30 31 31 30 20 30 31 31 30 30 31 31 31 20 30 31 31 31 31 30 30 30 20 30 31 30 31 30 30 31 30 20 30 30 31 31 30 30 30 30 20 30 31 31 30 31 30 30 30 20 30 31 30 31 30 30 30 30 20 30 31 30 31 30 31 30 31 20 30 30 31 31 30 30 30 31 20 30 31 30 31 30 30 31 30 20 30 30 31 31 30 31 31 31 20 30 31 31 30 30 30 31 30 20 30 31 31 30 31 31 30 31 20 30 30 31 31 31 30 30 31 20 30 30 31 31 30 30 30 30 20 30 31 30 31 31 30 30 30 20 30 30 31 31 30 30 31 31 20 30 31 31 30 31 30 31 31 20 30 31 31 31 31 30 30 31 20 30 31 30 30 31 31 31 31 20 30 31 30 31 30 31 30 30 20 30 31 31 30 30 31 30 30 20 30 31 31 30 30 31 31 30 20 30 31 30 31 31 30 30 31 20 30 31 30 31 30 31 31 31 20 30 30 31 31 30 31 30 31 20 30 31 31 30 31 30 31 31 20 30 31 30 30 31 31 31 31 20 30 31 30 30 30 31 30 30 20 30 31 31 30 31 30 31 31 20 30 30 31 31 30 31 30 31 20 30 31 30 30 31 31 30 31 20 30 31 31 30 31 30 31 30 20 30 31 30 30 31 31 31 30 20 30 31 31 30 30 31 31 30 20 30 31 30 30 31 31 30 31 20 30 31 30 30 30 31 30 30 20 30 31 30 31 30 30 30 31 20 30 30 31 31 30 30 30 31 20 30 31 30 31 31 30 30 30 20 30 30 31 31 30 30 31 30 20 30 31 30 30 31 31 31 30 20 30 31 31 30 31 30 31 31 20 30 31 31 30 30 31 31 30 20 30 31 30 31 30 30 30 31 20 30 30 31 31 31 31 30 31 20 30 30 31 31 31 31 30 31`,
 
         hint:
             "This message has multiple layers. Try decoding the layers in the correct order."
@@ -860,9 +801,11 @@ const challenges = {
 
     "substitution": {
 
-        type: "SUBSTITUTION CIPHER",
+        type:
+            "SUBSTITUTION CIPHER",
 
-        title: "Secret encryption",
+        title:
+            "Secret encryption",
 
         description:
             "A secret message has been encrypted using a substitution cipher. Can you discover the mapping and recover the flag?",
@@ -878,12 +821,14 @@ const challenges = {
 
     "xor": {
 
-        type: "REPEATING KEY XOR",
+        type:
+            "REPEATING KEY XOR",
 
-        title: "XOR Secret",
+        title:
+            "XOR Secret",
 
         description:
-            "A secret message was encrypted using XOR with a repeating key.",
+            "A message was encrypted using XOR with a repeating key.",
 
         encrypted:
             "00000000000000004b1f7e080c106667016c00181f7b60660314753a",
@@ -896,12 +841,14 @@ const challenges = {
 
     "shuffled-letters": {
 
-        type: "TRANSPOSITION CIPHER",
+        type:
+            "TRANSPOSITION CIPHER",
 
-        title: "Shuffled Letters",
+        title:
+            "Shuffled Letters",
 
         description:
-`The message was not encrypted by changing the letters themselves...
+            `The message was not encrypted by changing the letters themselves...
 They were only moved around.
 
 Something important is hidden inside this scrambled text.
@@ -918,34 +865,39 @@ Can you restore the original order and recover the flag?`,
 
     "emoji-cipher": {
 
-        type: "EMOJI CIPHER",
+        type:
+            "EMOJI CIPHER",
 
-        title: "EMOJI CIPHER",
+        title:
+            "EMOJI CIPHER",
 
         description:
-            "A secret message has been transformed into a sequence of emojis. Discover the encoding and recover the flag.",
+            "A secret message has been transformed into a sequence of emojis. Discover the encoding and recover the hidden flag.",
 
         encrypted:
             "🐧👏🐨🐾🐿👆👊👋👲👐🐰🐯🐯👖🐺🐸👅🐩🐫👖🐻🐼🐺👉👉👐👇👋👖👋🐿👀👊👖🐩🐪🐫👴",
 
-        hint: ""
+        hint:
+            ""
 
     },
 
 
     "rsa-small-d": {
 
-        type: "RSA",
+        type:
+            "RSA",
 
-        title: "RSA: Small d Attack",
+        title:
+            "RSA: Small d Attack",
 
         description:
-`RSA is secure... unless the private exponent is too small.
+            `RSA is secure... unless the private exponent is too small.
 
 Can you recover the secret message?`,
 
         encrypted:
-`Public values:
+            `Public values:
 
 n = 5067909483214111252863355685819268650168506660223767155461359073280409961542713842819265852192624679031335426531920750999598827257537870313638536278885773
 
@@ -961,18 +913,18 @@ c = 2618670921943434160844276331903064822070981304332056307802223826487204739890
 
     "custom-base64": {
 
-        type: "CUSTOM BASE64",
+        type:
+            "CUSTOM BASE64",
 
-        title: "Custom Base64",
+        title:
+            "Custom Base64",
 
         description:
-`We intercepted a message that looks exactly like Base64...
-
+            `We intercepted a message that looks exactly like Base64...
 But it refuses to decode with normal Base64 tools.
-
 It seems the developer used a different alphabet instead of the standard one.
-
-The standard alphabet is known, but it is not the one used here. Can you discover what changed?`,
+The standard alphabet is known, but it is not the one used here.
+Can you discover what changed?`,
 
         encrypted:
             "dWxCiFyglGiMh0ikikpFoGeZmlqXkVmVwh==",
@@ -980,14 +932,44 @@ The standard alphabet is known, but it is not the one used here. Can you discove
         hint:
             "Remember that the flag starts with a known format."
 
+    },
+
+
+    /*
+    =====================================================
+    NEW EASY CHALLENGE
+    =====================================================
+    */
+
+    "what-this-4": {
+
+        type:
+            "CLASSICAL",
+
+        title:
+            "WHAT THIS 4 ?",
+
+        description:
+            "Something strange is hidden inside this message. Can you recover the flag?",
+
+        encrypted:
+            "_)`vw~$%L*t$0x0z}~(0*~&0rp}0$~{'t0%wx$N",
+
+        hint:
+            ""
+
     }
 
 };
 
 
-/* =====================================================
-   GET CHALLENGE ID
-   ===================================================== */
+
+/*
+=========================================================
+GET CHALLENGE ID
+=========================================================
+*/
+
 
 const params =
     new URLSearchParams(
@@ -1000,14 +982,21 @@ const challengeId =
 
 
 const challenge =
-    challenges[challengeId];
+    challenges[
+        challengeId
+    ];
 
 
-/* =====================================================
-   NOT FOUND
-   ===================================================== */
+
+/*
+=========================================================
+CHALLENGE NOT FOUND
+=========================================================
+*/
+
 
 if (!challenge) {
+
 
     challengeContainer.innerHTML = `
 
@@ -1032,14 +1021,19 @@ if (!challenge) {
 
     `;
 
+
 }
 
 
-/* =====================================================
-   SHOW CHALLENGE
-   ===================================================== */
+/*
+=========================================================
+SHOW CHALLENGE
+=========================================================
+*/
+
 
 else {
+
 
     document.title =
         challenge.title +
@@ -1050,6 +1044,7 @@ else {
 
         <div class="challenge-box">
 
+
             <button
                 id="solveButton"
                 class="solve-btn"
@@ -1057,6 +1052,15 @@ else {
             >
                 SOLVE
             </button>
+
+
+            <div class="challenge-type">
+
+                ${escapeHTML(
+                    challenge.type
+                )}
+
+            </div>
 
 
             <h1 class="challenge-title">
@@ -1079,8 +1083,11 @@ else {
 
             <div class="encrypted-header">
 
+
                 <div class="section-title">
+
                     ENCRYPTED MESSAGE
+
                 </div>
 
 
@@ -1089,8 +1096,11 @@ else {
                     class="copy-btn"
                     type="button"
                 >
+
                     COPY
+
                 </button>
+
 
             </div>
 
@@ -1098,9 +1108,13 @@ else {
             <div
                 id="encryptedMessage"
                 class="encrypted-message"
-            >${escapeHTML(
-                challenge.encrypted
-            )}</div>
+            >
+
+                ${escapeHTML(
+                    challenge.encrypted
+                )}
+
+            </div>
 
 
             ${
@@ -1109,7 +1123,9 @@ else {
                 `
 
                     <div class="section-title">
+
                         HINT
+
                     </div>
 
 
@@ -1131,7 +1147,9 @@ else {
                 class="answer-label"
                 for="answer"
             >
+
                 SUBMIT FLAG
+
             </label>
 
 
@@ -1150,7 +1168,9 @@ else {
                 class="submit-btn"
                 type="button"
             >
+
                 SUBMIT ANSWER
+
             </button>
 
 
@@ -1159,9 +1179,18 @@ else {
                 class="message"
             ></div>
 
+
+        </div>
+
+
+        <div class="footer">
+
+            0X1GHOST — CRYPTOGRAPHY
+
         </div>
 
     `;
+
 
 
     const answerInput =
@@ -1194,15 +1223,14 @@ else {
         );
 
 
-    /* =================================================
-       COPY
-       ================================================= */
 
     copyButton.addEventListener(
         "click",
         async function() {
 
+
             try {
+
 
                 await navigator.clipboard.writeText(
                     challenge.encrypted
@@ -1224,7 +1252,6 @@ else {
                         copyButton.textContent =
                             "COPY";
 
-
                         copyButton.classList.remove(
                             "copied"
                         );
@@ -1233,9 +1260,12 @@ else {
                     2000
                 );
 
+
             }
 
+
             catch (error) {
+
 
                 console.error(
                     error
@@ -1262,9 +1292,6 @@ else {
     );
 
 
-    /* =================================================
-       SOLVE BUTTON
-       ================================================= */
 
     solveButton.addEventListener(
         "click",
@@ -1272,14 +1299,12 @@ else {
     );
 
 
-    /* =================================================
-       SUBMIT
-       ================================================= */
 
     submitButton.addEventListener(
         "click",
         submitAnswer
     );
+
 
 
     answerInput.addEventListener(
@@ -1298,11 +1323,9 @@ else {
     );
 
 
-    /* =================================================
-       SUBMIT ANSWER
-       ================================================= */
 
     async function submitAnswer() {
+
 
         const answer =
             answerInput.value.trim();
@@ -1330,6 +1353,7 @@ else {
 
         try {
 
+
             const {
                 data: {
                     user
@@ -1343,6 +1367,7 @@ else {
                 userError ||
                 !user
             ) {
+
 
                 showMessage(
                     "You must be logged in.",
@@ -1363,6 +1388,7 @@ else {
             }
 
 
+
             const {
                 data,
                 error
@@ -1370,26 +1396,18 @@ else {
             await supabase.rpc(
                 "submit_challenge_answer",
                 {
-
                     p_challenge_id:
                         challengeId,
 
                     p_answer:
                         answer
-
                 }
             );
 
 
-            submitButton.disabled =
-                false;
-
-
-            submitButton.textContent =
-                "SUBMIT ANSWER";
-
 
             if (error) {
+
 
                 console.error(
                     error
@@ -1402,26 +1420,32 @@ else {
                     "error"
                 );
 
+
                 return;
 
             }
 
 
+
             if (!data) {
+
 
                 showMessage(
                     "No response received from the server.",
                     "error"
                 );
 
+
                 return;
 
             }
 
 
+
             if (
                 data.rate_limited
             ) {
+
 
                 const seconds =
                     data.seconds_remaining ||
@@ -1447,7 +1471,9 @@ else {
             }
 
 
+
             if (!data.success) {
+
 
                 showMessage(
                     data.message ||
@@ -1455,9 +1481,11 @@ else {
                     "error"
                 );
 
+
                 return;
 
             }
+
 
 
             showMessage(
@@ -1477,21 +1505,16 @@ else {
             submitButton.textContent =
                 "SOLVED ✓";
 
+
         }
 
+
         catch (error) {
+
 
             console.error(
                 error
             );
-
-
-            submitButton.disabled =
-                false;
-
-
-            submitButton.textContent =
-                "SUBMIT ANSWER";
 
 
             showMessage(
@@ -1501,315 +1524,48 @@ else {
 
         }
 
-    }
-
-
-    /* =================================================
-       SOLVERS
-       ================================================= */
-
-    async function showSolvers() {
-
-        solversOverlay.classList.add(
-            "active"
-        );
-
-
-        solversContent.innerHTML = `
-
-            <div class="loading-solvers">
-                Loading...
-            </div>
-
-        `;
-
-
-        solveButton.disabled =
-            true;
-
-
-        try {
-
-            const {
-                data: solves,
-                error: solvesError
-            } =
-            await supabase
-                .from("challenge_solves")
-                .select("user_id")
-                .eq(
-                    "challenge_id",
-                    challengeId
-                );
-
-
-            if (solvesError) {
-
-                throw solvesError;
-
-            }
-
-
-            if (
-                !solves ||
-                solves.length === 0
-            ) {
-
-                solversContent.innerHTML = `
-
-                    <div class="no-solvers">
-
-                        No one has solved this challenge yet.
-
-                    </div>
-
-                `;
-
-                return;
-
-            }
-
-
-            const userIds = [
-
-                ...new Set(
-
-                    solves
-                        .map(
-                            solve =>
-                                solve.user_id
-                        )
-                        .filter(Boolean)
-
-                )
-
-            ];
-
-
-            if (
-                userIds.length === 0
-            ) {
-
-                solversContent.innerHTML = `
-
-                    <div class="no-solvers">
-
-                        No solvers found.
-
-                    </div>
-
-                `;
-
-                return;
-
-            }
-
-
-            const {
-                data: profiles,
-                error: profilesError
-            } =
-            await supabase
-                .from("profiles")
-                .select(
-                    "id, username"
-                )
-                .in(
-                    "id",
-                    userIds
-                );
-
-
-            if (profilesError) {
-
-                throw profilesError;
-
-            }
-
-
-            const profileMap =
-                new Map();
-
-
-            (profiles || []).forEach(
-                profile => {
-
-                    profileMap.set(
-                        profile.id,
-                        profile.username
-                    );
-
-                }
-            );
-
-
-            let html = `
-
-                <div class="solver-count">
-
-                    ${userIds.length}
-
-                    ${
-                        userIds.length === 1
-                        ? "player"
-                        : "players"
-                    }
-
-                    solved this challenge.
-
-                </div>
-
-
-                <div class="solver-list">
-
-            `;
-
-
-            userIds.forEach(
-                function(
-                    userId,
-                    index
-                ) {
-
-                    const username =
-                        profileMap.get(
-                            userId
-                        ) ||
-                        "Unknown user";
-
-
-                    html += `
-
-                        <div class="solver-item">
-
-                            <div class="solver-number">
-
-                                ${index + 1}
-
-                            </div>
-
-
-                            <div class="solver-name">
-
-                                ${escapeHTML(
-                                    username
-                                )}
-
-                            </div>
-
-                        </div>
-
-                    `;
-
-                }
-            );
-
-
-            html += `
-
-                </div>
-
-            `;
-
-
-            solversContent.innerHTML =
-                html;
-
-        }
-
-        catch (error) {
-
-            console.error(
-                error
-            );
-
-
-            solversContent.innerHTML = `
-
-                <div class="no-solvers">
-
-                    Unable to load the solvers.
-
-                    <br><br>
-
-                    Please try again.
-
-                </div>
-
-            `;
-
-        }
 
         finally {
 
-            solveButton.disabled =
-                false;
+
+            if (
+                !answerInput.disabled
+            ) {
+
+                submitButton.disabled =
+                    false;
+
+                submitButton.textContent =
+                    "SUBMIT ANSWER";
+
+            }
 
         }
 
     }
 
 
-    /* =================================================
-       CLOSE SOLVERS
-       ================================================= */
 
-    closeSolvers.addEventListener(
-        "click",
-        function() {
-
-            solversOverlay.classList.remove(
-                "active"
-            );
-
-        }
-    );
+    async function showSolvers() {
 
 
-    solversOverlay.addEventListener(
-        "click",
-        function(event) {
+        /*
+        This keeps the existing solver system
+        compatible with your challenge page.
+        */
 
-            if (
-                event.target ===
-                solversOverlay
-            ) {
+        alert(
+            "The solver list is available through the challenge system."
+        );
 
-                solversOverlay.classList.remove(
-                    "active"
-                );
-
-            }
-
-        }
-    );
+    }
 
 
-    document.addEventListener(
-        "keydown",
-        function(event) {
-
-            if (
-                event.key === "Escape"
-            ) {
-
-                solversOverlay.classList.remove(
-                    "active"
-                );
-
-            }
-
-        }
-    );
-
-
-    /* =================================================
-       COOLDOWN
-       ================================================= */
 
     function startCooldown(
         seconds
     ) {
+
 
         let remaining =
             Math.max(
@@ -1834,12 +1590,14 @@ else {
             setInterval(
                 function() {
 
+
                     remaining--;
 
 
                     if (
                         remaining <= 0
                     ) {
+
 
                         clearInterval(
                             timer
@@ -1873,14 +1631,12 @@ else {
     }
 
 
-    /* =================================================
-       MESSAGE
-       ================================================= */
 
     function showMessage(
         text,
         type
     ) {
+
 
         messageElement.textContent =
             text;
@@ -1895,13 +1651,11 @@ else {
 }
 
 
-/* =====================================================
-   ESCAPE HTML
-   ===================================================== */
 
 function escapeHTML(
     value
 ) {
+
 
     return String(
         value ?? ""
@@ -1934,7 +1688,9 @@ function escapeHTML(
 
 }
 
+
 </script>
+
 
 </body>
 
