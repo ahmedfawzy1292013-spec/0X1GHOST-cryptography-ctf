@@ -704,7 +704,18 @@ function createChallengeCard(
 challenge
 ) {
 
+/*
+   Only the new ROT47 challenge gets a fixed
+   slug so it opens challenge.html?id=rot47.
+   Nothing else is changed.
+*/
+
 const slug =
+challenge.title ===
+"WHAT THIS 4 ?"
+?
+"rot47"
+:
 challenge.slug;
 
 
