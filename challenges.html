@@ -3,658 +3,447 @@
 
 <head>
 
-    <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <title>Challenges | 0X1GHOST</title>
-
-    <link
-        rel="icon"
-        type="image/png"
-        href="favicon.png"
-    >
-
-    <style>
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family:
-                Arial,
-                Helvetica,
-                sans-serif;
-        }
-
-
-        body {
-            min-height: 100vh;
-            background: #050505;
-            color: white;
-        }
-
-
-        .navbar {
-            min-height: 70px;
-
-            border-bottom: 1px solid #222;
-
-            background: #090909;
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: space-between;
-
-            padding: 12px 35px;
-
-            gap: 20px;
-        }
-
-
-        .logo img {
-            display: block;
-
-            width: 150px;
-
-            max-height: 55px;
-
-            object-fit: contain;
-        }
-
-
-        .nav-right {
-            display: flex;
-
-            align-items: center;
-
-            gap: 18px;
-
-            flex-wrap: wrap;
-        }
-
-
-        .nav-link {
-            color: #aaa;
-
-            text-decoration: none;
-
-            font-size: 13px;
-
-            font-weight: bold;
-
-            transition: 0.2s;
-        }
-
-
-        .nav-link:hover,
-        .nav-link.active {
-            color: #00ff88;
-        }
-
-
-        .container {
-            width: 100%;
-
-            max-width: 1100px;
-
-            margin: auto;
-
-            padding: 50px 25px;
-        }
-
-
-        .title {
-            font-size: 32px;
-
-            margin-bottom: 10px;
-        }
-
-
-        .subtitle {
-            color: #777;
-
-            margin-bottom: 35px;
-
-            line-height: 1.6;
-        }
-
-
-        .difficulty-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(
-                    auto-fit,
-                    minmax(220px, 1fr)
-                );
-
-            gap: 18px;
-
-            margin-bottom: 40px;
-        }
-
-
-        .difficulty-card {
-            background: #0d0d0d;
-
-            border: 1px solid #222;
-
-            border-radius: 10px;
-
-            padding: 25px;
-
-            cursor: pointer;
-
-            transition: 0.2s;
-        }
-
-
-        .difficulty-card:hover {
-            transform: translateY(-3px);
-
-            border-color: #333;
-        }
-
-
-        .difficulty-card.active {
-            border-color: #00ff88;
-
-            box-shadow:
-                0 0 25px
-                rgba(
-                    0,
-                    255,
-                    136,
-                    0.08
-                );
-        }
-
-
-        .difficulty-card h2 {
-            margin-bottom: 10px;
-        }
-
-
-        .difficulty-card p {
-            color: #777;
-
-            font-size: 14px;
-
-            line-height: 1.5;
-        }
-
-
-        .points {
-            margin-top: 18px;
-
-            color: #00ff88;
-
-            font-weight: bold;
-        }
-
-
-        .medium .points {
-            color: #ffd166;
-        }
-
-
-        .medium-hard .points {
-            color: #ff9f43;
-        }
-
-
-        .hard .points {
-            color: #ff6b6b;
-        }
-
-
-        .section-title {
-            font-size: 24px;
-
-            margin-bottom: 20px;
-        }
-
-
-        .challenge-grid {
-            display: grid;
-
-            grid-template-columns:
-                repeat(
-                    auto-fit,
-                    minmax(280px, 1fr)
-                );
-
-            gap: 18px;
-        }
-
-
-        .challenge-card {
-            position: relative;
-
-            display: block;
-
-            background: #0d0d0d;
-
-            border: 1px solid #222;
-
-            border-radius: 10px;
-
-            padding: 25px;
-
-            text-decoration: none;
-
-            color: white;
-
-            transition: 0.2s;
-        }
-
-
-        .challenge-card:hover {
-            border-color: #00ff88;
-
-            transform: translateY(-3px);
-
-            box-shadow:
-                0 0 25px
-                rgba(
-                    0,
-                    255,
-                    136,
-                    0.08
-                );
-        }
-
-
-        .challenge-card.solved {
-            border-color: #00ff88;
-        }
-
-
-        .challenge-card h3 {
-            font-size: 19px;
-
-            margin-bottom: 12px;
-
-            padding-right: 80px;
-        }
-
-
-        .challenge-card p {
-            color: #888;
-
-            line-height: 1.6;
-
-            font-size: 14px;
-        }
-
-
-        .challenge-points {
-            display: inline-block;
-
-            margin-top: 20px;
-
-            color: #00ff88;
-
-            font-size: 13px;
-
-            font-weight: bold;
-        }
-
-
-        .solved-badge {
-            position: absolute;
-
-            top: 18px;
-
-            right: 18px;
-
-            background:
-                rgba(
-                    0,
-                    255,
-                    136,
-                    0.12
-                );
-
-            border: 1px solid #00ff88;
-
-            color: #00ff88;
-
-            padding: 6px 10px;
-
-            border-radius: 20px;
-
-            font-size: 11px;
-
-            font-weight: bold;
-        }
-
-
-        .empty {
-            grid-column: 1 / -1;
-
-            padding: 30px;
-
-            text-align: center;
-
-            color: #777;
-
-            border: 1px solid #222;
-
-            border-radius: 10px;
-        }
-
-
-        .loading {
-            grid-column: 1 / -1;
-
-            padding: 30px;
-
-            text-align: center;
-
-            color: #00ff88;
-        }
-
-
-        .error {
-            grid-column: 1 / -1;
-
-            padding: 30px;
-
-            text-align: center;
-
-            color: #ff6b6b;
-
-            background: #0d0d0d;
-
-            border: 1px solid #3a1d1d;
-
-            border-radius: 10px;
-
-            line-height: 1.7;
-        }
-
-
-        @media (max-width: 700px) {
-
-            .navbar {
-                flex-direction: column;
-
-                align-items: flex-start;
-
-                padding: 15px 18px;
-            }
-
-
-            .nav-right {
-                flex-wrap: wrap;
-            }
-
-
-            .logo img {
-                width: 135px;
-            }
-
-
-            .container {
-                padding: 35px 18px;
-            }
-
-        }
-
-    </style>
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0"
+>
+
+<title>Challenges | 0X1GHOST</title>
+
+<link
+rel="icon"
+type="image/png"
+href="favicon.png"
+>
+
+<style>
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+min-height: 100vh;
+background: #050505;
+color: white;
+}
+
+.navbar {
+min-height: 70px;
+border-bottom: 1px solid #222;
+background: #090909;
+display: flex;
+align-items: center;
+justify-content: space-between;
+padding: 12px 35px;
+gap: 20px;
+}
+
+.logo img {
+display: block;
+width: 150px;
+max-height: 55px;
+object-fit: contain;
+}
+
+.nav-right {
+display: flex;
+align-items: center;
+gap: 18px;
+}
+
+.nav-link {
+color: #aaa;
+text-decoration: none;
+font-size: 13px;
+font-weight: bold;
+}
+
+.nav-link:hover,
+.nav-link.active {
+color: #00ff88;
+}
+
+.container {
+width: 100%;
+max-width: 1100px;
+margin: auto;
+padding: 50px 25px;
+}
+
+.title {
+font-size: 32px;
+margin-bottom: 10px;
+}
+
+.subtitle {
+color: #777;
+margin-bottom: 35px;
+}
+
+.difficulty-grid {
+display: grid;
+grid-template-columns:
+repeat(auto-fit, minmax(220px, 1fr));
+gap: 18px;
+margin-bottom: 40px;
+}
+
+.difficulty-card {
+background: #0d0d0d;
+border: 1px solid #222;
+border-radius: 10px;
+padding: 25px;
+cursor: pointer;
+transition: 0.2s;
+}
+
+.difficulty-card:hover {
+transform: translateY(-3px);
+}
+
+.difficulty-card.active {
+border-color: #00ff88;
+box-shadow:
+0 0 25px rgba(0, 255, 136, 0.08);
+}
+
+.difficulty-card h2 {
+margin-bottom: 10px;
+}
+
+.difficulty-card p {
+color: #777;
+font-size: 14px;
+line-height: 1.5;
+}
+
+.points {
+margin-top: 18px;
+color: #00ff88;
+font-weight: bold;
+}
+
+.medium .points {
+color: #ffd166;
+}
+
+.medium-hard .points {
+color: #ff9f43;
+}
+
+.hard .points {
+color: #ff6b6b;
+}
+
+.section-title {
+font-size: 24px;
+margin-bottom: 20px;
+}
+
+.challenge-grid {
+display: grid;
+grid-template-columns:
+repeat(auto-fit, minmax(280px, 1fr));
+gap: 18px;
+}
+
+.challenge-card {
+position: relative;
+display: block;
+background: #0d0d0d;
+border: 1px solid #222;
+border-radius: 10px;
+padding: 25px;
+text-decoration: none;
+color: white;
+transition: 0.2s;
+}
+
+.challenge-card:hover {
+border-color: #00ff88;
+transform: translateY(-3px);
+box-shadow:
+0 0 25px rgba(0, 255, 136, 0.08);
+}
+
+.challenge-card h3 {
+font-size: 19px;
+margin-bottom: 12px;
+}
+
+.challenge-card p {
+color: #888;
+line-height: 1.6;
+font-size: 14px;
+}
+
+.challenge-points {
+display: inline-block;
+margin-top: 20px;
+color: #00ff88;
+font-size: 13px;
+font-weight: bold;
+}
+
+.solved-badge {
+position: absolute;
+top: 18px;
+right: 18px;
+background:
+rgba(0, 255, 136, 0.12);
+border: 1px solid #00ff88;
+color: #00ff88;
+padding: 6px 10px;
+border-radius: 20px;
+font-size: 11px;
+font-weight: bold;
+}
+
+.empty {
+grid-column: 1 / -1;
+padding: 30px;
+text-align: center;
+color: #777;
+border: 1px solid #222;
+border-radius: 10px;
+}
+
+.error {
+grid-column: 1 / -1;
+padding: 30px;
+text-align: center;
+color: #ff6b6b;
+background: #0d0d0d;
+border: 1px solid #3a1d1d;
+border-radius: 10px;
+line-height: 1.7;
+}
+
+.loading {
+grid-column: 1 / -1;
+padding: 30px;
+text-align: center;
+color: #00ff88;
+}
+
+@media (max-width: 700px) {
+
+.navbar {
+flex-direction: column;
+align-items: flex-start;
+}
+
+.nav-right {
+flex-wrap: wrap;
+}
+
+.logo img {
+width: 135px;
+}
+
+}
+
+</style>
 
 </head>
 
-
 <body>
-
 
 <nav class="navbar">
 
+<a
+href="dashboard.html"
+class="logo"
+>
 
-    <a
-        href="dashboard.html"
-        class="logo"
-    >
+<img
+src="logo.png"
+alt="0X1GHOST Logo"
+>
 
-        <img
-            src="logo.png"
-            alt="0X1GHOST Logo"
-        >
+</a>
 
-    </a>
+<div class="nav-right">
 
+<a
+href="dashboard.html"
+class="nav-link"
+>
+DASHBOARD
+</a>
 
-    <div class="nav-right">
+<a
+href="challenges.html"
+class="nav-link active"
+>
+CHALLENGES
+</a>
 
+<a
+href="scoreboard.html"
+class="nav-link"
+>
+SCOREBOARD
+</a>
 
-        <a
-            href="dashboard.html"
-            class="nav-link"
-        >
-            DASHBOARD
-        </a>
+<a
+href="rules.html"
+class="nav-link"
+>
+RULES
+</a>
 
-
-        <a
-            href="challenges.html"
-            class="nav-link active"
-        >
-            CHALLENGES
-        </a>
-
-
-        <a
-            href="scoreboard.html"
-            class="nav-link"
-        >
-            SCOREBOARD
-        </a>
-
-
-        <a
-            href="about.html"
-            class="nav-link"
-        >
-            ABOUT ME
-        </a>
-
-
-        <a
-            href="rules.html"
-            class="nav-link"
-        >
-            RULES
-        </a>
-
-
-    </div>
-
+</div>
 
 </nav>
 
-
-
 <main class="container">
 
+<h1 class="title">
+Challenges
+</h1>
 
-    <h1 class="title">
-        Challenges
-    </h1>
+<p class="subtitle">
+Choose a difficulty level to see its challenges.
+</p>
 
+<div class="difficulty-grid">
 
-    <p class="subtitle">
-        Choose a difficulty level to see its challenges.
-    </p>
+<div
+class="difficulty-card easy"
+data-level="Easy"
+>
 
+<h2>🟢 EASY</h2>
 
+<p>
+Beginner-friendly cryptography challenges.
+</p>
 
-    <div class="difficulty-grid">
+<div class="points">
+100 POINTS
+</div>
 
+</div>
 
-        <div
-            class="difficulty-card easy"
-            data-level="Easy"
-        >
+<div
+class="difficulty-card medium"
+data-level="Medium"
+>
 
-            <h2>
-                🟢 EASY
-            </h2>
+<h2>🟡 MEDIUM</h2>
 
-            <p>
-                Beginner-friendly cryptography challenges.
-            </p>
+<p>
+Challenges that require more cryptographic thinking.
+</p>
 
-            <div class="points">
-                100 POINTS
-            </div>
+<div class="points">
+200 POINTS
+</div>
 
-        </div>
+</div>
 
+<div
+class="difficulty-card medium-hard"
+data-level="Medium Hard"
+>
 
+<h2>🟠 MEDIUM HARD</h2>
 
-        <div
-            class="difficulty-card medium"
-            data-level="Medium"
-        >
+<p>
+More complex challenges for experienced players.
+</p>
 
-            <h2>
-                🟡 MEDIUM
-            </h2>
+<div class="points">
+300 POINTS
+</div>
 
-            <p>
-                Challenges that require more cryptographic thinking.
-            </p>
+</div>
 
-            <div class="points">
-                200 POINTS
-            </div>
+<div
+class="difficulty-card hard"
+data-level="Hard"
+>
 
-        </div>
+<h2>🔴 HARD</h2>
 
+<p>
+The most difficult cryptography challenges.
+</p>
 
+<div class="points">
+500 POINTS
+</div>
 
-        <div
-            class="difficulty-card medium-hard"
-            data-level="Medium Hard"
-        >
+</div>
 
-            <h2>
-                🟠 MEDIUM HARD
-            </h2>
+</div>
 
-            <p>
-                More complex challenges for experienced players.
-            </p>
+<h2
+class="section-title"
+id="challengeTitle"
+>
+Select a difficulty
+</h2>
 
-            <div class="points">
-                300 POINTS
-            </div>
+<div
+class="challenge-grid"
+id="challengeList"
+>
 
-        </div>
+<div class="empty">
+Choose a difficulty above.
+</div>
 
-
-
-        <div
-            class="difficulty-card hard"
-            data-level="Hard"
-        >
-
-            <h2>
-                🔴 HARD
-            </h2>
-
-            <p>
-                The most difficult cryptography challenges.
-            </p>
-
-            <div class="points">
-                500 POINTS
-            </div>
-
-        </div>
-
-
-    </div>
-
-
-
-    <h2
-        class="section-title"
-        id="challengeTitle"
-    >
-        Select a difficulty
-    </h2>
-
-
-
-    <div
-        class="challenge-grid"
-        id="challengeList"
-    >
-
-        <div class="empty">
-            Choose a difficulty above.
-        </div>
-
-    </div>
-
+</div>
 
 </main>
 
-
-
 <script type="module">
 
-
 import {
-    createClient
+createClient
 }
 from
 "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
 
-
 const SUPABASE_URL =
-    "https://borturaxifoxufixewya.supabase.co";
-
+"https://borturaxifoxufixewya.supabase.co";
 
 const SUPABASE_KEY =
-    "sb_publishable__lZmTM96oe10-rurqgrujg__ta_C4wr";
+"sb_publishable__lZmTM96oe10-rurqgrujg__ta_C4wr";
 
 
 const supabase =
-    createClient(
-        SUPABASE_URL,
-        SUPABASE_KEY
-    );
-
+createClient(
+SUPABASE_URL,
+SUPABASE_KEY
+);
 
 
 const challengeList =
-    document.getElementById(
-        "challengeList"
-    );
+document.getElementById(
+"challengeList"
+);
 
 
 const challengeTitle =
-    document.getElementById(
-        "challengeTitle"
-    );
+document.getElementById(
+"challengeTitle"
+);
 
 
 const difficultyCards =
-    document.querySelectorAll(
-        ".difficulty-card"
-    );
-
+document.querySelectorAll(
+".difficulty-card"
+);
 
 
 let allChallenges = [];
@@ -662,376 +451,394 @@ let allChallenges = [];
 let solvedIds = new Set();
 
 
+/* =====================================================
+LOAD CHALLENGES
+===================================================== */
 
 async function loadChallenges() {
 
+challengeList.innerHTML = `
 
-    challengeList.innerHTML = `
+<div class="loading">
+Loading challenges...
+</div>
 
-        <div class="loading">
-            Loading challenges...
-        </div>
-
-    `;
-
-
-    try {
+`;
 
 
-        const {
-            data,
-            error
-        } =
-        await supabase
-            .from("challenges")
-            .select(
-                "id,title,description,category,difficulty,points,slug"
-            )
-            .order(
-                "id",
-                {
-                    ascending: true
-                }
-            );
+try {
 
-
-        if (error) {
-
-            throw error;
-
-        }
-
-
-        allChallenges =
-            data || [];
-
-
-        await loadSolvedChallenges();
-
-
-        showChallenges("Easy");
-
-
-    }
-
-
-    catch (error) {
-
-
-        console.error(
-            "Unable to load challenges:",
-            error
-        );
-
-
-        challengeList.innerHTML = `
-
-            <div class="error">
-
-                Unable to load challenges.
-
-                <br><br>
-
-                ${escapeHTML(
-                    error.message ||
-                    "Unknown error"
-                )}
-
-            </div>
-
-        `;
-
-    }
-
+const {
+data,
+error
+} = await supabase
+.from("challenges")
+.select(
+"id,title,description,category,difficulty,points,slug"
+)
+.order(
+"id",
+{
+ascending: true
 }
-
-
-
-async function loadSolvedChallenges() {
-
-
-    solvedIds =
-        new Set();
-
-
-    const {
-        data: {
-            user
-        }
-    } =
-    await supabase
-        .auth
-        .getUser();
-
-
-    if (!user) {
-
-        return;
-
-    }
-
-
-    const {
-        data,
-        error
-    } =
-    await supabase
-        .from("challenge_solves")
-        .select("challenge_id")
-        .eq(
-            "user_id",
-            user.id
-        );
-
-
-    if (error) {
-
-        console.warn(
-            "Could not load solved challenges:",
-            error
-        );
-
-        return;
-
-    }
-
-
-    (data || []).forEach(
-        solve => {
-
-            solvedIds.add(
-                String(
-                    solve.challenge_id
-                )
-            );
-
-        }
-    );
-
-}
-
-
-
-function showChallenges(
-    difficulty
-) {
-
-
-    difficultyCards.forEach(
-        card => {
-
-            card.classList.toggle(
-                "active",
-                card.dataset.level ===
-                difficulty
-            );
-
-        }
-    );
-
-
-    const filtered =
-        allChallenges.filter(
-            challenge =>
-                String(
-                    challenge.difficulty
-                ).toLowerCase() ===
-                difficulty.toLowerCase()
-        );
-
-
-    challengeTitle.textContent =
-        difficulty +
-        " Challenges";
-
-
-    if (
-        filtered.length === 0
-    ) {
-
-        challengeList.innerHTML = `
-
-            <div class="empty">
-                No challenges available.
-            </div>
-
-        `;
-
-        return;
-
-    }
-
-
-    challengeList.innerHTML =
-        filtered
-            .map(
-                challenge =>
-                    createChallengeCard(
-                        challenge
-                    )
-            )
-            .join("");
-
-}
-
-
-
-function createChallengeCard(
-    challenge
-) {
-
-
-    const challengeId =
-        challenge.id;
-
-
-    const slug =
-        challenge.slug ||
-        String(challengeId);
-
-
-    const solved =
-        solvedIds.has(
-            String(challengeId)
-        ) ||
-        solvedIds.has(
-            String(slug)
-        );
-
-
-    return `
-
-        <a
-            href="challenge.html?id=${encodeURIComponent(
-                slug
-            )}"
-            class="challenge-card ${
-                solved
-                ? "solved"
-                : ""
-            }"
-        >
-
-            ${
-                solved
-                ?
-                `
-                    <div class="solved-badge">
-                        SOLVED ✓
-                    </div>
-                `
-                :
-                ""
-            }
-
-
-            <h3>
-
-                ${escapeHTML(
-                    challenge.title
-                )}
-
-            </h3>
-
-
-            <p>
-
-                ${escapeHTML(
-                    challenge.description ||
-                    "Cryptography challenge."
-                )}
-
-            </p>
-
-
-            <span class="challenge-points">
-
-                ${
-                    solved
-                    ?
-                    "✓ SOLVED"
-                    :
-                    Number(
-                        challenge.points ||
-                        0
-                    ) +
-                    " POINTS →"
-                }
-
-            </span>
-
-
-        </a>
-
-    `;
-
-}
-
-
-
-difficultyCards.forEach(
-    card => {
-
-
-        card.addEventListener(
-            "click",
-            function() {
-
-                showChallenges(
-                    card.dataset.level
-                );
-
-            }
-        );
-
-
-    }
 );
 
 
+if (error) {
 
-function escapeHTML(
-    value
-) {
+console.error(
+error
+);
 
-    return String(
-        value ?? ""
-    )
-
-        .replaceAll(
-            "&",
-            "&amp;"
-        )
-
-        .replaceAll(
-            "<",
-            "&lt;"
-        )
-
-        .replaceAll(
-            ">",
-            "&gt;"
-        )
-
-        .replaceAll(
-            '"',
-            "&quot;"
-        )
-
-        .replaceAll(
-            "'",
-            "&#039;"
-        );
+throw error;
 
 }
 
 
+allChallenges =
+data || [];
+
+
+await loadSolvedChallenges();
+
+
+console.log(
+"Loaded challenges:",
+allChallenges
+);
+
+
+if (
+allChallenges.length === 0
+) {
+
+challengeList.innerHTML = `
+
+<div class="empty">
+No challenges available.
+</div>
+
+`;
+
+return;
+
+}
+
+
+showChallenges(
+"Easy"
+);
+
+}
+
+catch (error) {
+
+console.error(
+"Unable to load challenges:",
+error
+);
+
+
+challengeList.innerHTML = `
+
+<div class="error">
+
+Unable to load challenges.
+
+<br><br>
+
+${escapeHTML(
+error.message ||
+"Unknown error"
+)}
+
+</div>
+
+`;
+
+}
+
+}
+
+
+/* =====================================================
+LOAD SOLVED CHALLENGES
+===================================================== */
+
+async function loadSolvedChallenges() {
+
+solvedIds =
+new Set();
+
+
+const {
+data: {
+user
+}
+} =
+await supabase.auth.getUser();
+
+
+if (!user) {
+
+return;
+
+}
+
+
+const {
+data,
+error
+} =
+await supabase
+.from("challenge_solves")
+.select(
+"challenge_id"
+)
+.eq(
+"user_id",
+user.id
+);
+
+
+if (error) {
+
+console.warn(
+"Could not load solved challenges:",
+error
+);
+
+return;
+
+}
+
+
+(data || []).forEach(
+solve => {
+
+solvedIds.add(
+String(
+solve.challenge_id
+)
+);
+
+}
+);
+
+}
+
+
+/* =====================================================
+SHOW CHALLENGES
+===================================================== */
+
+function showChallenges(
+difficulty
+) {
+
+difficultyCards.forEach(
+card => {
+
+card.classList.toggle(
+"active",
+card.dataset.level ===
+difficulty
+);
+
+}
+);
+
+
+const filtered =
+allChallenges.filter(
+challenge =>
+String(
+challenge.difficulty
+).toLowerCase() ===
+difficulty.toLowerCase()
+);
+
+
+challengeTitle.textContent =
+difficulty +
+" Challenges";
+
+
+if (
+filtered.length === 0
+) {
+
+challengeList.innerHTML = `
+
+<div class="empty">
+
+No challenges available.
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+challengeList.innerHTML =
+filtered
+.map(
+challenge =>
+createChallengeCard(
+challenge
+)
+)
+.join("");
+
+}
+
+
+/* =====================================================
+CREATE CARD
+===================================================== */
+
+function createChallengeCard(
+challenge
+) {
+
+const slug =
+challenge.slug;
+
+
+const solved =
+solvedIds.has(
+String(slug)
+);
+
+
+return `
+
+<a
+href="challenge.html?id=${encodeURIComponent(slug)}"
+class="challenge-card ${
+solved
+? "solved"
+: ""
+}"
+>
+
+${
+solved
+?
+`
+<div class="solved-badge">
+SOLVED ✓
+</div>
+`
+:
+""
+}
+
+<h3>
+
+${escapeHTML(
+challenge.title
+)}
+
+</h3>
+
+<p>
+
+${escapeHTML(
+challenge.description ||
+"Cryptography challenge."
+)}
+
+</p>
+
+<span class="challenge-points">
+
+${Number(
+challenge.points || 0
+)}
+POINTS
+
+</span>
+
+</a>
+
+`;
+
+}
+
+
+/* =====================================================
+DIFFICULTY BUTTONS
+===================================================== */
+
+difficultyCards.forEach(
+card => {
+
+card.addEventListener(
+"click",
+function() {
+
+showChallenges(
+card.dataset.level
+);
+
+}
+);
+
+}
+);
+
+
+/* =====================================================
+ESCAPE HTML
+===================================================== */
+
+function escapeHTML(
+value
+) {
+
+return String(
+value ?? ""
+)
+
+.replaceAll(
+"&",
+"&amp;"
+)
+
+.replaceAll(
+"<",
+"&lt;"
+)
+
+.replaceAll(
+">",
+"&gt;"
+)
+
+.replaceAll(
+'"',
+"&quot;"
+)
+
+.replaceAll(
+"'",
+"&#039;"
+);
+
+}
+
+
+/* =====================================================
+START
+===================================================== */
 
 loadChallenges();
 
-
 </script>
-
 
 </body>
 
