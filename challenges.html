@@ -24,8 +24,12 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, Helvetica, sans-serif;
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
         }
+
 
         body {
             min-height: 100vh;
@@ -33,218 +37,373 @@
             color: white;
         }
 
+
         .navbar {
             min-height: 70px;
+
             border-bottom: 1px solid #222;
+
             background: #090909;
+
             display: flex;
+
             align-items: center;
+
             justify-content: space-between;
+
             padding: 12px 35px;
+
             gap: 20px;
         }
 
+
         .logo img {
             display: block;
+
             width: 150px;
+
             max-height: 55px;
+
             object-fit: contain;
         }
 
+
         .nav-right {
             display: flex;
+
             align-items: center;
+
             gap: 18px;
+
+            flex-wrap: wrap;
         }
+
 
         .nav-link {
             color: #aaa;
+
             text-decoration: none;
+
             font-size: 13px;
+
             font-weight: bold;
+
+            transition: 0.2s;
         }
+
 
         .nav-link:hover,
         .nav-link.active {
             color: #00ff88;
         }
 
+
         .container {
             width: 100%;
+
             max-width: 1100px;
+
             margin: auto;
+
             padding: 50px 25px;
         }
 
+
         .title {
             font-size: 32px;
+
             margin-bottom: 10px;
         }
 
+
         .subtitle {
             color: #777;
+
             margin-bottom: 35px;
+
+            line-height: 1.6;
         }
+
 
         .difficulty-grid {
             display: grid;
+
             grid-template-columns:
-                repeat(auto-fit, minmax(220px, 1fr));
+                repeat(
+                    auto-fit,
+                    minmax(220px, 1fr)
+                );
+
             gap: 18px;
+
             margin-bottom: 40px;
         }
 
+
         .difficulty-card {
             background: #0d0d0d;
+
             border: 1px solid #222;
+
             border-radius: 10px;
+
             padding: 25px;
+
             cursor: pointer;
+
             transition: 0.2s;
         }
 
+
         .difficulty-card:hover {
             transform: translateY(-3px);
+
+            border-color: #333;
         }
+
 
         .difficulty-card.active {
             border-color: #00ff88;
+
             box-shadow:
-                0 0 25px rgba(0, 255, 136, 0.08);
+                0 0 25px
+                rgba(
+                    0,
+                    255,
+                    136,
+                    0.08
+                );
         }
+
 
         .difficulty-card h2 {
             margin-bottom: 10px;
         }
 
+
         .difficulty-card p {
             color: #777;
+
             font-size: 14px;
+
             line-height: 1.5;
         }
 
+
         .points {
             margin-top: 18px;
+
             color: #00ff88;
+
             font-weight: bold;
         }
+
 
         .medium .points {
             color: #ffd166;
         }
 
+
         .medium-hard .points {
             color: #ff9f43;
         }
+
 
         .hard .points {
             color: #ff6b6b;
         }
 
+
         .section-title {
             font-size: 24px;
+
             margin-bottom: 20px;
         }
 
+
         .challenge-grid {
             display: grid;
+
             grid-template-columns:
-                repeat(auto-fit, minmax(280px, 1fr));
+                repeat(
+                    auto-fit,
+                    minmax(280px, 1fr)
+                );
+
             gap: 18px;
         }
 
+
         .challenge-card {
             position: relative;
+
             display: block;
+
             background: #0d0d0d;
+
             border: 1px solid #222;
+
             border-radius: 10px;
+
             padding: 25px;
+
             text-decoration: none;
+
             color: white;
+
             transition: 0.2s;
         }
 
+
         .challenge-card:hover {
             border-color: #00ff88;
+
             transform: translateY(-3px);
+
             box-shadow:
-                0 0 25px rgba(0, 255, 136, 0.08);
+                0 0 25px
+                rgba(
+                    0,
+                    255,
+                    136,
+                    0.08
+                );
         }
+
+
+        .challenge-card.solved {
+            border-color: #00ff88;
+        }
+
 
         .challenge-card h3 {
             font-size: 19px;
+
             margin-bottom: 12px;
+
+            padding-right: 80px;
         }
+
 
         .challenge-card p {
             color: #888;
+
             line-height: 1.6;
+
             font-size: 14px;
         }
 
+
         .challenge-points {
             display: inline-block;
+
             margin-top: 20px;
+
             color: #00ff88;
+
             font-size: 13px;
+
             font-weight: bold;
         }
+
 
         .solved-badge {
             position: absolute;
+
             top: 18px;
+
             right: 18px;
+
             background:
-                rgba(0, 255, 136, 0.12);
+                rgba(
+                    0,
+                    255,
+                    136,
+                    0.12
+                );
+
             border: 1px solid #00ff88;
+
             color: #00ff88;
+
             padding: 6px 10px;
+
             border-radius: 20px;
+
             font-size: 11px;
+
             font-weight: bold;
         }
 
+
         .empty {
             grid-column: 1 / -1;
+
             padding: 30px;
+
             text-align: center;
+
             color: #777;
+
             border: 1px solid #222;
+
             border-radius: 10px;
         }
 
-        .error {
-            grid-column: 1 / -1;
-            padding: 30px;
-            text-align: center;
-            color: #ff6b6b;
-            background: #0d0d0d;
-            border: 1px solid #3a1d1d;
-            border-radius: 10px;
-            line-height: 1.7;
-        }
 
         .loading {
             grid-column: 1 / -1;
+
             padding: 30px;
+
             text-align: center;
+
             color: #00ff88;
         }
+
+
+        .error {
+            grid-column: 1 / -1;
+
+            padding: 30px;
+
+            text-align: center;
+
+            color: #ff6b6b;
+
+            background: #0d0d0d;
+
+            border: 1px solid #3a1d1d;
+
+            border-radius: 10px;
+
+            line-height: 1.7;
+        }
+
 
         @media (max-width: 700px) {
 
             .navbar {
                 flex-direction: column;
+
                 align-items: flex-start;
+
+                padding: 15px 18px;
             }
+
 
             .nav-right {
                 flex-wrap: wrap;
             }
 
+
             .logo img {
                 width: 135px;
+            }
+
+
+            .container {
+                padding: 35px 18px;
             }
 
         }
@@ -253,9 +412,12 @@
 
 </head>
 
+
 <body>
 
+
 <nav class="navbar">
+
 
     <a
         href="dashboard.html"
@@ -269,7 +431,9 @@
 
     </a>
 
+
     <div class="nav-right">
+
 
         <a
             href="dashboard.html"
@@ -278,12 +442,14 @@
             DASHBOARD
         </a>
 
+
         <a
             href="challenges.html"
             class="nav-link active"
         >
             CHALLENGES
         </a>
+
 
         <a
             href="scoreboard.html"
@@ -292,6 +458,15 @@
             SCOREBOARD
         </a>
 
+
+        <a
+            href="about.html"
+            class="nav-link"
+        >
+            ABOUT ME
+        </a>
+
+
         <a
             href="rules.html"
             class="nav-link"
@@ -299,28 +474,39 @@
             RULES
         </a>
 
+
     </div>
+
 
 </nav>
 
+
+
 <main class="container">
+
 
     <h1 class="title">
         Challenges
     </h1>
 
+
     <p class="subtitle">
         Choose a difficulty level to see its challenges.
     </p>
 
+
+
     <div class="difficulty-grid">
+
 
         <div
             class="difficulty-card easy"
             data-level="Easy"
         >
 
-            <h2>🟢 EASY</h2>
+            <h2>
+                🟢 EASY
+            </h2>
 
             <p>
                 Beginner-friendly cryptography challenges.
@@ -332,12 +518,16 @@
 
         </div>
 
+
+
         <div
             class="difficulty-card medium"
             data-level="Medium"
         >
 
-            <h2>🟡 MEDIUM</h2>
+            <h2>
+                🟡 MEDIUM
+            </h2>
 
             <p>
                 Challenges that require more cryptographic thinking.
@@ -349,12 +539,16 @@
 
         </div>
 
+
+
         <div
             class="difficulty-card medium-hard"
             data-level="Medium Hard"
         >
 
-            <h2>🟠 MEDIUM HARD</h2>
+            <h2>
+                🟠 MEDIUM HARD
+            </h2>
 
             <p>
                 More complex challenges for experienced players.
@@ -366,12 +560,16 @@
 
         </div>
 
+
+
         <div
             class="difficulty-card hard"
             data-level="Hard"
         >
 
-            <h2>🔴 HARD</h2>
+            <h2>
+                🔴 HARD
+            </h2>
 
             <p>
                 The most difficult cryptography challenges.
@@ -383,7 +581,10 @@
 
         </div>
 
+
     </div>
+
+
 
     <h2
         class="section-title"
@@ -391,6 +592,8 @@
     >
         Select a difficulty
     </h2>
+
+
 
     <div
         class="challenge-grid"
@@ -403,9 +606,13 @@
 
     </div>
 
+
 </main>
 
+
+
 <script type="module">
+
 
 import {
     createClient
@@ -414,8 +621,10 @@ from
 "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
 
 
+
 const SUPABASE_URL =
     "https://borturaxifoxufixewya.supabase.co";
+
 
 const SUPABASE_KEY =
     "sb_publishable__lZmTM96oe10-rurqgrujg__ta_C4wr";
@@ -426,6 +635,7 @@ const supabase =
         SUPABASE_URL,
         SUPABASE_KEY
     );
+
 
 
 const challengeList =
@@ -446,16 +656,15 @@ const difficultyCards =
     );
 
 
+
 let allChallenges = [];
 
 let solvedIds = new Set();
 
 
-/* =====================================================
-   LOAD CHALLENGES
-   ===================================================== */
 
 async function loadChallenges() {
+
 
     challengeList.innerHTML = `
 
@@ -468,10 +677,12 @@ async function loadChallenges() {
 
     try {
 
+
         const {
             data,
             error
-        } = await supabase
+        } =
+        await supabase
             .from("challenges")
             .select(
                 "id,title,description,category,difficulty,points,slug"
@@ -486,10 +697,6 @@ async function loadChallenges() {
 
         if (error) {
 
-            console.error(
-                error
-            );
-
             throw error;
 
         }
@@ -502,36 +709,14 @@ async function loadChallenges() {
         await loadSolvedChallenges();
 
 
-        console.log(
-            "Loaded challenges:",
-            allChallenges
-        );
+        showChallenges("Easy");
 
-
-        if (
-            allChallenges.length === 0
-        ) {
-
-            challengeList.innerHTML = `
-
-                <div class="empty">
-                    No challenges available.
-                </div>
-
-            `;
-
-            return;
-
-        }
-
-
-        showChallenges(
-            "Easy"
-        );
 
     }
 
+
     catch (error) {
+
 
         console.error(
             "Unable to load challenges:",
@@ -561,11 +746,9 @@ async function loadChallenges() {
 }
 
 
-/* =====================================================
-   LOAD SOLVED CHALLENGES
-   ===================================================== */
 
 async function loadSolvedChallenges() {
+
 
     solvedIds =
         new Set();
@@ -576,7 +759,9 @@ async function loadSolvedChallenges() {
             user
         }
     } =
-    await supabase.auth.getUser();
+    await supabase
+        .auth
+        .getUser();
 
 
     if (!user) {
@@ -592,9 +777,7 @@ async function loadSolvedChallenges() {
     } =
     await supabase
         .from("challenge_solves")
-        .select(
-            "challenge_id"
-        )
+        .select("challenge_id")
         .eq(
             "user_id",
             user.id
@@ -628,13 +811,11 @@ async function loadSolvedChallenges() {
 }
 
 
-/* =====================================================
-   SHOW CHALLENGES
-   ===================================================== */
 
 function showChallenges(
     difficulty
 ) {
+
 
     difficultyCards.forEach(
         card => {
@@ -671,9 +852,7 @@ function showChallenges(
         challengeList.innerHTML = `
 
             <div class="empty">
-
                 No challenges available.
-
             </div>
 
         `;
@@ -696,19 +875,25 @@ function showChallenges(
 }
 
 
-/* =====================================================
-   CREATE CARD
-   ===================================================== */
 
 function createChallengeCard(
     challenge
 ) {
 
+
+    const challengeId =
+        challenge.id;
+
+
     const slug =
-        challenge.slug;
+        challenge.slug ||
+        String(challengeId);
 
 
     const solved =
+        solvedIds.has(
+            String(challengeId)
+        ) ||
         solvedIds.has(
             String(slug)
         );
@@ -717,7 +902,9 @@ function createChallengeCard(
     return `
 
         <a
-            href="challenge.html?id=${encodeURIComponent(slug)}"
+            href="challenge.html?id=${encodeURIComponent(
+                slug
+            )}"
             class="challenge-card ${
                 solved
                 ? "solved"
@@ -737,6 +924,7 @@ function createChallengeCard(
                 ""
             }
 
+
             <h3>
 
                 ${escapeHTML(
@@ -744,6 +932,7 @@ function createChallengeCard(
                 )}
 
             </h3>
+
 
             <p>
 
@@ -754,14 +943,23 @@ function createChallengeCard(
 
             </p>
 
+
             <span class="challenge-points">
 
-                ${Number(
-                    challenge.points || 0
-                )}
-                POINTS
+                ${
+                    solved
+                    ?
+                    "✓ SOLVED"
+                    :
+                    Number(
+                        challenge.points ||
+                        0
+                    ) +
+                    " POINTS →"
+                }
 
             </span>
+
 
         </a>
 
@@ -770,12 +968,10 @@ function createChallengeCard(
 }
 
 
-/* =====================================================
-   DIFFICULTY BUTTONS
-   ===================================================== */
 
 difficultyCards.forEach(
     card => {
+
 
         card.addEventListener(
             "click",
@@ -788,13 +984,11 @@ difficultyCards.forEach(
             }
         );
 
+
     }
 );
 
 
-/* =====================================================
-   ESCAPE HTML
-   ===================================================== */
 
 function escapeHTML(
     value
@@ -832,13 +1026,12 @@ function escapeHTML(
 }
 
 
-/* =====================================================
-   START
-   ===================================================== */
 
 loadChallenges();
 
+
 </script>
+
 
 </body>
 
