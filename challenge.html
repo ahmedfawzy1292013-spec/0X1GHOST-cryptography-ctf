@@ -1377,22 +1377,26 @@ return;
 }
 
 
+const databaseChallengeId =
+    challengeId === "rot47"
+        ? "what-this-4"
+        : challengeId;
+
+
 const {
-data,
-error
+    data,
+    error
 } =
-await supabase.rpc(
-"submit_challenge_answer",
-{
+    await supabase.rpc(
+        "submit_challenge_answer",
+        {
+            p_challenge_id:
+                databaseChallengeId,
 
-p_challenge_id:
-challengeId,
-
-p_answer:
-answer
-
-}
-);
+            p_answer:
+                answer
+        }
+    );
 
 
 submitButton.disabled =
