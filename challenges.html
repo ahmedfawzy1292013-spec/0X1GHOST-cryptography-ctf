@@ -720,9 +720,13 @@ challenge.slug;
 
 
 const solved =
-solvedIds.has(
-String(slug)
-);
+    solvedIds.has(
+        String(
+            challenge.title === "WHAT THIS 4 ?"
+                ? "what-this-4"
+                : slug
+        )
+    );
 
 
 return `
