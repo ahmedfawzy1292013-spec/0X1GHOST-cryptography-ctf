@@ -1556,8 +1556,10 @@ await supabase
 .from("challenge_solves")
 .select("user_id")
 .eq(
-"challenge_id",
-challengeId
+    "challenge_id",
+    challengeId === "rot47"
+        ? "what-this-4"
+        : challengeId
 );
 
 
