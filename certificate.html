@@ -26,7 +26,6 @@
             box-sizing: border-box;
         }
 
-
         body {
             min-height: 100vh;
 
@@ -52,12 +51,10 @@
             padding: 30px;
         }
 
-
         .certificate-wrapper {
             width: 100%;
             max-width: 1100px;
         }
-
 
         .certificate {
             position: relative;
@@ -82,7 +79,6 @@
                 rgba(0, 255, 136, 0.08);
         }
 
-
         .certificate::before {
             content: "";
 
@@ -92,30 +88,7 @@
 
             border: 1px solid
                 rgba(0, 255, 136, 0.35);
-
-            pointer-events: none;
         }
-
-
-        .certificate::after {
-            content: "";
-
-            position: absolute;
-
-            width: 500px;
-            height: 500px;
-
-            border-radius: 50%;
-
-            background:
-                rgba(0, 255, 136, 0.035);
-
-            top: -250px;
-            right: -180px;
-
-            pointer-events: none;
-        }
-
 
         .corner {
             position: absolute;
@@ -128,8 +101,7 @@
             opacity: 0.8;
         }
 
-
-        .corner.top-left {
+        .top-left {
             top: 28px;
             left: 28px;
 
@@ -137,8 +109,7 @@
             border-left: 2px solid;
         }
 
-
-        .corner.top-right {
+        .top-right {
             top: 28px;
             right: 28px;
 
@@ -146,8 +117,7 @@
             border-right: 2px solid;
         }
 
-
-        .corner.bottom-left {
+        .bottom-left {
             bottom: 28px;
             left: 28px;
 
@@ -155,15 +125,13 @@
             border-left: 2px solid;
         }
 
-
-        .corner.bottom-right {
+        .bottom-right {
             bottom: 28px;
             right: 28px;
 
             border-bottom: 2px solid;
             border-right: 2px solid;
         }
-
 
         .content {
             position: relative;
@@ -184,7 +152,6 @@
             padding: 60px;
         }
 
-
         .brand {
             color: #00ff88;
 
@@ -196,7 +163,6 @@
 
             margin-bottom: 25px;
         }
-
 
         .certificate-title {
             font-size: clamp(
@@ -212,7 +178,6 @@
             margin-bottom: 12px;
         }
 
-
         .certificate-subtitle {
             color: #777;
 
@@ -225,7 +190,6 @@
             margin-bottom: 45px;
         }
 
-
         .presented {
             color: #777;
 
@@ -235,7 +199,6 @@
 
             margin-bottom: 12px;
         }
-
 
         .username {
             color: #00ff88;
@@ -257,7 +220,6 @@
                 rgba(0, 255, 136, 0.25);
         }
 
-
         .achievement {
             color: #aaa;
 
@@ -270,11 +232,9 @@
             margin-bottom: 35px;
         }
 
-
         .achievement strong {
             color: white;
         }
-
 
         .stats {
             display: flex;
@@ -288,11 +248,9 @@
             margin-bottom: 45px;
         }
 
-
         .stat {
             min-width: 100px;
         }
-
 
         .stat-value {
             color: #00ff88;
@@ -304,7 +262,6 @@
             margin-bottom: 7px;
         }
 
-
         .stat-label {
             color: #666;
 
@@ -314,7 +271,6 @@
 
             text-transform: uppercase;
         }
-
 
         .footer {
             width: 100%;
@@ -328,16 +284,13 @@
             gap: 30px;
         }
 
-
         .footer-block {
             text-align: left;
         }
 
-
         .footer-block.right {
             text-align: right;
         }
-
 
         .footer-label {
             color: #555;
@@ -351,7 +304,6 @@
             text-transform: uppercase;
         }
 
-
         .footer-value {
             color: #aaa;
 
@@ -360,17 +312,25 @@
             font-family: monospace;
         }
 
-
         .signature {
-            color: #00ff88;
+            color: white;
 
-            font-size: 13px;
+            font-family: cursive;
 
-            font-weight: bold;
+            font-size: 24px;
 
-            margin-bottom: 4px;
+            margin-bottom: 3px;
         }
 
+        .error {
+            text-align: center;
+
+            color: #ff6b6b;
+
+            padding: 40px;
+
+            font-size: 16px;
+        }
 
         .print-button {
             margin-top: 25px;
@@ -388,57 +348,7 @@
             font-weight: bold;
 
             cursor: pointer;
-
-            transition: 0.2s;
         }
-
-
-        .print-button:hover {
-            transform: translateY(-2px);
-
-            box-shadow:
-                0 0 25px
-                rgba(0, 255, 136, 0.25);
-        }
-
-
-        @media (max-width: 700px) {
-
-            body {
-                padding: 15px;
-            }
-
-            .certificate {
-                aspect-ratio: auto;
-
-                min-height: 700px;
-            }
-
-            .content {
-                padding: 55px 35px;
-            }
-
-            .certificate-title {
-                letter-spacing: 4px;
-            }
-
-            .stats {
-                gap: 25px;
-            }
-
-            .footer {
-                flex-direction: column;
-
-                align-items: center;
-            }
-
-            .footer-block,
-            .footer-block.right {
-                text-align: center;
-            }
-
-        }
-
 
         @media print {
 
@@ -448,14 +358,11 @@
                 padding: 0;
             }
 
-            .certificate-wrapper {
-                max-width: none;
-            }
-
             .certificate {
                 box-shadow: none;
 
                 print-color-adjust: exact;
+
                 -webkit-print-color-adjust: exact;
             }
 
@@ -469,124 +376,126 @@
 
 </head>
 
-
 <body>
 
-    <div class="certificate-wrapper">
+<div class="certificate-wrapper">
 
-        <div class="certificate">
+    <div
+        id="certificateContainer"
+        class="certificate"
+    >
 
-            <div class="corner top-left"></div>
-            <div class="corner top-right"></div>
-            <div class="corner bottom-left"></div>
-            <div class="corner bottom-right"></div>
+        <div class="corner top-left"></div>
+        <div class="corner top-right"></div>
+        <div class="corner bottom-left"></div>
+        <div class="corner bottom-right"></div>
 
+        <div class="content">
 
-            <div class="content">
+            <div class="brand">
+                0X1GHOST
+            </div>
 
-                <div class="brand">
-                    0X1GHOST
-                </div>
+            <h1 class="certificate-title">
+                CERTIFICATE
+            </h1>
 
+            <div class="certificate-subtitle">
+                Monthly CTF Achievement
+            </div>
 
-                <h1 class="certificate-title">
-                    CERTIFICATE
-                </h1>
+            <div class="presented">
+                THIS CERTIFICATE IS PROUDLY AWARDED TO
+            </div>
 
+            <div
+                id="username"
+                class="username"
+            >
+                LOADING...
+            </div>
 
-                <div class="certificate-subtitle">
-                    Monthly CTF Achievement
-                </div>
+            <div
+                id="achievement"
+                class="achievement"
+            >
+                Loading certificate...
+            </div>
 
+            <div class="stats">
 
-                <div class="presented">
-                    THIS CERTIFICATE IS PROUDLY AWARDED TO
-                </div>
+                <div class="stat">
 
-
-                <div class="username">
-                    USERNAME
-                </div>
-
-
-                <div class="achievement">
-                    For achieving
-                    <strong>1st Place</strong>
-                    in the
-                    <strong>September 2026</strong>
-                    0X1GHOST Cryptography CTF
-                    competition.
-                </div>
-
-
-                <div class="stats">
-
-                    <div class="stat">
-
-                        <div class="stat-value">
-                            #1
-                        </div>
-
-                        <div class="stat-label">
-                            Rank
-                        </div>
-
+                    <div
+                        id="rank"
+                        class="stat-value"
+                    >
+                        -
                     </div>
 
-
-                    <div class="stat">
-
-                        <div class="stat-value">
-                            1,250
-                        </div>
-
-                        <div class="stat-label">
-                            Points
-                        </div>
-
-                    </div>
-
-
-                    <div class="stat">
-
-                        <div class="stat-value">
-                            SEP 2026
-                        </div>
-
-                        <div class="stat-label">
-                            Season
-                        </div>
-
+                    <div class="stat-label">
+                        Rank
                     </div>
 
                 </div>
 
+                <div class="stat">
 
-                <div class="footer">
-
-                    <div class="footer-block">
-
-                        <div class="footer-label">
-                            Certificate ID
-                        </div>
-
-                        <div class="footer-value">
-                            0X1GHOST-SEP26-0001
-                        </div>
-
+                    <div
+                        id="points"
+                        class="stat-value"
+                    >
+                        -
                     </div>
 
+                    <div class="stat-label">
+                        Points
+                    </div>
 
-                    <div class="footer-block right">
+                </div>
 
-                        <div class="signature">
-                            0X1GHOST
-                        </div>
+                <div class="stat">
 
-                        <div class="footer-label">
-                            Cryptography CTF Platform
-                        </div>
+                    <div
+                        id="season"
+                        class="stat-value"
+                    >
+                        -
+                    </div>
 
+                    <div class="stat-label">
+                        Season
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="footer">
+
+                <div class="footer-block">
+
+                    <div class="footer-label">
+                        Certificate ID
+                    </div>
+
+                    <div
+                        id="certificateId"
+                        class="footer-value"
+                    >
+                        -
+                    </div>
+
+                </div>
+
+                <div class="footer-block right">
+
+                    <div class="signature">
+                        MR & AHMED
+                    </div>
+
+                    <div class="footer-label">
+                        ADMINS & FOUNDERS
                     </div>
 
                 </div>
@@ -595,19 +504,309 @@
 
         </div>
 
+    </div>
 
-        <div style="text-align:center;">
+    <div style="text-align:center;">
 
-            <button
-                class="print-button"
-                onclick="window.print()"
-            >
-                PRINT / SAVE AS PDF
-            </button>
-
-        </div>
+        <button
+            class="print-button"
+            onclick="window.print()"
+        >
+            PRINT / SAVE AS PDF
+        </button>
 
     </div>
+
+</div>
+
+
+<script type="module">
+
+import {
+    createClient
+}
+from
+"https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm";
+
+
+const SUPABASE_URL =
+"https://borturaxifoxufixewya.supabase.co";
+
+
+const SUPABASE_KEY =
+"sb_publishable__lZmTM96oe10-rurqgrujg__ta_C4wr";
+
+
+const supabase =
+createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
+
+const usernameElement =
+document.getElementById(
+    "username"
+);
+
+
+const achievementElement =
+document.getElementById(
+    "achievement"
+);
+
+
+const rankElement =
+document.getElementById(
+    "rank"
+);
+
+
+const pointsElement =
+document.getElementById(
+    "points"
+);
+
+
+const seasonElement =
+document.getElementById(
+    "season"
+);
+
+
+const certificateIdElement =
+document.getElementById(
+    "certificateId"
+);
+
+
+const params =
+new URLSearchParams(
+    window.location.search
+);
+
+
+const certificateId =
+params.get(
+    "id"
+);
+
+
+async function loadCertificate() {
+
+    if (!certificateId) {
+
+        showError(
+            "Certificate ID is missing."
+        );
+
+        return;
+
+    }
+
+
+    const {
+        data,
+        error
+    } = await supabase
+
+        .from("monthly_winners")
+
+        .select(`
+            username,
+            score,
+            rank,
+            certificate_id,
+            competition_id,
+            monthly_competitions (
+                title,
+                month_start
+            )
+        `)
+
+        .eq(
+            "certificate_id",
+            certificateId
+        )
+
+        .maybeSingle();
+
+
+    if (error) {
+
+        console.error(error);
+
+        showError(
+            "Unable to load certificate."
+        );
+
+        return;
+
+    }
+
+
+    if (!data) {
+
+        showError(
+            "Certificate not found."
+        );
+
+        return;
+
+    }
+
+
+    const competition =
+        data.monthly_competitions;
+
+
+    const month =
+        new Date(
+            competition.month_start +
+            "T00:00:00"
+        );
+
+
+    const monthName =
+        month.toLocaleDateString(
+            "en-US",
+            {
+                month: "long",
+                year: "numeric"
+            }
+        );
+
+
+    usernameElement.textContent =
+        data.username;
+
+
+    rankElement.textContent =
+        "#" + data.rank;
+
+
+    pointsElement.textContent =
+        Number(
+            data.score
+        ).toLocaleString();
+
+
+    seasonElement.textContent =
+        month.toLocaleDateString(
+            "en-US",
+            {
+                month: "short",
+                year: "numeric"
+            }
+        )
+        .toUpperCase();
+
+
+    certificateIdElement.textContent =
+        data.certificate_id;
+
+
+    achievementElement.innerHTML =
+        `For achieving <strong>${escapeHTML(
+            ordinal(data.rank)
+        )} Place</strong> in the <strong>${escapeHTML(
+            monthName
+        )}</strong> 0X1GHOST Monthly CTF Competition.`;
+
+
+    document.title =
+        "Certificate - " +
+        data.username +
+        " | 0X1GHOST";
+
+}
+
+
+function ordinal(number) {
+
+    const n =
+        Number(number);
+
+    if (
+        n % 100 >= 11 &&
+        n % 100 <= 13
+    ) {
+        return n + "th";
+    }
+
+    switch (
+        n % 10
+    ) {
+
+        case 1:
+            return n + "st";
+
+        case 2:
+            return n + "nd";
+
+        case 3:
+            return n + "rd";
+
+        default:
+            return n + "th";
+
+    }
+
+}
+
+
+function escapeHTML(value) {
+
+    return String(
+        value ?? ""
+    )
+
+    .replaceAll(
+        "&",
+        "&amp;"
+    )
+
+    .replaceAll(
+        "<",
+        "&lt;"
+    )
+
+    .replaceAll(
+        ">",
+        "&gt;"
+    )
+
+    .replaceAll(
+        '"',
+        "&quot;"
+    )
+
+    .replaceAll(
+        "'",
+        "&#039;"
+    );
+
+}
+
+
+function showError(text) {
+
+    document.getElementById(
+        "certificateContainer"
+    ).innerHTML = `
+
+        <div class="error">
+            ${escapeHTML(text)}
+        </div>
+
+    `;
+
+}
+
+
+loadCertificate();
+
+</script>
 
 </body>
 
