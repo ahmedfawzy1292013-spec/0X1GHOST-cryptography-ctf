@@ -188,6 +188,13 @@
         }
 
 
+        .competition-status.closed {
+            color: #aaa;
+
+            border-color: #555;
+        }
+
+
         .countdown {
             margin-top: 22px;
 
@@ -196,6 +203,103 @@
             font-family: monospace;
 
             font-size: 14px;
+        }
+
+
+        /* =========================================
+           WINNER CERTIFICATE
+        ========================================= */
+
+        .certificate-box {
+            display: none;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #0d0d0d,
+                    #111,
+                    #0b0b0b
+                );
+
+            border: 1px solid #00ff88;
+
+            border-radius: 12px;
+
+            padding: 30px;
+
+            margin-bottom: 25px;
+
+            text-align: center;
+
+            box-shadow:
+                0 0 30px
+                rgba(0, 255, 136, 0.08);
+        }
+
+
+        .certificate-box.visible {
+            display: block;
+        }
+
+
+        .certificate-icon {
+            font-size: 36px;
+
+            margin-bottom: 12px;
+        }
+
+
+        .certificate-title {
+            color: #00ff88;
+
+            font-size: 22px;
+
+            font-weight: bold;
+
+            margin-bottom: 10px;
+
+            letter-spacing: 1px;
+        }
+
+
+        .certificate-text {
+            color: #888;
+
+            font-size: 14px;
+
+            line-height: 1.6;
+
+            margin-bottom: 22px;
+        }
+
+
+        .certificate-button {
+            display: inline-block;
+
+            background: #00ff88;
+
+            color: #050505;
+
+            text-decoration: none;
+
+            padding: 13px 24px;
+
+            border-radius: 7px;
+
+            font-size: 13px;
+
+            font-weight: bold;
+
+            transition: 0.2s;
+        }
+
+
+        .certificate-button:hover {
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 0 25px
+                rgba(0, 255, 136, 0.25);
         }
 
 
@@ -343,6 +447,11 @@
             }
 
 
+            .certificate-box {
+                padding: 24px 18px;
+            }
+
+
             .leaderboard-header,
             .player {
                 grid-template-columns:
@@ -397,12 +506,14 @@
             Dashboard
         </a>
 
+
         <a
             href="challenges.html"
             class="nav-link"
         >
             Challenges
         </a>
+
 
         <a
             href="scoreboard.html"
@@ -425,9 +536,11 @@
             0X1GHOST
         </div>
 
+
         <h1 class="title">
             MONTHLY CTF
         </h1>
+
 
         <p class="subtitle">
             Compete every month. Solve challenges. Reach the top.
@@ -467,6 +580,42 @@
     </section>
 
 
+    <!-- =========================================
+         WINNER CERTIFICATE
+    ========================================= -->
+
+    <section
+        id="certificateBox"
+        class="certificate-box"
+    >
+
+        <div class="certificate-icon">
+            🏆
+        </div>
+
+
+        <div class="certificate-title">
+            YOU WON!
+        </div>
+
+
+        <p class="certificate-text">
+            Congratulations! You finished this Monthly CTF in first place.
+            Your certificate is ready.
+        </p>
+
+
+        <a
+            id="certificateButton"
+            href="#"
+            class="certificate-button"
+        >
+            VIEW YOUR CERTIFICATE →
+        </a>
+
+    </section>
+
+
     <section class="leaderboard">
 
 
@@ -476,13 +625,16 @@
                 RANK
             </div>
 
+
             <div>
                 PLAYER
             </div>
 
+
             <div>
                 SOLVES
             </div>
+
 
             <div style="text-align:right;">
                 POINTS
@@ -557,11 +709,39 @@ const leaderboardElement =
     );
 
 
+const certificateBox =
+    document.getElementById(
+        "certificateBox"
+    );
+
+
+const certificateButton =
+    document.getElementById(
+        "certificateButton"
+    );
+
+
 let competitionEnd = null;
 
 
+let currentCompetition = null;
+
+
+/* =========================================
+   LOAD COMPETITION
+========================================= */
+
 async function loadCompetition() {
 
+
+    /*
+        We load the latest competition whether
+        it is active OR closed.
+
+        This is important because the winner's
+        certificate is created after the competition
+        closes.
+    */
 
     const {
         data,
@@ -574,11 +754,6 @@ async function loadCompetition() {
 
         .select(
             "id, title, month_start, month_end, status"
-        )
-
-        .eq(
-            "status",
-            "active"
         )
 
         .order(
@@ -595,11 +770,23 @@ async function loadCompetition() {
 
         console.error(error);
 
+
         competitionTitle.textContent =
             "Unable to load competition.";
 
+
         competitionStatus.textContent =
             "ERROR";
+
+
+        competitionStatus.classList.remove(
+            "closed"
+        );
+
+
+        countdownElement.textContent =
+            "-";
+
 
         return;
 
@@ -609,13 +796,26 @@ async function loadCompetition() {
     if (!data || data.length === 0) {
 
         competitionTitle.textContent =
-            "No active competition.";
+            "No competition yet.";
+
 
         competitionStatus.textContent =
             "OFFLINE";
 
+
+        competitionStatus.classList.remove(
+            "closed"
+        );
+
+
         countdownElement.textContent =
             "Check back soon.";
+
+
+        certificateBox.classList.remove(
+            "visible"
+        );
+
 
         return;
 
@@ -626,12 +826,38 @@ async function loadCompetition() {
         data[0];
 
 
+    currentCompetition =
+        competition;
+
+
     competitionTitle.textContent =
         competition.title;
 
 
-    competitionStatus.textContent =
-        "ACTIVE";
+    if (
+        competition.status ===
+        "closed"
+    ) {
+
+        competitionStatus.textContent =
+            "CLOSED";
+
+
+        competitionStatus.classList.add(
+            "closed"
+        );
+
+    } else {
+
+        competitionStatus.textContent =
+            "ACTIVE";
+
+
+        competitionStatus.classList.remove(
+            "closed"
+        );
+
+    }
 
 
     competitionEnd =
@@ -641,12 +867,21 @@ async function loadCompetition() {
         );
 
 
-    loadLeaderboard(
+    await loadLeaderboard(
+        competition.id
+    );
+
+
+    await checkWinnerCertificate(
         competition.id
     );
 
 }
 
+
+/* =========================================
+   LOAD LEADERBOARD
+========================================= */
 
 async function loadLeaderboard(
     competitionId
@@ -683,6 +918,7 @@ async function loadLeaderboard(
 
         console.error(error);
 
+
         leaderboardElement.innerHTML = `
 
             <div class="error">
@@ -690,6 +926,7 @@ async function loadLeaderboard(
             </div>
 
         `;
+
 
         return;
 
@@ -705,6 +942,7 @@ async function loadLeaderboard(
             </div>
 
         `;
+
 
         return;
 
@@ -735,17 +973,20 @@ async function loadLeaderboard(
                             #${rank}
                         </div>
 
+
                         <div class="username">
                             ${escapeHTML(
                                 player.username
                             )}
                         </div>
 
+
                         <div class="solves">
                             ${Number(
                                 player.solves
                             )} solves
                         </div>
+
 
                         <div class="score">
                             ${Number(
@@ -763,11 +1004,168 @@ async function loadLeaderboard(
 }
 
 
+/* =========================================
+   CHECK WINNER CERTIFICATE
+========================================= */
+
+async function checkWinnerCertificate(
+    competitionId
+) {
+
+
+    /*
+        Hide certificate by default.
+
+        This means nobody sees it unless
+        Supabase confirms that the logged-in
+        user has a winner record.
+    */
+
+    certificateBox.classList.remove(
+        "visible"
+    );
+
+
+    certificateButton.href =
+        "#";
+
+
+    const {
+        data: {
+            user
+        }
+    } =
+        await supabase.auth.getUser();
+
+
+    /*
+        If the visitor is not logged in,
+        do not show the certificate.
+    */
+
+    if (!user) {
+
+        return;
+
+    }
+
+
+    /*
+        Search for this exact user inside
+        monthly_winners for this competition.
+
+        Only the actual winner should have
+        a row here.
+    */
+
+    const {
+        data,
+        error
+    } = await supabase
+
+        .from(
+            "monthly_winners"
+        )
+
+        .select(
+            "certificate_id, rank, score"
+        )
+
+        .eq(
+            "competition_id",
+            competitionId
+        )
+
+        .eq(
+            "user_id",
+            user.id
+        )
+
+        .eq(
+            "rank",
+            1
+        )
+
+        .maybeSingle();
+
+
+    if (error) {
+
+        console.error(
+            "Certificate check error:",
+            error
+        );
+
+
+        return;
+
+    }
+
+
+    /*
+        No winner record = no certificate button.
+    */
+
+    if (
+        !data ||
+        !data.certificate_id
+    ) {
+
+        return;
+
+    }
+
+
+    /*
+        Winner confirmed.
+    */
+
+    certificateButton.href =
+        "certificate.html?id=" +
+        encodeURIComponent(
+            data.certificate_id
+        );
+
+
+    certificateBox.classList.add(
+        "visible"
+    );
+
+}
+
+
+/* =========================================
+   COUNTDOWN
+========================================= */
+
 function updateCountdown() {
 
 
-    if (!competitionEnd) {
+    if (
+        !competitionEnd ||
+        !currentCompetition
+    ) {
+
         return;
+
+    }
+
+
+    /*
+        Closed competition
+    */
+
+    if (
+        currentCompetition.status ===
+        "closed"
+    ) {
+
+        countdownElement.textContent =
+            "Competition ended.";
+
+
+        return;
+
     }
 
 
@@ -783,6 +1181,7 @@ function updateCountdown() {
 
         countdownElement.textContent =
             "Competition ended.";
+
 
         return;
 
@@ -841,6 +1240,10 @@ function updateCountdown() {
 }
 
 
+/* =========================================
+   ESCAPE HTML
+========================================= */
+
 function escapeHTML(
     value
 ) {
@@ -849,33 +1252,37 @@ function escapeHTML(
         value ?? ""
     )
 
-    .replaceAll(
-        "&",
-        "&amp;"
-    )
+        .replaceAll(
+            "&",
+            "&amp;"
+        )
 
-    .replaceAll(
-        "<",
-        "&lt;"
-    )
+        .replaceAll(
+            "<",
+            "&lt;"
+        )
 
-    .replaceAll(
-        ">",
-        "&gt;"
-    )
+        .replaceAll(
+            ">",
+            "&gt;"
+        )
 
-    .replaceAll(
-        '"',
-        "&quot;"
-    )
+        .replaceAll(
+            '"',
+            "&quot;"
+        )
 
-    .replaceAll(
-        "'",
-        "&#039;"
-    );
+        .replaceAll(
+            "'",
+            "&#039;"
+        );
 
 }
 
+
+/* =========================================
+   INITIAL LOAD
+========================================= */
 
 loadCompetition();
 
@@ -888,6 +1295,11 @@ setInterval(
     1000
 );
 
+
+/*
+    Refresh competition/winner information
+    every minute.
+*/
 
 setInterval(
     loadCompetition,
