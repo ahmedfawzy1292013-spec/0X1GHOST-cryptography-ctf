@@ -207,7 +207,7 @@
 
 
         /* =========================================
-           WINNER CERTIFICATE
+           WINNER MESSAGE
         ========================================= */
 
         .certificate-box {
@@ -243,63 +243,35 @@
 
 
         .certificate-icon {
-            font-size: 36px;
+            font-size: 42px;
 
-            margin-bottom: 12px;
+            margin-bottom: 15px;
         }
 
 
         .certificate-title {
             color: #00ff88;
 
-            font-size: 22px;
+            font-size: 24px;
 
             font-weight: bold;
 
-            margin-bottom: 10px;
+            margin-bottom: 15px;
 
             letter-spacing: 1px;
         }
 
 
         .certificate-text {
-            color: #888;
+            color: #aaa;
 
             font-size: 14px;
 
-            line-height: 1.6;
+            line-height: 1.8;
 
-            margin-bottom: 22px;
-        }
+            margin: 0 auto;
 
-
-        .certificate-button {
-            display: inline-block;
-
-            background: #00ff88;
-
-            color: #050505;
-
-            text-decoration: none;
-
-            padding: 13px 24px;
-
-            border-radius: 7px;
-
-            font-size: 13px;
-
-            font-weight: bold;
-
-            transition: 0.2s;
-        }
-
-
-        .certificate-button:hover {
-            transform: translateY(-2px);
-
-            box-shadow:
-                0 0 25px
-                rgba(0, 255, 136, 0.25);
+            max-width: 650px;
         }
 
 
@@ -581,7 +553,7 @@
 
 
     <!-- =========================================
-         WINNER CERTIFICATE
+         WINNER MESSAGE
     ========================================= -->
 
     <section
@@ -595,23 +567,34 @@
 
 
         <div class="certificate-title">
-            YOU WON!
+            CONGRATULATIONS!
         </div>
 
 
-        <p class="certificate-text">
-            Congratulations! You finished this Monthly CTF in first place.
-            Your certificate is ready.
-        </p>
-
-
-        <a
-            id="certificateButton"
-            href="#"
-            class="certificate-button"
+        <p
+            id="winnerMessage"
+            class="certificate-text"
         >
-            VIEW YOUR CERTIFICATE →
-        </a>
+            Congratulations! You won this month's
+            0X1GHOST Monthly CTF and finished in
+            first place.
+
+            <br><br>
+
+            You proved your skills through the
+            challenges and earned the top position
+            on the leaderboard.
+
+            <br><br>
+
+            Your achievement has been recorded by
+            0X1GHOST. Thank you for participating,
+            and keep challenging yourself.
+
+            <br><br>
+
+            🏆 <strong>YOU ARE THE MONTHLY CTF WINNER!</strong>
+        </p>
 
     </section>
 
@@ -715,12 +698,6 @@ const certificateBox =
     );
 
 
-const certificateButton =
-    document.getElementById(
-        "certificateButton"
-    );
-
-
 let competitionEnd = null;
 
 
@@ -735,12 +712,10 @@ async function loadCompetition() {
 
 
     /*
-        We load the latest competition whether
-        it is active OR closed.
+        Load the latest competition.
 
-        This is important because the winner's
-        certificate is created after the competition
-        closes.
+        The latest competition can be
+        ACTIVE or CLOSED.
     */
 
     const {
@@ -768,7 +743,10 @@ async function loadCompetition() {
 
     if (error) {
 
-        console.error(error);
+        console.error(
+            "Competition error:",
+            error
+        );
 
 
         competitionTitle.textContent =
@@ -777,11 +755,6 @@ async function loadCompetition() {
 
         competitionStatus.textContent =
             "ERROR";
-
-
-        competitionStatus.classList.remove(
-            "closed"
-        );
 
 
         countdownElement.textContent =
@@ -793,7 +766,10 @@ async function loadCompetition() {
     }
 
 
-    if (!data || data.length === 0) {
+    if (
+        !data ||
+        data.length === 0
+    ) {
 
         competitionTitle.textContent =
             "No competition yet.";
@@ -801,11 +777,6 @@ async function loadCompetition() {
 
         competitionStatus.textContent =
             "OFFLINE";
-
-
-        competitionStatus.classList.remove(
-            "closed"
-        );
 
 
         countdownElement.textContent =
@@ -872,8 +843,9 @@ async function loadCompetition() {
     );
 
 
-    await checkWinnerCertificate(
-        competition.id
+    await checkWinner(
+        competition.id,
+        competition.status
     );
 
 }
@@ -916,7 +888,10 @@ async function loadLeaderboard(
 
     if (error) {
 
-        console.error(error);
+        console.error(
+            "Leaderboard error:",
+            error
+        );
 
 
         leaderboardElement.innerHTML = `
@@ -933,7 +908,10 @@ async function loadLeaderboard(
     }
 
 
-    if (!data || data.length === 0) {
+    if (
+        !data ||
+        data.length === 0
+    ) {
 
         leaderboardElement.innerHTML = `
 
@@ -1005,20 +983,17 @@ async function loadLeaderboard(
 
 
 /* =========================================
-   CHECK WINNER CERTIFICATE
+   CHECK MONTHLY WINNER
 ========================================= */
 
-async function checkWinnerCertificate(
-    competitionId
+async function checkWinner(
+    competitionId,
+    competitionStatus
 ) {
 
 
     /*
-        Hide certificate by default.
-
-        This means nobody sees it unless
-        Supabase confirms that the logged-in
-        user has a winner record.
+        Always hide the winner message first.
     */
 
     certificateBox.classList.remove(
@@ -1026,9 +1001,30 @@ async function checkWinnerCertificate(
     );
 
 
-    certificateButton.href =
-        "#";
+    /*
+        IMPORTANT:
 
+        The winner message should ONLY appear
+        after the competition has officially
+        been closed.
+
+        During an active competition nobody
+        should see the winner message.
+    */
+
+    if (
+        competitionStatus !==
+        "closed"
+    ) {
+
+        return;
+
+    }
+
+
+    /*
+        Get the currently logged-in user.
+    */
 
     const {
         data: {
@@ -1039,8 +1035,7 @@ async function checkWinnerCertificate(
 
 
     /*
-        If the visitor is not logged in,
-        do not show the certificate.
+        Visitor is not logged in.
     */
 
     if (!user) {
@@ -1051,11 +1046,10 @@ async function checkWinnerCertificate(
 
 
     /*
-        Search for this exact user inside
-        monthly_winners for this competition.
+        Look for the winner record belonging
+        to this exact user.
 
-        Only the actual winner should have
-        a row here.
+        Rank must be 1.
     */
 
     const {
@@ -1068,7 +1062,7 @@ async function checkWinnerCertificate(
         )
 
         .select(
-            "certificate_id, rank, score"
+            "user_id, username, score, rank, certificate_id"
         )
 
         .eq(
@@ -1092,7 +1086,7 @@ async function checkWinnerCertificate(
     if (error) {
 
         console.error(
-            "Certificate check error:",
+            "Winner check error:",
             error
         );
 
@@ -1103,12 +1097,14 @@ async function checkWinnerCertificate(
 
 
     /*
-        No winner record = no certificate button.
+        No winner record for this user.
+
+        Therefore the message stays hidden.
     */
 
     if (
         !data ||
-        !data.certificate_id
+        Number(data.rank) !== 1
     ) {
 
         return;
@@ -1117,15 +1113,9 @@ async function checkWinnerCertificate(
 
 
     /*
-        Winner confirmed.
+        The logged-in user is officially
+        the Monthly CTF winner.
     */
-
-    certificateButton.href =
-        "certificate.html?id=" +
-        encodeURIComponent(
-            data.certificate_id
-        );
-
 
     certificateBox.classList.add(
         "visible"
@@ -1152,7 +1142,7 @@ function updateCountdown() {
 
 
     /*
-        Closed competition
+        Closed competition.
     */
 
     if (
@@ -1177,7 +1167,9 @@ function updateCountdown() {
         competitionEnd - now;
 
 
-    if (difference <= 0) {
+    if (
+        difference <= 0
+    ) {
 
         countdownElement.textContent =
             "Competition ended.";
@@ -1297,8 +1289,8 @@ setInterval(
 
 
 /*
-    Refresh competition/winner information
-    every minute.
+    Refresh competition and winner
+    information every minute.
 */
 
 setInterval(
